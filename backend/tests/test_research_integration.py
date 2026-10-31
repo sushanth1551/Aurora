@@ -223,3 +223,125 @@ async def test_live_firecrawl_scrape() -> None:
     assert (
         page.status == ExtractionStatus.SUCCEEDED and "Example Domain" in page.markdown
     )
+
+
+# -- Module 3 -------------------------------------------------------------------
+
+
+@pytest.mark.postgres
+@requires_postgres
+async def test_module3_migration_preserves_module2_rows(monkeypatch) -> None:
+    monkeypatch.setenv("DATABASE_URL", TEST_DB_URL)
+    get_settings.cache_clear()
+    config = alembic_config()
+    engine = create_async_engine(TEST_DB_URL)
+    job = "00000000-0000-0000-0000-0000000000b1"
+    try:
+        await asyncio.to_thread(command.upgrade, config, "0001")
+        async with engine.begin() as conn:
+            await conn.execute(
+                text(
+                    "INSERT INTO research_jobs (id, query, status, max_results,"
+                    " scrape_pages, created_at) VALUES (:id, 'old job', 'completed',"
+                    " 5, true, now())"
+                ),
+                {"id": job},
+            )
+
+        await asyncio.to_thread(command.upgrade, config, "head")
+        async with engine.connect() as conn:
+            row = (
+                await conn.execute(
+                    text("SELECT query, job_type FROM research_jobs WHERE id = :id"),
+                    {"id": job},
+                )
+            ).one()
+            tables = await conn.run_sync(lambda c: set(inspect(c).get_table_names()))
+        assert tuple(row) == (
+            "old job",
+            "research",
+        )  # existing row kept, default applied
+        assert {"research_websites", "research_claims", "research_reports"} <= tables
+
+        await asyncio.to_thread(command.downgrade, config, "0001")
+        async with engine.connect() as conn:
+            count = (
+                await conn.execute(text("SELECT count(*) FROM research_jobs"))
+            ).scalar_one()
+            tables = await conn.run_sync(lambda c: set(inspect(c).get_table_names()))
+        assert (
+            count == 1
+            and "research_claims" not in tables
+            and "research_sources" in tables
+        )
+    finally:
+        await asyncio.to_thread(command.downgrade, config, "base")
+        await engine.dispose()
+
+
+@pytest.mark.postgres
+@requires_postgres
+async def test_module3_pipeline_persists_in_postgres(migrated_db) -> None:
+    from app.schemas.intelligence import (
+        EntityType,
+        IntelligenceRequest,
+        IntelligenceStatus,
+    )
+    from tests.intel_support import (
+        FakeCrawlProvider,
+        FakeMapTool,
+        acme_links,
+        acme_pages,
+        acme_search,
+        build_service,
+    )
+
+    factory, _ = migrated_db
+    async with factory() as session:
+        service, _fakes = build_service(
+            session,
+            search=acme_search(),
+            mapper=FakeMapTool(acme_links()),
+            crawl=FakeCrawlProvider(acme_pages()),
+        )
+        summary = await service.run(
+            IntelligenceRequest(query="Acme", target_names=["Acme"])
+        )
+    assert summary.status == IntelligenceStatus.COMPLETED
+
+    async with factory() as session:  # fresh session: read back from PostgreSQL
+        service, _fakes = build_service(session)
+        company = await service.get_entities(summary.job_id, EntityType.COMPANY, 10, 0)
+        claims = await service.get_claims(
+            summary.job_id, "supported", "headquarters", 10, 0
+        )
+        report = await service.get_report(summary.job_id)
+    assert company.items[0].attributes["headquarters"] == "Bengaluru, India"
+    assert claims.items and claims.items[0].evidence_excerpt
+    assert report.data.companies[0].pricing_status == "found"
+
+
+@pytest.mark.live
+@requires_live
+async def test_live_website_intelligence_on_example_domain() -> None:
+    """Real SerpApi-free run: Firecrawl maps and scrapes https://example.com/."""
+    from app.research.intelligent_crawler import IntelligentCrawler
+    from app.research.source_manager import SourceManager
+    from app.research.url_policy import UrlPolicy
+    from app.research.website_mapper import WebsiteMapper
+    from app.tools.firecrawl_tool import FirecrawlTool
+
+    settings = Settings(_env_file=ENV_FILE)
+    if not settings.firecrawl_api_key:
+        pytest.skip("FIRECRAWL_API_KEY is not configured in .env")
+    sources = SourceManager(UrlPolicy())
+    firecrawl = FirecrawlTool(settings)
+
+    mapped = await WebsiteMapper(firecrawl, sources, settings=settings).map(
+        "https://example.com/", "example", max_urls=10
+    )
+    crawl = await IntelligentCrawler(firecrawl, sources, settings).crawl(
+        "example.com", mapped.pages, max_pages=2
+    )
+
+    assert mapped.pages and crawl.successful_pages >= 1

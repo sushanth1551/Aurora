@@ -7,6 +7,7 @@ from pydantic import SecretStr
 from app.core.config import Settings, get_settings
 from app.main import create_app
 from app.tools.http import reset_circuit_breakers
+from tests.intel_support import db_session  # noqa: F401  (shared fixture)
 
 
 @pytest.fixture(autouse=True)

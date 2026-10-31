@@ -4,11 +4,12 @@ This roadmap is a proposed sequence, not a feature-completion claim.
 
 1. **Foundation and Module 1 (complete):** settings, logging, API contracts, test
    baseline, health and research placeholder, skeletons for all modules.
-2. **Persistence:** SQLAlchemy models, migrations, research-job lifecycle,
-   repositories, and durable status APIs.
-3. **Research ingestion:** safe URL policy, HTTPX/BeautifulSoup baseline,
-   Firecrawl adapter, source provenance, and retrieval limits.
-4. **SERP/competitor analysis:** provider adapter, cached/dated results, and
+2. **Persistence (done in Module 2):** SQLAlchemy models, Alembic migration,
+   research-job lifecycle, repository, and a retrieval API.
+3. **Research ingestion (done in Module 2):** URL/SSRF policy, Firecrawl
+   adapter, source provenance, and retrieval limits. Pending: live provider
+   verification, background jobs, caching across jobs.
+4. **SERP/competitor analysis** (SerpApi adapter exists; website discovery and competitor comparison reports were added in Module 3): provider adapter, cached/dated results, and
    intent/competitor summaries with confidence.
 5. **Knowledge graph:** Neo4j constraints, schema validation, entity resolution,
    idempotent writes, and provenance.
