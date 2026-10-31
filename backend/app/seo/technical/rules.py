@@ -82,7 +82,8 @@ def _finding(
 
 def _sig(page: PageResult) -> PageSignals:
     """Signals of a parsed page (rules call this only for pages with HTML)."""
-    assert page.signals is not None
+    if page.signals is None:
+        raise ValueError("rule called for a page without parsed HTML")
     return page.signals
 
 

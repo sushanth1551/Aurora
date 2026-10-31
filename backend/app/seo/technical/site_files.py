@@ -325,7 +325,9 @@ def parse_sitemap(file: FetchedFile, max_urls: int) -> SitemapReport:
             error="DOCTYPE/ENTITY declarations are not allowed in sitemaps",
         )
     try:
-        root = ElementTree.fromstring(data)
+        # DOCTYPE and ENTITY declarations were rejected above, so no entity
+        # expansion can happen; stdlib parsing is therefore safe here.
+        root = ElementTree.fromstring(data)  # noqa: S314
     except ElementTree.ParseError as exc:
         return SitemapReport(
             url=file.url, file=file, kind="invalid", error=f"XML parse error: {exc}"

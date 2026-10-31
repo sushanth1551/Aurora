@@ -33,7 +33,9 @@ def policy(max_redirects: int = 5) -> UrlPolicy:
 @dataclass
 class Resource:
     status: int = 200
-    headers: dict[str, str] = field(default_factory=lambda: {"content-type": "text/html; charset=utf-8"})
+    headers: dict[str, str] = field(
+        default_factory=lambda: {"content-type": "text/html; charset=utf-8"}
+    )
     body: bytes = b""
 
 
@@ -45,10 +47,14 @@ class FakeSite:
     requests: list[tuple[str, str]] = field(default_factory=list)
     head_not_allowed: set[str] = field(default_factory=set)
 
-    def add(self, url: str, status: int = 200, body: str | bytes = b"", **headers: str) -> None:
+    def add(
+        self, url: str, status: int = 200, body: str | bytes = b"", **headers: str
+    ) -> None:
         hdrs = {"content-type": "text/html; charset=utf-8"}
         hdrs.update({k.replace("_", "-"): v for k, v in headers.items()})
-        self.resources[url] = Resource(status, hdrs, body.encode() if isinstance(body, str) else body)
+        self.resources[url] = Resource(
+            status, hdrs, body.encode() if isinstance(body, str) else body
+        )
 
     def redirect(self, url: str, to: str, status: int = 301) -> None:
         self.resources[url] = Resource(status, {"location": to}, b"")
@@ -66,7 +72,9 @@ class FakeSite:
 
     def client(self, budget: RequestBudget | None = None) -> httpx.AsyncClient:
         hooks = {"request": [budget.on_request]} if budget else {}
-        return httpx.AsyncClient(transport=httpx.MockTransport(self.handler), event_hooks=hooks)
+        return httpx.AsyncClient(
+            transport=httpx.MockTransport(self.handler), event_hooks=hooks
+        )
 
 
 @dataclass
@@ -82,19 +90,36 @@ class FakeScraper:
         if not self.configured:
             from app.core.exceptions import ConfigurationException
 
-            raise ConfigurationException("Firecrawl is not configured; set FIRECRAWL_API_KEY.")
+            raise ConfigurationException(
+                "Firecrawl is not configured; set FIRECRAWL_API_KEY."
+            )
 
     async def scrape_for_seo(self, url: str, *, max_html_chars: int) -> SeoScrape:
         self.calls.append(url)
         if url in self.failing:
             raise ProviderUnavailableError("Firecrawl", "unavailable")
         html = self.pages.get(url, "")
-        return SeoScrape(url=url, provider_final_url=url, status_code=200, raw_html=html[:max_html_chars],
-                         truncated=len(html) > max_html_chars, original_length=len(html), fetched_at=utc_now())
+        return SeoScrape(
+            url=url,
+            provider_final_url=url,
+            status_code=200,
+            raw_html=html[:max_html_chars],
+            truncated=len(html) > max_html_chars,
+            original_length=len(html),
+            fetched_at=utc_now(),
+        )
 
 
-def page_html(title: str = "Page", *, description: str | None = "A description", canonical: str | None = None,
-              body: str = "", head: str = "", lang: str | None = "en", viewport: bool = True) -> str:
+def page_html(
+    title: str = "Page",
+    *,
+    description: str | None = "A description",
+    canonical: str | None = None,
+    body: str = "",
+    head: str = "",
+    lang: str | None = "en",
+    viewport: bool = True,
+) -> str:
     parts = [f"<!doctype html><html{f' lang={lang!r}' if lang else ''}><head>"]
     if title is not None:
         parts.append(f"<title>{title}</title>")
@@ -103,20 +128,50 @@ def page_html(title: str = "Page", *, description: str | None = "A description",
     if canonical is not None:
         parts.append(f'<link rel="canonical" href="{canonical}">')
     if viewport:
-        parts.append('<meta name="viewport" content="width=device-width, initial-scale=1">')
+        parts.append(
+            '<meta name="viewport" content="width=device-width, initial-scale=1">'
+        )
     parts.append(head)
     parts.append(f"</head><body><h1>{title}</h1>{body}</body></html>")
     return "".join(parts)
 
 
-def collector(site: FakeSite, scraper: FakeScraper, *, max_pages: int = 10, max_link_checks: int = 20,
-              max_sitemaps: int = 3, max_direct: int = 1000, max_scrapes: int | None = None,
-              deadline: float = 1e12) -> tuple[SiteCollector, RequestBudget, httpx.AsyncClient]:
-    budget = RequestBudget(max_direct_requests=max_direct, max_scrapes=max_scrapes or max_pages,
-                           deadline=deadline, clock=lambda: 0.0)
+def collector(
+    site: FakeSite,
+    scraper: FakeScraper,
+    *,
+    max_pages: int = 10,
+    max_link_checks: int = 20,
+    max_sitemaps: int = 3,
+    max_direct: int = 1000,
+    max_scrapes: int | None = None,
+    deadline: float = 1e12,
+) -> tuple[SiteCollector, RequestBudget, httpx.AsyncClient]:
+    budget = RequestBudget(
+        max_direct_requests=max_direct,
+        max_scrapes=max_scrapes or max_pages,
+        deadline=deadline,
+        clock=lambda: 0.0,
+    )
     client = site.client(budget)
-    limits = AuditLimits(max_pages=max_pages, max_link_checks=max_link_checks, max_sitemaps=max_sitemaps,
-                         max_duration_seconds=600)
-    return SiteCollector(policy=policy(), scraper=scraper, client=client, budget=budget, limits=limits,
-                         max_html_chars=1_000_000, max_sitemap_bytes=1_000_000, max_sitemap_urls=5000,
-                         concurrency=2), budget, client
+    limits = AuditLimits(
+        max_pages=max_pages,
+        max_link_checks=max_link_checks,
+        max_sitemaps=max_sitemaps,
+        max_duration_seconds=600,
+    )
+    return (
+        SiteCollector(
+            policy=policy(),
+            scraper=scraper,
+            client=client,
+            budget=budget,
+            limits=limits,
+            max_html_chars=1_000_000,
+            max_sitemap_bytes=1_000_000,
+            max_sitemap_urls=5000,
+            concurrency=2,
+        ),
+        budget,
+        client,
+    )
