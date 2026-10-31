@@ -22,5 +22,5 @@ class ResearchAgent(BaseAgent):
         ``IntegrationException`` when a provider fails.
         """
         # TODO: query SERP/search providers via injected tools, deduplicate,
-        # validate URLs (scheme/SSRF), and respect request.max_sources.
+        # validate URLs (scheme/SSRF), and respect request.max_results.
         raise self._not_implemented("discover_sources")

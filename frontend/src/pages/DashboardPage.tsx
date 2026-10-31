@@ -2,10 +2,10 @@ import { useState } from "react";
 
 import { ResearchForm } from "../components/ResearchForm";
 import { submitResearch } from "../services/research";
-import type { ResearchAcknowledgement } from "../types/research";
+import type { ResearchResponse } from "../types/research";
 
 export function DashboardPage() {
-  const [result, setResult] = useState<ResearchAcknowledgement | null>(null);
+  const [result, setResult] = useState<ResearchResponse | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
 
@@ -14,7 +14,7 @@ export function DashboardPage() {
     setError(null);
     setResult(null);
     try {
-      setResult(await submitResearch({ topic }));
+      setResult(await submitResearch({ query: topic }));
     } catch (requestError) {
       setError(
         requestError instanceof Error
@@ -48,9 +48,21 @@ export function DashboardPage() {
         <div className="research-card">
           <ResearchForm onSubmit={handleResearch} busy={busy} />
           {result && (
-            <p className="notice" role="status">
-              {result.message}
-            </p>
+            <div className="notice" role="status">
+              <p>
+                Job {result.status.replace("_", " ")}: {result.successful_source_count}{" "}
+                sources extracted, {result.failed_source_count} failed (
+                {result.actual_result_count} search results).
+              </p>
+              {result.failure && <p>{result.failure.message}</p>}
+              <ul>
+                {result.sources.map((source) => (
+                  <li key={source.id}>
+                    {source.title ?? source.original_url} — {source.extraction_status}
+                  </li>
+                ))}
+              </ul>
+            </div>
           )}
           {error && <p className="notice error" role="alert">{error}</p>}
         </div>

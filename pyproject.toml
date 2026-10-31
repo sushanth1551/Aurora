@@ -12,7 +12,11 @@ dynamic = ["dependencies"]
 [project.optional-dependencies]
 dev = [
   "pytest>=8.3,<10.0",
+  "pytest-asyncio>=0.24,<2.0",
   "pytest-cov>=6.0,<7.0",
+  "respx>=0.21,<1.0",
+  "aiosqlite>=0.20,<1.0",
+  "mypy>=1.13,<2.0",
   "ruff>=0.8",
 ]
 
@@ -29,6 +33,12 @@ dependencies = {file = ["requirements.txt"]}
 pythonpath = ["backend"]
 testpaths = ["backend/tests"]
 addopts = "-ra"
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"
+markers = [
+  "live: calls real providers; needs AURORA_RUN_LIVE_INTEGRATION_TESTS=true",
+  "postgres: needs AURORA_TEST_DATABASE_URL pointing at a disposable PostgreSQL database",
+]
 
 [tool.ruff]
 target-version = "py312"
@@ -38,6 +48,25 @@ src = ["backend"]
 [tool.ruff.lint]
 select = ["E", "F", "I", "UP", "B"]
 
+[tool.ruff.lint.per-file-ignores]
+# Dense rule tables / SQL / long literals; the formatter still wraps what it can.
+"backend/migrations/**" = ["E501"]
+"backend/tests/**" = ["E501"]  # long fixture literals and assertions
+"backend/app/research/website_mapper.py" = ["E501"]
+"backend/app/research/structured_extractor.py" = ["E501"]
+"backend/app/research/research_report.py" = ["E501"]
+"backend/app/research/website_discovery.py" = ["E501"]
+"backend/app/research/entity_resolver.py" = ["E501"]
+"backend/app/research/evidence_manager.py" = ["E501"]
+"backend/app/database/repositories/intelligence_repository.py" = ["E501"]
+"backend/app/research/website_intelligence_service.py" = ["E501"]
+
 [tool.ruff.format]
 quote-style = "double"
 indent-style = "space"
+
+[tool.mypy]
+python_version = "3.12"
+mypy_path = "backend"
+packages = ["app"]
+ignore_missing_imports = true

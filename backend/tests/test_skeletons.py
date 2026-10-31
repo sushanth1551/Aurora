@@ -13,16 +13,14 @@ from app.core.exceptions import (
     AuroraException,
     ConfigurationException,
     IntegrationException,
+    PersistenceException,
     ResearchException,
     ResourceNotFoundException,
     register_exception_handlers,
 )
-from app.research.crawler import validate_crawl_url
 from app.tools.claude_tool import ClaudeTool
-from app.tools.firecrawl_tool import FirecrawlTool
 from app.tools.groq_tool import GroqTool
 from app.tools.search_console_tool import SearchConsoleTool
-from app.tools.serpapi_tool import SerpApiTool
 from app.tools.wordpress_tool import WordPressTool
 from app.workflows.research_workflow import build_research_workflow
 from app.workflows.seo_content_workflow import build_seo_content_workflow
@@ -39,8 +37,6 @@ def test_every_module_imports() -> None:
 @pytest.mark.parametrize(
     ("tool_cls", "args"),
     [
-        (FirecrawlTool, ("crawl", "https://example.com")),
-        (SerpApiTool, ("search", "query")),
         (GroqTool, ("complete", "prompt")),
         (ClaudeTool, ("complete", "prompt")),
         (WordPressTool, ("create_draft", "title", "body")),
@@ -78,34 +74,12 @@ def test_workflows_are_not_implemented(builder) -> None:
 
 
 @pytest.mark.parametrize(
-    ("url", "ok"),
-    [
-        ("https://example.com/page", True),
-        ("http://93.184.216.34/", True),
-        ("file:///etc/passwd", False),
-        ("ftp://example.com", False),
-        ("http://localhost:8000", False),
-        ("http://127.0.0.1", False),
-        ("http://169.254.169.254/latest/meta-data", False),
-        ("http://10.0.0.5", False),
-        ("not a url", False),
-    ],
-)
-def test_validate_crawl_url(url: str, ok: bool) -> None:
-    """Only public http(s) targets are accepted."""
-    if ok:
-        assert validate_crawl_url(url) == url
-    else:
-        with pytest.raises(ResearchException):
-            validate_crawl_url(url)
-
-
-@pytest.mark.parametrize(
     ("exc", "status"),
     [
         (ConfigurationException("c"), 503),
         (IntegrationException("i"), 502),
         (ResearchException("r"), 422),
+        (PersistenceException("p"), 503),
         (ResourceNotFoundException("n"), 404),
         (AuroraException("a"), 500),
     ],

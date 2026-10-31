@@ -1,7 +1,5 @@
 """Tests for the root, health, and research placeholder endpoints."""
 
-import pytest
-
 
 def test_root_endpoint(client) -> None:
     """The root endpoint describes the application."""
@@ -26,51 +24,6 @@ def test_health_endpoint(client) -> None:
         "application": "AURORA",
         "version": "0.1.0",
     }
-
-
-def test_research_endpoint_is_a_clearly_marked_placeholder(client) -> None:
-    """The research endpoint validates input but performs no research."""
-    response = client.post("/api/v1/research", json={"topic": "Aurora SEO"})
-    body = response.json()
-
-    assert response.status_code == 200
-    assert body["status"] == "not_implemented"
-    assert body["is_placeholder"] is True
-    assert body["topic"] == "Aurora SEO"
-    assert "later module" in body["message"]
-    assert {"request_id", "created_at"} <= body.keys()
-
-
-@pytest.mark.parametrize(
-    "payload",
-    [
-        {"topic": " "},
-        {"topic": "x"},
-        {},
-        {"topic": "Valid topic", "max_sources": 0},
-        {"topic": "Valid topic", "max_sources": 1000},
-        {"topic": "Valid topic", "research_depth": "exhaustive"},
-        {"topic": "Valid topic", "unexpected": True},
-    ],
-)
-def test_research_endpoint_rejects_invalid_input(client, payload) -> None:
-    """Invalid payloads are rejected by the request schema."""
-    assert client.post("/api/v1/research", json=payload).status_code == 422
-
-
-def test_research_endpoint_accepts_optional_fields(client) -> None:
-    """Optional fields are accepted."""
-    response = client.post(
-        "/api/v1/research",
-        json={
-            "topic": "Aurora SEO",
-            "description": "Context",
-            "research_depth": "deep",
-            "max_sources": 5,
-        },
-    )
-
-    assert response.status_code == 200
 
 
 def test_secrets_are_not_exposed_in_api_responses(monkeypatch) -> None:
@@ -98,8 +51,7 @@ def test_secrets_are_not_exposed_in_api_responses(monkeypatch) -> None:
     responses = [
         client.get("/"),
         client.get("/api/v1/health"),
-        client.post("/api/v1/research", json={"topic": "Aurora SEO"}),
-        client.post("/api/v1/research", json={"topic": "x"}),
+        client.post("/api/v1/research", json={"query": ""}),
         client.get("/openapi.json"),
     ]
 

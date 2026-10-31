@@ -34,8 +34,8 @@ export function ResearchForm({ onSubmit, busy }: ResearchFormProps) {
         </button>
       </div>
       <p className="form-hint">
-        Research execution is not implemented yet. This scaffold only validates
-        requests and does not start research.
+        Runs synchronously: searches the web, extracts pages, and stores the
+        result. Requires SerpApi and Firecrawl keys on the server.
       </p>
     </form>
   );

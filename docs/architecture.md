@@ -1,10 +1,11 @@
 # AURORA system architecture
 
 ## Status
-This document describes the intended architecture. **Implemented (Module 1):**
-the FastAPI app (`/`, `/api/v1/health`, `/api/v1/research` placeholder),
-settings, logging, exceptions, schemas, and the React dashboard scaffold.
-**Not implemented:** crawling, LLM calls, job storage, graph/vector retrieval,
+This document describes the intended architecture. **Implemented (Modules 1-2):**
+the FastAPI app, settings, logging, exceptions, schemas, the React dashboard
+scaffold, and the web research engine (SerpApi search, URL/SSRF policy, Firecrawl
+extraction, PostgreSQL persistence; see `research-engine.md`).
+**Not implemented:** LLM calls, agents/workflows, graph/vector retrieval,
 publishing, and monitoring; those modules are importable skeletons that raise
 `NotImplementedError` or `ConfigurationException`.
 

@@ -1,12 +1,12 @@
 """Shared fixtures: isolate tests from the developer's real .env and environment."""
 
-import os
-
 import pytest
 from fastapi.testclient import TestClient
+from pydantic import SecretStr
 
 from app.core.config import Settings, get_settings
 from app.main import create_app
+from app.tools.http import reset_circuit_breakers
 
 
 @pytest.fixture(autouse=True)
@@ -17,8 +17,10 @@ def isolated_settings(monkeypatch: pytest.MonkeyPatch):
         monkeypatch.delenv(field.upper(), raising=False)
         monkeypatch.delenv(field.lower(), raising=False)
     get_settings.cache_clear()
+    reset_circuit_breakers()
     yield
     get_settings.cache_clear()
+    reset_circuit_breakers()
 
 
 @pytest.fixture
@@ -28,6 +30,26 @@ def client() -> TestClient:
 
 
 @pytest.fixture
-def env_keys() -> list[str]:
-    """Names of environment variables currently set (for debugging)."""
-    return sorted(os.environ)
+def keyed_settings() -> Settings:
+    """Settings with fake provider keys and tiny retry budgets."""
+    return Settings(
+        serpapi_api_key=SecretStr("serp-secret-key-123"),
+        firecrawl_api_key=SecretStr("fc-secret-key-456"),
+        research_max_retries=2,
+    )
+
+
+@pytest.fixture
+def sleeps() -> list[float]:
+    """Recorded backoff delays (tools take ``sleeps.append``-style sleepers)."""
+    return []
+
+
+@pytest.fixture
+def fake_sleep(sleeps: list[float]):
+    """An awaitable sleep that records the delay instead of waiting."""
+
+    async def sleep(delay: float) -> None:
+        sleeps.append(delay)
+
+    return sleep

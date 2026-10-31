@@ -8,7 +8,7 @@
 - [x] 3. All 11 Claude Code skills, each with YAML frontmatter and the nine required sections; they state that integrations are not implemented.
 - [x] 4. `CLAUDE.md` and `README.md` (implemented vs planned clearly separated).
 - [x] 5. Python configuration (`requirements.txt`, `pyproject.toml` with `dev` extra, `.python-version`, pre-commit, `.gitignore`).
-- [x] 6. FastAPI application (`/`, `/api/v1/health`, `/api/v1/research` placeholder, Swagger at `/docs`).
+- [x] 6. FastAPI application (`/`, `/api/v1/health`, `/api/v1/research` placeholder, Swagger at `/docs`). *The research endpoint was a placeholder in Module 1 and is now implemented; see `module-2-checklist.md`.*
 - [x] 7. PostgreSQL and Neo4j architecture placeholders (settings, SQLAlchemy `Base`, session/repository/Neo4j client stubs, graph vocabulary). Nothing connects.
 - [x] 8. React + TypeScript frontend skeleton (production build succeeds).
 - [x] 9. Dockerfile, Compose, `.dockerignore`. Compose config validates; **images were not built and containers not run** because the Docker daemon was not running.

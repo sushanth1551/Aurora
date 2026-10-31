@@ -44,6 +44,13 @@ class ResearchException(AuroraException):
     code = "research_error"
 
 
+class PersistenceException(AuroraException):
+    """The database is unavailable or a persistence operation failed."""
+
+    status_code = 503
+    code = "persistence_error"
+
+
 class ResourceNotFoundException(AuroraException):
     """The requested resource does not exist."""
 

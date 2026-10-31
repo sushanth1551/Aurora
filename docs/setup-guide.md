@@ -13,13 +13,17 @@ py -3.12 -m venv .venv
 .\.venv\Scripts\Activate.ps1
 python -m pip install --upgrade pip
 python -m pip install -r requirements.txt
-python -m pip install -e ".[dev]"   # pytest, pytest-cov, ruff
-Copy-Item .env.example .env          # root-level .env; all keys optional
+python -m pip install -e ".[dev]"   # pytest, respx, aiosqlite, mypy, ruff
+Copy-Item .env.example .env          # root .env; add SERPAPI_API_KEY and FIRECRAWL_API_KEY
+docker compose up -d postgres        # PostgreSQL only
 $env:PYTHONPATH = "backend"
+alembic upgrade head                 # create research tables
 uvicorn app.main:app --reload
 ```
 
-The API starts without external provider keys or databases. Health is at
+The API *starts* without provider keys or a database; `POST /api/v1/research`
+needs both and returns `503` otherwise. `DATABASE_URL` must use the async driver
+(`postgresql+asyncpg://...`). Health is at
 `http://127.0.0.1:8000/api/v1/health`; Swagger UI is at
 `http://127.0.0.1:8000/docs`.
 
@@ -39,8 +43,10 @@ Override `VITE_API_BASE_URL` in `frontend/.env` if needed.
 ## Local data services
 Copy `.env.example` to `.env`, set a local-only `NEO4J_PASSWORD`, then start
 services from the root with `docker compose up --build`. Compose maps PostgreSQL
-to port 5432, Neo4j Browser to 7474, Bolt to 7687, and the API to 8000. Database
-connections are not yet used by the scaffold API.
+to `127.0.0.1:5432` and the API to 8000. `docker compose up -d postgres` starts
+only PostgreSQL. Neo4j is unused in Module 2 and starts only with
+`docker compose --profile graph up neo4j`. The compose file was validated with
+`docker compose config`; containers were not built or run during development.
 
 ## Tests and checks
 Run `python -m pytest`, `ruff check backend scripts`, and `ruff format --check
