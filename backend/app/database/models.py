@@ -288,3 +288,152 @@ class ResearchReportRecord(Base):
     content: Mapped[dict[str, Any]] = mapped_column(JSONType)
     markdown: Mapped[str] = mapped_column(Text)
     generated_at: Mapped[datetime] = mapped_column(DateTime(timezone=True))
+
+
+# -- Module 4: AI research and intelligence synthesis ---------------------------------
+
+
+def _analysis_fk() -> Mapped[uuid.UUID]:
+    return mapped_column(
+        ForeignKey("intelligence_analyses.id", ondelete="CASCADE"), index=True
+    )
+
+
+class IntelligenceAnalysisRecord(Base):
+    """One analysis run over stored research. Never stores prompts or responses."""
+
+    __tablename__ = "intelligence_analyses"
+
+    id: Mapped[uuid.UUID] = mapped_column(Uuid, primary_key=True)
+    research_job_id: Mapped[uuid.UUID] = mapped_column(
+        ForeignKey("research_jobs.id", ondelete="CASCADE"), index=True
+    )
+    research_objective: Mapped[str] = mapped_column(Text)
+    analysis_type: Mapped[str] = mapped_column(String(32))
+    provider: Mapped[str] = mapped_column(String(32))
+    model: Mapped[str] = mapped_column(String(128))
+    status: Mapped[str] = mapped_column(String(32), index=True)
+    iteration_count: Mapped[int] = mapped_column(Integer, default=0)
+    prompt_version: Mapped[str | None] = mapped_column(String(64))
+    started_at: Mapped[datetime] = mapped_column(DateTime(timezone=True))
+    completed_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True))
+    error_summary: Mapped[str | None] = mapped_column(Text)
+    configuration: Mapped[dict[str, Any]] = mapped_column(JSONType, default=dict)
+    progress: Mapped[dict[str, Any]] = mapped_column(JSONType, default=dict)
+
+
+class ResearchContextRecord(Base):
+    """A versioned snapshot of what the analysis could see (references only)."""
+
+    __tablename__ = "research_contexts"
+    __table_args__ = (
+        UniqueConstraint("analysis_id", "version", name="uq_context_analysis_version"),
+    )
+
+    id: Mapped[uuid.UUID] = mapped_column(Uuid, primary_key=True)
+    analysis_id: Mapped[uuid.UUID] = _analysis_fk()
+    version: Mapped[int] = mapped_column(Integer)
+    source_references: Mapped[list[Any]] = mapped_column(JSONType, default=list)
+    claim_references: Mapped[list[Any]] = mapped_column(JSONType, default=list)
+    statistics: Mapped[dict[str, Any]] = mapped_column(JSONType, default=dict)
+    context_hash: Mapped[str] = mapped_column(String(64))
+    token_estimate: Mapped[int] = mapped_column(Integer, default=0)
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True))
+
+
+class ResearchQuestionRecord(Base):
+    __tablename__ = "research_questions"
+
+    id: Mapped[uuid.UUID] = mapped_column(Uuid, primary_key=True)
+    analysis_id: Mapped[uuid.UUID] = _analysis_fk()
+    question: Mapped[str] = mapped_column(Text)
+    related_entity: Mapped[str | None] = mapped_column(Text)
+    priority: Mapped[int] = mapped_column(Integer)
+    status: Mapped[str] = mapped_column(String(24))
+    evidence_references: Mapped[list[Any]] = mapped_column(JSONType, default=list)
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True))
+
+
+class IntelligenceFindingRecord(Base):
+    __tablename__ = "intelligence_findings"
+
+    id: Mapped[uuid.UUID] = mapped_column(Uuid, primary_key=True)
+    analysis_id: Mapped[uuid.UUID] = _analysis_fk()
+    finding_type: Mapped[str] = mapped_column(String(32), index=True)
+    kind: Mapped[str] = mapped_column(String(24))
+    description: Mapped[str] = mapped_column(Text)
+    claim_references: Mapped[list[Any]] = mapped_column(JSONType, default=list)
+    evidence_references: Mapped[list[Any]] = mapped_column(JSONType, default=list)
+    confidence: Mapped[dict[str, Any]] = mapped_column(JSONType, default=dict)
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True))
+
+
+class ResearchContradictionRecord(Base):
+    __tablename__ = "research_contradictions"
+
+    id: Mapped[uuid.UUID] = mapped_column(Uuid, primary_key=True)
+    analysis_id: Mapped[uuid.UUID] = _analysis_fk()
+    subject: Mapped[str] = mapped_column(Text)
+    description: Mapped[str] = mapped_column(Text)
+    conflicting_claims: Mapped[list[Any]] = mapped_column(JSONType, default=list)
+    sources: Mapped[list[Any]] = mapped_column(JSONType, default=list)
+    resolution_status: Mapped[str] = mapped_column(String(24))
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True))
+
+
+class IntelligenceReportRecord(Base):
+    """A generated report. ``(analysis_id, version)`` is unique, so a report can
+    never be persisted twice."""
+
+    __tablename__ = "intelligence_reports"
+    __table_args__ = (
+        UniqueConstraint("analysis_id", "version", name="uq_ireport_analysis_version"),
+    )
+
+    id: Mapped[uuid.UUID] = mapped_column(Uuid, primary_key=True)
+    analysis_id: Mapped[uuid.UUID] = _analysis_fk()
+    report_type: Mapped[str] = mapped_column(String(32))
+    content_json: Mapped[dict[str, Any]] = mapped_column(JSONType)
+    content_markdown: Mapped[str] = mapped_column(Text)
+    quality_status: Mapped[str] = mapped_column(String(24))
+    version: Mapped[int] = mapped_column(Integer)
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True))
+
+
+class LLMUsageRecord(Base):
+    """Measured token usage and estimated cost of one LLM request."""
+
+    __tablename__ = "llm_usage_records"
+
+    id: Mapped[uuid.UUID] = mapped_column(Uuid, primary_key=True)
+    analysis_id: Mapped[uuid.UUID] = _analysis_fk()
+    provider: Mapped[str] = mapped_column(String(32))
+    model: Mapped[str] = mapped_column(String(128))
+    operation: Mapped[str] = mapped_column(String(48))
+    prompt_version: Mapped[str | None] = mapped_column(String(96))
+    input_tokens: Mapped[int | None] = mapped_column(Integer)
+    output_tokens: Mapped[int | None] = mapped_column(Integer)
+    cached_tokens: Mapped[int | None] = mapped_column(Integer)
+    total_tokens: Mapped[int | None] = mapped_column(Integer)
+    duration_seconds: Mapped[float] = mapped_column(Float, default=0.0)
+    estimated_cost: Mapped[float | None] = mapped_column(Float)
+    cost_available: Mapped[bool] = mapped_column(Boolean, default=False)
+    success: Mapped[bool] = mapped_column(Boolean, default=True)
+    error_category: Mapped[str | None] = mapped_column(String(64))
+    fallback_from: Mapped[str | None] = mapped_column(String(32))
+    fallback_reason: Mapped[str | None] = mapped_column(String(64))
+    requested_at: Mapped[datetime] = mapped_column(DateTime(timezone=True))
+
+
+class ReportQualityEvaluationRecord(Base):
+    __tablename__ = "report_quality_evaluations"
+
+    id: Mapped[uuid.UUID] = mapped_column(Uuid, primary_key=True)
+    analysis_id: Mapped[uuid.UUID] = _analysis_fk()
+    report_id: Mapped[uuid.UUID] = mapped_column(
+        ForeignKey("intelligence_reports.id", ondelete="CASCADE"), index=True
+    )
+    metrics: Mapped[dict[str, Any]] = mapped_column(JSONType)
+    evaluation_status: Mapped[str] = mapped_column(String(24))
+    issues: Mapped[list[Any]] = mapped_column(JSONType, default=list)
+    evaluated_at: Mapped[datetime] = mapped_column(DateTime(timezone=True))

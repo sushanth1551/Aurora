@@ -11,6 +11,10 @@ This roadmap is a proposed sequence, not a feature-completion claim.
    verification, background jobs, caching across jobs.
 4. **SERP/competitor analysis** (SerpApi adapter exists; website discovery and competitor comparison reports were added in Module 3): provider adapter, cached/dated results, and
    intent/competitor summaries with confidence.
+4b. **AI research and intelligence synthesis (done in Module 4):** LLM provider
+   layer with usage/cost tracking, evidence context, bounded reasoning with
+   controlled follow-up research, synthesis, cited reports and quality gates.
+   Pending: live LLM verification, background execution, response caching.
 5. **Knowledge graph:** Neo4j constraints, schema validation, entity resolution,
    idempotent writes, and provenance.
 6. **RAG:** document processing, chunk/embedding strategy, vector adapter,

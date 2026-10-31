@@ -7,8 +7,9 @@ provider, database, or publishing configuration. No clients are created here.
 
 from functools import lru_cache
 from pathlib import Path
+from typing import Literal
 
-from pydantic import Field, SecretStr, model_validator
+from pydantic import Field, SecretStr, field_validator, model_validator
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 # backend/app/core/config.py -> repository root
@@ -41,6 +42,7 @@ class Settings(BaseSettings):
     serpapi_api_key: SecretStr | None = Field(default=None)
     groq_api_key: SecretStr | None = Field(default=None)
     anthropic_api_key: SecretStr | None = Field(default=None)
+    openai_api_key: SecretStr | None = Field(default=None)
 
     wordpress_url: str | None = None
     wordpress_username: str | None = None
@@ -91,6 +93,102 @@ class Settings(BaseSettings):
     website_research_batch_max_polls: int = Field(default=30, ge=1, le=300)
     website_research_max_provider_requests: int = Field(default=0, ge=0, le=100000)
 
+    # Module 4: LLM providers and the intelligence engine. Defaults are safe: the
+    # deterministic mock provider needs no credentials and costs nothing.
+    llm_provider: Literal["openai", "anthropic", "groq", "mock"] = "mock"
+    openai_model: str | None = None
+    anthropic_model: str | None = None
+    #: Groq uses its OpenAI-compatible Chat Completions API (see llm/groq_provider.py).
+    groq_model: str | None = "openai/gpt-oss-20b"
+    groq_base_url: str = "https://api.groq.com/openai/v1"
+    #: ``json_schema`` (best-effort, for gpt-oss models) or ``json_object`` (JSON mode).
+    groq_structured_output: Literal["json_schema", "json_object"] = "json_schema"
+    #: Ask Groq not to return reasoning text (``include_reasoning: false``).
+    groq_exclude_reasoning: bool = True
+    groq_reasoning_effort: Literal["low", "medium", "high"] | None = None
+    llm_request_timeout_seconds: float = Field(default=60.0, gt=0, le=600)
+    llm_max_retries: int = Field(default=3, ge=0, le=6)
+    llm_retry_base_delay_seconds: float = Field(default=1.0, gt=0, le=30)
+    llm_retry_max_delay_seconds: float = Field(default=20.0, gt=0, le=120)
+    llm_max_output_tokens: int = Field(default=4096, ge=64, le=64000)
+    llm_enable_provider_fallback: bool = False
+    llm_fallback_provider: Literal["openai", "anthropic", "groq", "mock"] = "anthropic"
+    #: JSON object ``{"provider:model": {"input_per_million": n, ...}}``; no prices
+    #: are built in, so costs are reported as unavailable until this is set.
+    llm_pricing_json: str | None = None
+
+    intelligence_max_iterations: int = Field(default=3, ge=1, le=10)
+    intelligence_max_followup_queries: int = Field(default=5, ge=0, le=20)
+    intelligence_max_total_queries: int = Field(default=10, ge=0, le=50)
+    intelligence_max_duration_seconds: float = Field(default=300.0, gt=0, le=3600)
+    intelligence_max_llm_calls: int = Field(default=15, ge=1, le=200)
+    intelligence_max_token_budget: int = Field(default=50_000, ge=1000, le=5_000_000)
+    intelligence_max_estimated_cost: float | None = Field(default=None, gt=0)
+    #: Global evidence-token budget for the research context (backward compatible).
+    intelligence_context_max_tokens: int = Field(default=12_000, ge=500, le=200_000)
+    #: Per-provider overrides of the evidence budget; ``None`` means "use the
+    #: global value". These are *application* budgets for the evidence block
+    #: (see ``Settings.context_budget_for``), not provider context windows or
+    #: rate limits. Groq's default is small because its per-minute token
+    #: allowance on the entry tier is small; raise it for a higher tier.
+    intelligence_context_max_tokens_groq: int | None = Field(
+        default=4_000, ge=500, le=200_000
+    )
+    intelligence_context_max_tokens_openai: int | None = Field(
+        default=None, ge=500, le=200_000
+    )
+    intelligence_context_max_tokens_anthropic: int | None = Field(
+        default=None, ge=500, le=200_000
+    )
+    intelligence_context_max_tokens_mock: int | None = Field(
+        default=None, ge=500, le=200_000
+    )
+    intelligence_max_sources: int = Field(default=40, ge=1, le=500)
+    intelligence_enable_followup_research: bool = True
+    intelligence_enable_llm_evaluation: bool = False
+    intelligence_min_citation_coverage: float = Field(default=0.8, ge=0, le=1)
+    intelligence_max_unsupported_claims: int = Field(default=0, ge=0)
+    intelligence_freshness_days: int = Field(default=365, ge=1, le=3650)
+
+    def context_budget_for(self, provider: str) -> int:
+        """Evidence-token budget for ``provider``: its override, else the global value.
+
+        The budget bounds only the ``<evidence>`` block that the context builder
+        selects. The system prompt, task instructions, objective and engine-built
+        sections are added on top of it per request (and are included in the
+        separate pre-flight check against ``INTELLIGENCE_MAX_TOKEN_BUDGET``).
+        """
+        override = getattr(self, f"intelligence_context_max_tokens_{provider}", None)
+        return int(override) if override else self.intelligence_context_max_tokens
+
+    @field_validator(
+        "openai_model",
+        "anthropic_model",
+        "groq_model",
+        "groq_reasoning_effort",
+        "llm_pricing_json",
+        "intelligence_max_estimated_cost",
+        "intelligence_context_max_tokens_groq",
+        "intelligence_context_max_tokens_openai",
+        "intelligence_context_max_tokens_anthropic",
+        "intelligence_context_max_tokens_mock",
+        mode="before",
+    )
+    @classmethod
+    def _blank_is_unset(cls, value: object) -> object:
+        """``KEY=`` in ``.env`` means "not set" for these optional values."""
+        return None if isinstance(value, str) and not value.strip() else value
+
+    @field_validator("groq_base_url")
+    @classmethod
+    def _groq_base_url(cls, value: str) -> str:
+        """HTTPS only; plain HTTP is allowed for a local test server."""
+        value = value.strip().rstrip("/")
+        local = value.startswith(("http://127.0.0.1", "http://localhost"))
+        if not (value.startswith("https://") or local):
+            raise ValueError("GROQ_BASE_URL must use https://")
+        return value
+
     @model_validator(mode="after")
     def _check_consistency(self) -> "Settings":
         """Reject combinations that would make limits meaningless or contradictory."""
@@ -104,6 +202,8 @@ class Settings(BaseSettings):
             self.website_research_batch_poll_seconds
         ):
             problems.append("WEBSITE_RESEARCH_BATCH_TIMEOUT_SECONDS < ..._POLL_SECONDS")
+        if self.llm_retry_max_delay_seconds < self.llm_retry_base_delay_seconds:
+            problems.append("LLM_RETRY_MAX_DELAY_SECONDS < ..._BASE_DELAY_SECONDS")
         if problems:
             raise ValueError("inconsistent settings: " + "; ".join(problems))
         return self

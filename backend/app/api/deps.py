@@ -6,9 +6,13 @@ from fastapi import Depends
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.core.config import get_settings
+from app.database.repositories.analysis_repository import AnalysisRepository
 from app.database.repositories.intelligence_repository import IntelligenceRepository
 from app.database.repositories.research_repository import ResearchRepository
 from app.database.session import get_session
+from app.intelligence.context_builder import ContextBuilder
+from app.intelligence.followup import WebsiteFollowUpExecutor
+from app.intelligence.service import IntelligenceAnalysisService
 from app.research.cache import CachedMapper, CachedSearch, shared_cache
 from app.research.intelligent_crawler import IntelligentCrawler
 from app.research.research_service import ResearchService
@@ -69,4 +73,25 @@ def get_intelligence_service(session: SessionDep) -> WebsiteIntelligenceService:
 
 IntelligenceServiceDep = Annotated[
     WebsiteIntelligenceService, Depends(get_intelligence_service)
+]
+
+
+def get_analysis_service(session: SessionDep) -> IntelligenceAnalysisService:
+    """Build a request-scoped analysis service. The LLM provider is chosen per
+    request by ``build_llm_provider``; follow-up research reuses Module 3."""
+    settings = get_settings()
+    return IntelligenceAnalysisService(
+        repository=AnalysisRepository(session),
+        builder=ContextBuilder(
+            ResearchRepository(session),
+            IntelligenceRepository(session),
+            settings=settings,
+        ),
+        executor=WebsiteFollowUpExecutor(get_intelligence_service(session)),
+        settings=settings,
+    )
+
+
+AnalysisServiceDep = Annotated[
+    IntelligenceAnalysisService, Depends(get_analysis_service)
 ]

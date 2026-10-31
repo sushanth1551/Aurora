@@ -94,3 +94,41 @@ python -m pytest backend/tests/test_research_integration.py -m live -v
 the SQLite `db_session` fixture lives there and is exported by `conftest.py`.
 PostgreSQL migration and pipeline tests and a live Firecrawl test are in
 `test_research_integration.py` (opt-in, same switches as Module 2).
+
+## Module 4 tests
+
+| File | Covers |
+| --- | --- |
+| `test_llm_providers.py` | OpenAI/Anthropic over fake SDK clients (structured output, usage, errors, retries, Retry-After, repair, truncation), mock, fallback, factory |
+| `test_usage_tracker.py` | Pricing registry, cost estimates, missing usage, token/call/cost budgets |
+| `test_context_builder.py` | Module 2+3 retrieval, stable ids, dedup, ranking, credibility, limits, gaps |
+| `test_reasoning_engine.py` | Questions, findings, contradictions, follow-up validation/execution, every stop condition, budgets, provider failure |
+| `test_synthesis_and_reports.py` | Comparisons, validated LLM layer, degradation, JSON/Markdown, escaping, citation validation, gates, LLM judge |
+| `test_intelligence_pipeline.py` | End-to-end over seeded Module 3 data + SQLite; follow-up via Module 3; API endpoints and errors |
+| `test_llm_live.py` | Opt-in: one small structured request per configured provider |
+
+`tests/analysis_support.py` seeds a job through the real Module 3 pipeline and builds
+synthetic contexts. Module 4 PostgreSQL tests are in `test_research_integration.py`.
+
+```powershell
+$env:AURORA_RUN_LIVE_LLM_TESTS = "true"   # spends LLM credits
+python -m pytest backend/tests/test_llm_live.py -v
+```
+
+## Groq and evaluation (Module 4 finalisation)
+
+| File | Covers |
+| --- | --- |
+| `test_groq_provider.py` | Groq over mocked HTTP: payloads, JSON-schema/JSON-object modes, schema-rejection repair, reasoning exclusion, usage, errors, retries, selection, fallback, cost, citation validation with Groq-shaped replies |
+| `test_context_budgets.py` | Per-provider evidence budgets, fallback minimum, rebuild keeps the budget, metrics and trimming notes |
+| `scripts/evaluate_module4.py` | Repeatable 12-objective evaluation (offline by default); see `research-quality-evaluation.md` |
+
+Live Groq check (one small request; needs `GROQ_API_KEY` in `.env`):
+
+```powershell
+$env:AURORA_RUN_LIVE_LLM_TESTS = "true"
+python -m pytest backend/tests/test_llm_live.py -k groq -v
+```
+
+PostgreSQL tests must point at a database you created for the purpose and can drop, named
+`aurora_test_<suffix>` on localhost (the fixtures downgrade to base). Never your dev database.

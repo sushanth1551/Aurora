@@ -52,6 +52,9 @@ select = ["E", "F", "I", "UP", "B"]
 # Dense rule tables / SQL / long literals; the formatter still wraps what it can.
 "backend/migrations/**" = ["E501"]
 "backend/tests/**" = ["E501"]  # long fixture literals and assertions
+"backend/app/intelligence/**" = ["E501"]  # long prompt/comment lines
+"backend/app/llm/**" = ["E501"]
+"scripts/evaluate_module4.py" = ["E501"]  # long objective and table literals
 "backend/app/research/website_mapper.py" = ["E501"]
 "backend/app/research/structured_extractor.py" = ["E501"]
 "backend/app/research/research_report.py" = ["E501"]

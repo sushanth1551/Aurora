@@ -2,6 +2,7 @@
 
 from fastapi import APIRouter
 
+from app.api.routes.analysis import router as analysis_router
 from app.api.routes.health import router as health_router
 from app.api.routes.intelligence import router as intelligence_router
 from app.api.routes.research import router as research_router
@@ -13,3 +14,6 @@ api_router.include_router(
     intelligence_router, prefix="/research", tags=["website-intelligence"]
 )
 api_router.include_router(research_router, prefix="/research", tags=["research"])
+api_router.include_router(
+    analysis_router, prefix="/intelligence", tags=["intelligence-synthesis"]
+)

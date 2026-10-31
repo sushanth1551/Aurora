@@ -345,3 +345,70 @@ async def test_live_website_intelligence_on_example_domain() -> None:
     )
 
     assert mapped.pages and crawl.successful_pages >= 1
+
+
+# -- Module 4 -------------------------------------------------------------------
+
+
+@pytest.mark.postgres
+@requires_postgres
+async def test_module4_migration_is_additive_and_reversible(monkeypatch) -> None:
+    monkeypatch.setenv("DATABASE_URL", TEST_DB_URL)
+    get_settings.cache_clear()
+    config = alembic_config()
+    engine = create_async_engine(TEST_DB_URL)
+    module4 = {"intelligence_analyses", "intelligence_reports", "llm_usage_records"}
+    try:
+        await asyncio.to_thread(command.upgrade, config, "0002")
+        async with engine.begin() as conn:
+            await conn.execute(
+                text(
+                    "INSERT INTO research_jobs (id, query, status, max_results,"
+                    " scrape_pages, created_at) VALUES (:id, 'kept', 'completed',"
+                    " 5, true, now())"
+                ),
+                {"id": "00000000-0000-0000-0000-0000000000c1"},
+            )
+        await asyncio.to_thread(command.upgrade, config, "head")
+        async with engine.connect() as conn:
+            tables = await conn.run_sync(lambda c: set(inspect(c).get_table_names()))
+        assert module4 <= tables
+        await asyncio.to_thread(command.downgrade, config, "0002")
+        async with engine.connect() as conn:
+            tables = await conn.run_sync(lambda c: set(inspect(c).get_table_names()))
+            count = (
+                await conn.execute(text("SELECT count(*) FROM research_jobs"))
+            ).scalar_one()
+        assert not module4 & tables and "research_claims" in tables and count == 1
+    finally:
+        await asyncio.to_thread(command.downgrade, config, "base")
+        await engine.dispose()
+
+
+@pytest.mark.postgres
+@requires_postgres
+async def test_module4_analysis_persists_in_postgres(migrated_db) -> None:
+    from app.core.config import Settings as AppSettings
+    from app.database.models import IntelligenceReportRecord, LLMUsageRecord
+    from app.database.repositories.analysis_repository import AnalysisRepository
+    from app.llm.mock_provider import MockProvider
+    from app.schemas.analysis import AnalyzeRequest
+    from tests.analysis_support import analysis_service, seed_acme_job
+
+    factory, _ = migrated_db
+    async with factory() as session:
+        job = await seed_acme_job(session)
+        response = await analysis_service(session, MockProvider(AppSettings())).analyze(
+            AnalyzeRequest(
+                research_job_id=job,
+                research_objective="Analyse Acme products and pricing",
+            )
+        )
+        repo = AnalysisRepository(session)
+        assert response.report_available
+        assert (
+            await repo.count_rows(IntelligenceReportRecord, response.analysis_id) == 1
+        )
+        assert await repo.count_rows(LLMUsageRecord, response.analysis_id) >= 1
+        report, _ = await repo.get_report(response.analysis_id)
+        assert report.sources and report.research_job_id == job

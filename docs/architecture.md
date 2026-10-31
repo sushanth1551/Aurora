@@ -5,18 +5,32 @@ This document describes the intended architecture. **Implemented (Modules 1-2):*
 the FastAPI app, settings, logging, exceptions, schemas, the React dashboard
 scaffold, and the web research engine (SerpApi search, URL/SSRF policy, Firecrawl
 extraction, PostgreSQL persistence; see `research-engine.md`).
-**Not implemented:** LLM calls, agents/workflows, graph/vector retrieval,
+**Module 3:** website intelligence (`website-intelligence-engine.md`).
+**Module 4:** LLM provider layer (`llm/`) and the synchronous intelligence synthesis
+engine (`intelligence/`): context builder → bounded reasoning with controlled follow-up
+research through Module 3 → synthesis → cited report → quality gates
+(`llm-provider-architecture.md`, `research-context-builder.md`,
+`intelligence-reasoning-engine.md`, `multi-source-synthesis.md`, `report-generation.md`,
+`research-quality-evaluation.md`). LLM output is a validated proposal; every factual
+statement must cite stored evidence. Evidence budgets are resolved per provider
+(`Settings.context_budget_for`), so a low-limit provider such as Groq gets a smaller context.
+**Not implemented:** agents/LangGraph workflows, graph/vector retrieval,
 publishing, and monitoring; those modules are importable skeletons that raise
 `NotImplementedError` or `ConfigurationException`.
 
 ```mermaid
 flowchart LR
   UI[React UI - implemented] --> API[FastAPI - implemented]
+  API --> RS[Research + website intelligence<br/>Modules 2-3]
+  API --> IS[Intelligence synthesis<br/>Module 4]
+  IS --> LLM[LLM providers<br/>Groq / OpenAI / Anthropic / mock]
+  IS --> RS
+  RS --> PG[(PostgreSQL)]
+  IS --> PG
   API -.planned.-> SVC[Services]
   SVC -.-> WF[LangGraph workflows]
   WF -.-> AG[Agents]
   AG -.-> TOOLS[Provider adapters]
-  SVC -.-> PG[(PostgreSQL)]
   SVC -.-> N4[(Neo4j)]
   SVC -.-> VEC[(Vector store)]
 ```

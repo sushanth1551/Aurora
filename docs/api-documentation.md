@@ -174,3 +174,69 @@ A claim looks like:
 
 `GET /api/v1/research/{job_id}` (Module 2) also works for intelligence jobs; their
 in-progress statuses are reported as `running`.
+
+## Intelligence synthesis (Module 4) — `/api/v1/intelligence`
+
+Analyses an existing research job (Module 2 or 3) with an LLM. Runs **synchronously**,
+bounded by `INTELLIGENCE_MAX_DURATION_SECONDS`; progress is committed per stage, so
+`GET /intelligence/{job_id}` can be polled from another client. With the default
+`LLM_PROVIDER=mock` no key is needed, but the report is marked as mock output and
+`requires_review`.
+
+### `POST /api/v1/intelligence/analyze`
+
+```json
+{
+  "research_job_id": "6f1c...",
+  "research_objective": "Compare the products, pricing and target customers of these AI automation companies",
+  "analysis_type": "competitor_intelligence",
+  "preferred_provider": null,
+  "preferred_model": null,
+  "maximum_iterations": 2,
+  "maximum_sources": 20,
+  "output_format": "both",
+  "allow_follow_up_research": false,
+  "research_configuration": {"country": "in", "language": "en"}
+}
+```
+
+`analysis_type` can be `executive_summary`, `detailed_report` (default),
+`company_intelligence`, `product_comparison`, `technology_analysis`,
+`competitor_intelligence` or `market_research`. `maximum_*` can only lower the server
+limits. Unknown fields such as a system prompt are rejected (422).
+`allow_follow_up_research` also needs `INTELLIGENCE_ENABLE_FOLLOWUP_RESEARCH=true`, and it
+spends SerpApi/Firecrawl credits. `preferred_model` must be the configured model or have
+a price in `LLM_PRICING_JSON`.
+
+Response:
+
+```json
+{"analysis_id": "...", "research_job_id": "...", "analysis_type": "competitor_intelligence",
+ "status": "requires_review", "provider": "anthropic", "model": "<model>",
+ "report_status": "requires_review", "report_available": true,
+ "progress": {"stage": "completed", "iterations": 1, "follow_up_queries": 0,
+              "evidence_items": 27, "sources": 4, "llm_calls": 5, "tokens_used": 6400,
+              "estimated_cost": null, "cost_complete": false,
+              "stop_reason": "sufficient", "degraded": false,
+              "notes": ["1 unsupported factual statement(s)"]},
+ "error": null, "created_at": "...", "completed_at": "..."}
+```
+
+Statuses: `pending`, `running`, `completed`, `partially_completed` (LLM unavailable or over
+budget for part of the run; deterministic parts delivered), `failed` (no usable evidence,
+deadline, provider/configuration error) and `requires_review` (a quality gate did not pass).
+Errors: 404 unknown job, 422 invalid body, 503 provider not configured (for example
+`LLM_PROVIDER=openai` without `OPENAI_API_KEY`/`OPENAI_MODEL`) or database unavailable.
+
+### Read endpoints
+```http
+GET /api/v1/intelligence/{job_id}                            # latest analysis (+ other_analysis_ids)
+GET /api/v1/intelligence/{job_id}/report?format=json         # IntelligenceReport
+GET /api/v1/intelligence/{job_id}/report?format=markdown     # text/markdown
+GET /api/v1/intelligence/{job_id}/usage                      # per-request tokens, estimated cost
+GET /api/v1/intelligence/{job_id}/quality                    # ReportQualityMetrics + gate result
+```
+Each one accepts `?analysis_id=` to select an analysis other than the latest. Report
+citations are evidence ids (`c-…` for a stored claim, `s-…` for a stored source excerpt)
+listed in `sources` with their stored URL and excerpt. See `report-generation.md` and
+`research-quality-evaluation.md`.

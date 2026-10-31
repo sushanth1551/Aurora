@@ -48,7 +48,7 @@ def test_single_linear_head() -> None:
         [sys.executable, "-m", "alembic", "heads"],
         cwd=ROOT, env=env, capture_output=True, text=True, timeout=60,
     )  # fmt: skip
-    assert done.stdout.strip().startswith("0002") and done.stdout.count("(head)") == 1
+    assert done.stdout.strip().startswith("0003") and done.stdout.count("(head)") == 1
 
 
 def test_upgrade_sql_matches_every_model_table_column_and_constraint(
@@ -100,3 +100,27 @@ def test_downgrade_removes_only_module3_objects() -> None:
     assert "DROP COLUMN job_type" in down
     for module2 in ("research_jobs", "research_sources", "search_results"):
         assert module2 not in dropped
+
+
+MODULE4_TABLES = {
+    "intelligence_analyses", "research_contexts", "research_questions",
+    "intelligence_findings", "research_contradictions", "intelligence_reports",
+    "llm_usage_records", "report_quality_evaluations",
+}  # fmt: skip
+
+
+def test_module4_migration_is_additive() -> None:
+    step = alembic_sql("upgrade", "0002:0003")
+
+    assert "DROP TABLE" not in step and "DROP COLUMN" not in step
+    assert "ALTER TABLE" not in step and "DELETE FROM" not in step
+    # Only Alembic's own version row is updated; no existing data is rewritten.
+    assert re.findall(r"UPDATE (\w+)", step) == ["alembic_version"]
+    assert set(re.findall(r"CREATE TABLE (\w+)", step)) == MODULE4_TABLES
+    assert "REFERENCES research_jobs (id) ON DELETE CASCADE" in step
+
+
+def test_module4_downgrade_removes_only_module4_tables() -> None:
+    down = alembic_sql("downgrade", "0003:0002")
+
+    assert set(re.findall(r"DROP TABLE (\w+)", down)) == MODULE4_TABLES
