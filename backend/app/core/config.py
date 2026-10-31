@@ -30,6 +30,14 @@ class Settings(BaseSettings):
     log_level: str = "INFO"
     api_v1_prefix: str = "/api/v1"
 
+    # Local API protection: one bearer token for every non-health route. Unset means
+    # protected routes answer 503 (the app still starts without credentials).
+    aurora_api_token: SecretStr | None = Field(default=None)
+    api_write_rate_limit_per_minute: int = Field(default=60, ge=1, le=10_000)
+    api_public_rate_limit_per_minute: int = Field(default=60, ge=1, le=10_000)
+    api_auth_max_failures: int = Field(default=10, ge=1, le=1_000)
+    api_auth_lockout_seconds: int = Field(default=300, ge=10, le=86_400)
+
     database_url: SecretStr = SecretStr(
         "postgresql+asyncpg://aurora:aurora_dev_password@localhost:5432/aurora"
     )
@@ -106,6 +114,19 @@ class Settings(BaseSettings):
     website_research_batch_max_polls: int = Field(default=30, ge=1, le=300)
     website_research_max_provider_requests: int = Field(default=0, ge=0, le=100000)
 
+    # Technical SEO audit (Phase 2): per-audit caps, shown in the plan before approval.
+    seo_audit_max_pages: int = Field(default=25, ge=1, le=200)
+    seo_audit_max_link_checks: int = Field(default=50, ge=0, le=500)
+    seo_audit_max_sitemaps: int = Field(default=5, ge=0, le=20)
+    seo_audit_max_sitemap_urls: int = Field(default=10_000, ge=1, le=50_000)
+    seo_audit_max_sitemap_bytes: int = Field(
+        default=10_000_000, ge=10_000, le=50_000_000
+    )
+    seo_audit_max_html_chars: int = Field(default=3_000_000, ge=10_000, le=20_000_000)
+    seo_audit_concurrency: int = Field(default=2, ge=1, le=5)
+    seo_audit_max_duration_seconds: int = Field(default=600, ge=30, le=3600)
+    seo_audit_http_timeout_seconds: float = Field(default=10.0, gt=0, le=60)
+
     # Module 4: LLM providers and the intelligence engine. Defaults are safe: the
     # deterministic mock provider needs no credentials and costs nothing.
     llm_provider: Literal["openai", "anthropic", "groq", "mock"] = "mock"
@@ -175,6 +196,7 @@ class Settings(BaseSettings):
         return int(override) if override else self.intelligence_context_max_tokens
 
     @field_validator(
+        "aurora_api_token",
         "openai_model",
         "anthropic_model",
         "groq_model",

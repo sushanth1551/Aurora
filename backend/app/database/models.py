@@ -525,3 +525,113 @@ class GraphEntityResolutionRecord(Base):
     aliases: Mapped[list[Any]] = mapped_column(JSONType, default=list)
     created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True))
     updated_at: Mapped[datetime] = mapped_column(DateTime(timezone=True))
+
+
+# -- Phase 2: technical SEO audits ------------------------------------------------
+
+
+class SeoAuditRecord(Base):
+    """One technical SEO audit of a site: plan, approval, usage and outcome.
+
+    ``status``: planned -> running -> completed | partially_completed | failed.
+    Nothing is fetched while ``planned``; ``approval`` records the approved
+    ceilings. Pages, findings and recommendations cascade with the audit.
+    """
+
+    __tablename__ = "seo_audits"
+
+    id: Mapped[uuid.UUID] = mapped_column(Uuid, primary_key=True)
+    site_url: Mapped[str] = mapped_column(Text)
+    host: Mapped[str] = mapped_column(String(253), index=True)
+    status: Mapped[str] = mapped_column(String(32), index=True)
+    limits: Mapped[dict[str, Any]] = mapped_column(JSONType, default=dict)
+    estimate: Mapped[dict[str, Any]] = mapped_column(JSONType, default=dict)
+    approval: Mapped[dict[str, Any] | None] = mapped_column(JSONType)
+    usage: Mapped[dict[str, Any]] = mapped_column(JSONType, default=dict)
+    coverage: Mapped[dict[str, Any]] = mapped_column(JSONType, default=dict)
+    site_files: Mapped[dict[str, Any]] = mapped_column(JSONType, default=dict)
+    summary: Mapped[dict[str, Any]] = mapped_column(JSONType, default=dict)
+    error_summary: Mapped[str | None] = mapped_column(Text)
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), index=True)
+    started_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True))
+    completed_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True))
+
+
+def _audit_fk() -> Mapped[uuid.UUID]:
+    return mapped_column(ForeignKey("seo_audits.id", ondelete="CASCADE"), index=True)
+
+
+class SeoAuditPageRecord(Base):
+    """What was observed for one URL: status chain, headers, HTML signals."""
+
+    __tablename__ = "seo_audit_pages"
+    __table_args__ = (
+        UniqueConstraint("audit_id", "url", name="uq_seo_audit_page_url"),
+    )
+
+    id: Mapped[uuid.UUID] = mapped_column(Uuid, primary_key=True)
+    audit_id: Mapped[uuid.UUID] = _audit_fk()
+    url: Mapped[str] = mapped_column(Text)
+    final_url: Mapped[str | None] = mapped_column(Text)
+    status_code: Mapped[int | None] = mapped_column(Integer)
+    status_source: Mapped[str] = mapped_column(String(32))
+    depth: Mapped[int] = mapped_column(Integer, default=0)
+    discovered_via: Mapped[list[Any]] = mapped_column(JSONType, default=list)
+    redirect_chain: Mapped[list[Any]] = mapped_column(JSONType, default=list)
+    headers: Mapped[dict[str, Any]] = mapped_column(JSONType, default=dict)
+    fetch_source: Mapped[str] = mapped_column(String(32))
+    fetch_status: Mapped[str] = mapped_column(String(32), index=True)
+    fetch_detail: Mapped[str | None] = mapped_column(Text)
+    fetched_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True))
+    html_sha256: Mapped[str | None] = mapped_column(String(64))
+    html_truncated: Mapped[bool] = mapped_column(Boolean, default=False)
+    firecrawl_status: Mapped[int | None] = mapped_column(Integer)
+    googlebot_allowed: Mapped[bool | None] = mapped_column(Boolean)
+    signals: Mapped[dict[str, Any] | None] = mapped_column(JSONType)
+    structured_data: Mapped[dict[str, Any] | None] = mapped_column(JSONType)
+    indexability: Mapped[dict[str, Any]] = mapped_column(JSONType, default=dict)
+
+
+class SeoAuditFindingRecord(Base):
+    """One audit rule result with affected URLs and evidence."""
+
+    __tablename__ = "seo_audit_findings"
+
+    id: Mapped[uuid.UUID] = mapped_column(Uuid, primary_key=True)
+    audit_id: Mapped[uuid.UUID] = _audit_fk()
+    check_id: Mapped[str] = mapped_column(String(64), index=True)
+    category: Mapped[str] = mapped_column(String(32), index=True)
+    severity: Mapped[str] = mapped_column(String(16), index=True)
+    title: Mapped[str] = mapped_column(Text)
+    detail: Mapped[str] = mapped_column(Text)
+    affected_urls: Mapped[list[Any]] = mapped_column(JSONType, default=list)
+    affected_count: Mapped[int] = mapped_column(Integer, default=0)
+    evidence: Mapped[list[Any]] = mapped_column(JSONType, default=list)
+    evidence_state: Mapped[str] = mapped_column(String(24))
+    skill_refs: Mapped[list[Any]] = mapped_column(JSONType, default=list)
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True))
+
+
+class SeoAuditRecommendationRecord(Base):
+    """A prioritized action for one finding (ordinal labels, never scores)."""
+
+    __tablename__ = "seo_audit_recommendations"
+
+    id: Mapped[uuid.UUID] = mapped_column(Uuid, primary_key=True)
+    audit_id: Mapped[uuid.UUID] = _audit_fk()
+    finding_id: Mapped[uuid.UUID] = mapped_column(
+        ForeignKey("seo_audit_findings.id", ondelete="CASCADE"), index=True
+    )
+    check_id: Mapped[str] = mapped_column(String(64))
+    action: Mapped[str] = mapped_column(Text)
+    rationale: Mapped[str] = mapped_column(Text)
+    impact: Mapped[str] = mapped_column(String(16))
+    confidence: Mapped[str] = mapped_column(String(16))
+    effort: Mapped[str] = mapped_column(String(16))
+    risk: Mapped[str] = mapped_column(String(16))
+    tier: Mapped[str] = mapped_column(String(24), index=True)
+    rank: Mapped[int] = mapped_column(Integer)
+    affected_count: Mapped[int] = mapped_column(Integer, default=0)
+    verification: Mapped[str] = mapped_column(Text)
+    basis: Mapped[str] = mapped_column(String(24))
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True))

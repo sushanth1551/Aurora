@@ -9,6 +9,7 @@ from app.api.deps import get_intelligence_service
 from app.database.session import get_session
 from app.main import create_app
 from app.tools.errors import ProviderAuthenticationError
+from tests.auth_support import AUTH_HEADERS
 from tests.intel_support import (
     FakeCrawlProvider,
     FakeMapTool,
@@ -35,7 +36,9 @@ async def api(db_session):
     app.dependency_overrides[get_intelligence_service] = lambda: service
     app.dependency_overrides[get_session] = lambda: db_session  # Module 2 routes
     transport = httpx.ASGITransport(app=app, raise_app_exceptions=False)
-    async with httpx.AsyncClient(transport=transport, base_url="http://test") as client:
+    async with httpx.AsyncClient(
+        transport=transport, base_url="http://test", headers=AUTH_HEADERS
+    ) as client:
         client.service, client.fakes, client.app_ = service, fakes, app  # type: ignore[attr-defined]
         yield client
 

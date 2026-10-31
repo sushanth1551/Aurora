@@ -7,16 +7,22 @@ from pydantic import SecretStr
 from app.core.config import Settings, get_settings
 from app.main import create_app
 from app.tools.http import reset_circuit_breakers
+from tests.auth_support import AUTH_HEADERS, TEST_API_TOKEN
 from tests.intel_support import db_session  # noqa: F401  (shared fixture)
 
 
 @pytest.fixture(autouse=True)
 def isolated_settings(monkeypatch: pytest.MonkeyPatch):
-    """Ignore the root .env and any AURORA-related environment variables."""
+    """Ignore the root .env and any AURORA-related environment variables.
+
+    Only the test API token is set, so API tests authenticate with
+    ``AUTH_HEADERS``; tests of the unconfigured state delete it themselves.
+    """
     monkeypatch.setitem(Settings.model_config, "env_file", None)
     for field in Settings.model_fields:
         monkeypatch.delenv(field.upper(), raising=False)
         monkeypatch.delenv(field.lower(), raising=False)
+    monkeypatch.setenv("AURORA_API_TOKEN", TEST_API_TOKEN)
     get_settings.cache_clear()
     reset_circuit_breakers()
     yield
@@ -26,8 +32,8 @@ def isolated_settings(monkeypatch: pytest.MonkeyPatch):
 
 @pytest.fixture
 def client() -> TestClient:
-    """Create a test client for a freshly built application."""
-    return TestClient(create_app())
+    """Create an authenticated test client for a freshly built application."""
+    return TestClient(create_app(), headers=AUTH_HEADERS)
 
 
 @pytest.fixture

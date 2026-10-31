@@ -20,6 +20,7 @@ import logging
 import random
 import time
 from collections.abc import Awaitable, Callable
+from datetime import datetime
 from typing import Any
 from urllib.parse import urlsplit
 
@@ -95,6 +96,28 @@ def _text(value: Any, limit: int = 2000) -> str | None:
         return None
     value = value.strip()
     return value[:limit] if value else None
+
+
+MAX_SEO_LINKS = 2000
+
+
+class SeoScrape(BaseModel):
+    """Raw HTML of one page as Firecrawl fetched it (for technical SEO parsing).
+
+    ``provider_final_url`` and ``status_code`` are reported by Firecrawl and are
+    not verified by AURORA's URL policy; callers must treat them as such.
+    Firecrawl renders pages in a browser, so ``raw_html`` may contain
+    JavaScript-generated markup and is not a byte-exact copy of the response.
+    """
+
+    url: str
+    provider_final_url: str | None = None
+    status_code: int | None = None
+    raw_html: str = ""
+    links: list[str] = []
+    truncated: bool = False
+    original_length: int = 0
+    fetched_at: datetime
 
 
 class FirecrawlTool(ExternalTool):
@@ -276,6 +299,60 @@ class FirecrawlTool(ExternalTool):
         page.content_hash = content_hash(markdown)
         page.status = ExtractionStatus.SUCCEEDED
         return page
+
+    # -- raw HTML for technical SEO (Phase 2) ------------------------------------
+
+    async def scrape_for_seo(self, url: str, *, max_html_chars: int) -> SeoScrape:
+        """Fetch one validated public URL as raw HTML plus its link list.
+
+        Separate from ``scrape_url`` (which stays Markdown-only): requests the
+        ``rawHtml`` and ``links`` formats with ``onlyMainContent: false`` so the
+        ``<head>``, navigation and footer are kept. One Firecrawl scrape (credit)
+        per call. Provider-level problems raise ``ProviderError``.
+        """
+        self.ensure_configured()
+        try:
+            self._guard.normalize(url)
+        except UrlRejected as exc:
+            raise ProviderRequestError(
+                self.provider, f"URL refused: {exc.reason}"
+            ) from exc
+        read = self._settings.firecrawl_scrape_timeout_seconds
+        body = {
+            "url": url,
+            "formats": ["rawHtml", "links"],
+            "onlyMainContent": False,
+            "timeout": int(read * 900),
+        }
+        payload = await self._request_json(
+            "POST", FIRECRAWL_SCRAPE_URL, body, read_timeout=read
+        )
+        if payload.get("success") is not True or not isinstance(
+            payload.get("data"), dict
+        ):
+            raise ProviderResponseError(self.provider, "scrape reported failure")
+        data = payload["data"]
+        meta = data.get("metadata")
+        meta = meta if isinstance(meta, dict) else {}
+        status = meta.get("statusCode")
+        raw = data.get("rawHtml")
+        raw = raw if isinstance(raw, str) else ""
+        links = data.get("links")
+        kept = [
+            link[:2048]
+            for link in (links if isinstance(links, list) else [])
+            if isinstance(link, str)
+        ][:MAX_SEO_LINKS]
+        return SeoScrape(
+            url=url,
+            provider_final_url=_text(meta.get("url"), 2048),
+            status_code=status if isinstance(status, int) else None,
+            raw_html=raw[:max_html_chars],
+            links=kept,
+            truncated=len(raw) > max_html_chars,
+            original_length=len(raw),
+            fetched_at=utc_now(),
+        )
 
     # -- website mapping and batch scraping (Module 3) ---------------------------
 

@@ -55,6 +55,7 @@ select = ["E", "F", "I", "UP", "B"]
 "backend/app/intelligence/**" = ["E501"]  # long prompt/comment lines
 "backend/app/llm/**" = ["E501"]
 "backend/app/graph/**" = ["E501"]  # long Cypher fragments and registry tables
+"backend/app/seo/**" = ["E501"]  # audit rule tables and finding texts
 "backend/app/api/routes/graph.py" = ["E501"]
 "backend/app/database/repositories/graph_sync_repository.py" = ["E501"]
 "scripts/graph_admin.py" = ["E501"]

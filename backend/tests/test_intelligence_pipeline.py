@@ -28,6 +28,7 @@ from app.llm.mock_provider import MockProvider
 from app.main import create_app
 from app.schemas.analysis import AnalyzeRequest
 from tests.analysis_support import analysis_service, seed_acme_job
+from tests.auth_support import AUTH_HEADERS
 from tests.intel_support import (
     FakeCrawlProvider,
     FakeMapTool,
@@ -293,7 +294,9 @@ async def api(db_session):
     )
     app.dependency_overrides[get_session] = lambda: db_session
     transport = httpx.ASGITransport(app=app, raise_app_exceptions=False)
-    async with httpx.AsyncClient(transport=transport, base_url="http://test") as client:
+    async with httpx.AsyncClient(
+        transport=transport, base_url="http://test", headers=AUTH_HEADERS
+    ) as client:
         yield client
 
 
@@ -365,7 +368,9 @@ async def test_api_unconfigured_provider_is_503(db_session) -> None:
     app = create_app()
     app.dependency_overrides[get_analysis_service] = lambda: service
     transport = httpx.ASGITransport(app=app, raise_app_exceptions=False)
-    async with httpx.AsyncClient(transport=transport, base_url="http://test") as client:
+    async with httpx.AsyncClient(
+        transport=transport, base_url="http://test", headers=AUTH_HEADERS
+    ) as client:
         r = await client.post(
             "/api/v1/intelligence/analyze",
             json={

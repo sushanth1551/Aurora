@@ -78,7 +78,15 @@ data/             local generated data (git-ignored)
 ## Prerequisites
 Python 3.12, Node.js 18+ with npm. Docker is optional (local PostgreSQL/Neo4j).
 
-## Installation and backend startup (PowerShell)
+## Quick start on Windows
+After the one-time setup in [`docs/setup-guide.md`](docs/setup-guide.md) (virtual environment,
+`.env`, `scripts\init-local-secrets.ps1`), double-click **`start-aurora.bat`**. It starts
+PostgreSQL (and Neo4j when configured), asks before backing up and migrating the database,
+starts the API and dashboard on `127.0.0.1`, runs the readiness check and opens
+<http://127.0.0.1:5173>. **`stop-aurora.bat`** stops everything and keeps all data. The
+dashboard asks once per tab for the local API token (`AURORA_API_TOKEN` in `.env`).
+
+## Installation and backend startup (PowerShell, manual)
 ```powershell
 py -3.12 -m venv .venv
 .\.venv\Scripts\Activate.ps1
@@ -91,7 +99,9 @@ alembic upgrade head                   # create the Module 2 + Module 3 tables
 uvicorn app.main:app --reload
 ```
 Swagger UI: <http://127.0.0.1:8000/docs>. The API **starts** without keys or a
-database; research requests need both (otherwise they return `503`). Make sure
+database. Every route except the health checks needs `Authorization: Bearer
+<AURORA_API_TOKEN>`; research requests also need the provider keys and the database
+(otherwise they return `503`). Make sure
 `DATABASE_URL` in your `.env` is `postgresql+asyncpg://...` (see `.env.example`).
 
 ## Frontend startup

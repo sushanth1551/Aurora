@@ -11,9 +11,54 @@ value is echoed, otherwise one is generated) that also appears in server logs.
  "status": "running"}
 ```
 
+## Authentication
+
+Every route except `GET /`, `GET /api/v1/health` and `GET /api/v1/health/ready` requires
+the local API token:
+
+```http
+Authorization: Bearer <AURORA_API_TOKEN>
+```
+
+| Situation | Response |
+| --- | --- |
+| `AURORA_API_TOKEN` unset or shorter than 32 characters | `503 configuration_error` (the app still starts) |
+| Header missing | `401 authentication_required` + `WWW-Authenticate: Bearer` |
+| Wrong token | `401`; after `API_AUTH_MAX_FAILURES` wrong tokens within `API_AUTH_LOCKOUT_SECONDS` from one client, `429 rate_limited` + `Retry-After` (even for the right token until it expires) |
+| More than `API_WRITE_RATE_LIMIT_PER_MINUTE` POST/PUT/PATCH/DELETE per client | `429 rate_limited` + `Retry-After` |
+
+- **Scope:** this is single-user, local protection. It guards against other local processes and
+  web pages calling the API; it is not a user-account system.
+- **Storage:** the dashboard keeps the token in `sessionStorage` for one tab.
+- **Limits:** they live in memory and reset when the API restarts.
+- **Deployment:** a public deployment needs a separate security review.
+
+`GET /api/v1/auth/session` answers `{"authenticated": true}` for a valid token and contacts
+nothing. The dashboard uses it to check a token before storing it.
+
 ## `GET /api/v1/health`
 `{"status":"healthy","application":"AURORA","version":"0.1.0"}`. Liveness only;
-does not contact the database or any provider.
+does not contact the database or any provider. Public.
+
+## `GET /api/v1/health/ready`
+Public and rate limited (`API_PUBLIC_RATE_LIMIT_PER_MINUTE`). It checks the database
+(`SELECT 1`), the migration state and the knowledge graph, each with a 5-second timeout. It
+returns status words only, with no URLs, credentials or error text:
+
+```json
+{"status": "degraded",
+ "database": {"status": "ok"},
+ "migrations": {"status": "behind", "current": "0002", "head": "0004", "pending": ["0003", "0004"]},
+ "graph": {"status": "not_configured", "required": false}}
+```
+
+- **`status`:**
+  - `ready`: database ok, migrations current, graph connected or not configured.
+  - `degraded`: migrations behind or unknown, or graph configured but unreachable.
+  - `not_ready`: database unavailable or not configured. Answers **503**; the others answer 200.
+- **`migrations.status`:** `current`, `behind` (with `pending` listed in order),
+  `ahead_or_unknown` (the database has a revision this code does not know), or `unknown`
+  (database unreachable).
 
 ## `POST /api/v1/research` — run a research job (synchronous)
 
@@ -104,9 +149,19 @@ stages). Query parameter `include_content=false` omits `extracted_markdown`.
 Application errors use `{"error": {"code": "...", "message": "..."}}` and never
 include stack traces, URLs with credentials, or connection strings.
 
+Request validation errors use the same envelope, with status `422`, code
+`validation_error` and up to 20 `details`. The rejected input values are never echoed:
+
+```json
+{"error": {"code": "validation_error",
+           "message": "Request validation failed: body.query: String should have at least 1 character",
+           "details": [{"location": "body.query", "message": "String should have at least 1 character",
+                        "type": "string_too_short"}]}}
+```
+
 ## Planned
-Pagination of large sources, a background-job model (`202` + polling),
-authentication/authorization and rate limiting.
+Pagination of large sources and a background-job model (`202` + polling; final-product
+plan, Phase 1).
 
 # Module 3: website intelligence endpoints
 
@@ -270,3 +325,32 @@ A sync run returns `{"run_id", "status": "completed|partially_completed|failed|d
 "rejected": [...], "review": [...]}`. Errors: 404 unknown job/entity; 422 unknown label/type,
 depth above `GRAPH_MAX_TRAVERSAL_DEPTH`, extra body fields; 503 Neo4j not configured/unavailable or
 sync disabled. Details: `graph-query-guide.md`, `graph-synchronization.md`.
+
+## Technical SEO audits (Phase 2): `/api/v1/seo`
+
+API token required. Details, rules and limitations: `technical-seo-audit.md`.
+
+```http
+POST /api/v1/seo/audits                       {"url": "https://www.example.com/", "max_pages": 25}
+     -> 201 {"id", "status": "planned", "estimate": {"firecrawl_scrapes_max", "direct_requests_max", "notes"}, ...}
+        (no network request is made)
+POST /api/v1/seo/audits/{id}/run              {"approve": true, "max_firecrawl_scrapes": 25}
+     -> 200 audit with status completed | partially_completed | failed, usage, coverage, summary
+GET  /api/v1/seo/audits?host=&limit=&offset=  newest first
+GET  /api/v1/seo/audits/{id}
+GET  /api/v1/seo/audits/{id}/pages?fetch_status=&limit=&offset=
+GET  /api/v1/seo/audits/{id}/pages/{page_id}  every stored signal for one URL
+GET  /api/v1/seo/audits/{id}/findings?severity=high|medium|low|info&category=
+GET  /api/v1/seo/audits/{id}/recommendations?tier=
+GET  /api/v1/seo/audits/{id}/report?format=json|markdown
+```
+
+| Status | Meaning |
+| --- | --- |
+| 404 | Unknown audit or page |
+| 409 | The audit isn't `planned`, or another audit of the same site is running |
+| 422 | Invalid or unsafe URL, limits above the configured caps, `approve` not `true`, or `max_firecrawl_scrapes` above the estimate |
+| 503 | Firecrawl not configured (checked before anything changes), or database unavailable |
+
+A start URL that resolves to a private address is rejected when the run starts, and the audit
+ends `failed`.

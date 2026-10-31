@@ -32,8 +32,10 @@ def test_secrets_are_not_exposed_in_api_responses(monkeypatch) -> None:
 
     from app.core.config import get_settings
     from app.main import create_app
+    from tests.auth_support import AUTH_HEADERS, TEST_API_TOKEN
 
     secrets = {
+        "AURORA_API_TOKEN": TEST_API_TOKEN,
         "ANTHROPIC_API_KEY": "secret-anthropic-1",
         "GROQ_API_KEY": "secret-groq-2",
         "FIRECRAWL_API_KEY": "secret-firecrawl-3",
@@ -51,9 +53,13 @@ def test_secrets_are_not_exposed_in_api_responses(monkeypatch) -> None:
     responses = [
         client.get("/"),
         client.get("/api/v1/health"),
-        client.post("/api/v1/research", json={"query": ""}),
+        client.post("/api/v1/research", json={"query": ""}, headers=AUTH_HEADERS),
+        client.post("/api/v1/research", json={"query": ""}),  # unauthenticated
+        client.get("/api/v1/graph/health", headers={"Authorization": "Bearer wrong"}),
         client.get("/openapi.json"),
     ]
+    assert responses[2].status_code == 422
+    assert responses[3].status_code == 401
 
     combined = " ".join(r.text for r in responses)
     assert not any(value in combined for value in secrets.values())

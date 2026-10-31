@@ -48,7 +48,7 @@ def test_single_linear_head() -> None:
         [sys.executable, "-m", "alembic", "heads"],
         cwd=ROOT, env=env, capture_output=True, text=True, timeout=60,
     )  # fmt: skip
-    assert done.stdout.strip().startswith("0004") and done.stdout.count("(head)") == 1
+    assert done.stdout.strip().startswith("0005") and done.stdout.count("(head)") == 1
 
 
 def test_upgrade_sql_matches_every_model_table_column_and_constraint(
@@ -146,3 +146,27 @@ def test_module5_downgrade_removes_only_module5_tables() -> None:
     down = alembic_sql("downgrade", "0004:0003")
 
     assert set(re.findall(r"DROP TABLE (\w+)", down)) == MODULE5_TABLES
+
+
+PHASE2_TABLES = {
+    "seo_audits",
+    "seo_audit_pages",
+    "seo_audit_findings",
+    "seo_audit_recommendations",
+}
+
+
+def test_phase2_migration_is_additive() -> None:
+    step = alembic_sql("upgrade", "0004:0005")
+
+    assert "DROP TABLE" not in step and "DROP COLUMN" not in step
+    assert "ALTER TABLE" not in step and "DELETE FROM" not in step
+    assert re.findall(r"UPDATE (\w+)", step) == ["alembic_version"]
+    assert set(re.findall(r"CREATE TABLE (\w+)", step)) == PHASE2_TABLES
+    assert "ON DELETE CASCADE" in step and "uq_seo_audit_page_url" in step
+
+
+def test_phase2_downgrade_removes_only_phase2_tables() -> None:
+    down = alembic_sql("downgrade", "0005:0004")
+
+    assert set(re.findall(r"DROP TABLE (\w+)", down)) == PHASE2_TABLES

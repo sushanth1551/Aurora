@@ -24,6 +24,7 @@ from app.graph.graph_schema import Label, Rel
 from app.graph.normalization import company_id_for_domain
 from app.main import create_app
 from tests.analysis_support import seed_acme_job
+from tests.auth_support import AUTH_HEADERS
 from tests.graph_support import FlakyGraph, sync_service
 
 ACME = company_id_for_domain("acme.com")
@@ -356,7 +357,9 @@ async def api(db_session):
         graph, Settings()
     )
     transport = httpx.ASGITransport(app=app, raise_app_exceptions=False)
-    async with httpx.AsyncClient(transport=transport, base_url="http://test") as client:
+    async with httpx.AsyncClient(
+        transport=transport, base_url="http://test", headers=AUTH_HEADERS
+    ) as client:
         client.graph = graph  # type: ignore[attr-defined]
         yield client
 
@@ -432,7 +435,9 @@ async def test_api_without_neo4j_reports_not_configured(db_session) -> None:
     app = create_app()
     app.dependency_overrides[get_session] = lambda: db_session
     transport = httpx.ASGITransport(app=app, raise_app_exceptions=False)
-    async with httpx.AsyncClient(transport=transport, base_url="http://test") as client:
+    async with httpx.AsyncClient(
+        transport=transport, base_url="http://test", headers=AUTH_HEADERS
+    ) as client:
         health = (await client.get("/api/v1/graph/health")).json()
         assert health["status"] == "not_configured"
         read = await client.get(f"/api/v1/graph/companies/{ACME}")

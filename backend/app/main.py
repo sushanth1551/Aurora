@@ -13,6 +13,7 @@ from app.api.router import api_router
 from app.core.config import get_settings
 from app.core.exceptions import register_exception_handlers
 from app.core.logging import configure_logging
+from app.core.rate_limit import RateLimits
 from app.core.request_context import REQUEST_ID_HEADER, new_request_id, request_id_var
 from app.database.session import dispose_engine
 from app.graph.neo4j_client import close_graph_client
@@ -37,6 +38,7 @@ def create_app() -> FastAPI:
         debug=settings.debug,
         lifespan=lifespan,
     )
+    application.state.rate_limits = RateLimits.from_settings(settings)
 
     @application.middleware("http")
     async def correlation_id(

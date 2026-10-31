@@ -77,6 +77,48 @@ class RedirectTrace:
     hops: tuple[str, ...]
 
 
+#: Response headers kept by ``trace_http`` (lower-case); nothing else is stored.
+TRACE_HEADERS = (
+    "content-type",
+    "content-language",
+    "x-robots-tag",
+    "link",
+    "last-modified",
+    "cache-control",
+)
+REDIRECT_STATUSES = frozenset({301, 302, 303, 307, 308})
+
+
+@dataclass(frozen=True)
+class HttpHop:
+    """One request in a redirect chain: the URL, its status and the method used."""
+
+    url: str
+    status: int
+    method: str
+    location: str | None = None
+
+
+@dataclass(frozen=True)
+class HttpTrace:
+    """Statuses of every hop and the allow-listed headers of the final response."""
+
+    hops: tuple[HttpHop, ...]
+    final_headers: tuple[tuple[str, str], ...]
+
+    @property
+    def final_url(self) -> str:
+        return self.hops[-1].url
+
+    @property
+    def final_status(self) -> int:
+        return self.hops[-1].status
+
+    @property
+    def redirect_count(self) -> int:
+        return len(self.hops) - 1
+
+
 def is_public_ip(address: ipaddress.IPv4Address | ipaddress.IPv6Address) -> bool:
     """True only for globally routable unicast addresses."""
     if isinstance(address, ipaddress.IPv6Address):
@@ -249,18 +291,35 @@ class UrlPolicy:
         Automatic redirects are never used. Raises ``UrlRejected`` when a hop
         is unsafe, the chain is too long, or a hop cannot be reached.
         """
+        trace = await self.trace_http(url, client, allowed_domains, get_fallback=False)
+        return RedirectTrace(trace.final_url, tuple(hop.url for hop in trace.hops))
+
+    async def trace_http(
+        self,
+        url: str,
+        client: httpx.AsyncClient,
+        allowed_domains: Iterable[str] | None = None,
+        *,
+        get_fallback: bool = True,
+    ) -> HttpTrace:
+        """Like ``trace_redirects`` but records every hop's status and the final
+        response's allow-listed headers (``TRACE_HEADERS``).
+
+        HEAD is used first. With ``get_fallback``, a hop answering 405/501 to
+        HEAD is retried once with a streamed GET whose body is never read.
+        Every hop target is revalidated by policy before it is requested.
+        """
         current = (await self.validate(url, allowed_domains)).normalized
-        hops = [current]
+        hops: list[HttpHop] = []
         for _ in range(self._max_redirects + 1):
-            try:
-                response = await client.request("HEAD", current, follow_redirects=False)
-            except httpx.HTTPError as exc:
-                raise UrlRejected(
-                    "preflight_failed", f"Preflight failed ({type(exc).__name__})."
-                ) from exc
-            location = response.headers.get("location")
-            if response.status_code not in (301, 302, 303, 307, 308) or not location:
-                return RedirectTrace(current, tuple(hops))
+            status, headers, method = await self._probe(client, current, get_fallback)
+            location = headers.get("location")
+            hops.append(HttpHop(current, status, method, location))
+            if status not in REDIRECT_STATUSES or not location:
+                kept = tuple(
+                    (name, headers[name]) for name in TRACE_HEADERS if name in headers
+                )
+                return HttpTrace(tuple(hops), kept)
             try:
                 target = urljoin(current, location)
                 current = (await self.validate(target, allowed_domains)).normalized
@@ -268,5 +327,29 @@ class UrlPolicy:
                 raise UrlRejected(
                     "redirect_blocked", f"Redirect rejected: {exc.message}"
                 ) from exc
-            hops.append(current)
         raise UrlRejected("too_many_redirects", "Redirect limit exceeded.")
+
+    @staticmethod
+    async def _probe(
+        client: httpx.AsyncClient, url: str, get_fallback: bool
+    ) -> tuple[int, dict[str, str], str]:
+        try:
+            response = await client.request("HEAD", url, follow_redirects=False)
+            if get_fallback and response.status_code in (405, 501):
+                async with client.stream(
+                    "GET", url, follow_redirects=False
+                ) as streamed:
+                    return (
+                        streamed.status_code,
+                        {k.lower(): v for k, v in streamed.headers.items()},
+                        "GET",
+                    )
+        except httpx.HTTPError as exc:
+            raise UrlRejected(
+                "preflight_failed", f"Preflight failed ({type(exc).__name__})."
+            ) from exc
+        return (
+            response.status_code,
+            {k.lower(): v for k, v in response.headers.items()},
+            "HEAD",
+        )

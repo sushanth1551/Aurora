@@ -1,21 +1,33 @@
-"""Central API router aggregating feature routes."""
+"""Central API router aggregating feature routes.
 
-from fastapi import APIRouter
+Health routes are public; every other route requires the local API token
+(``app.api.security.require_api_token``).
+"""
+
+from fastapi import APIRouter, Depends
 
 from app.api.routes.analysis import router as analysis_router
+from app.api.routes.auth import router as auth_router
 from app.api.routes.graph import router as graph_router
 from app.api.routes.health import router as health_router
 from app.api.routes.intelligence import router as intelligence_router
 from app.api.routes.research import router as research_router
+from app.api.routes.seo import router as seo_router
+from app.api.security import require_api_token
+
+protected_router = APIRouter(dependencies=[Depends(require_api_token)])
+protected_router.include_router(auth_router, prefix="/auth", tags=["auth"])
+# Included first so the fixed paths (/websites, /intelligence) win over /{job_id}.
+protected_router.include_router(
+    intelligence_router, prefix="/research", tags=["website-intelligence"]
+)
+protected_router.include_router(research_router, prefix="/research", tags=["research"])
+protected_router.include_router(
+    analysis_router, prefix="/intelligence", tags=["intelligence-synthesis"]
+)
+protected_router.include_router(graph_router, prefix="/graph", tags=["knowledge-graph"])
+protected_router.include_router(seo_router, prefix="/seo", tags=["technical-seo"])
 
 api_router = APIRouter()
 api_router.include_router(health_router, tags=["health"])
-# Included first so the fixed paths (/websites, /intelligence) win over /{job_id}.
-api_router.include_router(
-    intelligence_router, prefix="/research", tags=["website-intelligence"]
-)
-api_router.include_router(research_router, prefix="/research", tags=["research"])
-api_router.include_router(
-    analysis_router, prefix="/intelligence", tags=["intelligence-synthesis"]
-)
-api_router.include_router(graph_router, prefix="/graph", tags=["knowledge-graph"])
+api_router.include_router(protected_router)

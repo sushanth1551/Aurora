@@ -11,6 +11,7 @@ from app.main import create_app
 from app.research.research_service import ResearchService
 from app.research.source_manager import SourceManager
 from app.tools.errors import ProviderAuthenticationError, ProviderRateLimitError
+from tests.auth_support import AUTH_HEADERS
 from tests.fakes import (
     FakeExtractor,
     FakeSearch,
@@ -37,7 +38,7 @@ def make_client(
     )
     app = create_app()
     app.dependency_overrides[get_research_service] = lambda: service
-    return TestClient(app, raise_server_exceptions=False), repo
+    return TestClient(app, raise_server_exceptions=False, headers=AUTH_HEADERS), repo
 
 
 def test_post_research_success_structure() -> None:
@@ -144,7 +145,7 @@ def test_unexpected_service_error_is_a_generic_500() -> None:
 
     app = create_app()
     app.dependency_overrides[get_research_service] = lambda: Boom()
-    client = TestClient(app, raise_server_exceptions=False)
+    client = TestClient(app, raise_server_exceptions=False, headers=AUTH_HEADERS)
 
     response = client.post("/api/v1/research", json={"query": "q"})
 

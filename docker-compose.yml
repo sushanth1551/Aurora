@@ -9,7 +9,7 @@ services:
     environment:
       DATABASE_URL: postgresql+asyncpg://aurora:${POSTGRES_PASSWORD:-aurora_dev_password}@postgres:5432/aurora
     ports:
-      - "8000:8000"
+      - "127.0.0.1:8000:8000"
     depends_on:
       postgres:
         condition: service_healthy
@@ -32,15 +32,18 @@ services:
 
   # Knowledge graph (Module 5). Start only on demand: docker compose --profile graph up -d neo4j
   # Browser: http://localhost:${NEO4J_HTTP_PORT:-7474}  Bolt: bolt://localhost:${NEO4J_BOLT_PORT:-7687}
-  # No APOC or other plugins are required.
+  # No APOC or other plugins are required. Ports are bound to 127.0.0.1 (not the network).
+  # Set a strong NEO4J_PASSWORD with scripts/init-local-secrets.ps1; the fallback below is an
+  # example only and start-aurora.ps1 refuses to start Neo4j with it. NEO4J_AUTH applies only
+  # when the data volume is first created; init-local-secrets changes an existing password.
   neo4j:
     profiles: ["graph"]
     image: neo4j:5-community
     environment:
       NEO4J_AUTH: ${NEO4J_USERNAME:-neo4j}/${NEO4J_PASSWORD:-aurora-local-only}
     ports:
-      - "${NEO4J_HTTP_PORT:-7474}:7474"
-      - "${NEO4J_BOLT_PORT:-7687}:7687"
+      - "127.0.0.1:${NEO4J_HTTP_PORT:-7474}:7474"
+      - "127.0.0.1:${NEO4J_BOLT_PORT:-7687}:7687"
     volumes:
       - neo4j_data:/data
     healthcheck:

@@ -10,6 +10,7 @@ from app.database.repositories.analysis_repository import AnalysisRepository
 from app.database.repositories.graph_sync_repository import GraphSyncRepository
 from app.database.repositories.intelligence_repository import IntelligenceRepository
 from app.database.repositories.research_repository import ResearchRepository
+from app.database.repositories.seo_audit_repository import SeoAuditRepository
 from app.database.session import get_session
 from app.graph.graph_exceptions import GraphNotConfiguredError
 from app.graph.graph_query_service import GraphQueryService
@@ -28,6 +29,7 @@ from app.research.url_policy import UrlPolicy
 from app.research.website_discovery import WebsiteDiscovery
 from app.research.website_intelligence_service import WebsiteIntelligenceService
 from app.research.website_mapper import WebsiteMapper
+from app.seo.technical.service import TechnicalSeoService
 from app.tools.firecrawl_tool import FirecrawlTool
 from app.tools.serpapi_tool import SerpApiTool
 
@@ -155,3 +157,21 @@ def get_graph_sync_service(
 
 
 GraphSyncDep = Annotated[GraphSyncService, Depends(get_graph_sync_service)]
+
+
+def get_seo_audit_service(session: SessionDep) -> TechnicalSeoService:
+    """Technical SEO audit service; Firecrawl is required only when an audit runs."""
+    settings = get_settings()
+    policy = UrlPolicy(
+        dns_timeout=settings.research_dns_timeout_seconds,
+        max_redirects=settings.research_max_redirects,
+    )
+    return TechnicalSeoService(
+        repository=SeoAuditRepository(session),
+        settings=settings,
+        policy=policy,
+        scraper=FirecrawlTool(settings),
+    )
+
+
+SeoAuditServiceDep = Annotated[TechnicalSeoService, Depends(get_seo_audit_service)]
