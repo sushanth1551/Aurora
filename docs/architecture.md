@@ -14,7 +14,9 @@ research through Module 3 → synthesis → cited report → quality gates
 `research-quality-evaluation.md`). LLM output is a validated proposal; every factual
 statement must cite stored evidence. Evidence budgets are resolved per provider
 (`Settings.context_budget_for`), so a low-limit provider such as Groq gets a smaller context.
-**Not implemented:** agents/LangGraph workflows, graph/vector retrieval,
+**Module 5:** knowledge graph (`knowledge-graph-architecture.md`): Neo4j as a derived,
+evidence-backed projection of PostgreSQL research, synchronized through an idempotent outbox.
+**Not implemented:** agents/LangGraph workflows, vector/GraphRAG retrieval,
 publishing, and monitoring; those modules are importable skeletons that raise
 `NotImplementedError` or `ConfigurationException`.
 
@@ -27,11 +29,13 @@ flowchart LR
   IS --> RS
   RS --> PG[(PostgreSQL)]
   IS --> PG
+  API --> KG[Knowledge graph<br/>Module 5]
+  KG -->|reads| PG
+  KG --> N4[(Neo4j)]
   API -.planned.-> SVC[Services]
   SVC -.-> WF[LangGraph workflows]
   WF -.-> AG[Agents]
   AG -.-> TOOLS[Provider adapters]
-  SVC -.-> N4[(Neo4j)]
   SVC -.-> VEC[(Vector store)]
 ```
 Solid arrows exist today; dotted arrows are planned.

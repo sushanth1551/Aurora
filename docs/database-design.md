@@ -2,8 +2,8 @@
 
 ## Status
 **PostgreSQL (Module 2) is implemented** for the research engine: SQLAlchemy 2.x
-async models, an Alembic migration, and a repository. **Neo4j and the vector
-store are not implemented** (`Neo4jClient.connect` raises). The API starts
+async models, an Alembic migration, and a repository. **Neo4j is implemented in Module 5** as a derived projection (see
+`knowledge-graph-schema.md`); the vector store is not implemented. The API starts
 without any database; a database is only needed when a research request is
 made. Missing/unreachable databases yield `503 persistence_error`.
 
@@ -219,3 +219,14 @@ erDiagram
   PostgreSQL only via the opt-in integration tests).
 * Commands: `alembic upgrade head`, `alembic downgrade 0001` (drops Module 3 data
   only), `alembic upgrade head --sql` (print SQL, no connection).
+
+## Module 5: graph synchronization tables (migration 0004, additive)
+
+| Table | Purpose | Keys |
+| --- | --- | --- |
+| `graph_sync_outbox` | Idempotent intent to project a research job; status, attempts, `next_retry_at`, last error | `UNIQUE (aggregate_type, aggregate_id, operation)`; indexes on aggregate_id, status, next_retry_at |
+| `graph_sync_runs` | Metrics and outcome of each sync/reconciliation run (counts JSONB, rejected/review samples) | FK research_job_id `ON DELETE SET NULL`; indexes on job, status |
+| `graph_entity_resolutions` | Auditable mapping research entity -> graph node (stage, decision, confidence, reasons, review candidate) | `UNIQUE (research_job_id, entity_key)`; FK `ON DELETE CASCADE`; indexes on entity_key, graph_node_id, decision, match_key, scope_domain |
+
+PostgreSQL remains authoritative; these tables only record synchronization state. Neo4j can be
+rebuilt from PostgreSQL at any time with `graph_admin.py sync-all`.

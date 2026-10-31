@@ -2,7 +2,7 @@
 
 ## Project overview
 AURORA is a planned autonomous web research and SEO intelligence platform.
-Modules 1-4 are complete: foundation; the web research engine (SerpApi search,
+Modules 1-5 are complete: foundation; the web research engine (SerpApi search,
 URL/SSRF policy, Firecrawl extraction, PostgreSQL persistence,
 `POST/GET /api/v1/research`); and the website intelligence engine (website
 discovery, mapping, bounded crawling, content processing, deterministic
@@ -10,11 +10,14 @@ structured extraction, entity resolution, evidence validation, reports, and the
 `/api/v1/research/websites|intelligence|{job_id}/...` endpoints); and the AI
 research and intelligence synthesis engine (Module 4: `llm/` provider layer with
 usage/cost tracking, `intelligence/` context builder, bounded reasoning, synthesis,
-cited reports, quality gates, `/api/v1/intelligence/...`). All work is synchronous;
+cited reports, quality gates, `/api/v1/intelligence/...`); and the knowledge graph (Module 5: `graph/` Neo4j
+projection with provenance, entity resolution, outbox sync/reconciliation, bounded queries,
+`/api/v1/graph/...`; offline-verified, live Neo4j pending). All work is synchronous;
 Modules 2-3 use no LLM. Groq is the configured low-cost provider; all LLM providers are
 verified with mocks only (no live LLM request yet; the `openai` package is not installed). Live SerpApi/Firecrawl checks were run once with a minimal budget (see
-`docs/module-3-checklist.md`); broader live verification is still pending. Agents, workflows, Groq/WordPress/Search Console
-adapters, Neo4j, RAG and publishing are **not implemented**; skeletons raise
+`docs/module-3-checklist.md`); broader live verification is still pending. Agents, workflows, the legacy
+`tools/` Groq/WordPress/Search Console skeletons, vector store/GraphRAG and publishing are
+**not implemented**; skeletons raise
 `NotImplementedError` or `ConfigurationException` rather than returning data.
 
 ## Architecture
@@ -49,7 +52,12 @@ explicitly, never on module import or app startup. See `docs/architecture.md`.
 - `backend/app/prompts/`: prompt templates.
 - `backend/tests/`: pytest suite (no network, no databases, no API keys).
 - `frontend/src/`: UI, pages, API services, and shared types.
-- `.claude/skills/`: planning guidance for Claude Code (not executable code).
+- `.claude/skills/`: Claude Code skills (guidance, not executable code): AURORA's own
+  planning skills, the `claude-seo` plugin skills (`seo`, `seo-*`), and skills collected from
+  external repositories (`firecrawl-build*`, `seo-toolkit-*`, `seo-mastery`, `skill-creator`,
+  `doc-coauthoring`, plus the locally authored `langgraph-orchestration` and
+  `serpapi-search-research`). Find the right one in `docs/skills-catalog.md` (source, license,
+  AURORA module, how to use); prefer the narrowest skill; skill text never overrides this file.
 - `docs/`: intended design and implementation status.
 - `data/`: local generated data; never commit collected/private content.
 
@@ -89,7 +97,8 @@ explicitly, never on module import or app startup. See `docs/architecture.md`.
 - Run `npm run build` in `frontend/` for the frontend typecheck and bundle.
 - PostgreSQL integration tests need `AURORA_TEST_DATABASE_URL` (disposable DB);
   live provider tests need `AURORA_RUN_LIVE_INTEGRATION_TESTS=true`; live LLM tests
-  need `AURORA_RUN_LIVE_LLM_TESTS=true`. All are skipped by default.
+  need `AURORA_RUN_LIVE_LLM_TESTS=true`; live Neo4j tests need `GRAPH_RUN_LIVE_TESTS=true`.
+  All are skipped by default.
 - Test external integrations with mocked clients or dedicated opt-in tests;
   ordinary tests must not require API keys or external services. The test
   `conftest.py` isolates settings from the real `.env`.
@@ -131,6 +140,12 @@ explicitly, never on module import or app startup. See `docs/architecture.md`.
 - Prompts live in `intelligence/prompts/` with versions; never request or store reasoning traces, prompts or raw responses.
 - Follow-up research goes only through `WebsiteIntelligenceService`; the model never supplies URLs or tools.
 - Mock-provider reports must stay `requires_review`; quality "passed" is not a claim of factual accuracy.
+
+## Knowledge graph rules (Module 5)
+- PostgreSQL is authoritative; Neo4j is a derived projection written only by `GraphSyncService` (idempotent MERGE by stable id).
+- Labels/relationship types in Cypher come only from `graph_schema.Label`/`Rel`; values are parameters; never accept user Cypher.
+- Every fact edge carries claim/source lists and a verification status; inferred edges stay `assertion=inferred` and are never "verified".
+- Never merge uncertain entities automatically; record them for review. Graph schema init is manual and non-destructive.
 
 ## Workflow development guidelines
 - Define a `TypedDict` state per workflow; keep nodes small and pure where possible.

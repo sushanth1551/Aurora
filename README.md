@@ -2,10 +2,12 @@
 
 **Autonomous Web Research and SEO Intelligence Platform.** AURORA aims to turn
 web sources into source-grounded research, SEO insight, and approved content.
-The project is at the **Module 4 stage**: the web research engine (Module 2), the
+The project is at the **Module 5 stage**: the web research engine (Module 2), the
 website intelligence engine (Module 3) and the AI research and intelligence synthesis
 engine (Module 4: LLM provider layer, evidence context, bounded reasoning, synthesis,
-cited reports, quality gates) are implemented and tested with mocked providers. No live
+cited reports, quality gates) and the knowledge graph (Module 5: Neo4j projection of
+validated research with provenance, entity resolution, sync/reconciliation, graph queries)
+are implemented and tested with mocked providers and an in-memory graph. No live
 LLM request has been made. Agents, graph/RAG, SEO content and publishing are still
 planned. Live provider verification was done once with a
 minimal budget (see `docs/module-3-checklist.md`); broader checks are pending (need your
@@ -35,7 +37,8 @@ API keys).
 | React/TypeScript dashboard with research form | Implemented (scaffold) |
 | Agents, LangGraph workflows | Skeletons — not functional (`ResearchState` is ready for them) |
 | Groq, WordPress, Search Console adapters (and legacy `ClaudeTool`) | Skeletons — no real calls |
-| Neo4j, vector store, RAG | Not implemented |
+| Neo4j knowledge graph (schema, resolution, provenance, outbox sync, queries, `/api/v1/graph`) | **Implemented (Module 5)**; offline-verified; live Neo4j not run yet |
+| Vector store, GraphRAG | Not implemented (Module 6) |
 | Keyword research, SERP analysis, content generation, publishing | Planned |
 
 ## Technology stack
@@ -117,7 +120,8 @@ credential is optional. Variables: `APP_NAME`, `APP_ENV`, `DEBUG`, `LOG_LEVEL`,
 `API_V1_PREFIX`, `DATABASE_URL`, `SERPAPI_API_KEY`, `FIRECRAWL_API_KEY`,
 `RESEARCH_*` and `WEBSITE_RESEARCH_*` limits, `LLM_*` (provider, keys, models, timeouts,
 fallback, pricing), `INTELLIGENCE_*` limits, `AURORA_RUN_LIVE_INTEGRATION_TESTS`,
-`AURORA_RUN_LIVE_LLM_TESTS`, and (future) `NEO4J_*`, `WORDPRESS_*`,
+`AURORA_RUN_LIVE_LLM_TESTS`, `NEO4J_*` and `GRAPH_*` (knowledge graph, optional; see
+`docs/neo4j-setup.md`), and (future) `WORDPRESS_*`,
 `GOOGLE_*`. `LLM_PROVIDER=mock` (default) needs no keys. Groq (`GROQ_API_KEY`, `GROQ_MODEL`,
 `GROQ_BASE_URL`) is the recommended low-cost provider; see
 [`docs/llm-provider-architecture.md`](docs/llm-provider-architecture.md) for the Groq-only
@@ -138,6 +142,7 @@ setup. Evidence budgets are per provider
 | GET | `/api/v1/research/{job_id}/progress` `/websites` `/entities` `/claims` `/report` | Read job status and results |
 | POST | `/api/v1/intelligence/analyze` | Analyse a stored research job (LLM, synchronous) |
 | GET | `/api/v1/intelligence/{job_id}` `/report` `/usage` `/quality` | Latest analysis, report (JSON/Markdown), LLM usage, quality |
+| GET/POST | `/api/v1/graph/health` `/sync` `/sync/reconcile` `/sync/status/{job_id}` `/companies/{id}` `/explore` ... | Knowledge graph sync and bounded queries (see `docs/graph-query-guide.md`) |
 
 Details: [`docs/api-documentation.md`](docs/api-documentation.md).
 
@@ -148,7 +153,8 @@ SEO content → approval-gated publishing and monitoring. See
 [`docs/module-1-checklist.md`](docs/module-1-checklist.md) and
 [`docs/module-2-checklist.md`](docs/module-2-checklist.md) and
 [`docs/module-3-checklist.md`](docs/module-3-checklist.md) and
-[`docs/module-4-checklist.md`](docs/module-4-checklist.md). Module 3 design:
+[`docs/module-4-checklist.md`](docs/module-4-checklist.md) and
+[`docs/module-5-checklist.md`](docs/module-5-checklist.md). Module 3 design:
 [`docs/website-intelligence-engine.md`](docs/website-intelligence-engine.md); Module 4:
 [`docs/llm-provider-architecture.md`](docs/llm-provider-architecture.md) and the linked docs.
 

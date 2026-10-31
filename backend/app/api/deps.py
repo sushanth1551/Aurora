@@ -7,9 +7,15 @@ from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.core.config import get_settings
 from app.database.repositories.analysis_repository import AnalysisRepository
+from app.database.repositories.graph_sync_repository import GraphSyncRepository
 from app.database.repositories.intelligence_repository import IntelligenceRepository
 from app.database.repositories.research_repository import ResearchRepository
 from app.database.session import get_session
+from app.graph.graph_exceptions import GraphNotConfiguredError
+from app.graph.graph_query_service import GraphQueryService
+from app.graph.graph_repository import Neo4jGraphRepository
+from app.graph.graph_sync_service import GraphSyncService
+from app.graph.neo4j_client import Neo4jClient, get_graph_client
 from app.intelligence.context_builder import ContextBuilder
 from app.intelligence.followup import WebsiteFollowUpExecutor
 from app.intelligence.service import IntelligenceAnalysisService
@@ -95,3 +101,57 @@ def get_analysis_service(session: SessionDep) -> IntelligenceAnalysisService:
 AnalysisServiceDep = Annotated[
     IntelligenceAnalysisService, Depends(get_analysis_service)
 ]
+
+
+# -- Module 5: knowledge graph ---------------------------------------------------------
+
+
+def get_graph_client_dep() -> Neo4jClient:
+    """Shared Neo4j client (lazy: the driver connects on first use)."""
+    return get_graph_client()
+
+
+GraphClientDep = Annotated[Neo4jClient, Depends(get_graph_client_dep)]
+
+
+def get_graph_repository(client: GraphClientDep) -> Neo4jGraphRepository:
+    """Neo4j-backed repository; raises 503 when Neo4j is not configured."""
+    if not client.is_configured:
+        raise GraphNotConfiguredError(
+            "Neo4j is not configured; set NEO4J_URI, NEO4J_USERNAME and NEO4J_PASSWORD."
+        )
+    return Neo4jGraphRepository(client)
+
+
+GraphRepositoryDep = Annotated[Neo4jGraphRepository, Depends(get_graph_repository)]
+
+
+def get_graph_query_service(repo: GraphRepositoryDep) -> GraphQueryService:
+    return GraphQueryService(repo, get_settings())
+
+
+GraphQueryDep = Annotated[GraphQueryService, Depends(get_graph_query_service)]
+
+
+def get_graph_sync_repository(session: SessionDep) -> GraphSyncRepository:
+    return GraphSyncRepository(session)
+
+
+GraphSyncRepoDep = Annotated[GraphSyncRepository, Depends(get_graph_sync_repository)]
+
+
+def get_graph_sync_service(
+    session: SessionDep, client: GraphClientDep
+) -> GraphSyncService:
+    """Sync service; the graph is optional so dry runs work without Neo4j."""
+    settings = get_settings()
+    return GraphSyncService(
+        research_repo=ResearchRepository(session),
+        intelligence_repo=IntelligenceRepository(session),
+        sync_repo=GraphSyncRepository(session),
+        graph=Neo4jGraphRepository(client) if client.is_configured else None,
+        settings=settings,
+    )
+
+
+GraphSyncDep = Annotated[GraphSyncService, Depends(get_graph_sync_service)]

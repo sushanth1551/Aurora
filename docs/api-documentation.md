@@ -240,3 +240,33 @@ Each one accepts `?analysis_id=` to select an analysis other than the latest. Re
 citations are evidence ids (`c-…` for a stored claim, `s-…` for a stored source excerpt)
 listed in `sources` with their stored URL and excerpt. See `report-generation.md` and
 `research-quality-evaluation.md`.
+
+## Knowledge graph (Module 5): `/api/v1/graph`
+
+Neo4j is optional. Without `NEO4J_PASSWORD`, `GET /graph/health` returns
+`{"status":"not_configured"}` and graph reads return `503 graph_not_configured`;
+`POST /graph/sync` with `"dry_run": true` still works (it reads PostgreSQL only).
+
+```http
+GET  /api/v1/graph/health                                 # connected | disconnected | unavailable | not_configured
+POST /api/v1/graph/sync            {"research_job_id": "...", "dry_run": false}
+POST /api/v1/graph/sync/reconcile  {"dry_run": true}
+POST /api/v1/graph/sync/process    {"limit": 20}           # pending + due failed events
+POST /api/v1/graph/sync/retry      {"limit": 20}           # due failed events only
+GET  /api/v1/graph/sync/status/{job_id}                   # "synchronized" true only after Neo4j confirmed
+GET  /api/v1/graph/review                                 # entity matches kept separate for review
+GET  /api/v1/graph/entities?label=Company&name=acme
+GET  /api/v1/graph/entities/{id}  |  /relationships  |  /evidence  |  /claims
+GET  /api/v1/graph/companies/{id}  |  /products  |  /services  |  /competitors  |  /network
+GET  /api/v1/graph/companies/{a}/compare/{b}
+GET  /api/v1/graph/products/{id}/technologies  |  /features  |  /integrations  |  /competitors
+GET  /api/v1/graph/products/{a}/compare/{b}
+GET  /api/v1/graph/technologies/{id}/companies  |  /network
+GET  /api/v1/graph/features/{id}/products   /articles/{id}/topics   /topics/{id}/articles   /claims/{id}/sources
+GET  /api/v1/graph/explore?entity_id=...&depth=2&types=OFFERS&types=USES&limit=50
+```
+
+A sync run returns `{"run_id", "status": "completed|partially_completed|failed|dry_run", "counts": {...},
+"rejected": [...], "review": [...]}`. Errors: 404 unknown job/entity; 422 unknown label/type,
+depth above `GRAPH_MAX_TRAVERSAL_DEPTH`, extra body fields; 503 Neo4j not configured/unavailable or
+sync disabled. Details: `graph-query-guide.md`, `graph-synchronization.md`.

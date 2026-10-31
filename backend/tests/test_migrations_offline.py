@@ -48,7 +48,7 @@ def test_single_linear_head() -> None:
         [sys.executable, "-m", "alembic", "heads"],
         cwd=ROOT, env=env, capture_output=True, text=True, timeout=60,
     )  # fmt: skip
-    assert done.stdout.strip().startswith("0003") and done.stdout.count("(head)") == 1
+    assert done.stdout.strip().startswith("0004") and done.stdout.count("(head)") == 1
 
 
 def test_upgrade_sql_matches_every_model_table_column_and_constraint(
@@ -124,3 +124,25 @@ def test_module4_downgrade_removes_only_module4_tables() -> None:
     down = alembic_sql("downgrade", "0003:0002")
 
     assert set(re.findall(r"DROP TABLE (\w+)", down)) == MODULE4_TABLES
+
+
+MODULE5_TABLES = {"graph_sync_outbox", "graph_sync_runs", "graph_entity_resolutions"}
+
+
+def test_module5_migration_is_additive() -> None:
+    step = alembic_sql("upgrade", "0003:0004")
+
+    assert "DROP TABLE" not in step and "DROP COLUMN" not in step
+    assert "ALTER TABLE" not in step and "DELETE FROM" not in step
+    assert re.findall(r"UPDATE (\w+)", step) == ["alembic_version"]
+    assert set(re.findall(r"CREATE TABLE (\w+)", step)) == MODULE5_TABLES
+    assert (
+        "uq_graph_outbox_aggregate_op" in step
+        and "uq_graph_resolution_job_entity" in step
+    )
+
+
+def test_module5_downgrade_removes_only_module5_tables() -> None:
+    down = alembic_sql("downgrade", "0004:0003")
+
+    assert set(re.findall(r"DROP TABLE (\w+)", down)) == MODULE5_TABLES

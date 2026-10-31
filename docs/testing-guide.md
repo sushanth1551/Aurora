@@ -132,3 +132,15 @@ python -m pytest backend/tests/test_llm_live.py -k groq -v
 
 PostgreSQL tests must point at a database you created for the purpose and can drop, named
 `aurora_test_<suffix>` on localhost (the fixtures downgrade to base). Never your dev database.
+
+## Module 5 tests (knowledge graph)
+
+| File | Covers |
+| --- | --- |
+| `test_graph_schema_client.py` | Registry and required triples, invalid relationships, constraints/indexes, config secrecy, lazy client, transactions/timeouts/pool, error mapping, health states |
+| `test_graph_extraction.py` | Normalization, extraction, resolution stages, review, cross-domain and cross-site separation, LLM threshold, relationships, competitor inference, proposals, provenance |
+| `test_graph_sync_queries.py` | Sync idempotency, dry run, cross-job dedup, outage -> retry, dead letters, reconciliation, queries, limits, Cypher parameterization, API |
+| `test_graph_live.py` | Opt-in (`GRAPH_RUN_LIVE_TESTS=true`): schema init, sync and query parity between Neo4j and the in-memory store |
+
+`tests/graph_support.py` has synthetic Module 3 builders and a flaky graph double. A PostgreSQL
+test of the sync bookkeeping is in `test_research_integration.py`.

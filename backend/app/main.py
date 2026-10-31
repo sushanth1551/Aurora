@@ -15,14 +15,16 @@ from app.core.exceptions import register_exception_handlers
 from app.core.logging import configure_logging
 from app.core.request_context import REQUEST_ID_HEADER, new_request_id, request_id_var
 from app.database.session import dispose_engine
+from app.graph.neo4j_client import close_graph_client
 
 
 @asynccontextmanager
 async def lifespan(_: FastAPI) -> AsyncIterator[None]:
-    """Configure logging; close the database pool (if opened) on shutdown."""
+    """Configure logging; close the database pool and graph driver (if opened)."""
     configure_logging(get_settings().log_level)
     yield
     await dispose_engine()
+    await close_graph_client()
 
 
 def create_app() -> FastAPI:

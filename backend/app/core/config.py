@@ -37,6 +37,19 @@ class Settings(BaseSettings):
     neo4j_uri: str = "bolt://localhost:7687"
     neo4j_username: str = "neo4j"
     neo4j_password: SecretStr | None = Field(default=None)
+    neo4j_database: str = "neo4j"
+    neo4j_connection_timeout_seconds: float = Field(default=10.0, gt=0, le=120)
+    neo4j_query_timeout_seconds: float = Field(default=30.0, gt=0, le=600)
+    neo4j_max_connection_pool_size: int = Field(default=50, ge=1, le=500)
+
+    # Module 5: knowledge graph synchronization and querying.
+    graph_sync_enabled: bool = True
+    graph_sync_batch_size: int = Field(default=100, ge=1, le=1000)
+    graph_sync_max_retries: int = Field(default=3, ge=0, le=10)
+    graph_max_traversal_depth: int = Field(default=3, ge=1, le=5)
+    graph_max_query_results: int = Field(default=100, ge=1, le=1000)
+    graph_enable_llm_entity_resolution: bool = False
+    graph_llm_resolution_min_confidence: float = Field(default=0.9, ge=0.5, le=1.0)
 
     firecrawl_api_key: SecretStr | None = Field(default=None)
     serpapi_api_key: SecretStr | None = Field(default=None)

@@ -437,3 +437,91 @@ class ReportQualityEvaluationRecord(Base):
     evaluation_status: Mapped[str] = mapped_column(String(24))
     issues: Mapped[list[Any]] = mapped_column(JSONType, default=list)
     evaluated_at: Mapped[datetime] = mapped_column(DateTime(timezone=True))
+
+
+# -- Module 5: knowledge graph synchronization ---------------------------------------
+
+
+class GraphSyncOutboxRecord(Base):
+    """One pending/processed graph projection of an aggregate (a research job).
+
+    ``(aggregate_type, aggregate_id, operation)`` is unique, so enqueueing the
+    same job twice reuses one row (idempotent outbox). Payloads are references,
+    never document content.
+    """
+
+    __tablename__ = "graph_sync_outbox"
+    __table_args__ = (
+        UniqueConstraint(
+            "aggregate_type",
+            "aggregate_id",
+            "operation",
+            name="uq_graph_outbox_aggregate_op",
+        ),
+    )
+
+    event_id: Mapped[uuid.UUID] = mapped_column(Uuid, primary_key=True)
+    aggregate_type: Mapped[str] = mapped_column(String(32))
+    aggregate_id: Mapped[uuid.UUID] = mapped_column(Uuid, index=True)
+    operation: Mapped[str] = mapped_column(String(32))
+    payload_reference: Mapped[str | None] = mapped_column(Text)
+    status: Mapped[str] = mapped_column(String(16), index=True)
+    attempt_count: Mapped[int] = mapped_column(Integer, default=0)
+    next_retry_at: Mapped[datetime | None] = mapped_column(
+        DateTime(timezone=True), index=True
+    )
+    last_error: Mapped[str | None] = mapped_column(Text)
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True))
+    updated_at: Mapped[datetime] = mapped_column(DateTime(timezone=True))
+    processed_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True))
+
+
+class GraphSyncRunRecord(Base):
+    """Metrics and outcome of one synchronization or reconciliation run."""
+
+    __tablename__ = "graph_sync_runs"
+
+    id: Mapped[uuid.UUID] = mapped_column(Uuid, primary_key=True)
+    research_job_id: Mapped[uuid.UUID | None] = mapped_column(
+        ForeignKey("research_jobs.id", ondelete="SET NULL"), index=True
+    )
+    mode: Mapped[str] = mapped_column(String(24))
+    dry_run: Mapped[bool] = mapped_column(Boolean, default=False)
+    status: Mapped[str] = mapped_column(String(24), index=True)
+    counts: Mapped[dict[str, Any]] = mapped_column(JSONType, default=dict)
+    rejected: Mapped[list[Any]] = mapped_column(JSONType, default=list)
+    review: Mapped[list[Any]] = mapped_column(JSONType, default=list)
+    error_summary: Mapped[str | None] = mapped_column(Text)
+    started_at: Mapped[datetime] = mapped_column(DateTime(timezone=True))
+    completed_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True))
+    duration_ms: Mapped[int] = mapped_column(Integer, default=0)
+
+
+class GraphEntityResolutionRecord(Base):
+    """Auditable mapping of a research entity onto a graph node."""
+
+    __tablename__ = "graph_entity_resolutions"
+    __table_args__ = (
+        UniqueConstraint(
+            "research_job_id", "entity_key", name="uq_graph_resolution_job_entity"
+        ),
+    )
+
+    id: Mapped[uuid.UUID] = mapped_column(Uuid, primary_key=True)
+    research_job_id: Mapped[uuid.UUID] = mapped_column(
+        ForeignKey("research_jobs.id", ondelete="CASCADE"), index=True
+    )
+    entity_key: Mapped[str] = mapped_column(String(36), index=True)
+    label: Mapped[str] = mapped_column(String(32))
+    graph_node_id: Mapped[str] = mapped_column(String(36), index=True)
+    stage: Mapped[str] = mapped_column(String(16))
+    decision: Mapped[str] = mapped_column(String(16), index=True)
+    confidence: Mapped[float] = mapped_column(Float)
+    reasons: Mapped[list[Any]] = mapped_column(JSONType, default=list)
+    candidate_node_id: Mapped[str | None] = mapped_column(String(36))
+    canonical_name: Mapped[str] = mapped_column(Text)
+    match_key: Mapped[str] = mapped_column(String(300), index=True)
+    scope_domain: Mapped[str | None] = mapped_column(String(253), index=True)
+    aliases: Mapped[list[Any]] = mapped_column(JSONType, default=list)
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True))
+    updated_at: Mapped[datetime] = mapped_column(DateTime(timezone=True))

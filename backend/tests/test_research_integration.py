@@ -412,3 +412,34 @@ async def test_module4_analysis_persists_in_postgres(migrated_db) -> None:
         assert await repo.count_rows(LLMUsageRecord, response.analysis_id) >= 1
         report, _ = await repo.get_report(response.analysis_id)
         assert report.sources and report.research_job_id == job
+
+
+# -- Module 5 -------------------------------------------------------------------
+
+
+@pytest.mark.postgres
+@requires_postgres
+async def test_module5_graph_sync_bookkeeping_in_postgres(migrated_db) -> None:
+    from app.database.repositories.graph_sync_repository import GraphSyncRepository
+    from app.graph.graph_repository import InMemoryGraphRepository
+    from tests.analysis_support import seed_acme_job
+    from tests.graph_support import sync_service
+
+    factory, _ = migrated_db
+    async with factory() as session:
+        first, second = await seed_acme_job(session), await seed_acme_job(session)
+        graph = InMemoryGraphRepository()
+        svc = sync_service(session, graph)
+        await svc.sync_job(first)
+        run = await svc.sync_job(second)
+        assert (
+            run.counts.duplicates_detected > 0
+        )  # prior resolutions read from PostgreSQL
+        repo = GraphSyncRepository(session)
+        eligible = await repo.eligible_jobs()
+        assert set(eligible) == {first, second} and all(
+            n > 0 for n in eligible.values()
+        )
+        assert (await repo.get_event(first)).status == "succeeded"
+        report = await svc.reconcile(dry_run=True)
+        assert report.totals == {"in_sync": 2}

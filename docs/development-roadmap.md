@@ -15,7 +15,7 @@ This roadmap is a proposed sequence, not a feature-completion claim.
    layer with usage/cost tracking, evidence context, bounded reasoning with
    controlled follow-up research, synthesis, cited reports and quality gates.
    Pending: live LLM verification, background execution, response caching.
-5. **Knowledge graph:** Neo4j constraints, schema validation, entity resolution,
+5. **Knowledge graph (done in Module 5; live Neo4j verification pending):** Neo4j constraints, schema validation, entity resolution,
    idempotent writes, and provenance.
 6. **RAG:** document processing, chunk/embedding strategy, vector adapter,
    graph/vector retrieval, and grounded answer evaluation.
