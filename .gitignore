@@ -1,0 +1,43 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+.venv/
+venv/
+
+# Secrets and local settings
+.env
+.env.*
+!.env.example
+!**/.env.example
+.claude/settings.local.json
+
+# Frontend
+node_modules/
+frontend/dist/
+frontend/.vite/
+
+# Editors and operating systems
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Generated user data; retain directory placeholders.
+data/*
+!data/raw/
+!data/processed/
+!data/reports/
+!data/content/
+data/raw/*
+data/processed/*
+data/reports/*
+data/content/*
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+!data/reports/.gitkeep
+!data/content/.gitkeep
