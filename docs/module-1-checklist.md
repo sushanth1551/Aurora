@@ -1,6 +1,6 @@
 # Module 1 checklist — project foundation
 
-**Completion date:** 2026-10-31 (all items except Git commit)
+**Completion date:** 2026-10-31 
 
 ## Checklist
 - [x] 1. Root project structure (`.claude/`, `backend/`, `frontend/`, `data/`, `docs/`, `scripts/`).
@@ -16,7 +16,7 @@
 - [x] 11. `.env.example`, `.gitignore`, `.dockerignore`, `settings.local.json.example` (no secrets, no permissions granted).
 - [x] 12. Backend and frontend checks executed (see below).
 - [x] 13. Pytest suite passes.
-- [ ] 14. Git initialized and 133 files staged, but **the initial commit is not created**: the configured Git `user.name` is the placeholder "Your GitHub username". Set a real identity, then commit with the message `Initial commit: AURORA Module 1 project foundation`.
+- [x] 14. Git initialized on `main` and the initial commit created (`Initial commit: AURORA Module 1 project foundation`).
 
 ## Validation results
 - `compileall`: OK; `import app.main`: OK.
@@ -34,4 +34,4 @@
 - Crawl URL validation does not resolve DNS or check redirects.
 
 ## Git commit hash
-Not created yet (see item 14).
+`fe82176`
