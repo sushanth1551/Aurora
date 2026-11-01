@@ -11,6 +11,7 @@ from app.api.routes.auth import router as auth_router
 from app.api.routes.graph import router as graph_router
 from app.api.routes.health import router as health_router
 from app.api.routes.intelligence import router as intelligence_router
+from app.api.routes.keywords import router as keywords_router
 from app.api.routes.research import router as research_router
 from app.api.routes.seo import router as seo_router
 from app.api.security import require_api_token
@@ -27,6 +28,9 @@ protected_router.include_router(
 )
 protected_router.include_router(graph_router, prefix="/graph", tags=["knowledge-graph"])
 protected_router.include_router(seo_router, prefix="/seo", tags=["technical-seo"])
+protected_router.include_router(
+    keywords_router, prefix="/seo/keywords", tags=["keyword-research"]
+)
 
 api_router = APIRouter()
 api_router.include_router(health_router, tags=["health"])

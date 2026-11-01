@@ -5,9 +5,10 @@ import { ResearchForm } from "../components/ResearchForm";
 import { ApiError, clearApiToken, getApiToken } from "../services/api";
 import { submitResearch } from "../services/research";
 import type { ResearchResponse } from "../types/research";
+import { KeywordsPage } from "./KeywordsPage";
 import { TechnicalSeoPage } from "./TechnicalSeoPage";
 
-type View = "research" | "seo";
+type View = "research" | "seo" | "keywords";
 
 export function DashboardPage() {
   const [view, setView] = useState<View>("research");
@@ -68,6 +69,13 @@ export function DashboardPage() {
           >
             Technical SEO
           </button>
+          <button
+            type="button"
+            aria-current={view === "keywords" ? "page" : undefined}
+            onClick={() => setView("keywords")}
+          >
+            Keywords
+          </button>
         </nav>
         {connected ? (
           <button
@@ -87,6 +95,12 @@ export function DashboardPage() {
 
       {connected && view === "seo" ? (
         <TechnicalSeoPage
+          onUnauthorized={() =>
+            disconnect("The API token is no longer accepted. Enter it again.")
+          }
+        />
+      ) : connected && view === "keywords" ? (
+        <KeywordsPage
           onUnauthorized={() =>
             disconnect("The API token is no longer accepted. Enter it again.")
           }

@@ -16,7 +16,7 @@ import logging
 import random
 import time
 from collections.abc import Awaitable, Callable
-from typing import Any
+from typing import TYPE_CHECKING, Any
 from urllib.parse import urlsplit
 
 import httpx
@@ -34,6 +34,9 @@ from app.tools.http import (
     retry_async,
     send_bounded,
 )
+
+if TYPE_CHECKING:
+    from app.tools.serpapi_features import SerpSnapshotData
 
 logger = logging.getLogger(__name__)
 install_secret_redaction()  # the API key is a URL query parameter
@@ -152,6 +155,63 @@ class SerpApiTool(ExternalTool):
             duration_ms=int((time.monotonic() - started) * 1000),
         )
         return results
+
+    async def search_serp(
+        self,
+        query: str,
+        *,
+        num_results: int = 10,
+        country: str | None = None,
+        language: str | None = None,
+        device: str | None = None,
+        location: str | None = None,
+    ) -> "SerpSnapshotData":
+        """One search returning organic results *and* SERP features.
+
+        Same request, retries and cost as ``search`` (one SerpApi search); the
+        extra data (People Also Ask, related searches, featured snippet, AI
+        Overview status, ads/shopping/local flags) comes from the same response.
+        ``device`` is ``desktop``, ``mobile`` or ``tablet``; ``location`` is a
+        free-text SerpApi location. ``search`` is unchanged.
+        """
+        from app.tools.serpapi_features import parse_serp
+
+        self.ensure_configured()
+        count = max(1, min(num_results, MAX_NUM_RESULTS))
+        params = self._build_params(query, count, country, language)
+        if device in ("desktop", "mobile", "tablet"):
+            params["device"] = device
+        if location:
+            params["location"] = location[:200]
+        started = time.monotonic()
+        payload = await retry_async(
+            lambda: self._fetch(params),
+            provider=self.provider,
+            max_retries=self._settings.research_max_retries,
+            base_delay=self._settings.research_retry_base_delay_seconds,
+            max_delay=self._settings.research_retry_max_delay_seconds,
+            sleep=self._sleep,
+            rng=self._rng,
+        )
+        snapshot = parse_serp(
+            payload,
+            query=query,
+            organic=self._parse(payload, count),
+            country=country,
+            language=language,
+            device=device,
+            location=location,
+        )
+        log_event(
+            logger,
+            "provider_call",
+            provider=self.provider,
+            operation="search_serp",
+            status="ok",
+            results=len(snapshot.organic),
+            duration_ms=int((time.monotonic() - started) * 1000),
+        )
+        return snapshot
 
     def _build_params(
         self, query: str, num: int, country: str | None, language: str | None

@@ -209,3 +209,91 @@ async def test_api_key_never_appears_in_logs_or_errors(
         await tool(keyed_settings, fake_sleep).search("q")
 
     assert secret not in str(excinfo.value) and secret not in caplog.text
+
+
+# -- search_serp (Phase 3) -------------------------------------------------------------
+
+SERP_PAYLOAD = {
+    **PAYLOAD,
+    "related_questions": [
+        {"question": "What is it?", "link": "https://example.com/faq"}
+    ],
+    "related_searches": [{"query": "related thing"}],
+    "answer_box": {
+        "type": "organic_result",
+        "snippet": "Direct answer",
+        "link": "https://example.com/a",
+    },
+    "ai_overview": {"page_token": "tok"},
+}
+
+
+@respx.mock
+async def test_search_serp_sends_device_and_location_and_parses_features(
+    keyed_settings, fake_sleep
+) -> None:
+    route = respx.get(SERPAPI_URL).mock(
+        return_value=httpx.Response(200, json=SERP_PAYLOAD)
+    )
+    snapshot = await tool(keyed_settings, fake_sleep).search_serp(
+        "email tools",
+        num_results=10,
+        country="us",
+        language="en",
+        device="mobile",
+        location="Austin, Texas",
+    )
+    params = dict(route.calls.last.request.url.params)
+    assert (
+        params["q"] == "email tools"
+        and params["device"] == "mobile"
+        and params["location"] == "Austin, Texas"
+    )
+    assert (
+        params["gl"] == "us" and params["hl"] == "en" and route.call_count == 1
+    )  # one search credit
+    assert [r.position for r in snapshot.organic] == [1, 2]
+    assert snapshot.features.people_also_ask[0].question == "What is it?"
+    assert snapshot.features.related_searches == ["related thing"]
+    assert (
+        snapshot.features.featured_snippet
+        and snapshot.features.featured_snippet.domain == "example.com"
+    )
+    assert (
+        snapshot.features.ai_overview.status == "requires_second_request"
+    )  # never fetched or invented
+    assert snapshot.provider_search_id == "abc123" and snapshot.device == "mobile"
+
+
+@respx.mock
+async def test_search_serp_ignores_unknown_devices_and_retries_like_search(
+    keyed_settings, fake_sleep
+) -> None:
+    route = respx.get(SERPAPI_URL).mock(
+        side_effect=[httpx.Response(503), httpx.Response(200, json=PAYLOAD)]
+    )
+    snapshot = await tool(keyed_settings, fake_sleep).search_serp("q", device="watch")
+    assert route.call_count == 2 and "device" not in dict(
+        route.calls.last.request.url.params
+    )
+    assert (
+        snapshot.features.people_also_ask == []
+        and snapshot.features.ai_overview.status == "absent"
+    )
+
+
+async def test_search_serp_requires_configuration(fake_sleep) -> None:
+    with pytest.raises(ConfigurationException):
+        await tool(Settings(), fake_sleep).search_serp("q")
+
+
+@respx.mock
+async def test_existing_search_request_is_unchanged_by_search_serp(
+    keyed_settings, fake_sleep
+) -> None:
+    route = respx.get(SERPAPI_URL).mock(return_value=httpx.Response(200, json=PAYLOAD))
+    await tool(keyed_settings, fake_sleep).search(
+        "q", num_results=5, country="us", language="en"
+    )
+    params = dict(route.calls.last.request.url.params)
+    assert set(params) == {"engine", "q", "num", "output", "api_key", "gl", "hl"}

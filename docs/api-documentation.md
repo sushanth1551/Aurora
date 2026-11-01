@@ -354,3 +354,36 @@ GET  /api/v1/seo/audits/{id}/report?format=json|markdown
 
 A start URL that resolves to a private address is rejected when the run starts, and the audit
 ends `failed`.
+
+
+## Keyword research (Phase 3): `/api/v1/seo/keywords`
+
+API token required. Details, rules and limitations: `keyword-research.md`.
+
+```http
+POST /api/v1/seo/keywords/runs                 {"site_url", "seeds": [], "country": "us", "language": "en",
+                                                "device": "desktop", "max_queries": 10, "include_expansions": false}
+     -> 201 {"status": "planned", "estimate": {"serpapi_searches_max", "cached_snapshots_possible",
+             "estimated_cost": null, "cost_note"}, "params": {"planned_queries", "site_topics", ...}}   (no search)
+POST /api/v1/seo/keywords/runs/{id}/run        {"approve": true, "max_searches": 10}
+     -> 200 run: completed | partially_completed | failed, with usage and summary
+GET  /api/v1/seo/keywords/runs?host=            and  GET /runs/{id}
+GET  /api/v1/seo/keywords/runs/{id}/opportunities?action=&selected=
+GET  /api/v1/seo/keywords/runs/{id}/candidates?intent=&cluster=&searched=&limit=&offset=
+GET  /api/v1/seo/keywords/runs/{id}/competitors
+GET  /api/v1/seo/keywords/runs/{id}/competitors/compare?domains=a.com&domains=b.com   (2-10 domains)
+GET  /api/v1/seo/keywords/runs/{id}/gaps       status ok | site_content_unavailable
+GET  /api/v1/seo/keywords/serp/{snapshot_id}   one stored SERP (organic results and features)
+POST /api/v1/seo/keywords/opportunities/{id}/selection   {"selected": true}
+GET  /api/v1/seo/keywords/selected?host=
+```
+
+| Status | Meaning |
+| --- | --- |
+| 404 | Unknown run, opportunity or snapshot |
+| 409 | The run isn't `planned`, or another run for the same site is running |
+| 422 | Invalid URL or parameters, limits above the caps, `approve` not `true`, `max_searches` above the estimate, or no seeds and no stored audit |
+| 503 | SerpApi not configured (checked before anything changes), or database unavailable |
+
+`search_volume`, `difficulty` and `cpc` appear on every candidate and opportunity as
+`{"value": null, "status": "not_available"}` because SerpApi does not provide them.

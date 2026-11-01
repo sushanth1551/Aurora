@@ -635,3 +635,115 @@ class SeoAuditRecommendationRecord(Base):
     verification: Mapped[str] = mapped_column(Text)
     basis: Mapped[str] = mapped_column(String(24))
     created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True))
+
+
+# -- Phase 3: keyword research ------------------------------------------------------
+
+
+class SeoKeywordRunRecord(Base):
+    """One keyword research run: inputs, budget, approval, usage and derived results.
+
+    ``competitors`` and ``gaps`` hold the bounded analysis output (capped lists);
+    the evidence behind them is the referenced SERP snapshots.
+    """
+
+    __tablename__ = "seo_keyword_runs"
+
+    id: Mapped[uuid.UUID] = mapped_column(Uuid, primary_key=True)
+    site_url: Mapped[str] = mapped_column(Text)
+    host: Mapped[str] = mapped_column(String(253), index=True)
+    status: Mapped[str] = mapped_column(String(32), index=True)
+    params: Mapped[dict[str, Any]] = mapped_column(JSONType, default=dict)
+    limits: Mapped[dict[str, Any]] = mapped_column(JSONType, default=dict)
+    estimate: Mapped[dict[str, Any]] = mapped_column(JSONType, default=dict)
+    approval: Mapped[dict[str, Any] | None] = mapped_column(JSONType)
+    usage: Mapped[dict[str, Any]] = mapped_column(JSONType, default=dict)
+    summary: Mapped[dict[str, Any]] = mapped_column(JSONType, default=dict)
+    competitors: Mapped[list[Any]] = mapped_column(JSONType, default=list)
+    gaps: Mapped[list[Any]] = mapped_column(JSONType, default=list)
+    gap_status: Mapped[str | None] = mapped_column(String(32))
+    error_summary: Mapped[str | None] = mapped_column(Text)
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), index=True)
+    started_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True))
+    completed_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True))
+
+
+class SeoSerpSnapshotRecord(Base):
+    """An observed SERP (immutable). Reused as a cache within the configured TTL."""
+
+    __tablename__ = "seo_serp_snapshots"
+
+    id: Mapped[uuid.UUID] = mapped_column(Uuid, primary_key=True)
+    query: Mapped[str] = mapped_column(Text)
+    normalized_query: Mapped[str] = mapped_column(String(300), index=True)
+    country: Mapped[str | None] = mapped_column(String(8))
+    language: Mapped[str | None] = mapped_column(String(16))
+    device: Mapped[str | None] = mapped_column(String(16))
+    location: Mapped[str | None] = mapped_column(String(200))
+    provider: Mapped[str] = mapped_column(String(32))
+    provider_search_id: Mapped[str | None] = mapped_column(String(100))
+    observed_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), index=True)
+    organic: Mapped[list[Any]] = mapped_column(JSONType, default=list)
+    features: Mapped[dict[str, Any]] = mapped_column(JSONType, default=dict)
+
+
+class SeoKeywordCandidateRecord(Base):
+    """A keyword considered in a run; metrics stay ``not_available`` unless measured."""
+
+    __tablename__ = "seo_keyword_candidates"
+    __table_args__ = (
+        UniqueConstraint("run_id", "normalized", name="uq_seo_keyword_candidate"),
+    )
+
+    id: Mapped[uuid.UUID] = mapped_column(Uuid, primary_key=True)
+    run_id: Mapped[uuid.UUID] = mapped_column(
+        ForeignKey("seo_keyword_runs.id", ondelete="CASCADE"), index=True
+    )
+    keyword: Mapped[str] = mapped_column(Text)
+    normalized: Mapped[str] = mapped_column(String(300))
+    source: Mapped[str] = mapped_column(String(16))
+    source_detail: Mapped[str | None] = mapped_column(Text)
+    intent: Mapped[str | None] = mapped_column(String(16), index=True)
+    intent_basis: Mapped[str | None] = mapped_column(String(100))
+    cluster: Mapped[str | None] = mapped_column(String(300), index=True)
+    searched: Mapped[bool] = mapped_column(Boolean, default=False)
+    snapshot_id: Mapped[uuid.UUID | None] = mapped_column(
+        ForeignKey("seo_serp_snapshots.id", ondelete="SET NULL"), index=True
+    )
+    metrics: Mapped[dict[str, Any]] = mapped_column(JSONType, default=dict)
+
+
+class SeoKeywordOpportunityRecord(Base):
+    """A ranked opportunity with SERP evidence; ``selected`` = chosen for an article."""
+
+    __tablename__ = "seo_keyword_opportunities"
+    __table_args__ = (
+        UniqueConstraint("run_id", "normalized", name="uq_seo_keyword_opportunity"),
+    )
+
+    id: Mapped[uuid.UUID] = mapped_column(Uuid, primary_key=True)
+    run_id: Mapped[uuid.UUID] = mapped_column(
+        ForeignKey("seo_keyword_runs.id", ondelete="CASCADE"), index=True
+    )
+    candidate_id: Mapped[uuid.UUID] = mapped_column(
+        ForeignKey("seo_keyword_candidates.id", ondelete="CASCADE"), index=True
+    )
+    keyword: Mapped[str] = mapped_column(Text)
+    normalized: Mapped[str] = mapped_column(String(300))
+    rank: Mapped[int] = mapped_column(Integer)
+    action: Mapped[str] = mapped_column(String(24), index=True)
+    intent: Mapped[str | None] = mapped_column(String(16))
+    intent_basis: Mapped[str | None] = mapped_column(String(100))
+    cluster: Mapped[str | None] = mapped_column(String(300))
+    impact: Mapped[str] = mapped_column(String(16))
+    confidence: Mapped[str] = mapped_column(String(16))
+    effort: Mapped[str] = mapped_column(String(16))
+    risk: Mapped[str] = mapped_column(String(16))
+    rationale: Mapped[list[Any]] = mapped_column(JSONType, default=list)
+    serp: Mapped[dict[str, Any]] = mapped_column(JSONType, default=dict)
+    gap_terms: Mapped[list[Any]] = mapped_column(JSONType, default=list)
+    questions: Mapped[list[Any]] = mapped_column(JSONType, default=list)
+    metrics: Mapped[dict[str, Any]] = mapped_column(JSONType, default=dict)
+    basis: Mapped[str] = mapped_column(String(16))
+    selected: Mapped[bool] = mapped_column(Boolean, default=False, index=True)
+    selected_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True))

@@ -64,6 +64,21 @@ class SeoAuditRepository:
             total = (await self._session.execute(count)).scalar_one()
         return list(rows), int(total)
 
+    async def latest_completed(self, host: str) -> SeoAuditRecord | None:
+        """Newest audit of ``host`` that finished (completed or partially)."""
+        async with _translate_errors(self._session):
+            return (
+                await self._session.execute(
+                    select(SeoAuditRecord)
+                    .where(
+                        SeoAuditRecord.host == host,
+                        SeoAuditRecord.status.in_(["completed", "partially_completed"]),
+                    )
+                    .order_by(SeoAuditRecord.created_at.desc())
+                    .limit(1)
+                )
+            ).scalar_one_or_none()
+
     async def running_for_host(self, host: str) -> SeoAuditRecord | None:
         async with _translate_errors(self._session):
             return (

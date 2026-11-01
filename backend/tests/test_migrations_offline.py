@@ -48,7 +48,7 @@ def test_single_linear_head() -> None:
         [sys.executable, "-m", "alembic", "heads"],
         cwd=ROOT, env=env, capture_output=True, text=True, timeout=60,
     )  # fmt: skip
-    assert done.stdout.strip().startswith("0005") and done.stdout.count("(head)") == 1
+    assert done.stdout.strip().startswith("0006") and done.stdout.count("(head)") == 1
 
 
 def test_upgrade_sql_matches_every_model_table_column_and_constraint(
@@ -170,3 +170,28 @@ def test_phase2_downgrade_removes_only_phase2_tables() -> None:
     down = alembic_sql("downgrade", "0005:0004")
 
     assert set(re.findall(r"DROP TABLE (\w+)", down)) == PHASE2_TABLES
+
+
+PHASE3_TABLES = {
+    "seo_keyword_runs",
+    "seo_serp_snapshots",
+    "seo_keyword_candidates",
+    "seo_keyword_opportunities",
+}
+
+
+def test_phase3_migration_is_additive() -> None:
+    step = alembic_sql("upgrade", "0005:0006")
+
+    assert "DROP TABLE" not in step and "DROP COLUMN" not in step
+    assert "ALTER TABLE" not in step and "DELETE FROM" not in step
+    assert re.findall(r"UPDATE (\w+)", step) == ["alembic_version"]
+    assert set(re.findall(r"CREATE TABLE (\w+)", step)) == PHASE3_TABLES
+    assert "ON DELETE CASCADE" in step and "ON DELETE SET NULL" in step
+    assert "uq_seo_keyword_candidate" in step and "uq_seo_keyword_opportunity" in step
+
+
+def test_phase3_downgrade_removes_only_phase3_tables() -> None:
+    down = alembic_sql("downgrade", "0006:0005")
+
+    assert set(re.findall(r"DROP TABLE (\w+)", down)) == PHASE3_TABLES

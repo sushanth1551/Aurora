@@ -125,3 +125,18 @@ th { color: #5f6a82; font-size: 11px; letter-spacing: .03em; }
   .panel { padding: 16px; }
   .finding summary { flex-direction: column; gap: 4px; }
 }
+
+/* Keywords view */
+.research-form textarea, .research-form select, .research-form input.full { width: 100%; box-sizing: border-box; padding: 12px 14px; border: 1px solid #dfe4ee; border-radius: 8px; color: #17213a; font: inherit; }
+.research-form .spaced { margin-top: 14px; }
+.field-row { display: flex; flex-wrap: wrap; gap: 14px; margin: 14px 0; }
+.field-row > div { display: flex; flex-direction: column; gap: 6px; }
+.field-row label { margin: 0; }
+.select-row { margin-bottom: 4px; }
+.action-write_new { background: #e3f5ec; color: #1d6b45; }
+.action-improve_existing { background: #e9f1ff; color: #1f4f99; }
+.action-monitor, .action-low_evidence { background: #eef0f5; color: #3b4660; }
+.action-deprioritized { background: #fff1dc; color: #7a4a06; }
+.serp { margin: 8px 0 4px; }
+.rec-list details summary { cursor: pointer; font-size: 12px; color: #4b43a2; font-weight: 600; }
+.rec-list details summary:focus-visible, .rec-list input:focus-visible, .research-form textarea:focus-visible, .research-form select:focus-visible { outline: 2px solid #7168df; outline-offset: 2px; }

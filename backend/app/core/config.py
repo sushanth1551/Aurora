@@ -127,6 +127,18 @@ class Settings(BaseSettings):
     seo_audit_max_duration_seconds: int = Field(default=600, ge=30, le=3600)
     seo_audit_http_timeout_seconds: float = Field(default=10.0, gt=0, le=60)
 
+    # Keyword research (Phase 3). SerpApi searches are the only metered resource.
+    seo_keyword_max_seeds: int = Field(default=10, ge=1, le=25)
+    seo_keyword_max_queries: int = Field(default=10, ge=1, le=50)
+    seo_keyword_max_candidates: int = Field(default=100, ge=10, le=500)
+    seo_keyword_max_duration_seconds: int = Field(default=600, ge=30, le=3600)
+    seo_serp_cache_ttl_hours: int = Field(
+        default=24, ge=0, le=720
+    )  # 0 disables caching
+    seo_serp_min_interval_seconds: float = Field(default=1.0, ge=0, le=30)
+    # Unset = cost unknown (never guessed). Set it from your SerpApi plan for estimates.
+    seo_serpapi_cost_per_search: float | None = Field(default=None, ge=0)
+
     # Module 4: LLM providers and the intelligence engine. Defaults are safe: the
     # deterministic mock provider needs no credentials and costs nothing.
     llm_provider: Literal["openai", "anthropic", "groq", "mock"] = "mock"
@@ -197,6 +209,7 @@ class Settings(BaseSettings):
 
     @field_validator(
         "aurora_api_token",
+        "seo_serpapi_cost_per_search",
         "openai_model",
         "anthropic_model",
         "groq_model",
