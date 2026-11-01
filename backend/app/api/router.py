@@ -9,6 +9,8 @@ from fastapi import APIRouter, Depends
 from app.api.routes.analysis import router as analysis_router
 from app.api.routes.auth import router as auth_router
 from app.api.routes.graph import router as graph_router
+from app.api.routes.gsc import public_router as gsc_public_router
+from app.api.routes.gsc import router as gsc_router
 from app.api.routes.health import router as health_router
 from app.api.routes.intelligence import router as intelligence_router
 from app.api.routes.keywords import router as keywords_router
@@ -28,10 +30,14 @@ protected_router.include_router(
 )
 protected_router.include_router(graph_router, prefix="/graph", tags=["knowledge-graph"])
 protected_router.include_router(seo_router, prefix="/seo", tags=["technical-seo"])
+protected_router.include_router(gsc_router, prefix="/gsc", tags=["search-console"])
 protected_router.include_router(
     keywords_router, prefix="/seo/keywords", tags=["keyword-research"]
 )
 
 api_router = APIRouter()
 api_router.include_router(health_router, tags=["health"])
+# The OAuth callback is public: Google redirects the browser there, so no bearer token
+# is possible. It is guarded by the single-use state from POST /gsc/oauth/start.
+api_router.include_router(gsc_public_router, prefix="/gsc", tags=["search-console"])
 api_router.include_router(protected_router)

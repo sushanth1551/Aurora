@@ -387,3 +387,49 @@ GET  /api/v1/seo/keywords/selected?host=
 
 `search_volume`, `difficulty` and `cpc` appear on every candidate and opportunity as
 `{"value": null, "status": "not_available"}` because SerpApi does not provide them.
+
+
+## Search Console (Phase 6): `/api/v1/gsc`
+
+API token required for every route **except** `GET /gsc/oauth/callback` (Google redirects the
+browser there; it is protected by the single-use OAuth `state`). Setup, semantics and the live test
+procedure: `search-console.md`. Read-only access; nothing here changes a Google property or a site.
+
+```http
+GET  /api/v1/gsc/status                       state: not_configured | disconnected | connected | reauthorization_required (no Google call)
+POST /api/v1/gsc/oauth/start                  -> {"authorization_url", "expires_in_seconds"}   (read-only scope, PKCE)
+GET  /api/v1/gsc/oauth/callback?code&state    public; HTML page; stores the sealed refresh token
+POST /api/v1/gsc/connection/verify            one Google request
+POST /api/v1/gsc/disconnect                   {"revoke": false}
+GET  /api/v1/gsc/properties                   one Google request; "verified" marks selectable properties
+PUT  /api/v1/gsc/property                     {"site_url"}   (must be a verified property)
+
+POST /api/v1/gsc/syncs                        {"max_requests": 6}  plan only, no Google call
+POST /api/v1/gsc/syncs/{id}/run               {"approve": true, "max_requests": 6}  <= the plan's ceiling
+GET  /api/v1/gsc/syncs  ·  GET /syncs/{id}
+
+GET  /api/v1/gsc/performance/overview?start&end     stored daily totals, totals, honest empty state
+GET  /api/v1/gsc/performance/{pages|queries|page-queries}?start&end&limit
+GET  /api/v1/gsc/page?url=...                       series and queries for one page, or why there is no data
+
+POST /api/v1/gsc/mappings   GET /mappings   PATCH /mappings/{id} {"active": false}
+POST /api/v1/gsc/analysis   {"thresholds": {...}}   stored data only
+GET  /api/v1/gsc/analysis   GET /analysis/{id}   GET /analysis/{id}/insights?kind&status&tier
+PATCH /api/v1/gsc/insights/{id}  {"status": "accepted|dismissed|open"}
+POST /api/v1/gsc/insights/{id}/refresh-task          brief for a new draft (409 if not a refresh candidate)
+GET  /api/v1/gsc/refresh-tasks   PATCH /refresh-tasks/{id} {"status", "note"}
+
+GET/POST /api/v1/gsc/schedules   POST /schedules/{id}/approve  {"approve": true, "budget_requests": n}
+POST /api/v1/gsc/schedules/{id}/enabled  {"enabled": true}
+```
+
+| Status | Meaning |
+| --- | --- |
+| 404 | Unknown sync, analysis, mapping, insight, task or schedule |
+| 409 | Not connected, re-authorization needed, invalid state transition, or a sync already running |
+| 422 | Invalid input; ceiling above the plan or the configured cap; unverified property; page outside the property |
+| 429 | Public/OAuth callback or write rate limit |
+| 503 | OAuth client not configured, or no secure place to store a token |
+
+Performance responses carry `has_data: false` and an explanation instead of zeros, and every
+position is accompanied by a note that average position is not exact rank.

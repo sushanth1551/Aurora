@@ -72,6 +72,19 @@ class Settings(BaseSettings):
     google_client_id: str | None = None
     google_client_secret: SecretStr | None = Field(default=None)
     google_refresh_token: SecretStr | None = Field(default=None)
+    # Search Console (Phase 6). Read-only scope only; see docs/search-console.md.
+    # The redirect URI must match one registered for the OAuth client in Google Cloud.
+    google_oauth_redirect_uri: str = "http://127.0.0.1:8000/api/v1/gsc/oauth/callback"
+    # auto = Windows DPAPI if available, else environment only (GOOGLE_REFRESH_TOKEN).
+    gsc_token_storage: Literal["auto", "dpapi", "environment"] = "auto"
+    gsc_oauth_state_ttl_seconds: int = Field(default=600, ge=60, le=3600)
+    gsc_max_rows_per_request: int = Field(default=25_000, ge=100, le=25_000)
+    gsc_max_requests_per_sync: int = Field(default=8, ge=1, le=40)
+    gsc_max_history_days: int = Field(
+        default=480, ge=30, le=480
+    )  # API keeps ~16 months
+    gsc_scheduler_enabled: bool = False
+    gsc_scheduler_tick_seconds: int = Field(default=60, ge=30, le=3600)
 
     research_max_results: int = Field(default=10, ge=1, le=100)
     research_max_pages: int = Field(default=10, ge=1, le=50)
@@ -209,6 +222,7 @@ class Settings(BaseSettings):
 
     @field_validator(
         "aurora_api_token",
+        "google_client_id",
         "seo_serpapi_cost_per_search",
         "openai_model",
         "anthropic_model",

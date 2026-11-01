@@ -2,7 +2,7 @@
 
 from typing import Annotated
 
-from fastapi import Depends
+from fastapi import Depends, Request
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.core.config import get_settings
@@ -21,6 +21,9 @@ from app.graph.neo4j_client import Neo4jClient, get_graph_client
 from app.intelligence.context_builder import ContextBuilder
 from app.intelligence.followup import WebsiteFollowUpExecutor
 from app.intelligence.service import IntelligenceAnalysisService
+from app.monitoring.factory import build_gsc_service
+from app.monitoring.oauth import OAuthFlows
+from app.monitoring.service import GscService
 from app.research.cache import CachedMapper, CachedSearch, shared_cache
 from app.research.intelligent_crawler import IntelligentCrawler
 from app.research.research_service import ResearchService
@@ -196,3 +199,16 @@ def get_keyword_service(session: SessionDep) -> KeywordResearchService:
 
 
 KeywordServiceDep = Annotated[KeywordResearchService, Depends(get_keyword_service)]
+
+
+def get_gsc_service(request: Request, session: SessionDep) -> GscService:
+    """Search Console service; Google is contacted only by endpoints that say so."""
+    settings = get_settings()
+    flows = getattr(request.app.state, "gsc_oauth_flows", None)
+    if flows is None:  # app built without create_app()
+        flows = OAuthFlows(settings.gsc_oauth_state_ttl_seconds)
+        request.app.state.gsc_oauth_flows = flows
+    return build_gsc_service(session, settings, flows)
+
+
+GscServiceDep = Annotated[GscService, Depends(get_gsc_service)]

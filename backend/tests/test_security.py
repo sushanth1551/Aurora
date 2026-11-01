@@ -70,6 +70,9 @@ def test_valid_token_reaches_the_route(client: TestClient) -> None:
 def test_every_non_health_route_requires_the_token() -> None:
     app = create_app()
     client = TestClient(app, raise_server_exceptions=False)
+    # Public routes listed in the schema. The Search Console OAuth callback is also public
+    # (Google redirects the browser, so no bearer token is possible) but is hidden from the
+    # schema; test_gsc_api.py checks it explicitly.
     public = {"/", "/api/v1/health", "/api/v1/health/ready"}
     checked = 0
     # The OpenAPI schema lists every mounted route (app.routes nests routers).

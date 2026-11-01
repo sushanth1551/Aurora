@@ -48,7 +48,7 @@ def test_single_linear_head() -> None:
         [sys.executable, "-m", "alembic", "heads"],
         cwd=ROOT, env=env, capture_output=True, text=True, timeout=60,
     )  # fmt: skip
-    assert done.stdout.strip().startswith("0006") and done.stdout.count("(head)") == 1
+    assert done.stdout.strip().startswith("0009") and done.stdout.count("(head)") == 1
 
 
 def test_upgrade_sql_matches_every_model_table_column_and_constraint(
@@ -195,3 +195,35 @@ def test_phase3_downgrade_removes_only_phase3_tables() -> None:
     down = alembic_sql("downgrade", "0006:0005")
 
     assert set(re.findall(r"DROP TABLE (\w+)", down)) == PHASE3_TABLES
+
+
+PHASE6_TABLES = {
+    "gsc_connection",
+    "gsc_sync_runs",
+    "gsc_daily",
+    "gsc_performance",
+    "gsc_mappings",
+    "gsc_analysis_runs",
+    "gsc_insights",
+    "gsc_refresh_tasks",
+    "gsc_schedules",
+}
+
+
+def test_phase6_migration_is_additive() -> None:
+    step = alembic_sql("upgrade", "0006:0009")
+
+    assert "DROP TABLE" not in step and "DROP COLUMN" not in step
+    assert "ALTER TABLE" not in step and "DELETE FROM" not in step
+    assert re.findall(r"UPDATE (\w+)", step) == ["alembic_version"]
+    assert set(re.findall(r"CREATE TABLE (\w+)", step)) == PHASE6_TABLES
+    assert "uq_gsc_daily" in step and "uq_gsc_mapping" in step
+    assert "uq_gsc_refresh_task_insight" in step
+    # Article references are plain UUIDs: no foreign key to any article/content table.
+    assert "REFERENCES content_" not in step and "REFERENCES articles" not in step
+
+
+def test_phase6_downgrade_removes_only_phase6_tables() -> None:
+    down = alembic_sql("downgrade", "0009:0006")
+
+    assert set(re.findall(r"DROP TABLE (\w+)", down)) == PHASE6_TABLES

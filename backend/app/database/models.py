@@ -8,12 +8,13 @@ without its job. No credentials are ever stored.
 """
 
 import uuid
-from datetime import datetime
+from datetime import date, datetime
 from typing import Any
 
 from sqlalchemy import (
     JSON,
     Boolean,
+    Date,
     DateTime,
     Float,
     ForeignKey,
@@ -747,3 +748,224 @@ class SeoKeywordOpportunityRecord(Base):
     basis: Mapped[str] = mapped_column(String(16))
     selected: Mapped[bool] = mapped_column(Boolean, default=False, index=True)
     selected_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True))
+
+
+# -- Phase 6: Search Console monitoring ------------------------------------------
+
+
+class GscConnectionRecord(Base):
+    """The single Search Console connection (one user, one installation).
+
+    ``refresh_token_sealed`` is vault ciphertext (Windows DPAPI); it is never plain
+    text and is useless on another machine or Windows account.
+    """
+
+    __tablename__ = "gsc_connection"
+
+    id: Mapped[str] = mapped_column(String(16), primary_key=True)  # always "default"
+    state: Mapped[str] = mapped_column(String(32))
+    refresh_token_sealed: Mapped[str | None] = mapped_column(Text)
+    vault: Mapped[str | None] = mapped_column(String(16))
+    scope: Mapped[str | None] = mapped_column(Text)
+    selected_property: Mapped[str | None] = mapped_column(String(512))
+    connected_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True))
+    last_verified_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True))
+    last_error_category: Mapped[str | None] = mapped_column(String(64))
+    updated_at: Mapped[datetime] = mapped_column(DateTime(timezone=True))
+
+
+class GscSyncRunRecord(Base):
+    """One approved fetch of Search Console data for a date range."""
+
+    __tablename__ = "gsc_sync_runs"
+
+    id: Mapped[uuid.UUID] = mapped_column(Uuid, primary_key=True)
+    property: Mapped[str] = mapped_column(String(512), index=True)
+    start_date: Mapped[date] = mapped_column(Date)
+    end_date: Mapped[date] = mapped_column(Date)
+    status: Mapped[str] = mapped_column(String(32), index=True)
+    source: Mapped[str] = mapped_column(String(16), default="manual")
+    schedule_id: Mapped[uuid.UUID | None] = mapped_column(Uuid)
+    limits: Mapped[dict[str, Any]] = mapped_column(JSONType, default=dict)
+    estimate: Mapped[dict[str, Any]] = mapped_column(JSONType, default=dict)
+    approval: Mapped[dict[str, Any] | None] = mapped_column(JSONType)
+    usage: Mapped[dict[str, Any]] = mapped_column(JSONType, default=dict)
+    error_summary: Mapped[str | None] = mapped_column(Text)
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), index=True)
+    started_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True))
+    completed_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True))
+
+
+class GscDailyRecord(Base):
+    """Property totals per day (Google's totals, which include anonymized queries)."""
+
+    __tablename__ = "gsc_daily"
+    __table_args__ = (UniqueConstraint("property", "date", name="uq_gsc_daily"),)
+
+    id: Mapped[uuid.UUID] = mapped_column(Uuid, primary_key=True)
+    property: Mapped[str] = mapped_column(String(512), index=True)
+    date: Mapped[date] = mapped_column(Date, index=True)
+    clicks: Mapped[float] = mapped_column(Float)
+    impressions: Mapped[float] = mapped_column(Float)
+    ctr: Mapped[float] = mapped_column(Float)
+    position: Mapped[float] = mapped_column(Float)
+    sync_run_id: Mapped[uuid.UUID | None] = mapped_column(
+        ForeignKey("gsc_sync_runs.id", ondelete="SET NULL")
+    )
+    fetched_at: Mapped[datetime] = mapped_column(DateTime(timezone=True))
+
+
+class GscPerformanceRecord(Base):
+    """One day x query x page row exactly as Google returned it (final data only).
+
+    ``row_key`` is a SHA-256 of the natural key so the unique index stays small
+    (URLs and queries can be long).
+    """
+
+    __tablename__ = "gsc_performance"
+    __table_args__ = (Index("ix_gsc_performance_property_date", "property", "date"),)
+
+    id: Mapped[uuid.UUID] = mapped_column(Uuid, primary_key=True)
+    row_key: Mapped[str] = mapped_column(String(64), unique=True)
+    property: Mapped[str] = mapped_column(String(512))
+    date: Mapped[date] = mapped_column(Date)
+    query: Mapped[str] = mapped_column(Text)
+    page: Mapped[str] = mapped_column(Text)
+    search_type: Mapped[str] = mapped_column(String(16))
+    clicks: Mapped[float] = mapped_column(Float)
+    impressions: Mapped[float] = mapped_column(Float)
+    ctr: Mapped[float] = mapped_column(Float)
+    position: Mapped[float] = mapped_column(Float)
+    sync_run_id: Mapped[uuid.UUID | None] = mapped_column(
+        ForeignKey("gsc_sync_runs.id", ondelete="SET NULL")
+    )
+    fetched_at: Mapped[datetime] = mapped_column(DateTime(timezone=True))
+
+
+class GscMappingRecord(Base):
+    """Links a Search Console page URL (and optionally a keyword) to an article.
+
+    ``article_id``, ``article_version_id`` and ``publication_id`` are plain UUIDs
+    without foreign keys, so this does not depend on how articles are stored.
+    """
+
+    __tablename__ = "gsc_mappings"
+    __table_args__ = (
+        UniqueConstraint("property", "page_key", "keyword_key", name="uq_gsc_mapping"),
+    )
+
+    id: Mapped[uuid.UUID] = mapped_column(Uuid, primary_key=True)
+    property: Mapped[str] = mapped_column(String(512), index=True)
+    page_url: Mapped[str] = mapped_column(Text)
+    page_key: Mapped[str] = mapped_column(String(64))
+    keyword: Mapped[str | None] = mapped_column(Text)
+    keyword_key: Mapped[str] = mapped_column(String(64))
+    article_id: Mapped[uuid.UUID | None] = mapped_column(Uuid, index=True)
+    article_version_id: Mapped[uuid.UUID | None] = mapped_column(Uuid)
+    publication_id: Mapped[uuid.UUID | None] = mapped_column(Uuid)
+    source: Mapped[str] = mapped_column(String(16))
+    published_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True))
+    active: Mapped[bool] = mapped_column(Boolean, default=True)
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True))
+
+
+class GscAnalysisRunRecord(Base):
+    """One analysis of stored data: the window used, parameters and counts."""
+
+    __tablename__ = "gsc_analysis_runs"
+
+    id: Mapped[uuid.UUID] = mapped_column(Uuid, primary_key=True)
+    property: Mapped[str] = mapped_column(String(512), index=True)
+    status: Mapped[str] = mapped_column(String(32))
+    params: Mapped[dict[str, Any]] = mapped_column(JSONType, default=dict)
+    window: Mapped[dict[str, Any]] = mapped_column(JSONType, default=dict)
+    summary: Mapped[dict[str, Any]] = mapped_column(JSONType, default=dict)
+    notes: Mapped[list[Any]] = mapped_column(JSONType, default=list)
+    source: Mapped[str] = mapped_column(String(16), default="manual")
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), index=True)
+
+
+class GscInsightRecord(Base):
+    """A finding with its evidence and recommendation (ordinal labels, no scores)."""
+
+    __tablename__ = "gsc_insights"
+
+    id: Mapped[uuid.UUID] = mapped_column(Uuid, primary_key=True)
+    analysis_id: Mapped[uuid.UUID] = mapped_column(
+        ForeignKey("gsc_analysis_runs.id", ondelete="CASCADE"), index=True
+    )
+    kind: Mapped[str] = mapped_column(String(32), index=True)
+    subject_type: Mapped[str] = mapped_column(String(16))
+    subject: Mapped[str] = mapped_column(Text)
+    evidence: Mapped[dict[str, Any]] = mapped_column(JSONType, default=dict)
+    impact: Mapped[str] = mapped_column(String(8))
+    confidence: Mapped[str] = mapped_column(String(8))
+    effort: Mapped[str] = mapped_column(String(8))
+    risk: Mapped[str] = mapped_column(String(8))
+    tier: Mapped[str] = mapped_column(String(24), index=True)
+    rank: Mapped[int] = mapped_column(Integer)
+    action: Mapped[str] = mapped_column(Text)
+    rationale: Mapped[str] = mapped_column(Text)
+    verification: Mapped[str] = mapped_column(Text)
+    basis: Mapped[str] = mapped_column(String(16))
+    refresh_candidate: Mapped[bool] = mapped_column(Boolean, default=False)
+    article_id: Mapped[uuid.UUID | None] = mapped_column(Uuid)
+    status: Mapped[str] = mapped_column(String(16), default="open", index=True)
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True))
+    updated_at: Mapped[datetime] = mapped_column(DateTime(timezone=True))
+
+
+class GscRefreshTaskRecord(Base):
+    """A proposed content refresh, handed to the article workflow as a new draft.
+
+    Nothing here edits content. ``requires_new_approval`` is always true: a refreshed
+    draft is a new article version that must be approved before any update is published.
+    """
+
+    __tablename__ = "gsc_refresh_tasks"
+    __table_args__ = (
+        UniqueConstraint("insight_id", name="uq_gsc_refresh_task_insight"),
+    )
+
+    id: Mapped[uuid.UUID] = mapped_column(Uuid, primary_key=True)
+    insight_id: Mapped[uuid.UUID | None] = mapped_column(
+        ForeignKey("gsc_insights.id", ondelete="SET NULL"), index=True
+    )
+    property: Mapped[str] = mapped_column(String(512), index=True)
+    page_url: Mapped[str] = mapped_column(Text)
+    article_id: Mapped[uuid.UUID | None] = mapped_column(Uuid)
+    article_version_id: Mapped[uuid.UUID | None] = mapped_column(Uuid)
+    brief: Mapped[dict[str, Any]] = mapped_column(JSONType, default=dict)
+    status: Mapped[str] = mapped_column(String(24), index=True)
+    requires_new_approval: Mapped[bool] = mapped_column(Boolean, default=True)
+    note: Mapped[str | None] = mapped_column(Text)
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True))
+    updated_at: Mapped[datetime] = mapped_column(DateTime(timezone=True))
+
+
+class GscScheduleRecord(Base):
+    """An opt-in recurring job with its own approved budget ceiling.
+
+    Nothing runs unless ``GSC_SCHEDULER_ENABLED`` is true, the schedule is enabled and
+    has an approval. ``budget_requests`` caps Search Console requests per run.
+    """
+
+    __tablename__ = "gsc_schedules"
+
+    id: Mapped[uuid.UUID] = mapped_column(Uuid, primary_key=True)
+    name: Mapped[str] = mapped_column(String(120))
+    property: Mapped[str] = mapped_column(String(512), index=True)
+    kind: Mapped[str] = mapped_column(String(16))
+    interval_hours: Mapped[int] = mapped_column(Integer)
+    lookback_days: Mapped[int] = mapped_column(Integer)
+    budget_requests: Mapped[int] = mapped_column(Integer)
+    approved_by: Mapped[str | None] = mapped_column(String(120))
+    approved_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True))
+    enabled: Mapped[bool] = mapped_column(Boolean, default=False, index=True)
+    next_run_at: Mapped[datetime | None] = mapped_column(
+        DateTime(timezone=True), index=True
+    )
+    last_run_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True))
+    last_status: Mapped[str | None] = mapped_column(String(32))
+    last_error: Mapped[str | None] = mapped_column(Text)
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True))

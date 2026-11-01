@@ -140,3 +140,30 @@ th { color: #5f6a82; font-size: 11px; letter-spacing: .03em; }
 .serp { margin: 8px 0 4px; }
 .rec-list details summary { cursor: pointer; font-size: 12px; color: #4b43a2; font-weight: 600; }
 .rec-list details summary:focus-visible, .rec-list input:focus-visible, .research-form textarea:focus-visible, .research-form select:focus-visible { outline: 2px solid #7168df; outline-offset: 2px; }
+
+/* Search Console view */
+.button-row { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0; }
+.secondary { padding: 9px 15px; border: 1px solid #c9cfe0; border-radius: 8px; background: #fff; color: #2c3550; font-size: 13px; font-weight: 650; cursor: pointer; }
+.secondary:hover:not(:disabled) { background: #f4f5fb; }
+.secondary:disabled { cursor: not-allowed; opacity: .55; }
+.secondary:focus-visible, .rec-list .secondary:focus-visible, .property-picker select:focus-visible { outline: 2px solid #7168df; outline-offset: 2px; }
+.conn-connected { background: #e3f5ec; color: #1d6b45; }
+.conn-disconnected, .conn-not_configured { background: #eef0f5; color: #3b4660; }
+.conn-reauthorization_required { background: #fde8e7; color: #8d231c; }
+.property-picker { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-top: 8px; }
+.property-picker select { padding: 9px 12px; border: 1px solid #dfe4ee; border-radius: 8px; color: #17213a; font: inherit; max-width: 100%; }
+.charts { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; margin: 14px 0; }
+.chart { margin: 0; padding: 12px; border: 1px solid #edf0f5; border-radius: 10px; background: #fafbfd; }
+.chart figcaption { margin-bottom: 6px; color: #24304a; font-size: 12px; font-weight: 700; }
+.chart svg { display: block; width: 100%; height: 180px; }
+.chart .axis { stroke: #b6bdd0; stroke-width: 1; }
+.chart .tick { fill: #4d5870; font-size: 11px; }
+.chart .line { stroke: #5d54d1; stroke-width: 2; vector-effect: non-scaling-stroke; }
+.chart .dot { fill: #5d54d1; }
+.chart details summary { margin-top: 6px; color: #4b43a2; font-size: 12px; font-weight: 600; cursor: pointer; }
+.chart details summary:focus-visible { outline: 2px solid #7168df; outline-offset: 2px; }
+.page-detail { margin-top: 16px; padding-top: 12px; border-top: 1px solid #edf0f5; }
+.rec-list li.dismissed { opacity: .6; }
+.notes-block { margin: 10px 0; }
+.dot-note { color: #5f6a82; }
+@media (max-width: 680px) { .charts { grid-template-columns: 1fr; } }

@@ -5,8 +5,8 @@ Claude Code skills available to this project live in `.claude/skills/<name>/SKIL
 changes Module 1-4 behaviour, provider integrations, `.env`, the database or the API. All skill
 text is treated as guidance that never overrides `CLAUDE.md`.
 
-Last updated 2026-10-31 (sections G and H added; validation script, module/workflow mapping and
-validation results added). **69 skills** are installed. Commit hashes of every copied skill are
+Last updated 2026-11-01 (section I added; earlier: sections G and H added 2026-10-31; validation script, module/workflow mapping and
+validation results added). **101 skills** are installed. Commit hashes of every copied skill are
 recorded in its `ATTRIBUTION.md`; run `python scripts/validate_skills.py` to check all of them (see
 *Validation* at the end).
 
@@ -23,8 +23,9 @@ recorded in its `ATTRIBUTION.md`; run `python scripts/validate_skills.py` to che
   2. **`claude-seo` plugin skills** (26, `seo` and `seo-*`, MIT, from
      https://github.com/AgriciDaniel/claude-seo): installed earlier as text only; their
      script-backed steps need the real plugin.
-  3. **Skills collected from other repositories** (32): 25 in sections A-F (23 copied/adapted + 2
-     locally authored), `seo-gsc-diagnosis` (G) and 6 development skills (H). Each has
+  3. **Skills collected from other repositories** (64): 25 in sections A-F (23 copied/adapted + 2
+     locally authored), `seo-gsc-diagnosis` (G), 6 development skills (H) and 32 SE Ranking
+     skills (I). Each has
      `ATTRIBUTION.md`; a license copy where the source ships one.
 - Pick the **narrowest** skill that matches the task; use the orchestrator skills (`seo`,
   `seo-toolkit-orchestrator`) only for multi-domain requests. When two sets overlap, see
@@ -154,6 +155,55 @@ repository; the commit still resolves.
 
 Not taken: `learn-skills.dev` (FastAPI best-practices, cloned empty: no SKILL.md found) and
 `neversight`-style collections, which were not reviewed. Per-skill `ATTRIBUTION.md` files record the exact source paths.
+
+### I. SE Ranking SEO skills (added 2026-11-01)
+
+Source: https://github.com/seranking/seo-skills, path `skills/*`, commit
+`fd6d1408f2e6a06454d81c07c29e0f04342eb9ba`. License: MIT. All **32** skills in the repository
+were installed (the repository README's older changelog mentions 24-26; the current tree has 32).
+13 names clash with installed skills and were prefixed `seranking-` (see the *Renamed* entries);
+`ATTRIBUTION.md` and `LICENSE.txt` sit in every folder. Not installed: the repository's
+`scripts/`, `extensions/` and `mcp.json` (downloaded executables and MCP configuration).
+These skills expect the SE Ranking MCP/API (and, for six of them, Planable); neither is
+configured in AURORA, so they are **reference text only**. Skill text that calls other skills by
+their original name (for example `seo-page`) may refer to either set. 11 skills link to
+repository `examples/`, which were not copied (validator warning `link_escapes`).
+AURORA modules: 6 (reference only).
+
+| Skill | What it covers | Notes | Status |
+| --- | --- | --- | --- |
+| `ai-search-gaps-to-social-campaign` | AI-search visibility gaps turned into a Planable social campaign | needs SE Ranking MCP/API and Planable; text-only here | unchanged |
+| `client-onboarding-proposal` | Agency onboarding proposal from an SE Ranking audit plus Planable data | needs SE Ranking MCP/API and Planable; text-only here | unchanged |
+| `local-gmb-visibility` | City-level rank tracking plus local/GBP social content | needs SE Ranking MCP/API and Planable; text-only here | unchanged |
+| `seo-ads` | Paid-search competitive landscape (PPC keywords, ad copy, bidders) | needs SE Ranking MCP/API; text-only here | unchanged |
+| `seo-agency-landing-page` | Demand-gen landing page for an SEO agency | needs SE Ranking MCP/API; text-only here | unchanged |
+| `seo-ai-search-share-of-voice` | AI-search share of voice versus competitors | needs SE Ranking MCP/API; text-only here | unchanged |
+| `seo-ai-social-report` | Combined SEO, AI-search and social report (SE Ranking + Planable) | needs SE Ranking MCP/API and Planable; text-only here | unchanged |
+| `seo-api` | SE Ranking Data/Project API integration recipes (live tool schemas via MCP) | needs SE Ranking MCP/API; text-only here | unchanged |
+| `seo-backlink-gap` | Referring domains linking to competitors but not the target | needs SE Ranking MCP/API; text-only here | unchanged |
+| `seo-backlinks-profile` | Backlink profile health and disavow candidates (review only) | needs SE Ranking MCP/API; text-only here | unchanged |
+| `seo-competitor-gap-analysis` | Keyword gap versus top organic competitors | needs SE Ranking MCP/API; text-only here | unchanged |
+| `seranking-seo-competitor-pages` | X-vs-Y and alternatives page generation | Renamed from `seo-competitor-pages`; needs SE Ranking MCP/API; text-only here | adapted |
+| `seo-content-audit` | E-E-A-T (60-item) + CITE (30-item) audit with publish verdict | needs SE Ranking MCP/API; text-only here | unchanged |
+| `seranking-seo-content-brief` | Writer-ready content brief from SE Ranking data | Renamed from `seo-content-brief`; needs SE Ranking MCP/API; text-only here | adapted |
+| `seranking-seo-drift` | Baseline and regression comparison | Renamed from `seo-drift`; needs SE Ranking MCP/API; text-only here | adapted |
+| `seo-firecrawl` | Ad-hoc scrape/map/crawl through Firecrawl MCP (raw HTML, JSON-LD) | needs SE Ranking MCP/API; text-only here | unchanged |
+| `seo-gaps-to-social-campaign` | Keyword gaps turned into a Planable social campaign | needs SE Ranking MCP/API and Planable; text-only here | unchanged |
+| `seranking-seo-geo` | URL-level AI Overview citation analysis | Renamed from `seo-geo`; needs SE Ranking MCP/API; text-only here | adapted |
+| `seranking-seo-google` | Search Console, PageSpeed, CrUX, GA4, Keyword Planner access | Renamed from `seo-google`; needs SE Ranking MCP/API; text-only here | adapted |
+| `seranking-seo-hreflang` | Hreflang / international SEO audit | Renamed from `seo-hreflang`; needs SE Ranking MCP/API; text-only here | adapted |
+| `seranking-seo-images` | Image SEO audit (alt text, formats, ImageObject) | Renamed from `seo-images`; needs SE Ranking MCP/API; text-only here | adapted |
+| `seo-keyword-cluster` | Intent clusters, pillar+spoke plan and internal-link map | needs SE Ranking MCP/API; text-only here | unchanged |
+| `seo-keyword-niche` | Longtail and question keyword mining for a content tier | needs SE Ranking MCP/API; text-only here | unchanged |
+| `seranking-seo-local` | Local SEO audit (GBP, NAP, citations) | Renamed from `seo-local`; needs SE Ranking MCP/API; text-only here | adapted |
+| `seranking-seo-page` | URL-level keyword/traffic intelligence and keep/refresh/kill verdict | Renamed from `seo-page`; needs SE Ranking MCP/API; text-only here | adapted |
+| `seranking-seo-plan` | Quarterly SEO roadmap | Renamed from `seo-plan`; needs SE Ranking MCP/API; text-only here | adapted |
+| `seranking-seo-schema` | JSON-LD detection, validation and generation | Renamed from `seo-schema`; needs SE Ranking MCP/API; text-only here | adapted |
+| `seranking-seo-sitemap` | Sitemap versus site-audit comparison | Renamed from `seo-sitemap`; needs SE Ranking MCP/API; text-only here | adapted |
+| `seo-subdomain` | Subdomain ownership map and consolidation check | needs SE Ranking MCP/API; text-only here | unchanged |
+| `seranking-seo-sxo` | SERP page-type and intent-mismatch diagnosis | Renamed from `seo-sxo`; needs SE Ranking MCP/API; text-only here | adapted |
+| `seo-technical-audit` | One-shot technical SEO audit | needs SE Ranking MCP/API; text-only here | unchanged |
+| `site-audit-to-social-distribution` | Audit findings turned into reviewed copy plus Planable distribution | needs SE Ranking MCP/API and Planable; text-only here | unchanged |
 
 ## Rejected skills and why
 
@@ -318,6 +368,38 @@ Roles:
 | `seo-maps` | — | — | reference (no maps data source) |
 | `seo-ecommerce` | — | — | reference (no merchant data source) |
 | `seo-image-gen` | 7 | — | out of scope (asset generation; MCP) |
+| `ai-search-gaps-to-social-campaign` | 6 | — | out of scope (Planable social publishing; no SE Ranking/Planable access) |
+| `client-onboarding-proposal` | 6 | — | out of scope (Planable social publishing; no SE Ranking/Planable access) |
+| `local-gmb-visibility` | 6 | — | out of scope (Planable social publishing; no SE Ranking/Planable access) |
+| `seo-ads` | 6 | — | reference (needs SE Ranking MCP/API; not configured) |
+| `seo-agency-landing-page` | 6 | — | reference (needs SE Ranking MCP/API; not configured) |
+| `seo-ai-search-share-of-voice` | 6 | — | reference (needs SE Ranking MCP/API; not configured) |
+| `seo-ai-social-report` | 6 | — | out of scope (Planable social publishing; no SE Ranking/Planable access) |
+| `seo-api` | 6 | — | reference (needs SE Ranking MCP/API; not configured) |
+| `seo-backlink-gap` | 6 | — | reference (needs SE Ranking MCP/API; not configured) |
+| `seo-backlinks-profile` | 6 | — | reference (needs SE Ranking MCP/API; not configured) |
+| `seo-competitor-gap-analysis` | 6 | — | reference (needs SE Ranking MCP/API; not configured) |
+| `seranking-seo-competitor-pages` | 6 | — | reference (needs SE Ranking MCP/API; not configured) |
+| `seo-content-audit` | 6 | — | reference (needs SE Ranking MCP/API; not configured) |
+| `seranking-seo-content-brief` | 6 | — | reference (needs SE Ranking MCP/API; not configured) |
+| `seranking-seo-drift` | 6 | — | reference (needs SE Ranking MCP/API; not configured) |
+| `seo-firecrawl` | 6 | — | reference (needs SE Ranking MCP/API; not configured) |
+| `seo-gaps-to-social-campaign` | 6 | — | out of scope (Planable social publishing; no SE Ranking/Planable access) |
+| `seranking-seo-geo` | 6 | — | reference (needs SE Ranking MCP/API; not configured) |
+| `seranking-seo-google` | 6 | — | reference (needs SE Ranking MCP/API; not configured) |
+| `seranking-seo-hreflang` | 6 | — | reference (needs SE Ranking MCP/API; not configured) |
+| `seranking-seo-images` | 6 | — | reference (needs SE Ranking MCP/API; not configured) |
+| `seo-keyword-cluster` | 6 | — | reference (needs SE Ranking MCP/API; not configured) |
+| `seo-keyword-niche` | 6 | — | reference (needs SE Ranking MCP/API; not configured) |
+| `seranking-seo-local` | 6 | — | reference (needs SE Ranking MCP/API; not configured) |
+| `seranking-seo-page` | 6 | — | reference (needs SE Ranking MCP/API; not configured) |
+| `seranking-seo-plan` | 6 | — | reference (needs SE Ranking MCP/API; not configured) |
+| `seranking-seo-schema` | 6 | — | reference (needs SE Ranking MCP/API; not configured) |
+| `seranking-seo-sitemap` | 6 | — | reference (needs SE Ranking MCP/API; not configured) |
+| `seo-subdomain` | 6 | — | reference (needs SE Ranking MCP/API; not configured) |
+| `seranking-seo-sxo` | 6 | — | reference (needs SE Ranking MCP/API; not configured) |
+| `seo-technical-audit` | 6 | — | reference (needs SE Ranking MCP/API; not configured) |
+| `site-audit-to-social-distribution` | 6 | — | out of scope (Planable social publishing; no SE Ranking/Planable access) |
 
 ## Validation
 
