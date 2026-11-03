@@ -1,0 +1,26 @@
+{
+  "id": "20261103103021-seo-monitor",
+  "skill": "seo-monitor",
+  "rationale": "The owner asked (chat, 2026-11-03) for every 14-day monitor run to read a list of all their SEO changes, compare each changed page 2 weeks before vs 2 weeks after, say what dropped and what to improve next. The monitor now reads seo_paths.change_log and writes a 'Your change log' report section; this skill must explain it.",
+  "evidence": [
+    "owner request 2026-11-03: change log linked to the 14-day monitor",
+    "undeployed-seo-changes:update-blog-titles"
+  ],
+  "evidence_executions": [],
+  "change": {
+    "kind": "append_section",
+    "text": "When the site config has `repository.seo_paths.change_log` (nextsteps: `seo-change-log.md` in the NextSteps repo), the monitor report has a **Your change log** section: one row per logged page with its go-live date, Search Console 14 days before vs 14 days after (relative to all blog pages), the latest 14 days, a rule-based next step and the owner's own 'watch for' note. The file is read from the working tree, or from the newest branch that has it.\n\nWhen summarising a run, after the blog rankings:\n\n1. **What went down:** every `logged-change-drop:*` finding first, with what changed on that page (from the log) and whether to revert a title or description.\n2. **What improved:** pages that beat the site trend, with the change that preceded it.\n3. **What to improve next:** for each logged page, the report's next step plus your own reading of its target keyword (use `seo-toolkit-performance-analysis` for the numbers and `seo-toolkit-content-optimizer` for the edit), no more than one concrete action per page, highest-traffic pages first.\n4. **Waiting:** pages whose commits are not live yet (deploy, then request indexing).\n\nVerdicts are observations, not proof of cause. When the owner makes new changes, offer to add a row to the change log's **Tracked pages** table (page in backticks, short commit SHAs in backticks, what changed, target keyword, what to watch); it is their repository file, so edit it only with their permission and on their branch.",
+    "section_title": "Learned refinement: the owner's change log",
+    "old_text": null
+  },
+  "base_hash": "0ea7965b5c6ab3b0b6c4f3d794938fe61f4204ec6dfd423ef877cbf807f285a2",
+  "created_at": "2026-11-03T10:30:21.952584Z",
+  "created_by": "seo-intelligence-agent",
+  "status": "pending",
+  "single_execution": true,
+  "decided_by": null,
+  "decided_at": null,
+  "decision_note": "",
+  "applied_at": null,
+  "new_hash": null
+}

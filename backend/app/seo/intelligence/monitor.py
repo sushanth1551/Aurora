@@ -13,8 +13,11 @@ One ``run`` (mode ``monitor``, meant for every 14 days):
    type into ``learning/change-effects.json``; strong, repeated effects are
    reported as candidate rules (never applied automatically).
 5. Report blog rankings (last 14 days vs previous 14) and ranking drops as findings.
-6. Detect direct edits to skill files and log them.
-7. Record a ``monitor`` execution through ``SeoAgentService`` (report + history).
+6. Read the site's SEO change log (``seo_paths.change_log``, the owner's list of what
+   each change was for) and report every logged page: 14 days before go-live vs 14
+   days after, the latest 14 days, a rule-based next step, and drops as findings.
+7. Detect direct edits to skill files and log them.
+8. Record a ``monitor`` execution through ``SeoAgentService`` (report + history).
 
 Search Console and live fetches are injected callables, so tests need no network.
 """
@@ -68,6 +71,11 @@ CANDIDATE_MIN_SAMPLES = 5
 CANDIDATE_MIN_SHARE = 0.7
 DATE_RE = re.compile(r"\b(20\d\d-\d\d-\d\d)\b")
 TITLE_RE = re.compile(r"<title[^>]*>(.*?)</title>", re.I | re.S)
+CHANGE_LOG_DAYS = 14
+CHANGE_LOG_MIN_DAYS_AFTER = 7
+CHANGE_LOG_SECTION = "## tracked pages"
+SHA_RE = re.compile(r"`([0-9a-f]{7,40})`")
+LOG_PATH_RE = re.compile(r"^`(/[^`]*|site)`$")
 
 GscFetcher = Callable[[date, date], Awaitable[list[dict[str, object]]]]
 LiveFetcher = Callable[[str], Awaitable[str | None]]
@@ -126,6 +134,73 @@ def change_types(edit: PageEdit) -> list[str]:
 
 def verdict_of(result: str) -> str:
     return result.split(":", 1)[0] if ":" in result else result
+
+
+class LoggedChange(BaseModel):
+    """One row of the owner's change log ("Tracked pages" table)."""
+
+    model_config = ConfigDict(extra="forbid")
+
+    path: str
+    commits: list[str]
+    what: str
+    keyword: str
+    watch: str
+
+
+def parse_change_log(text: str) -> list[LoggedChange]:
+    """Rows of the ``## Tracked pages`` table: page, commits, what, keyword, watch."""
+    rows: list[LoggedChange] = []
+    inside = False
+    for line in text.splitlines():
+        if line.startswith("## "):
+            inside = line.strip().lower() == CHANGE_LOG_SECTION
+            continue
+        if not inside or not line.lstrip().startswith("|"):
+            continue
+        cells = [c.strip() for c in line.strip().strip("|").split("|")]
+        match = LOG_PATH_RE.match(cells[0]) if len(cells) >= 5 else None
+        if not match:
+            continue
+        path = match.group(1)
+        rows.append(
+            LoggedChange(
+                path=path if path == "site" else (path.rstrip("/") or "/"),
+                commits=SHA_RE.findall(cells[1]),
+                what=cells[2],
+                keyword="" if cells[3] in {"", "-", "–"} else cells[3],
+                watch=cells[4],
+            )
+        )
+    return rows
+
+
+def next_step(verdict: str, after: rankings.Stats | None, keyword: str) -> str:
+    """A rule-based suggestion from the measured window (a hint, not a forecast)."""
+    if verdict in {"behind site trend", "declined"}:
+        return (
+            "Dropped after the change: check its query mix in Search Console; if the "
+            "title changed, consider reverting it."
+        )
+    if not after or after.position is None or after.impressions < 20:
+        return "Not enough impressions yet; check again next run."
+    pos, ctr = after.position, after.ctr or 0.0
+    target = f" for '{keyword.split(';')[0].strip()}'" if keyword else ""
+    if pos <= 3:
+        return "Top 3: leave it alone."
+    if pos <= 5:
+        if ctr < 0.02:
+            return f"Top 5 but CTR {ctr:.1%}: test a clearer title and description."
+        return "Top 5: keep it fresh (dates, fees) and leave the title."
+    if pos <= 10:
+        return (
+            f"Page 1, not top 5{target}: add sourced depth on the gap versus the "
+            "pages above it and 2-3 more internal links."
+        )
+    return (
+        f"Page 2 or lower{target}: compare with the top 5 results "
+        "(/seo-content-optimization) before editing again."
+    )
 
 
 class MonitorService:
@@ -382,6 +457,189 @@ class MonitorService:
                 item.updated_at = now
         return live_calls
 
+    # -- change log --------------------------------------------------------------
+
+    def change_log_text(self, site_id: str) -> tuple[str | None, str]:
+        """The change log from the working tree, else its newest version on any branch."""
+        config = self.agent.website(site_id)
+        rel = config.repository.seo_paths.get("change_log")
+        if not rel or not config.repository.path:
+            return None, "no change_log path in the site config"
+        try:
+            return (
+                (Path(config.repository.path) / rel).read_text(encoding="utf-8"),
+                f"`{rel}` (working tree)",
+            )
+        except OSError:
+            pass
+        if self.tracker is None:
+            return None, f"`{rel}` not found"
+        try:
+            found = self.tracker.git.run(
+                "log", "--branches", "-1", "--format=%H %D", "--", rel
+            ).stdout.strip()
+        except GitError:
+            return None, f"`{rel}` not found"
+        if not found:
+            return None, f"`{rel}` not found in the working tree or any branch"
+        sha = found.split()[0]
+        text = self.tracker.git.show_file(sha, rel)
+        return text, f"`{rel}` at `{sha[:7]}` (not in the working tree)"
+
+    def change_log_section(
+        self,
+        site_id: str,
+        commits: dict[str, TrackedCommit],
+        rows: list[rankings.DayRow] | None,
+        data_end: date,
+    ) -> tuple[ReportSection | None, list[Finding]]:
+        text, source = self.change_log_text(site_id)
+        if text is None:
+            return None, []
+        logged = parse_change_log(text)
+        if not logged:
+            return (
+                ReportSection(
+                    title="Your change log",
+                    markdown=f"Read {source}: no rows in its Tracked pages table.",
+                ),
+                [],
+            )
+        base = self.agent.website(site_id).base_url.rstrip("/")
+        p = rankings.periods(data_end, CHANGE_LOG_DAYS)
+        cur = rankings.window(rows, *p.current) if rows is not None else {}
+        prev = rankings.window(rows, *p.previous) if rows is not None else {}
+        findings: list[Finding] = []
+        lines = [
+            f"Read {source}. For every logged page: Search Console in the "
+            f"{CHANGE_LOG_DAYS} days before its newest logged commit went live vs the "
+            f"{CHANGE_LOG_DAYS} days after, judged against all blog pages over the same "
+            f"days; then the latest {CHANGE_LOG_DAYS} days ({p.current[0]}..{p.current[1]}) "
+            "vs the 14 before. Next steps are rule-based hints, not forecasts.",
+            "",
+            "| Page | Live since | Before go-live | After go-live | Verdict | Latest 14 days | Next step | Watch for (your note) |",
+            "| --- | --- | --- | --- | --- | --- | --- | --- |",
+        ]
+        counts: Counter[str] = Counter()
+        for entry in logged:
+            matched = [
+                c
+                for short in entry.commits
+                for sha, c in commits.items()
+                if sha.startswith(short)
+            ]
+            unknown = len(entry.commits) - len(matched)
+            if entry.path == "site":
+                live_note = (
+                    "live"
+                    if matched and all(c.deployed for c in matched)
+                    else "not live yet"
+                )
+                lines.append(
+                    f"| site (template) | {live_note} | – | – | – | – | Read the blog "
+                    f"rankings table above for a sitewide shift. | {entry.watch} |"
+                )
+                continue
+            dates = [c.deploy_date for c in matched if c.deployed and c.deploy_date]
+            waiting = [c for c in matched if not c.deployed]
+            latest_now = cur.get(entry.path)
+            latest = (
+                f"{rankings.describe(prev.get(entry.path), latest_now)}"
+                if rows is not None
+                else "not measured"
+            )
+            if waiting or not dates:
+                state = "not live yet" if matched else "commits not tracked yet"
+                counts[state] += 1
+                lines.append(
+                    f"| {entry.path} | {state} | – | – | waiting | {latest} | Deploy and "
+                    f"request indexing first. | {entry.watch} |"
+                )
+                continue
+            go_live = max(dates)
+            if unknown:
+                state = f"{go_live} ({unknown} commit(s) not tracked)"
+            else:
+                state = str(go_live)
+            if rows is None:
+                counts["not measured"] += 1
+                lines.append(
+                    f"| {entry.path} | {state} | – | – | not measured | not measured | "
+                    f"Search Console unavailable this run. | {entry.watch} |"
+                )
+                continue
+            end = min(go_live + timedelta(days=CHANGE_LOG_DAYS), data_end)
+            days_after = (end - go_live).days
+            pre = rankings.window(
+                rows,
+                go_live - timedelta(days=CHANGE_LOG_DAYS),
+                go_live - timedelta(days=1),
+            )
+            post = rankings.window(rows, go_live + timedelta(days=1), end)
+            before, after = pre.get(entry.path), post.get(entry.path)
+            if days_after < CHANGE_LOG_MIN_DAYS_AFTER:
+                verdict = f"too early ({max(days_after, 0)} day(s) of data)"
+            else:
+                verdict = rankings.relative_verdict(
+                    before, after, rankings.total(pre), rankings.total(post)
+                )
+            counts[verdict_of(verdict)] += 1
+
+            def short(s: rankings.Stats | None) -> str:
+                if not s:
+                    return "no data"
+                return (
+                    f"pos {rankings.fmt_pos(s.position)}, {s.clicks:.0f} clicks, "
+                    f"{s.impressions:.0f} impr"
+                )
+
+            lines.append(
+                f"| {entry.path} | {state} | {short(before)} | {short(after)} | {verdict} "
+                f"| {latest} | {next_step(verdict, latest_now or after, entry.keyword)} "
+                f"| {entry.watch} |"
+            )
+            if verdict in {"behind site trend", "declined"}:
+                url = base + entry.path
+                findings.append(
+                    Finding(
+                        key=f"logged-change-drop:{entry.path}",
+                        issue=(
+                            f"{entry.path} fell after its logged change ({entry.what[:120]})"
+                        ),
+                        category="performance/ranking",
+                        priority="high" if before and before.clicks >= 20 else "medium",
+                        evidence=[
+                            Evidence(
+                                source=(
+                                    f"Search Console {go_live - timedelta(days=CHANGE_LOG_DAYS)}"
+                                    f"..{end}"
+                                ),
+                                observation=rankings.describe(before, after),
+                                url=url,
+                            )
+                        ],
+                        affected_urls=[url],
+                        seo_impact="The change may have cost visibility on this page.",
+                        recommended_action=(
+                            "Compare the page's queries before and after in Search Console; "
+                            "if a title or description changed, revert it or test a middle "
+                            "version, and note the decision in the change log."
+                        ),
+                        expected_outcome="Position back within 1 of the pre-change window.",
+                        verification_method="Next monitor run, same windows.",
+                        skill="seo-toolkit-performance-analysis",
+                    )
+                )
+        lines[1:1] = [
+            "",
+            "**Summary:** "
+            + ", ".join(f"{k} {v}" for k, v in sorted(counts.items()))
+            + f" ({len(logged)} logged pages).",
+        ]
+        return ReportSection(
+            title="Your change log", markdown="\n".join(lines)
+        ), findings
+
     # -- learning ----------------------------------------------------------------
 
     def change_effects(self, site_id: str, items: list[ChecklistItem]) -> dict:
@@ -610,6 +868,15 @@ class MonitorService:
                         skill="seo-toolkit-performance-analysis",
                     )
                 )
+
+        # The owner's change log: before/after per logged page.
+        log_section, log_findings = self.change_log_section(
+            site_id, by_sha, rows, data_end
+        )
+        if log_section is not None:
+            sections.append(log_section)
+            findings += log_findings
+            learning.reused.append("SEO change log (seo_paths.change_log)")
 
         # Changes made since the last run.
         if new:

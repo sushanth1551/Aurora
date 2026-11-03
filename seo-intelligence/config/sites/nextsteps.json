@@ -104,6 +104,7 @@
       "nginx_spa": "frontend/nginx-spa.conf",
       "redirects": "blog-redirects.conf",
       "reindex_tracker": "blog-reindex-tracker.md",
+      "change_log": "seo-change-log.md",
       "routes": "frontend/src/routes.tsx"
     }
   },

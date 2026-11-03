@@ -26,6 +26,8 @@ from app.seo.intelligence.monitor import (
     ChecklistItem,
     MonitorService,
     live_title,
+    next_step,
+    parse_change_log,
     title_matches,
 )
 from app.seo.intelligence.service import SeoAgentService
@@ -343,6 +345,86 @@ async def test_monitor_tracks_changes_checklist_rankings_and_learning(site) -> N
     assert "Skill edits detected: seo-monitor" in again.learning.learned
     changelog = site["kb"].root / "skills" / "CHANGELOG.md"
     assert "direct edit detected" in changelog.read_text(encoding="utf-8")
+
+
+CHANGE_LOG = """# Log
+
+## Tracked pages
+
+| Page | Commits | What changed | Target keyword | Watch for |
+| --- | --- | --- | --- | --- |
+| `/blog/a` | `{sha}` | title | keyword a | CTR after the title |
+| `/blog/b/` | `deadbee` | body | – | position |
+| `site` | `{sha}` | template | – | sitewide shift |
+
+## Changes by commit
+
+| `/blog/ignored` | `{sha}` | not in the tracked table | x | y |
+"""
+
+
+def test_parse_change_log_reads_only_the_tracked_table() -> None:
+    rows = parse_change_log(CHANGE_LOG.format(sha="abc1234"))
+    assert [r.path for r in rows] == ["/blog/a", "/blog/b", "site"]
+    assert rows[0].commits == ["abc1234"] and rows[0].keyword == "keyword a"
+    assert rows[1].keyword == ""
+    assert parse_change_log("no table here") == []
+
+
+def test_next_step_rules() -> None:
+    top = rankings.Stats(clicks=50, impressions=1000, weighted_position=2.0 * 1000)
+    low_ctr = rankings.Stats(clicks=5, impressions=1000, weighted_position=4.5 * 1000)
+    page_two = rankings.Stats(clicks=1, impressions=300, weighted_position=14.0 * 300)
+    assert next_step("in line with site", top, "") == "Top 3: leave it alone."
+    assert "CTR" in next_step("in line with site", low_ctr, "")
+    assert "'k'" in next_step("in line with site", page_two, "k; other")
+    assert next_step("behind site trend", top, "").startswith("Dropped")
+    assert next_step("in line with site", None, "").startswith("Not enough")
+
+
+async def test_monitor_reports_the_change_log(site) -> None:
+    repo = site["repo"]
+    sha = subprocess.run(
+        ["git", "-C", str(repo), "log", "--format=%h", "-1", "--grep=retitle a, add b"],
+        capture_output=True,
+        text=True,
+        check=True,
+    ).stdout.strip()[:7]
+    (repo / "seo-change-log.md").write_text(
+        CHANGE_LOG.format(sha=sha), encoding="utf-8"
+    )
+    git(repo, "add", "seo-change-log.md")
+    git(repo, "commit", "-m", "docs: change log", when="2026-10-26")
+    config = site["config"]
+    config.repository.seo_paths["change_log"] = "seo-change-log.md"
+    site["kb"].save_config(config)
+
+    async def gsc(start: date, end: date):
+        return gsc_rows()
+
+    monitor = MonitorService(
+        site["agent"],
+        site["improvement"],
+        tracker=ChangeTracker(config),
+        gsc=gsc,
+        today=TODAY,
+    )
+    execution = await monitor.run("demo")
+    report = site["kb"].load_report("demo", execution.id)
+    assert "## Your change log" in report
+    assert "(working tree)" in report
+    log_part = report.split("## Your change log", 1)[1]
+    row_a = next(
+        line for line in log_part.splitlines() if line.startswith("| /blog/a |")
+    )
+    assert "| 2026-09-01 |" in row_a and "beat site trend" in row_a
+    assert "commits not tracked yet" in report  # /blog/b lists an unknown commit
+    assert "site (template)" in report
+
+    # Not in the working tree: read from the branch that has it.
+    git(repo, "checkout", "main")
+    text, source = monitor.change_log_text("demo")
+    assert text and "Tracked pages" in text and "not in the working tree" in source
 
 
 async def test_monitor_without_sources_is_honest(site) -> None:
