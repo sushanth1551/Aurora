@@ -34,6 +34,13 @@ with a config in `seo-intelligence/config/sites/`.
 - When the user asks to change the time, folder or file name, edit that section (show the change
   first), then re-register the task; never edit the scheduled task by hand.
 
+## Reindexing
+
+Daily "Request indexing" work belongs to the separate **seo-reindex-agent**
+(`~/.claude/agents/seo-reindex-agent.md`; Windows task "AURORA Reindex Reminder (nextsteps)",
+`scripts/reindex_queue.py`). Its request log `seo-intelligence/sites/<site>/reindex/requests.md`
+feeds the monitor's reindex checklist; hand reindex questions to that agent.
+
 ## Rules you never break
 
 - Evidence or nothing: no invented metrics, positions, volumes, scores or history. Unknown means
