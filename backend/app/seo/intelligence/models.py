@@ -90,6 +90,23 @@ class Integrations(_Strict):
     notes: list[str] = []
 
 
+class SchedulerSettings(_Strict):
+    """When the scheduled monitor runs and where its PDF report goes."""
+
+    run_time: str = Field(default="12:00", pattern=r"^([01]\d|2[0-3]):[0-5]\d$")
+    every_days: int = Field(default=14, ge=1, le=90)
+    pdf_folder: str | None = None
+    pdf_name: str = Field(default="SEO Monitor Report {date}", max_length=120)
+    open_pdf: bool = True
+
+    @field_validator("pdf_name")
+    @classmethod
+    def _safe_name(cls, value: str) -> str:
+        if "{date}" not in value or any(c in value for c in '\\/:*?"<>|'):
+            raise ValueError("pdf_name needs {date} and no path characters")
+        return value
+
+
 class WebsiteConfig(_Strict):
     id: str
     name: str
@@ -110,6 +127,7 @@ class WebsiteConfig(_Strict):
     integrations: Integrations = Integrations()
     repository: RepositoryLink = RepositoryLink()
     report_sources: list[str] = []
+    scheduler: SchedulerSettings = SchedulerSettings()
     approval_required_for: list[str] = [
         "production code changes",
         "content publication",

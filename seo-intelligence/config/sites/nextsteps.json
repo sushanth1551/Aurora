@@ -113,6 +113,13 @@
     "C:/Users/other/Documents/Aurora/data/live-verification/",
     "C:/Users/other/Downloads/ (files named nextstepsusmle-*.pdf)"
   ],
+  "scheduler": {
+    "run_time": "12:00",
+    "every_days": 14,
+    "pdf_folder": "C:/Users/other/Desktop/files",
+    "pdf_name": "Next Step Scheduler Report {date}",
+    "open_pdf": true
+  },
   "approval_required_for": [
     "any change to the NextSteps repository or production site",
     "pushing, merging or deploying NextSteps branches",

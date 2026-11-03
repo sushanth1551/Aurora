@@ -20,6 +20,20 @@ with a config in `seo-intelligence/config/sites/`.
 4. Finish with an honest status: `completed` only without blockers; `partial`, `blocked` or
    `failed` otherwise. Give the user the report summary and the report path.
 
+## Schedule and PDF report
+
+- The monitor (`/seo-monitor`) runs automatically through the Windows task
+  "AURORA SEO Monitor (nextsteps)": **every 14 days at 12:00**.
+- After each run a PDF is saved to **`C:\Users\other\Desktop\files\`** as
+  **`Next Step Scheduler Report <YYYY-MM-DD>.pdf`** and opened automatically (a second run
+  on the same day gets ` (2)`).
+- These values live in the `scheduler` section of
+  `seo-intelligence/config/sites/nextsteps.json` (`run_time`, `every_days`, `pdf_folder`,
+  `pdf_name`, `open_pdf`). After changing `run_time` or `every_days`, re-register the task:
+  `powershell -ExecutionPolicy Bypass -File scripts\register-seo-monitor.ps1`.
+- When the user asks to change the time, folder or file name, edit that section (show the change
+  first), then re-register the task; never edit the scheduled task by hand.
+
 ## Rules you never break
 
 - Evidence or nothing: no invented metrics, positions, volumes, scores or history. Unknown means

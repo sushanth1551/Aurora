@@ -6,16 +6,18 @@
   The task runs scripts\seo-monitor.ps1 -Site <site> -StartDatabase as the current user, only
   while you are logged on (the Search Console token is protected with your Windows account).
   If the computer was off at the scheduled time, it runs as soon as possible afterwards.
+  Time and interval default to the "scheduler" section of
+  seo-intelligence\config\sites\<site>.json (nextsteps: 12:00 every 14 days).
 
 .EXAMPLE
   powershell -ExecutionPolicy Bypass -File scripts\register-seo-monitor.ps1
-  powershell -ExecutionPolicy Bypass -File scripts\register-seo-monitor.ps1 -EveryDays 14 -At 09:30
+  powershell -ExecutionPolicy Bypass -File scripts\register-seo-monitor.ps1 -EveryDays 14 -At 12:00
   powershell -ExecutionPolicy Bypass -File scripts\register-seo-monitor.ps1 -Unregister
 #>
 param(
     [string]$Site = 'nextsteps',
-    [ValidateRange(1, 90)] [int]$EveryDays = 14,
-    [string]$At = '10:00',
+    [ValidateRange(0, 90)] [int]$EveryDays = 0,
+    [string]$At = '',
     [switch]$Unregister
 )
 
@@ -34,6 +36,16 @@ if ($Unregister) {
 }
 
 $root = Split-Path -Parent $PSScriptRoot
+# Time and interval come from the site config ("scheduler") unless given here.
+$configPath = Join-Path $root "seo-intelligence\config\sites\$Site.json"
+if (Test-Path $configPath) {
+    $scheduler = (Get-Content $configPath -Raw -Encoding UTF8 | ConvertFrom-Json).scheduler
+    if (-not $At -and $scheduler.run_time) { $At = $scheduler.run_time }
+    if (-not $EveryDays -and $scheduler.every_days) { $EveryDays = [int]$scheduler.every_days }
+}
+if (-not $At) { $At = '12:00' }
+if (-not $EveryDays) { $EveryDays = 14 }
+if ($At -notmatch '^([01]\d|2[0-3]):[0-5]\d$') { throw "Invalid time '$At' (use HH:mm)." }
 $runner = Join-Path $PSScriptRoot 'seo-monitor.ps1'
 $arguments = "-NoProfile -ExecutionPolicy Bypass -WindowStyle Hidden -File `"$runner`" -Site $Site -StartDatabase"
 $action = New-ScheduledTaskAction -Execute 'powershell.exe' -Argument $arguments -WorkingDirectory $root

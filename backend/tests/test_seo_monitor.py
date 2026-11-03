@@ -364,3 +364,34 @@ async def test_monitor_without_sources_is_honest(site) -> None:
     ).run("demo")
     assert partial.status == "partial"
     assert any(t.status == "failed" for t in partial.tools_used)
+
+
+# --- PDF report ---------------------------------------------------------------------
+
+
+def test_markdown_to_html_and_pdf_names(tmp_path: Path) -> None:
+    from app.seo.intelligence.models import SchedulerSettings
+    from app.seo.intelligence.pdf_report import markdown_to_html, pdf_path
+
+    page = markdown_to_html(
+        "## Rankings\n\n| Page | Clicks |\n| --- | --- |\n| /blog/a <x> | 5 |\n\n"
+        "- [ ] **Deploy** `3c54aa5`\n> note",
+        "Next Step Scheduler Report 2026-11-17",
+    )
+    assert "<h2>Rankings</h2>" in page and "<td>/blog/a &lt;x&gt;</td>" in page
+    assert "☐ <strong>Deploy</strong> <code>3c54aa5</code>" in page
+    assert "<blockquote>note</blockquote>" in page
+
+    first = pdf_path(tmp_path, "Next Step Scheduler Report {date}", date(2026, 11, 17))
+    assert first.name == "Next Step Scheduler Report 2026-11-17.pdf"
+    first.write_bytes(b"x")
+    second = pdf_path(tmp_path, "Next Step Scheduler Report {date}", date(2026, 11, 17))
+    assert second.name == "Next Step Scheduler Report 2026-11-17 (2).pdf"
+
+    assert SchedulerSettings().run_time == "12:00"
+    with pytest.raises(ValueError):
+        SchedulerSettings(run_time="25:00")
+    with pytest.raises(ValueError):
+        SchedulerSettings(pdf_name="no date here")
+    with pytest.raises(ValueError):
+        SchedulerSettings(pdf_name="../evil {date}")

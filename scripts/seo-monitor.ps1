@@ -8,7 +8,9 @@
   2. Runs scripts\seo_monitor.py <site>: tracks your repository changes (read-only git),
      updates the change checklist, checks live titles and Search Console rankings, and writes
      seo-intelligence\sites\<site>\reports\<execution>.md (also latest-report.md).
-  3. Logs to data\logs\seo-monitor-<timestamp>.log and shows a Windows notification.
+  3. Saves a PDF copy where the site config's "scheduler" section says (for nextsteps:
+     Desktop\files\Next Step Scheduler Report <date>.pdf) and opens it when open_pdf is true.
+  4. Logs to data\logs\seo-monitor-<timestamp>.log and shows a Windows notification.
 
   No paid API is called and nothing is written to the website, Search Console or git.
   Registered every 14 days by scripts\register-seo-monitor.ps1.
@@ -76,10 +78,13 @@ $result = $null
 try { $result = $run.Output | ConvertFrom-Json } catch { }
 if ($run.ExitCode -eq 0 -and $result -and $result.report) {
     $note = "Status: $($result.status). Report: seo-intelligence\sites\$Site\reports\latest-report.md"
+    if ($result.pdf) { $note = "Status: $($result.status). PDF: $($result.pdf)" }
+    if ($result.pdf_error) { Write-Log "PDF not written: $($result.pdf_error)" }
     if ($result.blockers.Count -gt 0) { $note = "$note (blockers: $($result.blockers -join '; '))" }
     Write-Log $note
     Show-Notification "AURORA SEO monitor: $Site" $note
-    if ($OpenReport) { Start-Process -FilePath $result.report }
+    if ($result.pdf -and $result.open_pdf) { Start-Process -FilePath $result.pdf }
+    elseif ($OpenReport) { Start-Process -FilePath $result.report }
     exit 0
 }
 Write-Log 'The monitor did not produce a report.'

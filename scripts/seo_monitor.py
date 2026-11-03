@@ -20,6 +20,7 @@ from __future__ import annotations
 import argparse
 import asyncio
 import json
+import subprocess
 import sys
 from datetime import date
 from pathlib import Path
@@ -30,23 +31,47 @@ sys.path.insert(0, str(ROOT / "backend"))
 import httpx  # noqa: E402
 
 from app.core.config import Settings, get_settings  # noqa: E402
-from app.core.exceptions import AuroraException  # noqa: E402
+from app.core.exceptions import AuroraException, PersistenceException  # noqa: E402
 from app.research.url_policy import UrlPolicy  # noqa: E402
 from app.seo.intelligence.changes import ChangeTracker, GitError  # noqa: E402
 from app.seo.intelligence.factory import (  # noqa: E402
     build_seo_agent_service,
     build_skill_improvement,
 )
-from app.seo.intelligence.monitor import GscFetcher, LiveFetcher, MonitorService  # noqa: E402
+from app.seo.intelligence.models import Execution, WebsiteConfig  # noqa: E402
+from app.seo.intelligence.monitor import (  # noqa: E402
+    GscFetcher,
+    LiveFetcher,
+    MonitorService,
+)
+from app.seo.intelligence.pdf_report import (  # noqa: E402
+    markdown_to_html,
+    pdf_path,
+    render_pdf,
+)
 
 MAX_GSC_REQUESTS = 5
 MAX_PAGE_BYTES = 1_000_000
+DB_ATTEMPTS = 2
+DB_RETRY_SECONDS = 20
 
 
 def gsc_fetcher(settings: Settings, property_id: str) -> GscFetcher:
     """Date x page rows through AURORA's stored Search Console credential."""
 
     async def fetch(start: date, end: date) -> list[dict[str, object]]:
+        """Read-only, so one retry after a pause is safe (the database container can
+        be slow to accept connections right after ``docker compose up``)."""
+        for attempt in range(1, DB_ATTEMPTS + 1):
+            try:
+                return await fetch_once(start, end)
+            except PersistenceException:
+                if attempt == DB_ATTEMPTS:
+                    raise
+                await asyncio.sleep(DB_RETRY_SECONDS)
+        return []
+
+    async def fetch_once(start: date, end: date) -> list[dict[str, object]]:
         from app.database.repositories.gsc_repository import GscRepository
         from app.database.session import create_session_factory, dispose_engine
         from app.monitoring.errors import GscStorageUnavailable
@@ -131,19 +156,37 @@ async def run(args: argparse.Namespace) -> int:
     )
     execution = await monitor.run(args.site)
     report = agent.repository.site_dir(args.site) / "reports" / f"{execution.id}.md"
+    output = {
+        "execution_id": execution.id,
+        "status": execution.status,
+        "blockers": execution.blockers,
+        "report": str(report),
+        "pdf": None,
+        "open_pdf": config.scheduler.open_pdf,
+    }
+    if config.scheduler.pdf_folder and not args.no_pdf:
+        try:
+            output["pdf"] = str(write_pdf(config, execution, report))
+        except (OSError, RuntimeError, subprocess.SubprocessError) as exc:
+            output["pdf_error"] = str(exc)[:300]
     sys.stdout.reconfigure(encoding="utf-8")  # type: ignore[attr-defined]
-    print(
-        json.dumps(
-            {
-                "execution_id": execution.id,
-                "status": execution.status,
-                "blockers": execution.blockers,
-                "report": str(report),
-            },
-            indent=2,
-        )
-    )
+    print(json.dumps(output, indent=2))
     return 0
+
+
+def write_pdf(config: WebsiteConfig, execution: Execution, report: Path) -> Path:
+    """PDF copy of the report in the configured folder, named with the run date."""
+    day = execution.started_at.astimezone().date()
+    target = pdf_path(
+        Path(config.scheduler.pdf_folder or "."), config.scheduler.pdf_name, day
+    )
+    title = config.scheduler.pdf_name.replace("{date}", day.isoformat())
+    subtitle = (
+        f"{config.name} ({config.base_url}) · run {execution.id} · "
+        f"status {execution.status}"
+    )
+    page = markdown_to_html(report.read_text(encoding="utf-8"), title, subtitle)
+    return render_pdf(page, target)
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -151,6 +194,9 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("site")
     parser.add_argument("--no-gsc", action="store_true", help="skip Search Console")
     parser.add_argument("--no-live", action="store_true", help="skip live page fetches")
+    parser.add_argument(
+        "--no-pdf", action="store_true", help="do not write the PDF report"
+    )
     try:
         return asyncio.run(run(parser.parse_args(argv)))
     except AuroraException as exc:
