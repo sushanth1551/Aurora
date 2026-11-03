@@ -62,6 +62,7 @@ from app.seo.skills.improvement import SkillImprovementService
 COMMITS_FILE = "changes/commits.json"
 CHECKLIST_FILE = "checklist.json"
 EFFECTS_FILE = "learning/change-effects.json"
+REINDEX_LOG = "reindex/requests.md"  # written by scripts/reindex_queue.py
 FIRST_SYNC_DAYS = 90
 MANUAL_ITEM_MAX_AGE_DAYS = 30
 GSC_LAG_DAYS = 3
@@ -359,18 +360,19 @@ class MonitorService:
             item.result = f"same go-live date as {keep.commit[:7]}"
 
     def _tracker_lines(self, site_id: str) -> list[str]:
+        """Reindex request lines: the site's own tracker plus the reindex reminder's log."""
         config = self.agent.website(site_id)
         rel = config.repository.seo_paths.get("reindex_tracker")
-        if not rel or not config.repository.path:
-            return []
-        try:
-            return (
-                (Path(config.repository.path) / rel)
-                .read_text(encoding="utf-8", errors="replace")
-                .splitlines()
-            )
-        except OSError:
-            return []
+        files = [self.repo.site_dir(site_id) / REINDEX_LOG]
+        if rel and config.repository.path:
+            files.append(Path(config.repository.path) / rel)
+        lines: list[str] = []
+        for path in files:
+            try:
+                lines += path.read_text(encoding="utf-8", errors="replace").splitlines()
+            except OSError:
+                continue
+        return lines
 
     def _mark_ancestors_live(
         self, live: TrackedCommit, commits: dict[str, TrackedCommit]

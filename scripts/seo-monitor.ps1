@@ -54,28 +54,9 @@ if ($Site -notmatch '^[a-z0-9]+(-[a-z0-9]+)*$') { Stop-WithError "Invalid site i
 if (-not (Test-Path $script:Python)) { Stop-WithError "Python virtualenv not found at $script:Python." }
 Write-Log "SEO monitor for '$Site' started."
 
-function Start-DockerEngine {
-    # Starts Docker Desktop when its engine is not answering, then waits up to 5 minutes.
-    if ((Invoke-Native -FilePath 'docker' -Arguments 'info' -TimeoutSeconds 60).ExitCode -eq 0) { return $true }
-    $desktop = Join-Path $env:ProgramFiles 'Docker\Docker\Docker Desktop.exe'
-    if (-not (Test-Path $desktop)) { Write-Log 'Docker Desktop not found.'; return $false }
-    Write-Log 'Docker engine not running; starting Docker Desktop.'
-    Start-Process -FilePath $desktop -WindowStyle Minimized
-    $deadline = (Get-Date).AddMinutes(5)
-    while ((Get-Date) -lt $deadline) {
-        Start-Sleep -Seconds 10
-        if ((Invoke-Native -FilePath 'docker' -Arguments 'info' -TimeoutSeconds 60).ExitCode -eq 0) {
-            Write-Log 'Docker engine is up.'
-            return $true
-        }
-    }
-    Write-Log 'Docker engine did not start within 5 minutes.'
-    return $false
-}
-
 if ($StartDatabase) {
     if (Test-Command 'docker') {
-        Start-DockerEngine | Out-Null
+        Start-DockerEngine -Log { param($m) Write-Log $m } | Out-Null
         $up = Invoke-Compose 'up -d postgres' -TimeoutSeconds 600
         if ($up.ExitCode -ne 0) {
             Write-Log "docker compose up failed (is Docker Desktop running?): $($up.Error.Trim())"

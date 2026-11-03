@@ -61,6 +61,26 @@ function Invoke-Native {
     return [pscustomobject]@{ ExitCode = $process.ExitCode; Output = $stdout.Result; Error = $stderr.Result }
 }
 
+# Starts Docker Desktop when its engine is not answering, then waits up to 5 minutes.
+# $Log receives one-line progress messages (default: none).
+function Start-DockerEngine([scriptblock]$Log = { param($m) }) {
+    if ((Invoke-Native -FilePath 'docker' -Arguments 'info' -TimeoutSeconds 60).ExitCode -eq 0) { return $true }
+    $desktop = Join-Path $env:ProgramFiles 'Docker\Docker\Docker Desktop.exe'
+    if (-not (Test-Path $desktop)) { & $Log 'Docker Desktop not found.'; return $false }
+    & $Log 'Docker engine not running; starting Docker Desktop.'
+    Start-Process -FilePath $desktop -WindowStyle Minimized
+    $deadline = (Get-Date).AddMinutes(5)
+    while ((Get-Date) -lt $deadline) {
+        Start-Sleep -Seconds 10
+        if ((Invoke-Native -FilePath 'docker' -Arguments 'info' -TimeoutSeconds 60).ExitCode -eq 0) {
+            & $Log 'Docker engine is up.'
+            return $true
+        }
+    }
+    & $Log 'Docker engine did not start within 5 minutes.'
+    return $false
+}
+
 function Invoke-Compose([string]$Arguments, [string]$StandardInput = $null, [int]$TimeoutSeconds = 600) {
     return Invoke-Native -FilePath 'docker' -Arguments "compose --profile graph $Arguments" -StandardInput $StandardInput -TimeoutSeconds $TimeoutSeconds
 }

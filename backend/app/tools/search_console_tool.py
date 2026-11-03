@@ -59,6 +59,7 @@ from app.tools.http import (
 logger = logging.getLogger(__name__)
 
 SITES_URL = "https://www.googleapis.com/webmasters/v3/sites"
+INSPECT_URL = "https://searchconsole.googleapis.com/v1/urlInspection/index:inspect"
 VERIFIED_LEVELS = frozenset({"siteOwner", "siteFullUser", "siteRestrictedUser"})
 DIMENSIONS = frozenset(
     {"date", "query", "page", "country", "device", "searchAppearance"}
@@ -487,6 +488,21 @@ class SearchConsoleTool(ExternalTool):
                     )
                 )
         return rows
+
+    async def inspect_url(self, property_id: str, url: str) -> dict[str, Any]:
+        """URL Inspection (read-only): Google's index status for one URL.
+
+        Returns the ``indexStatusResult`` object (``coverageState``, ``lastCrawlTime``,
+        ``googleCanonical`` ...), or ``{}`` when Google returned none.
+        """
+        self.ensure_configured()
+        validate_property(property_id)
+        data = await self._api(
+            "POST", INSPECT_URL, {"inspectionUrl": url, "siteUrl": property_id}
+        )
+        result = data.get("inspectionResult") if isinstance(data, dict) else None
+        status = result.get("indexStatusResult") if isinstance(result, dict) else None
+        return status if isinstance(status, dict) else {}
 
 
 def _number(item: dict[str, Any], key: str) -> float | None:
