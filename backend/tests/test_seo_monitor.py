@@ -427,6 +427,54 @@ async def test_monitor_reports_the_change_log(site) -> None:
     assert text and "Tracked pages" in text and "not in the working tree" in source
 
 
+async def test_one_live_title_proves_earlier_commits_live(site) -> None:
+    repo = site["repo"]
+    posts = json.loads((repo / POSTS).read_text(encoding="utf-8"))
+    posts[1]["content"] = "z longer body"
+    write_posts(repo, posts)
+    git(repo, "commit", "-am", "content(blog): body of b only", when="2026-10-27")
+    posts[1]["title"] = "B new"
+    write_posts(repo, posts)
+    git(repo, "commit", "-am", "content(blog): retitle b", when="2026-10-28")
+    fetched: list[str] = []
+
+    async def live(url: str):
+        fetched.append(url)
+        return "<title>B new — Demo</title>" if url.endswith("/blog/b") else None
+
+    await MonitorService(
+        site["agent"],
+        site["improvement"],
+        tracker=ChangeTracker(site["config"]),
+        live=live,
+        today=TODAY,
+    ).run("demo")
+
+    commits = {
+        c["subject"]: c
+        for c in json.loads(
+            (site["kb"].site_dir("demo") / "changes/commits.json").read_text()
+        )
+    }
+    assert fetched[0].endswith("/blog/b")  # newest commit checked first
+    for subject in (
+        "content(blog): retitle b",
+        "content(blog): body of b only",  # no title: proved by the newer commit
+        "content(blog): retitle a again",
+    ):
+        assert commits[subject]["deployed"] is True
+        assert commits[subject]["deploy_date"] == TODAY.isoformat()
+    assert "contained in" in commits["content(blog): body of b only"]["deploy_basis"]
+    items = site["kb"].load_list("demo", CHECKLIST_FILE, ChecklistItem)
+    a_title = next(
+        i
+        for i in items
+        if i.kind == "live-title" and i.path == "/blog/a" and i.status == "done"
+    )
+    assert a_title.result.startswith("live with")
+    assert len(fetched) == 1  # /blog/a was not fetched again
+
+
 async def test_monitor_without_sources_is_honest(site) -> None:
     execution = await MonitorService(
         site["agent"], site["improvement"], today=TODAY

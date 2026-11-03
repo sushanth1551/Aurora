@@ -372,6 +372,29 @@ class MonitorService:
         except OSError:
             return []
 
+    def _mark_ancestors_live(
+        self, live: TrackedCommit, commits: dict[str, TrackedCommit]
+    ) -> list[str]:
+        """Earlier tracked commits contained in a commit seen live are live too."""
+        if self.tracker is None:
+            return []
+        marked: list[str] = []
+        for other in commits.values():
+            if (
+                other.deployed
+                or other.sha == live.sha
+                or other.committed_at > live.committed_at
+                or not self.tracker.git.is_ancestor(other.sha, live.sha)
+            ):
+                continue
+            marked.append(other.sha)
+            other.deployed = True
+            other.deploy_date = self.today
+            other.deploy_basis = (
+                f"contained in {live.sha[:7]}, whose live title the monitor confirmed"
+            )
+        return marked
+
     async def evaluate(
         self,
         site_id: str,
@@ -386,6 +409,48 @@ class MonitorService:
         base = self.agent.website(site_id).base_url.rstrip("/")
         live_calls = 0
         now = utcnow()
+        # Live titles first, newest commit first: one confirmed title proves that
+        # commit is deployed, and so is every earlier commit it contains.
+        live_items = sorted(
+            (
+                i
+                for i in items
+                if i.status == "pending"
+                and i.kind == "live-title"
+                and i.commit in commits
+            ),
+            key=lambda i: commits[i.commit].committed_at,
+            reverse=True,
+        )
+        proved: dict[str, str] = {}  # commit sha -> newer live commit that contains it
+        fetch = self.live
+        for item in live_items if fetch is not None else []:
+            assert fetch is not None
+            seen_commit = commits[item.commit]
+            if seen_commit.sha in proved:
+                # The page's newest title came with a commit already proved live.
+                item.status = "done"
+                item.result = f"live with {proved[seen_commit.sha][:7]} on {self.today}"
+                item.updated_at = now
+                continue
+            if live_calls >= MAX_LIVE_CHECKS:
+                continue
+            live_calls += 1
+            page = await fetch(base + item.path)
+            seen = live_title(page) if page else None
+            if title_matches(seen, item.expected or ""):
+                item.status = "done"
+                item.result = f"live title confirmed on {self.today}"
+                if not seen_commit.deployed:
+                    seen_commit.deployed = True
+                    seen_commit.deploy_date = self.today
+                    seen_commit.deploy_basis = "live title confirmed by monitor"
+                proved[seen_commit.sha] = seen_commit.sha
+                for sha in self._mark_ancestors_live(seen_commit, commits):
+                    proved.setdefault(sha, seen_commit.sha)
+            else:
+                item.result = f"live still shows '{seen or 'no title / not fetched'}'"
+            item.updated_at = now
         for item in items:
             if item.status != "pending":
                 continue
@@ -396,23 +461,6 @@ class MonitorService:
             if item.kind == "deploy" and commit.deployed:
                 item.status = "done"
                 item.result = f"on production ({commit.deploy_basis})"
-            elif (
-                item.kind == "live-title" and self.live and live_calls < MAX_LIVE_CHECKS
-            ):
-                live_calls += 1
-                page = await self.live(base + item.path)
-                seen = live_title(page) if page else None
-                if title_matches(seen, item.expected or ""):
-                    item.status = "done"
-                    item.result = f"live title confirmed on {self.today}"
-                    if not commit.deployed:
-                        commit.deployed = True
-                        commit.deploy_date = self.today
-                        commit.deploy_basis = "live title confirmed by monitor"
-                else:
-                    item.result = (
-                        f"live still shows '{seen or 'no title / not fetched'}'"
-                    )
             elif item.kind == "reindex":
                 slug = item.path.rsplit("/", 1)[-1]
                 since = commit.committed_at.date().isoformat()
