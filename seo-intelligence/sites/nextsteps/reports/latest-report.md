@@ -5,12 +5,12 @@
 ## Execution summary
 
 - **Website:** Next Steps USMLE (https://nextstepsusmle.com)
-- **Execution:** `20261103-094941-monitor` · started 2026-11-03 09:49 UTC · finished 2026-11-03 09:49 UTC
+- **Execution:** `20261103-103519-monitor` · started 2026-11-03 10:35 UTC · finished 2026-11-03 10:35 UTC
 - **Status:** Completed: every planned step ran with the data it needed.
 - **Pages analysed:** 0
 - **Reports processed:** 0
 
-Scheduled monitor: 0 new change commit(s), 15 item(s) need you, 207 ranking check(s) completed, rankings measured.
+Scheduled monitor: 0 new change commit(s), 18 item(s) need you, 207 ranking check(s) completed, rankings measured.
 
 ### Main findings
 
@@ -81,9 +81,70 @@ Search Console, final data. Current 2026-10-18..2026-10-31 vs previous 2026-10-0
 - /blog/sample-residency-interview-questions-and-answers: position 4.3 -> 9.5, clicks 1 -> 5
 - /blog/how-to-make-a-good-cv-for-usmle: position 4.0 -> 9.4, clicks 18 -> 18
 
+## Your change log
+
+Read `seo-change-log.md` (working tree). For every logged page: Search Console in the 14 days before its newest logged commit went live vs the 14 days after, judged against all blog pages over the same days; then the latest 14 days (2026-10-18..2026-10-31) vs the 14 before. Next steps are rule-based hints, not forecasts.
+
+**Summary:** not live yet 51 (52 logged pages).
+
+| Page | Live since | Before go-live | After go-live | Verdict | Latest 14 days | Next step | Watch for (your note) |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| /blog/6-keys-to-usmle-match-success | not live yet | – | – | waiting | clicks 0 -> 0, impressions 94 -> 104, position 11.6 -> 11.1 | Deploy and request indexing first. | CTR and position after the new title; revert the title if it drops by 1+ position or loses clicks. |
+| /blog/6-month-usmle-step-1-study-plan | not live yet | – | – | waiting | clicks 17 -> 11, impressions 588 -> 595, position 12.8 -> 14.8 | Deploy and request indexing first. | Position and clicks for 'usmle step 1 study plan' (goal: top 5). |
+| /blog/an-average-students-path-to-usmle-success | not live yet | – | – | waiting | clicks 1 -> 0, impressions 54 -> 69, position 7.0 -> 9.9 | Deploy and request indexing first. | CTR and position after the new title; the added internal link should not hurt this page. |
+| /blog/apply-now-for-a-free-usmle-step-3-practice-examination | not live yet | – | – | waiting | clicks 7 -> 5, impressions 507 -> 694, position 10.2 -> 12.1 | Deploy and request indexing first. | CTR and position after the new title; revert the title if it drops by 1+ position or loses clicks. |
+| /blog/best-study-resources-for-usmle-steps-preparation | not live yet | – | – | waiting | clicks 6 -> 10, impressions 875 -> 1572, position 6.4 -> 5.3 | Deploy and request indexing first. | CTR and position after the new title; revert the title if it drops by 1+ position or loses clicks. |
+| /blog/can-indian-medical-graduates-work-in-the-usa-without-usmle | not live yet | – | – | waiting | clicks 15 -> 12, impressions 850 -> 707, position 6.1 -> 6.4 | Deploy and request indexing first. | CTR and position after the new title; revert the title if it drops by 1+ position or loses clicks. |
+| /blog/can-you-prepare-for-the-usmle-during-med-school | not live yet | – | – | waiting | clicks 2 -> 0, impressions 297 -> 254, position 6.3 -> 5.6 | Deploy and request indexing first. | CTR and position after the new title; revert the title if it drops by 1+ position or loses clicks. |
+| /blog/can-you-take-the-usmle-right-after-mbbs-in-india | not live yet | – | – | waiting | clicks 13 -> 14, impressions 3072 -> 2610, position 4.4 -> 4.4 | Deploy and request indexing first. | CTR and position after the new title; the added internal link should not hurt this page. |
+| /blog/common-mistakes-to-avoid-while-preparing-for-the-usmle-step-1 | not live yet | – | – | waiting | clicks 1 -> 4, impressions 192 -> 132, position 7.2 -> 6.2 | Deploy and request indexing first. | CTR and position after the new title; the added internal link should not hurt this page. |
+| /blog/common-pitfalls-in-the-usmle-journey-and-how-to-avoid-them | not live yet | – | – | waiting | clicks 0 -> 0, impressions 15 -> 15, position 12.1 -> 7.2 | Deploy and request indexing first. | CTR and position after the new title; revert the title if it drops by 1+ position or loses clicks. |
+| /blog/comprehensive-guide-to-the-usmle-step-1-syllabus | not live yet | – | – | waiting | clicks 48 -> 36, impressions 2377 -> 2360, position 6.3 -> 6.6 | Deploy and request indexing first. | CTR and position after the new title; the added internal link should not hurt this page. |
+| /blog/comprehensive-guide-to-the-usmle-step-2-ck-syllabus | not live yet | – | – | waiting | clicks 9 -> 9, impressions 805 -> 764, position 6.5 -> 6.3 | Deploy and request indexing first. | Position and clicks for 'usmle step 2 ck syllabus' (goal: top 5). |
+| /blog/ecfmg-2027-pathways-for-imgs | not live yet | – | – | waiting | clicks 8 -> 6, impressions 1592 -> 1752, position 7.4 -> 7.5 | Deploy and request indexing first. | CTR and position after the new title; revert the title if it drops by 1+ position or loses clicks. |
+| /blog/ecfmg-announcement-certification-eligibility | not live yet | – | – | waiting | clicks 0 -> 1, impressions 70 -> 66, position 9.2 -> 9.5 | Deploy and request indexing first. | CTR and position after the new title; revert the title if it drops by 1+ position or loses clicks. |
+| /blog/highest-usmle-step-2-ck-score | not live yet | – | – | waiting | clicks 41 -> 34, impressions 3652 -> 4209, position 4.7 -> 4.6 | Deploy and request indexing first. | CTR and position after the new title; revert the title if it drops by 1+ position or loses clicks. |
+| /blog/how-many-indians-pass-the-usmle-each-year | not live yet | – | – | waiting | clicks 35 -> 22, impressions 1188 -> 1057, position 3.6 -> 3.7 | Deploy and request indexing first. | Only gained an internal link to a target page; it should hold its position. |
+| /blog/how-many-interviews-should-you-get-to-match | not live yet | – | – | waiting | clicks 55 -> 71, impressions 5253 -> 4612, position 6.9 -> 7.0 | Deploy and request indexing first. | CTR and position after the new title; revert the title if it drops by 1+ position or loses clicks. |
+| /blog/how-many-years-is-usmle-valid | not live yet | – | – | waiting | clicks 44 -> 27, impressions 2740 -> 2568, position 4.2 -> 4.6 | Deploy and request indexing first. | CTR and position after the new title; revert the title if it drops by 1+ position or loses clicks. |
+| /blog/how-much-does-usmle-cost-in-total | not live yet | – | – | waiting | clicks 16 -> 22, impressions 2456 -> 2353, position 6.9 -> 6.6 | Deploy and request indexing first. | Position and clicks for 'how much does usmle cost' (goal: top 5); INR/rupee queries should gain without the main fee query dropping. |
+| /blog/how-should-imgs-approach-the-usmle-match-process | not live yet | – | – | waiting | clicks 0 -> 0, impressions 68 -> 61, position 10.2 -> 12.3 | Deploy and request indexing first. | CTR and position after the new title; revert the title if it drops by 1+ position or loses clicks. |
+| /blog/how-to-apply-for-usmle-from-india | not live yet | – | – | waiting | clicks 17 -> 18, impressions 2570 -> 3820, position 6.1 -> 6.5 | Deploy and request indexing first. | Position and clicks for 'how to apply for usmle from india' (goal: top 5); INR/rupee queries should gain without the main fee query dropping. |
+| /blog/how-to-balance-usmle-preparation-and-medical-school | not live yet | – | – | waiting | clicks 0 -> 3, impressions 159 -> 203, position 6.2 -> 6.1 | Deploy and request indexing first. | CTR and position after the new title; revert the title if it drops by 1+ position or loses clicks. |
+| /blog/how-to-crack-usmle-on-your-first-attempt | not live yet | – | – | waiting | clicks 3 -> 0, impressions 157 -> 241, position 7.0 -> 6.2 | Deploy and request indexing first. | Only gained an internal link to a target page; it should hold its position. |
+| /blog/how-to-find-the-best-us-clinical-experience-for-imgs | not live yet | – | – | waiting | clicks 0 -> 1, impressions 48 -> 53, position 11.0 -> 9.1 | Deploy and request indexing first. | CTR and position after the new title; revert the title if it drops by 1+ position or loses clicks. |
+| /blog/how-to-make-a-good-cv-for-usmle | not live yet | – | – | waiting | clicks 18 -> 18, impressions 383 -> 541, position 4.0 -> 9.4 | Deploy and request indexing first. | CTR and position after the new title; revert the title if it drops by 1+ position or loses clicks. |
+| /blog/how-to-prepare-for-the-residency-match-season | not live yet | – | – | waiting | clicks 0 -> 0, impressions 4 -> 1, position 18.2 -> 6.0 | Deploy and request indexing first. | CTR and position after the new title; revert the title if it drops by 1+ position or loses clicks. |
+| /blog/how-to-prepare-for-usmle-from-1st-year-mbbs | not live yet | – | – | waiting | clicks 6 -> 5, impressions 420 -> 264, position 5.3 -> 5.3 | Deploy and request indexing first. | CTR and position after the new title; the added internal link should not hurt this page. |
+| /blog/how-to-score-280-on-usmle-step-2-ck | not live yet | – | – | waiting | clicks 17 -> 15, impressions 3024 -> 2875, position 3.7 -> 4.8 | Deploy and request indexing first. | Only gained an internal link to a target page; it should hold its position. |
+| /blog/img-match-2026-nrmp-data | not live yet | – | – | waiting | clicks 47 -> 54, impressions 3507 -> 3934, position 5.4 -> 5.3 | Deploy and request indexing first. | CTR and position after the new title; revert the title if it drops by 1+ position or loses clicks. |
+| /blog/important-update-for-usmle-step1-and-step-2ck-examinees-in-2024 | not live yet | – | – | waiting | clicks 36 -> 26, impressions 4211 -> 3987, position 5.8 -> 6.0 | Deploy and request indexing first. | CTR and position after the new title; revert the title if it drops by 1+ position or loses clicks. |
+| /blog/in-which-year-of-mbbs-can-you-give-usmle-step-2-ck | not live yet | – | – | waiting | clicks 3 -> 2, impressions 724 -> 642, position 6.1 -> 6.5 | Deploy and request indexing first. | CTR and position after the new title; revert the title if it drops by 1+ position or loses clicks. |
+| /blog/is-the-usmle-tough-for-indian-students | not live yet | – | – | waiting | clicks 12 -> 17, impressions 1212 -> 1362, position 4.5 -> 4.3 | Deploy and request indexing first. | Position and clicks for 'is usmle tough for indian students' (goal: top 5). |
+| /blog/is-usmle-only-for-mbbs-students | not live yet | – | – | waiting | clicks 2 -> 4, impressions 400 -> 471, position 5.8 -> 5.6 | Deploy and request indexing first. | Position and clicks for 'is usmle only for mbbs students' (goal: top 5). |
+| /blog/official-statement-regarding-the-invalidation-of-usmle-examination-scores | not live yet | – | – | waiting | clicks 0 -> 0, impressions 34 -> 25, position 6.8 -> 7.8 | Deploy and request indexing first. | CTR and position after the new title; revert the title if it drops by 1+ position or loses clicks. |
+| /blog/top-usmle-coaching-centers-in-india | not live yet | – | – | waiting | clicks 3 -> 0, impressions 155 -> 158, position 11.5 -> 9.8 | Deploy and request indexing first. | Position and clicks for 'usmle coaching centers in india' (goal: top 5). |
+| /blog/ultimate-guide-to-choosing-the-best-usmle-step-1-book | not live yet | – | – | waiting | clicks 9 -> 4, impressions 903 -> 877, position 8.5 -> 8.6 | Deploy and request indexing first. | CTR and position after the new title; revert the title if it drops by 1+ position or loses clicks. |
+| /blog/usmle-personal-statement-dos-and-donts | not live yet | – | – | waiting | clicks 1 -> 1, impressions 47 -> 41, position 6.1 -> 6.7 | Deploy and request indexing first. | CTR and position after the new title; revert the title if it drops by 1+ position or loses clicks. |
+| /blog/usmle-step-1-exam-fee-what-you-need-to-know | not live yet | – | – | waiting | clicks 2 -> 0, impressions 368 -> 318, position 10.2 -> 13.6 | Deploy and request indexing first. | Position and clicks for 'usmle step 1 exam fee' (goal: top 5); INR/rupee queries should gain without the main fee query dropping. |
+| /blog/usmle-step-1-vs-step-2-ck-key-differences-you-need-to-know | not live yet | – | – | waiting | clicks 3 -> 9, impressions 2423 -> 2704, position 7.1 -> 6.8 | Deploy and request indexing first. | CTR and position after the new title; the added internal link should not hurt this page. |
+| /blog/usmle-step-2-ck-exam-format-2026 | not live yet | – | – | waiting | clicks 11 -> 9, impressions 1432 -> 1456, position 6.5 -> 6.3 | Deploy and request indexing first. | CTR and position after the new title; the added internal link should not hurt this page. |
+| /blog/usmle-step-2-ck-study-plan-12-weeks | not live yet | – | – | waiting | clicks 5 -> 5, impressions 696 -> 717, position 15.7 -> 15.5 | Deploy and request indexing first. | Position and clicks for 'usmle step 2 ck study plan' (goal: top 5). |
+| /blog/usmle-step-3-preparatio-study-plan-and-guidance | not live yet | – | – | waiting | clicks 29 -> 29, impressions 1687 -> 2351, position 7.7 -> 8.3 | Deploy and request indexing first. | CTR and position after the new title; revert the title if it drops by 1+ position or loses clicks. |
+| /blog/what-happens-if-you-fail-in-usmle-step-1 | not live yet | – | – | waiting | clicks 12 -> 4, impressions 1204 -> 921, position 8.3 -> 8.9 | Deploy and request indexing first. | CTR and position after the new title; the added internal link should not hurt this page. |
+| /blog/what-is-oet-exam-how-much-does-it-costs | not live yet | – | – | waiting | clicks 52 -> 38, impressions 7501 -> 6396, position 5.9 -> 5.8 | Deploy and request indexing first. | Position and clicks for 'oet exam fees' (goal: top 5); INR/rupee queries should gain without the main fee query dropping. |
+| /blog/what-is-the-best-usmle-question-bank | not live yet | – | – | waiting | clicks 18 -> 19, impressions 1487 -> 1407, position 6.1 -> 6.1 | Deploy and request indexing first. | CTR and position after the new title; revert the title if it drops by 1+ position or loses clicks. |
+| /blog/what-is-the-difference-between-the-match-and-soap | not live yet | – | – | waiting | clicks 1 -> 0, impressions 188 -> 220, position 7.8 -> 8.3 | Deploy and request indexing first. | CTR and position after the new title; revert the title if it drops by 1+ position or loses clicks. |
+| /blog/what-is-the-role-of-mentorship-in-usmle-preparation | not live yet | – | – | waiting | clicks 3 -> 4, impressions 76 -> 91, position 6.8 -> 5.0 | Deploy and request indexing first. | CTR and position after the new title; the added internal link should not hurt this page. |
+| /blog/what-is-the-salary-after-usmle | not live yet | – | – | waiting | clicks 23 -> 27, impressions 2837 -> 3033, position 3.5 -> 4.0 | Deploy and request indexing first. | CTR and position after the new title; revert the title if it drops by 1+ position or loses clicks. |
+| /blog/what-is-the-typical-preparation-time-for-usmle-step-1 | not live yet | – | – | waiting | clicks 43 -> 20, impressions 3355 -> 3405, position 5.2 -> 5.4 | Deploy and request indexing first. | CTR and position after the new title; revert the title if it drops by 1+ position or loses clicks. |
+| /blog/what-is-usmle-what-are-the-usmle-steps | not live yet | – | – | waiting | clicks 3 -> 5, impressions 2915 -> 3720, position 8.8 -> 9.3 | Deploy and request indexing first. | CTR and position after the new title; the added internal link should not hurt this page. |
+| /blog/who-are-eligible-for-usmle | not live yet | – | – | waiting | clicks 13 -> 6, impressions 1295 -> 974, position 7.3 -> 7.7 | Deploy and request indexing first. | CTR and position after the new title; revert the title if it drops by 1+ position or loses clicks. |
+| site (template) | not live yet | – | – | – | – | Read the blog rankings table above for a sitewide shift. | A drop across many blog pages in the 14 days after deploy points at the template, not one post. |
+
 ## Change checklist
 
-371 open item(s). Full checklist: `seo-intelligence/sites/nextsteps/checklist.json`.
+390 open item(s). Full checklist: `seo-intelligence/sites/nextsteps/checklist.json`.
 
 **Needs you**
 
@@ -102,7 +163,10 @@ Search Console, final data. Current 2026-10-18..2026-10-31 vs previous 2026-10-0
 - [ ] Re-verify 'low-ctr:/blog/what-is-oet-exam-how-much-does-it-costs' in the next /seo-audit · /blog/what-is-oet-exam-how-much-does-it-costs · `20a1eaf`
 - [ ] Deploy 'content(blog): add IMG section and sample timelines to Step 1 study plan' · site · `77ba6e3`
 - [ ] Deploy 'feat(blog): show FAQ data on the page; compare Steps in Step 2 CK syllabus' · site · `8108c8c`
-- After deploying: request indexing for 24 page(s) of `3c54aa5`, 3 page(s) of `1b24309`, 1 page(s) of `c705eb1`, 1 page(s) of `c7db138`, 15 page(s) of `001bebc`, 2 page(s) of `6a99ddb`, 3 page(s) of `20a1eaf`, 1 page(s) of `77ba6e3`, 1 page(s) of `8108c8c` (these reminders appear once the change is live).
+- [ ] Deploy 'content(blog): link every USMLE cost guide fee to its official source' · site · `5fd4ef8`
+- [ ] Deploy 'content(blog): show approximate rupee amounts beside USD fees' · site · `c4ca650`
+- [ ] Deploy 'docs(seo): add change log of every blog change on this branch' · site · `0535bf8`
+- After deploying: request indexing for 24 page(s) of `3c54aa5`, 3 page(s) of `1b24309`, 1 page(s) of `c705eb1`, 1 page(s) of `c7db138`, 15 page(s) of `001bebc`, 1 page(s) of `6a99ddb`, 1 page(s) of `77ba6e3`, 1 page(s) of `8108c8c`, 4 page(s) of `c4ca650` (these reminders appear once the change is live).
 
 **Deployed, but the live page does not show the new title**
 
@@ -186,7 +250,7 @@ Pages changed in your commits: ranking N days after go-live vs N days before, co
 
 | Skill | Why selected | What it analysed | Actions | Output | Version |
 | --- | --- | --- | --- | --- | --- |
-| `seo-monitor` | scheduled monitor mode | repository changes, checklist, Search Console rows | synced changes; updated checklist; compared rankings | 3 report sections | 0ea7965b5c6a |
+| `seo-monitor` | scheduled monitor mode | repository changes, checklist, Search Console rows | synced changes; updated checklist; compared rankings | 4 report sections | 0ea7965b5c6a |
 | `seo-toolkit-performance-analysis` | method for period comparison and ranking drops | blog pages, 14-day windows | – | 2 ranking findings | 15b3654f038c |
 
 ## Tools and integrations used
@@ -267,7 +331,8 @@ None in this execution.
 
 **Historical information reused**
 
-- 67 tracked commits and 924 checklist items
+- SEO change log (seo_paths.change_log)
+- 70 tracked commits and 951 checklist items
 
 **Patterns identified**
 
@@ -288,6 +353,7 @@ None.
 - Deploy 20a1eaf (content(blog): show USMLE and OET fees in dollars only)
 - Deploy 77ba6e3 (content(blog): add IMG section and sample timelines to Step 1 study plan)
 - Deploy 8108c8c (feat(blog): show FAQ data on the page; compare Steps in Step 2 CK syllabus)
+- Deploy 5fd4ef8 (content(blog): link every USMLE cost guide fee to its official source)
 
 ## Blockers and notes
 

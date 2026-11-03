@@ -11086,8 +11086,8 @@
     "kind": "live-title",
     "title": "Live page shows the new title",
     "due": null,
-    "status": "pending",
-    "result": "",
+    "status": "skipped",
+    "result": "superseded by c4ca650",
     "days": null,
     "expected": "How to Apply for USMLE from India: 2027 Registration Steps",
     "change_types": [
@@ -14232,8 +14232,8 @@
     "kind": "live-title",
     "title": "Live page shows the new title",
     "due": null,
-    "status": "pending",
-    "result": "",
+    "status": "skipped",
+    "result": "superseded by c4ca650",
     "days": null,
     "expected": "USMLE Step 1 Exam Fee 2026: What You Pay &amp; Why",
     "change_types": [
@@ -15735,8 +15735,8 @@
     "kind": "live-title",
     "title": "Live page shows the new title",
     "due": null,
-    "status": "pending",
-    "result": "",
+    "status": "skipped",
+    "result": "superseded by c4ca650",
     "days": null,
     "expected": "How Much Does the USMLE Cost? Total Fees for 2026",
     "change_types": [
@@ -15754,8 +15754,8 @@
     "kind": "reindex",
     "title": "Request indexing in Search Console after deploy (manual)",
     "due": null,
-    "status": "pending",
-    "result": "",
+    "status": "skipped",
+    "result": "superseded by c4ca650",
     "days": null,
     "expected": null,
     "change_types": [
@@ -15913,8 +15913,8 @@
     "kind": "reindex",
     "title": "Request indexing in Search Console after deploy (manual)",
     "due": null,
-    "status": "pending",
-    "result": "",
+    "status": "skipped",
+    "result": "superseded by c4ca650",
     "days": null,
     "expected": null,
     "change_types": [
@@ -15989,8 +15989,8 @@
     "kind": "reindex",
     "title": "Request indexing in Search Console after deploy (manual)",
     "due": null,
-    "status": "pending",
-    "result": "",
+    "status": "skipped",
+    "result": "superseded by c4ca650",
     "days": null,
     "expected": null,
     "change_types": [
@@ -16065,8 +16065,8 @@
     "kind": "reindex",
     "title": "Request indexing in Search Console after deploy (manual)",
     "due": null,
-    "status": "pending",
-    "result": "",
+    "status": "skipped",
+    "result": "superseded by c4ca650",
     "days": null,
     "expected": null,
     "change_types": [
@@ -16316,6 +16316,523 @@
       "body",
       "faq"
     ],
+    "finding_key": null,
+    "updated_at": null
+  },
+  {
+    "id": "5fd4ef8:deploy",
+    "commit": "5fd4ef8fb4bf271ce12b7b862d84a9bd182e947b",
+    "path": "site",
+    "kind": "deploy",
+    "title": "Deploy 'content(blog): link every USMLE cost guide fee to its official source'",
+    "due": "2026-11-03",
+    "status": "pending",
+    "result": "",
+    "days": null,
+    "expected": null,
+    "change_types": [],
+    "finding_key": null,
+    "updated_at": null
+  },
+  {
+    "id": "5fd4ef8:reindex:/blog/how-much-does-usmle-cost-in-total",
+    "commit": "5fd4ef8fb4bf271ce12b7b862d84a9bd182e947b",
+    "path": "/blog/how-much-does-usmle-cost-in-total",
+    "kind": "reindex",
+    "title": "Request indexing in Search Console after deploy (manual)",
+    "due": null,
+    "status": "skipped",
+    "result": "superseded by c4ca650",
+    "days": null,
+    "expected": null,
+    "change_types": [
+      "body",
+      "faq"
+    ],
+    "finding_key": null,
+    "updated_at": null
+  },
+  {
+    "id": "5fd4ef8:rank-14d:/blog/how-much-does-usmle-cost-in-total",
+    "commit": "5fd4ef8fb4bf271ce12b7b862d84a9bd182e947b",
+    "path": "/blog/how-much-does-usmle-cost-in-total",
+    "kind": "rank",
+    "title": "Ranking 14 days after go-live vs 14 days before",
+    "due": null,
+    "status": "pending",
+    "result": "",
+    "days": 14,
+    "expected": null,
+    "change_types": [
+      "body",
+      "faq"
+    ],
+    "finding_key": null,
+    "updated_at": null
+  },
+  {
+    "id": "5fd4ef8:rank-28d:/blog/how-much-does-usmle-cost-in-total",
+    "commit": "5fd4ef8fb4bf271ce12b7b862d84a9bd182e947b",
+    "path": "/blog/how-much-does-usmle-cost-in-total",
+    "kind": "rank",
+    "title": "Ranking 28 days after go-live vs 28 days before",
+    "due": null,
+    "status": "pending",
+    "result": "",
+    "days": 28,
+    "expected": null,
+    "change_types": [
+      "body",
+      "faq"
+    ],
+    "finding_key": null,
+    "updated_at": null
+  },
+  {
+    "id": "5fd4ef8:rank-56d:/blog/how-much-does-usmle-cost-in-total",
+    "commit": "5fd4ef8fb4bf271ce12b7b862d84a9bd182e947b",
+    "path": "/blog/how-much-does-usmle-cost-in-total",
+    "kind": "rank",
+    "title": "Ranking 56 days after go-live vs 56 days before",
+    "due": null,
+    "status": "pending",
+    "result": "",
+    "days": 56,
+    "expected": null,
+    "change_types": [
+      "body",
+      "faq"
+    ],
+    "finding_key": null,
+    "updated_at": null
+  },
+  {
+    "id": "c4ca650:deploy",
+    "commit": "c4ca6508b729592d26c3d652147e57f50d3a836e",
+    "path": "site",
+    "kind": "deploy",
+    "title": "Deploy 'content(blog): show approximate rupee amounts beside USD fees'",
+    "due": "2026-11-03",
+    "status": "pending",
+    "result": "",
+    "days": null,
+    "expected": null,
+    "change_types": [],
+    "finding_key": null,
+    "updated_at": null
+  },
+  {
+    "id": "c4ca650:live-title:/blog/how-much-does-usmle-cost-in-total",
+    "commit": "c4ca6508b729592d26c3d652147e57f50d3a836e",
+    "path": "/blog/how-much-does-usmle-cost-in-total",
+    "kind": "live-title",
+    "title": "Live page shows the new title",
+    "due": null,
+    "status": "pending",
+    "result": "",
+    "days": null,
+    "expected": "How Much Does the USMLE Cost? 2026 Fees in INR and USD",
+    "change_types": [
+      "body",
+      "description",
+      "faq",
+      "title"
+    ],
+    "finding_key": null,
+    "updated_at": null
+  },
+  {
+    "id": "c4ca650:reindex:/blog/how-much-does-usmle-cost-in-total",
+    "commit": "c4ca6508b729592d26c3d652147e57f50d3a836e",
+    "path": "/blog/how-much-does-usmle-cost-in-total",
+    "kind": "reindex",
+    "title": "Request indexing in Search Console after deploy (manual)",
+    "due": null,
+    "status": "pending",
+    "result": "",
+    "days": null,
+    "expected": null,
+    "change_types": [
+      "body",
+      "description",
+      "faq",
+      "title"
+    ],
+    "finding_key": null,
+    "updated_at": null
+  },
+  {
+    "id": "c4ca650:rank-14d:/blog/how-much-does-usmle-cost-in-total",
+    "commit": "c4ca6508b729592d26c3d652147e57f50d3a836e",
+    "path": "/blog/how-much-does-usmle-cost-in-total",
+    "kind": "rank",
+    "title": "Ranking 14 days after go-live vs 14 days before",
+    "due": null,
+    "status": "pending",
+    "result": "",
+    "days": 14,
+    "expected": null,
+    "change_types": [
+      "body",
+      "description",
+      "faq",
+      "title"
+    ],
+    "finding_key": null,
+    "updated_at": null
+  },
+  {
+    "id": "c4ca650:rank-28d:/blog/how-much-does-usmle-cost-in-total",
+    "commit": "c4ca6508b729592d26c3d652147e57f50d3a836e",
+    "path": "/blog/how-much-does-usmle-cost-in-total",
+    "kind": "rank",
+    "title": "Ranking 28 days after go-live vs 28 days before",
+    "due": null,
+    "status": "pending",
+    "result": "",
+    "days": 28,
+    "expected": null,
+    "change_types": [
+      "body",
+      "description",
+      "faq",
+      "title"
+    ],
+    "finding_key": null,
+    "updated_at": null
+  },
+  {
+    "id": "c4ca650:rank-56d:/blog/how-much-does-usmle-cost-in-total",
+    "commit": "c4ca6508b729592d26c3d652147e57f50d3a836e",
+    "path": "/blog/how-much-does-usmle-cost-in-total",
+    "kind": "rank",
+    "title": "Ranking 56 days after go-live vs 56 days before",
+    "due": null,
+    "status": "pending",
+    "result": "",
+    "days": 56,
+    "expected": null,
+    "change_types": [
+      "body",
+      "description",
+      "faq",
+      "title"
+    ],
+    "finding_key": null,
+    "updated_at": null
+  },
+  {
+    "id": "c4ca650:live-title:/blog/how-to-apply-for-usmle-from-india",
+    "commit": "c4ca6508b729592d26c3d652147e57f50d3a836e",
+    "path": "/blog/how-to-apply-for-usmle-from-india",
+    "kind": "live-title",
+    "title": "Live page shows the new title",
+    "due": null,
+    "status": "pending",
+    "result": "",
+    "days": null,
+    "expected": "How to Apply for USMLE from India: 2027 Steps &amp; Fees in INR",
+    "change_types": [
+      "body",
+      "description",
+      "faq",
+      "title"
+    ],
+    "finding_key": null,
+    "updated_at": null
+  },
+  {
+    "id": "c4ca650:reindex:/blog/how-to-apply-for-usmle-from-india",
+    "commit": "c4ca6508b729592d26c3d652147e57f50d3a836e",
+    "path": "/blog/how-to-apply-for-usmle-from-india",
+    "kind": "reindex",
+    "title": "Request indexing in Search Console after deploy (manual)",
+    "due": null,
+    "status": "pending",
+    "result": "",
+    "days": null,
+    "expected": null,
+    "change_types": [
+      "body",
+      "description",
+      "faq",
+      "title"
+    ],
+    "finding_key": null,
+    "updated_at": null
+  },
+  {
+    "id": "c4ca650:rank-14d:/blog/how-to-apply-for-usmle-from-india",
+    "commit": "c4ca6508b729592d26c3d652147e57f50d3a836e",
+    "path": "/blog/how-to-apply-for-usmle-from-india",
+    "kind": "rank",
+    "title": "Ranking 14 days after go-live vs 14 days before",
+    "due": null,
+    "status": "pending",
+    "result": "",
+    "days": 14,
+    "expected": null,
+    "change_types": [
+      "body",
+      "description",
+      "faq",
+      "title"
+    ],
+    "finding_key": null,
+    "updated_at": null
+  },
+  {
+    "id": "c4ca650:rank-28d:/blog/how-to-apply-for-usmle-from-india",
+    "commit": "c4ca6508b729592d26c3d652147e57f50d3a836e",
+    "path": "/blog/how-to-apply-for-usmle-from-india",
+    "kind": "rank",
+    "title": "Ranking 28 days after go-live vs 28 days before",
+    "due": null,
+    "status": "pending",
+    "result": "",
+    "days": 28,
+    "expected": null,
+    "change_types": [
+      "body",
+      "description",
+      "faq",
+      "title"
+    ],
+    "finding_key": null,
+    "updated_at": null
+  },
+  {
+    "id": "c4ca650:rank-56d:/blog/how-to-apply-for-usmle-from-india",
+    "commit": "c4ca6508b729592d26c3d652147e57f50d3a836e",
+    "path": "/blog/how-to-apply-for-usmle-from-india",
+    "kind": "rank",
+    "title": "Ranking 56 days after go-live vs 56 days before",
+    "due": null,
+    "status": "pending",
+    "result": "",
+    "days": 56,
+    "expected": null,
+    "change_types": [
+      "body",
+      "description",
+      "faq",
+      "title"
+    ],
+    "finding_key": null,
+    "updated_at": null
+  },
+  {
+    "id": "c4ca650:live-title:/blog/usmle-step-1-exam-fee-what-you-need-to-know",
+    "commit": "c4ca6508b729592d26c3d652147e57f50d3a836e",
+    "path": "/blog/usmle-step-1-exam-fee-what-you-need-to-know",
+    "kind": "live-title",
+    "title": "Live page shows the new title",
+    "due": null,
+    "status": "pending",
+    "result": "",
+    "days": null,
+    "expected": "USMLE Step 1 Fees 2026 in Rupees (INR) &amp; Dollars",
+    "change_types": [
+      "body",
+      "description",
+      "faq",
+      "title"
+    ],
+    "finding_key": null,
+    "updated_at": null
+  },
+  {
+    "id": "c4ca650:reindex:/blog/usmle-step-1-exam-fee-what-you-need-to-know",
+    "commit": "c4ca6508b729592d26c3d652147e57f50d3a836e",
+    "path": "/blog/usmle-step-1-exam-fee-what-you-need-to-know",
+    "kind": "reindex",
+    "title": "Request indexing in Search Console after deploy (manual)",
+    "due": null,
+    "status": "pending",
+    "result": "",
+    "days": null,
+    "expected": null,
+    "change_types": [
+      "body",
+      "description",
+      "faq",
+      "title"
+    ],
+    "finding_key": null,
+    "updated_at": null
+  },
+  {
+    "id": "c4ca650:rank-14d:/blog/usmle-step-1-exam-fee-what-you-need-to-know",
+    "commit": "c4ca6508b729592d26c3d652147e57f50d3a836e",
+    "path": "/blog/usmle-step-1-exam-fee-what-you-need-to-know",
+    "kind": "rank",
+    "title": "Ranking 14 days after go-live vs 14 days before",
+    "due": null,
+    "status": "pending",
+    "result": "",
+    "days": 14,
+    "expected": null,
+    "change_types": [
+      "body",
+      "description",
+      "faq",
+      "title"
+    ],
+    "finding_key": null,
+    "updated_at": null
+  },
+  {
+    "id": "c4ca650:rank-28d:/blog/usmle-step-1-exam-fee-what-you-need-to-know",
+    "commit": "c4ca6508b729592d26c3d652147e57f50d3a836e",
+    "path": "/blog/usmle-step-1-exam-fee-what-you-need-to-know",
+    "kind": "rank",
+    "title": "Ranking 28 days after go-live vs 28 days before",
+    "due": null,
+    "status": "pending",
+    "result": "",
+    "days": 28,
+    "expected": null,
+    "change_types": [
+      "body",
+      "description",
+      "faq",
+      "title"
+    ],
+    "finding_key": null,
+    "updated_at": null
+  },
+  {
+    "id": "c4ca650:rank-56d:/blog/usmle-step-1-exam-fee-what-you-need-to-know",
+    "commit": "c4ca6508b729592d26c3d652147e57f50d3a836e",
+    "path": "/blog/usmle-step-1-exam-fee-what-you-need-to-know",
+    "kind": "rank",
+    "title": "Ranking 56 days after go-live vs 56 days before",
+    "due": null,
+    "status": "pending",
+    "result": "",
+    "days": 56,
+    "expected": null,
+    "change_types": [
+      "body",
+      "description",
+      "faq",
+      "title"
+    ],
+    "finding_key": null,
+    "updated_at": null
+  },
+  {
+    "id": "c4ca650:live-title:/blog/what-is-oet-exam-how-much-does-it-costs",
+    "commit": "c4ca6508b729592d26c3d652147e57f50d3a836e",
+    "path": "/blog/what-is-oet-exam-how-much-does-it-costs",
+    "kind": "live-title",
+    "title": "Live page shows the new title",
+    "due": null,
+    "status": "pending",
+    "result": "",
+    "days": null,
+    "expected": "OET Exam Fees in India 2026 (INR): Cost + ECFMG Score Rules",
+    "change_types": [
+      "body",
+      "description",
+      "faq",
+      "title"
+    ],
+    "finding_key": null,
+    "updated_at": null
+  },
+  {
+    "id": "c4ca650:reindex:/blog/what-is-oet-exam-how-much-does-it-costs",
+    "commit": "c4ca6508b729592d26c3d652147e57f50d3a836e",
+    "path": "/blog/what-is-oet-exam-how-much-does-it-costs",
+    "kind": "reindex",
+    "title": "Request indexing in Search Console after deploy (manual)",
+    "due": null,
+    "status": "pending",
+    "result": "",
+    "days": null,
+    "expected": null,
+    "change_types": [
+      "body",
+      "description",
+      "faq",
+      "title"
+    ],
+    "finding_key": null,
+    "updated_at": null
+  },
+  {
+    "id": "c4ca650:rank-14d:/blog/what-is-oet-exam-how-much-does-it-costs",
+    "commit": "c4ca6508b729592d26c3d652147e57f50d3a836e",
+    "path": "/blog/what-is-oet-exam-how-much-does-it-costs",
+    "kind": "rank",
+    "title": "Ranking 14 days after go-live vs 14 days before",
+    "due": null,
+    "status": "pending",
+    "result": "",
+    "days": 14,
+    "expected": null,
+    "change_types": [
+      "body",
+      "description",
+      "faq",
+      "title"
+    ],
+    "finding_key": null,
+    "updated_at": null
+  },
+  {
+    "id": "c4ca650:rank-28d:/blog/what-is-oet-exam-how-much-does-it-costs",
+    "commit": "c4ca6508b729592d26c3d652147e57f50d3a836e",
+    "path": "/blog/what-is-oet-exam-how-much-does-it-costs",
+    "kind": "rank",
+    "title": "Ranking 28 days after go-live vs 28 days before",
+    "due": null,
+    "status": "pending",
+    "result": "",
+    "days": 28,
+    "expected": null,
+    "change_types": [
+      "body",
+      "description",
+      "faq",
+      "title"
+    ],
+    "finding_key": null,
+    "updated_at": null
+  },
+  {
+    "id": "c4ca650:rank-56d:/blog/what-is-oet-exam-how-much-does-it-costs",
+    "commit": "c4ca6508b729592d26c3d652147e57f50d3a836e",
+    "path": "/blog/what-is-oet-exam-how-much-does-it-costs",
+    "kind": "rank",
+    "title": "Ranking 56 days after go-live vs 56 days before",
+    "due": null,
+    "status": "pending",
+    "result": "",
+    "days": 56,
+    "expected": null,
+    "change_types": [
+      "body",
+      "description",
+      "faq",
+      "title"
+    ],
+    "finding_key": null,
+    "updated_at": null
+  },
+  {
+    "id": "0535bf8:deploy",
+    "commit": "0535bf8a67256b89248351bf80dbcfb8711a7af1",
+    "path": "site",
+    "kind": "deploy",
+    "title": "Deploy 'docs(seo): add change log of every blog change on this branch'",
+    "due": "2026-11-03",
+    "status": "pending",
+    "result": "",
+    "days": null,
+    "expected": null,
+    "change_types": [],
     "finding_key": null,
     "updated_at": null
   }

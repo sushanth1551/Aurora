@@ -86,5 +86,27 @@
     "new": 0,
     "recurring": 2,
     "resolved": 0
+  },
+  {
+    "id": "20261103-103345-monitor",
+    "mode": "monitor",
+    "status": "partial",
+    "started_at": "2026-11-03T10:33:45.957394Z",
+    "finished_at": "2026-11-03T10:34:09.672138Z",
+    "summary": "Scheduled monitor: 3 new change commit(s), 18 item(s) need you, 207 ranking check(s) completed, rankings not measured.",
+    "new": 0,
+    "recurring": 0,
+    "resolved": 0
+  },
+  {
+    "id": "20261103-103519-monitor",
+    "mode": "monitor",
+    "status": "completed",
+    "started_at": "2026-11-03T10:35:19.778812Z",
+    "finished_at": "2026-11-03T10:35:36.142806Z",
+    "summary": "Scheduled monitor: 0 new change commit(s), 18 item(s) need you, 207 ranking check(s) completed, rankings measured.",
+    "new": 0,
+    "recurring": 2,
+    "resolved": 0
   }
 ]

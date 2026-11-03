@@ -2839,5 +2839,127 @@
     "deployed": false,
     "deploy_date": null,
     "deploy_basis": ""
+  },
+  {
+    "sha": "5fd4ef8fb4bf271ce12b7b862d84a9bd182e947b",
+    "committed_at": "2026-11-03T15:38:41+05:30",
+    "subject": "content(blog): link every USMLE cost guide fee to its official source",
+    "files": [
+      "blog-reindex-tracker.md",
+      "frontend/public/blog-content/how-much-does-usmle-cost-in-total.json",
+      "frontend/src/data/blog-index.generated.json",
+      "frontend/src/data/manual-posts.json"
+    ],
+    "pages": [
+      {
+        "path": "/blog/how-much-does-usmle-cost-in-total",
+        "changes": [
+          "body file updated",
+          "faq changed (5 questions)",
+          "body updated (+417 words, now 1491)"
+        ],
+        "new_title": null
+      },
+      {
+        "path": "site",
+        "changes": [
+          "site file changed: blog-reindex-tracker.md"
+        ],
+        "new_title": null
+      }
+    ],
+    "deployed": false,
+    "deploy_date": null,
+    "deploy_basis": ""
+  },
+  {
+    "sha": "c4ca6508b729592d26c3d652147e57f50d3a836e",
+    "committed_at": "2026-11-03T15:49:34+05:30",
+    "subject": "content(blog): show approximate rupee amounts beside USD fees",
+    "files": [
+      "blog-reindex-tracker.md",
+      "frontend/public/blog-content/how-much-does-usmle-cost-in-total.json",
+      "frontend/public/blog-content/how-to-apply-for-usmle-from-india.json",
+      "frontend/public/blog-content/usmle-step-1-exam-fee-what-you-need-to-know.json",
+      "frontend/public/blog-content/what-is-oet-exam-how-much-does-it-costs.json",
+      "frontend/src/data/blog-index.generated.json",
+      "frontend/src/data/manual-posts.json"
+    ],
+    "pages": [
+      {
+        "path": "/blog/how-much-does-usmle-cost-in-total",
+        "changes": [
+          "body file updated",
+          "title: 'How Much Does the USMLE Cost? Total Fees for 2026' -> 'How Much Does the USMLE Cost? 2026 Fees in INR and USD'",
+          "excerpt: 'How much does the USMLE cost? Every 2026 fee: Step exams, ECFMG and Pathway fees, OET, ER…' -> 'How much does the USMLE cost in Indian rupees and dollars? Every 2026 USMLE fee in INR an…'",
+          "faq changed (5 questions)",
+          "body updated (+125 words, now 1616)"
+        ],
+        "new_title": "How Much Does the USMLE Cost? 2026 Fees in INR and USD"
+      },
+      {
+        "path": "/blog/how-to-apply-for-usmle-from-india",
+        "changes": [
+          "body file updated",
+          "title: 'How to Apply for USMLE from India: 2027 Registration Steps' -> 'How to Apply for USMLE from India: 2027 Steps &amp; Fees in INR'",
+          "excerpt: 'Since 12 January 2026, Step 1 and Step 2 CK registration runs through FSMB, not ECFMG. He…' -> 'Since 12 January 2026, Step 1 and Step 2 CK registration runs through FSMB, not ECFMG. He…'",
+          "faq changed (8 questions)",
+          "body updated (+88 words, now 3048)"
+        ],
+        "new_title": "How to Apply for USMLE from India: 2027 Steps &amp; Fees in INR"
+      },
+      {
+        "path": "/blog/usmle-step-1-exam-fee-what-you-need-to-know",
+        "changes": [
+          "body file updated",
+          "title: 'USMLE Step 1 Exam Fee 2026: What You Pay &amp; Why' -> 'USMLE Step 1 Fees 2026 in Rupees (INR) &amp; Dollars'",
+          "excerpt: 'The USMLE Step 1 fee in 2026 is $695, plus a $210 region fee abroad and 18% GST in India:…' -> 'The USMLE Step 1 fee in 2026, in dollars and Indian rupees (INR), is $695 (~₹66,700), plu…'",
+          "faq changed (5 questions)",
+          "body updated (+90 words, now 1378)"
+        ],
+        "new_title": "USMLE Step 1 Fees 2026 in Rupees (INR) &amp; Dollars"
+      },
+      {
+        "path": "/blog/what-is-oet-exam-how-much-does-it-costs",
+        "changes": [
+          "body file updated",
+          "title: 'OET Exam Fees 2026: What It Costs + ECFMG Score Requirements' -> 'OET Exam Fees in India 2026 (INR): Cost + ECFMG Score Rules'",
+          "excerpt: 'The OET exam costs AUD 587 for all four sub-tests (about USD 385). Full 2026 fee breakdow…' -> 'OET exam fees in India: the OET costs AUD 587 for all four sub-tests (about USD 385 / ~₹3…'",
+          "faq changed (6 questions)",
+          "body updated (+44 words, now 1331)"
+        ],
+        "new_title": "OET Exam Fees in India 2026 (INR): Cost + ECFMG Score Rules"
+      },
+      {
+        "path": "site",
+        "changes": [
+          "site file changed: blog-reindex-tracker.md"
+        ],
+        "new_title": null
+      }
+    ],
+    "deployed": false,
+    "deploy_date": null,
+    "deploy_basis": ""
+  },
+  {
+    "sha": "0535bf8a67256b89248351bf80dbcfb8711a7af1",
+    "committed_at": "2026-11-03T16:00:38+05:30",
+    "subject": "docs(seo): add change log of every blog change on this branch",
+    "files": [
+      "seo-change-log.md"
+    ],
+    "pages": [
+      {
+        "path": "site",
+        "changes": [
+          "site file changed: seo-change-log.md"
+        ],
+        "new_title": null
+      }
+    ],
+    "deployed": false,
+    "deploy_date": null,
+    "deploy_basis": ""
   }
 ]

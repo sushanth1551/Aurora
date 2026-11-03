@@ -1119,6 +1119,13 @@
         "url": "https://nextstepsusmle.com/blog/how-to-make-a-good-cv-for-usmle",
         "observed_at": "2026-11-03T09:49:55.375944Z",
         "execution_id": "20261103-094941-monitor"
+      },
+      {
+        "source": "Search Console 2026-10-04..2026-10-31",
+        "observation": "clicks 18 -> 18, impressions 383 -> 541, position 4.0 -> 9.4",
+        "url": "https://nextstepsusmle.com/blog/how-to-make-a-good-cv-for-usmle",
+        "observed_at": "2026-11-03T10:35:36.138806Z",
+        "execution_id": "20261103-103519-monitor"
       }
     ],
     "evidence_state": "observed",
@@ -1132,14 +1139,15 @@
     "status": "open",
     "skill": "seo-toolkit-performance-analysis",
     "first_seen": "2026-11-03T09:38:18.045545Z",
-    "last_seen": "2026-11-03T09:49:55.375944Z",
+    "last_seen": "2026-11-03T10:35:36.138806Z",
     "seen_in": [
       "20261103-093759-monitor",
       "20261103-094014-monitor",
       "20261103-094053-monitor",
       "20261103-094657-monitor",
       "20261103-094846-monitor",
-      "20261103-094941-monitor"
+      "20261103-094941-monitor",
+      "20261103-103519-monitor"
     ],
     "history": [
       {
@@ -1198,6 +1206,13 @@
         "url": "https://nextstepsusmle.com/blog/usmle-step-1-exam-fee-what-you-need-to-know",
         "observed_at": "2026-11-03T09:49:55.375944Z",
         "execution_id": "20261103-094941-monitor"
+      },
+      {
+        "source": "Search Console 2026-10-04..2026-10-31",
+        "observation": "clicks 2 -> 0, impressions 368 -> 318, position 10.2 -> 13.6",
+        "url": "https://nextstepsusmle.com/blog/usmle-step-1-exam-fee-what-you-need-to-know",
+        "observed_at": "2026-11-03T10:35:36.138806Z",
+        "execution_id": "20261103-103519-monitor"
       }
     ],
     "evidence_state": "observed",
@@ -1211,14 +1226,15 @@
     "status": "open",
     "skill": "seo-toolkit-performance-analysis",
     "first_seen": "2026-11-03T09:38:18.045545Z",
-    "last_seen": "2026-11-03T09:49:55.375944Z",
+    "last_seen": "2026-11-03T10:35:36.138806Z",
     "seen_in": [
       "20261103-093759-monitor",
       "20261103-094014-monitor",
       "20261103-094053-monitor",
       "20261103-094657-monitor",
       "20261103-094846-monitor",
-      "20261103-094941-monitor"
+      "20261103-094941-monitor",
+      "20261103-103519-monitor"
     ],
     "history": [
       {
