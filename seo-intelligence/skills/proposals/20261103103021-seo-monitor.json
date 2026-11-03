@@ -16,11 +16,11 @@
   "base_hash": "0ea7965b5c6ab3b0b6c4f3d794938fe61f4204ec6dfd423ef877cbf807f285a2",
   "created_at": "2026-11-03T10:30:21.952584Z",
   "created_by": "seo-intelligence-agent",
-  "status": "pending",
+  "status": "applied",
   "single_execution": true,
-  "decided_by": null,
-  "decided_at": null,
-  "decision_note": "",
-  "applied_at": null,
-  "new_hash": null
+  "decided_by": "owner (sushanth1551)",
+  "decided_at": "2026-11-03T11:07:52.099736Z",
+  "decision_note": "Approved in chat 2026-11-03: link the change log to the 14-day monitor.",
+  "applied_at": "2026-11-03T11:07:52.901015Z",
+  "new_hash": "fd8a7d99e6bd327cf0503808046d7cc8d6dab422a60f13eab474f185bf65817b"
 }

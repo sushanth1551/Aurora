@@ -86,3 +86,16 @@ execution, ranking-drop findings in the ledger, and the report.
 ## Improving this skill
 
 Through proposals (`seo-learning-and-memory`) and `/seo-update-skills`.
+
+## Learned refinement: the owner's change log
+
+When the site config has `repository.seo_paths.change_log` (nextsteps: `seo-change-log.md` in the NextSteps repo), the monitor report has a **Your change log** section: one row per logged page with its go-live date, Search Console 14 days before vs 14 days after (relative to all blog pages), the latest 14 days, a rule-based next step and the owner's own 'watch for' note. The file is read from the working tree, or from the newest branch that has it.
+
+When summarising a run, after the blog rankings:
+
+1. **What went down:** every `logged-change-drop:*` finding first, with what changed on that page (from the log) and whether to revert a title or description.
+2. **What improved:** pages that beat the site trend, with the change that preceded it.
+3. **What to improve next:** for each logged page, the report's next step plus your own reading of its target keyword (use `seo-toolkit-performance-analysis` for the numbers and `seo-toolkit-content-optimizer` for the edit), no more than one concrete action per page, highest-traffic pages first.
+4. **Waiting:** pages whose commits are not live yet (deploy, then request indexing).
+
+Verdicts are observations, not proof of cause. When the owner makes new changes, offer to add a row to the change log's **Tracked pages** table (page in backticks, short commit SHAs in backticks, what changed, target keyword, what to watch); it is their repository file, so edit it only with their permission and on their branch.
