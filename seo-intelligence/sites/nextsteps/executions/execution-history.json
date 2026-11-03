@@ -108,5 +108,16 @@
     "new": 0,
     "recurring": 2,
     "resolved": 0
+  },
+  {
+    "id": "20261103-113944-monitor",
+    "mode": "monitor",
+    "status": "completed",
+    "started_at": "2026-11-03T11:39:44.360955Z",
+    "finished_at": "2026-11-03T11:39:54.193928Z",
+    "summary": "Scheduled monitor: 1 new change commit(s), 57 item(s) need you, 207 ranking check(s) completed, rankings measured.",
+    "new": 0,
+    "recurring": 2,
+    "resolved": 0
   }
 ]

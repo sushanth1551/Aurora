@@ -2360,9 +2360,9 @@
         "new_title": null
       }
     ],
-    "deployed": false,
-    "deploy_date": null,
-    "deploy_basis": ""
+    "deployed": true,
+    "deploy_date": "2026-11-03",
+    "deploy_basis": "contained in a7dd7b8, whose live title the monitor confirmed"
   },
   {
     "sha": "1b24309ab1bfd1040cddfdacfabda1adf05ce008",
@@ -2416,9 +2416,9 @@
         "new_title": "SOAP vs Match: What Happens in Match Week (2026)"
       }
     ],
-    "deployed": false,
-    "deploy_date": null,
-    "deploy_basis": ""
+    "deployed": true,
+    "deploy_date": "2026-11-03",
+    "deploy_basis": "contained in a7dd7b8, whose live title the monitor confirmed"
   },
   {
     "sha": "c705eb1b4acfddde940b4b14087b021d7c9dec89",
@@ -2444,9 +2444,9 @@
         "new_title": null
       }
     ],
-    "deployed": false,
-    "deploy_date": null,
-    "deploy_basis": ""
+    "deployed": true,
+    "deploy_date": "2026-11-03",
+    "deploy_basis": "contained in a7dd7b8, whose live title the monitor confirmed"
   },
   {
     "sha": "c7db1388023a0e1f9cbbee77424852b878e8360a",
@@ -2488,9 +2488,9 @@
         "new_title": null
       }
     ],
-    "deployed": false,
-    "deploy_date": null,
-    "deploy_basis": ""
+    "deployed": true,
+    "deploy_date": "2026-11-03",
+    "deploy_basis": "contained in a7dd7b8, whose live title the monitor confirmed"
   },
   {
     "sha": "001bebc8cf92b91723fdc14c64dd2e987a004841",
@@ -2685,9 +2685,9 @@
         "new_title": null
       }
     ],
-    "deployed": false,
-    "deploy_date": null,
-    "deploy_basis": ""
+    "deployed": true,
+    "deploy_date": "2026-11-03",
+    "deploy_basis": "contained in a7dd7b8, whose live title the monitor confirmed"
   },
   {
     "sha": "6a99ddbc5f643541de848a542e2a862df0b31026",
@@ -2726,9 +2726,9 @@
         "new_title": null
       }
     ],
-    "deployed": false,
-    "deploy_date": null,
-    "deploy_basis": ""
+    "deployed": true,
+    "deploy_date": "2026-11-03",
+    "deploy_basis": "contained in a7dd7b8, whose live title the monitor confirmed"
   },
   {
     "sha": "20a1eafea8c64452d83b6a4a626543a649134990",
@@ -2772,9 +2772,9 @@
         "new_title": null
       }
     ],
-    "deployed": false,
-    "deploy_date": null,
-    "deploy_basis": ""
+    "deployed": true,
+    "deploy_date": "2026-11-03",
+    "deploy_basis": "contained in a7dd7b8, whose live title the monitor confirmed"
   },
   {
     "sha": "77ba6e320427f1ee09f0b535bf5deb0648825616",
@@ -2804,9 +2804,9 @@
         "new_title": null
       }
     ],
-    "deployed": false,
-    "deploy_date": null,
-    "deploy_basis": ""
+    "deployed": true,
+    "deploy_date": "2026-11-03",
+    "deploy_basis": "contained in a7dd7b8, whose live title the monitor confirmed"
   },
   {
     "sha": "8108c8c6d91cddeab898f4dd8e8e54ad4c69b5b9",
@@ -2836,9 +2836,9 @@
         "new_title": null
       }
     ],
-    "deployed": false,
-    "deploy_date": null,
-    "deploy_basis": ""
+    "deployed": true,
+    "deploy_date": "2026-11-03",
+    "deploy_basis": "contained in a7dd7b8, whose live title the monitor confirmed"
   },
   {
     "sha": "5fd4ef8fb4bf271ce12b7b862d84a9bd182e947b",
@@ -2868,9 +2868,9 @@
         "new_title": null
       }
     ],
-    "deployed": false,
-    "deploy_date": null,
-    "deploy_basis": ""
+    "deployed": true,
+    "deploy_date": "2026-11-03",
+    "deploy_basis": "contained in a7dd7b8, whose live title the monitor confirmed"
   },
   {
     "sha": "c4ca6508b729592d26c3d652147e57f50d3a836e",
@@ -2938,9 +2938,9 @@
         "new_title": null
       }
     ],
-    "deployed": false,
-    "deploy_date": null,
-    "deploy_basis": ""
+    "deployed": true,
+    "deploy_date": "2026-11-03",
+    "deploy_basis": "contained in a7dd7b8, whose live title the monitor confirmed"
   },
   {
     "sha": "0535bf8a67256b89248351bf80dbcfb8711a7af1",
@@ -2958,8 +2958,42 @@
         "new_title": null
       }
     ],
-    "deployed": false,
-    "deploy_date": null,
-    "deploy_basis": ""
+    "deployed": true,
+    "deploy_date": "2026-11-03",
+    "deploy_basis": "contained in a7dd7b8, whose live title the monitor confirmed"
+  },
+  {
+    "sha": "a7dd7b8accae14c413c5428eab484a4f68213a9f",
+    "committed_at": "2026-11-03T16:57:04+05:30",
+    "subject": "content(blog): add Top 7 USMLE coaching centres table",
+    "files": [
+      "blog-reindex-tracker.md",
+      "frontend/public/blog-content/top-usmle-coaching-centers-in-india.json",
+      "frontend/src/data/blog-index.generated.json",
+      "frontend/src/data/manual-posts.json"
+    ],
+    "pages": [
+      {
+        "path": "/blog/top-usmle-coaching-centers-in-india",
+        "changes": [
+          "body file updated",
+          "title: 'USMLE Coaching Centres in India: How to Choose (2027)' -> 'Top 7 Best USMLE Coaching Centres in India (2027)'",
+          "excerpt: 'How to choose between USMLE coaching centres in India: what coaching can and cannot do, t…' -> 'The top 7 best USMLE coaching centres in India for 2027, from 1:1 mentorship to classroom…'",
+          "faq changed (5 questions)",
+          "body updated (+681 words, now 1850)"
+        ],
+        "new_title": "Top 7 Best USMLE Coaching Centres in India (2027)"
+      },
+      {
+        "path": "site",
+        "changes": [
+          "site file changed: blog-reindex-tracker.md"
+        ],
+        "new_title": null
+      }
+    ],
+    "deployed": true,
+    "deploy_date": "2026-11-03",
+    "deploy_basis": "live title confirmed by monitor"
   }
 ]
