@@ -475,6 +475,43 @@ async def test_one_live_title_proves_earlier_commits_live(site) -> None:
     assert len(fetched) == 1  # /blog/a was not fetched again
 
 
+async def test_live_post_body_proves_a_commit_without_title_change(site) -> None:
+    repo = site["repo"]
+    body_dir = "frontend/public/blog-content/"
+    body = repo / body_dir / "b.json"
+    body.parent.mkdir(parents=True, exist_ok=True)
+    body.write_text(json.dumps({"content": "<p>new body</p>"}), encoding="utf-8")
+    git(repo, "add", ".")
+    git(repo, "commit", "-m", "content(blog): body of b", when="2026-10-29")
+    config = site["config"]
+    config.repository.seo_paths["post_bodies"] = body_dir
+    site["kb"].save_config(config)
+
+    async def live(url: str):
+        if url.endswith("/blog-content/b.json"):
+            return '{ "content": "<p>new body</p>" }'  # same JSON, other spacing
+        return None
+
+    await MonitorService(
+        site["agent"],
+        site["improvement"],
+        tracker=ChangeTracker(config),
+        live=live,
+        today=TODAY,
+    ).run("demo")
+    commits = {
+        c["subject"]: c
+        for c in json.loads(
+            (site["kb"].site_dir("demo") / "changes/commits.json").read_text()
+        )
+    }
+    body_commit = commits["content(blog): body of b"]
+    assert body_commit["deployed"] is True
+    assert body_commit["deploy_basis"] == "live post content matches this commit"
+    # Its ancestor on the branch is live too.
+    assert commits["content(blog): retitle a again"]["deployed"] is True
+
+
 async def test_monitor_without_sources_is_honest(site) -> None:
     execution = await MonitorService(
         site["agent"], site["improvement"], today=TODAY

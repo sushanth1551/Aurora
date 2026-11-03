@@ -395,6 +395,36 @@ class MonitorService:
             )
         return marked
 
+    def _body_file(self, commit: TrackedCommit) -> str | None:
+        """A post body file this commit changed that the site also serves publicly."""
+        body_dir = self.tracker.body_dir if self.tracker else None
+        if not body_dir or "public/" not in body_dir:
+            return None
+        return next(
+            (f for f in commit.files if f.startswith(body_dir) and f.endswith(".json")),
+            None,
+        )
+
+    async def _body_is_live(
+        self, fetch: LiveFetcher, base: str, commit: TrackedCommit
+    ) -> bool:
+        """True when the live copy of a post body file equals this commit's version."""
+        path = self._body_file(commit)
+        if path is None or self.tracker is None:
+            return False
+        url = base + "/" + path.split("public/", 1)[1]
+        live = await fetch(url)
+        try:
+            ours = self.tracker.git.show_file(commit.sha, path)
+        except GitError:
+            return False
+        if not live or not ours:
+            return False
+        try:
+            return bool(json.loads(live) == json.loads(ours))
+        except ValueError:
+            return False
+
     async def evaluate(
         self,
         site_id: str,
@@ -451,6 +481,29 @@ class MonitorService:
             else:
                 item.result = f"live still shows '{seen or 'no title / not fetched'}'"
             item.updated_at = now
+        # Commits that changed a post body but no title: compare the live post file.
+        pending_body = sorted(
+            (c for c in commits.values() if not c.deployed and self._body_file(c)),
+            key=lambda c: c.committed_at,
+            reverse=True,
+        )
+        for body_commit in pending_body if fetch is not None else []:
+            assert fetch is not None
+            if body_commit.deployed or live_calls >= MAX_LIVE_CHECKS:
+                continue
+            live_calls += 1
+            if await self._body_is_live(fetch, base, body_commit):
+                body_commit.deployed = True
+                body_commit.deploy_date = self.today
+                body_commit.deploy_basis = "live post content matches this commit"
+                proved[body_commit.sha] = body_commit.sha
+                for sha in self._mark_ancestors_live(body_commit, commits):
+                    proved.setdefault(sha, body_commit.sha)
+        for item in live_items:
+            if item.status == "pending" and item.commit in proved:
+                item.status = "done"
+                item.result = f"live with {proved[item.commit][:7]} on {self.today}"
+                item.updated_at = now
         for item in items:
             if item.status != "pending":
                 continue
@@ -596,7 +649,7 @@ class MonitorService:
                 if rows is not None
                 else "not measured"
             )
-            if waiting or not dates:
+            if not dates:
                 state = "not live yet" if matched else "commits not tracked yet"
                 counts[state] += 1
                 lines.append(
@@ -604,11 +657,14 @@ class MonitorService:
                     f"request indexing first. | {entry.watch} |"
                 )
                 continue
+            # Measure the newest change that is live; say if newer ones are not.
             go_live = max(dates)
+            notes = []
+            if waiting:
+                notes.append(f"{len(waiting)} newer commit(s) not live yet")
             if unknown:
-                state = f"{go_live} ({unknown} commit(s) not tracked)"
-            else:
-                state = str(go_live)
+                notes.append(f"{unknown} commit(s) not tracked")
+            state = f"{go_live} ({'; '.join(notes)})" if notes else str(go_live)
             if rows is None:
                 counts["not measured"] += 1
                 lines.append(
