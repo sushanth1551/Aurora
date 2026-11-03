@@ -1,0 +1,107 @@
+{
+  "id": "20261102-keyword-snapshot",
+  "kind": "keyword",
+  "created_at": "2026-11-03T08:41:59.461090Z",
+  "sources": [
+    "Downloads/nextstepsusmle-SEO-Blog-Report-2026-11-02.pdf (69-post crawl + SerpApi US)",
+    "SEOWORK/SEO_Competitor_Gap_Analysis.xlsx (seo-data MCP + WebSearch, 2026-11-01)"
+  ],
+  "summary": "US SerpApi position check of 10 target keywords (2026-11-02) and autocomplete clusters (2026-11-01).",
+  "items": [
+    {
+      "keyword": "best usmle question bank",
+      "market": "US",
+      "position": 1
+    },
+    {
+      "keyword": "how to apply for usmle from india",
+      "market": "US",
+      "position": 2
+    },
+    {
+      "keyword": "usmle step 1 study plan",
+      "market": "US",
+      "position": "not in top 10"
+    },
+    {
+      "keyword": "usmle step 2 ck study plan",
+      "market": "US",
+      "position": "not in top 10"
+    },
+    {
+      "keyword": "usmle coaching centers in india",
+      "market": "US",
+      "position": "not in top 10"
+    },
+    {
+      "keyword": "usmle step 2 ck syllabus",
+      "market": "US",
+      "position": "not in top 10"
+    },
+    {
+      "keyword": "how much does usmle cost",
+      "market": "US",
+      "position": "not in top 10"
+    },
+    {
+      "keyword": "usmle step 1 exam fee",
+      "market": "US",
+      "position": "not in top 10"
+    },
+    {
+      "keyword": "is usmle tough for indian students",
+      "market": "US",
+      "position": "not in top 10"
+    },
+    {
+      "cluster": "price by country",
+      "source": "Google autocomplete (seo-data keyword_suggestions, country=us)"
+    },
+    {
+      "cluster": "exam mechanics",
+      "source": "Google autocomplete (seo-data keyword_suggestions, country=us)"
+    },
+    {
+      "cluster": "dates",
+      "source": "Google autocomplete (seo-data keyword_suggestions, country=us)"
+    },
+    {
+      "cluster": "Free 120 / practice",
+      "source": "Google autocomplete (seo-data keyword_suggestions, country=us)"
+    },
+    {
+      "cluster": "study plans",
+      "source": "Google autocomplete (seo-data keyword_suggestions, country=us)"
+    },
+    {
+      "cluster": "scores",
+      "source": "Google autocomplete (seo-data keyword_suggestions, country=us)"
+    },
+    {
+      "cluster": "NBME forms",
+      "source": "Google autocomplete (seo-data keyword_suggestions, country=us)"
+    },
+    {
+      "cluster": "question banks",
+      "source": "Google autocomplete (seo-data keyword_suggestions, country=us)"
+    },
+    {
+      "cluster": "comparisons",
+      "source": "Google autocomplete (seo-data keyword_suggestions, country=us)"
+    },
+    {
+      "cluster": "IMG / India",
+      "source": "Google autocomplete (seo-data keyword_suggestions, country=us)"
+    },
+    {
+      "cluster": "timelines",
+      "source": "Google autocomplete (seo-data keyword_suggestions, country=us)"
+    }
+  ],
+  "limitations": [
+    "One search per keyword, one date and location",
+    "No search volume or difficulty data",
+    "'usmle step 1 passing score' excluded as invalid (Step 1 is pass/fail)"
+  ],
+  "execution_id": null
+}

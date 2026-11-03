@@ -108,10 +108,21 @@ AURORA_PLANNING = {
     "wordpress-publishing",
 }
 LOCAL_REFERENCE = {"langgraph-orchestration", "serpapi-search-research"}
+# SEO Intelligence skills authored in this repository (docs/seo-intelligence.md).
+SEO_INTELLIGENCE = {
+    "seo-audit",
+    "seo-competitor-analysis",
+    "seo-content-optimization",
+    "seo-performance-review",
+    "seo-update-skills",
+    "website-seo-discovery",
+    "seo-report-analysis",
+    "seo-learning-and-memory",
+}
 CLAUDE_SEO = {
     "seo",
     "seo-agentic",
-    "seo-audit",
+    "seo-full-site-audit",
     "seo-backlinks",
     "seo-cluster",
     "seo-competitor-pages",
@@ -240,6 +251,8 @@ def provenance_of(name: str, has_attribution: bool) -> str:
         return "aurora-planning"
     if name in LOCAL_REFERENCE:
         return "aurora-local-reference"
+    if name in SEO_INTELLIGENCE:
+        return "aurora-seo-intelligence"
     if name in CLAUDE_SEO:
         return "claude-seo"
     return "external" if has_attribution else "unclassified"
@@ -414,8 +427,13 @@ def _risky_lines(path: Path, pattern: re.Pattern[str]) -> int:
 
 def check_content(report: SkillReport, skill_dir: Path, texts: list[Path]) -> None:
     joined = "\n".join(p.read_text(encoding="utf-8", errors="replace") for p in texts)
+    # A reference resolves inside the skill or to one of AURORA's own scripts/.
     missing_scripts = sorted(
-        {ref for ref in SCRIPT_REF_RE.findall(joined) if not (skill_dir / ref).exists()}
+        {
+            ref
+            for ref in SCRIPT_REF_RE.findall(joined)
+            if not (skill_dir / ref).exists() and not (ROOT / ref).exists()
+        }
     )
     if missing_scripts:
         shown = ", ".join(missing_scripts[:4]) + (
@@ -445,7 +463,7 @@ def check_attribution(report: SkillReport, skill_dir: Path) -> None:
         for p in skill_dir.iterdir()
         if p.is_file() and p.name.lower().startswith(("license", "licence"))
     ]
-    if report.provenance in {"aurora-planning"}:
+    if report.provenance in {"aurora-planning", "aurora-seo-intelligence"}:
         return
     if not attribution.exists():
         if report.provenance == "claude-seo":

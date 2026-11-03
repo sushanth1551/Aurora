@@ -1,0 +1,9 @@
+[
+  {
+    "key": "fee-currency:cost-pages",
+    "recommendation": "Show rupee equivalents on the cost page.",
+    "reason": "Owner rule: show all fees in US dollars only, no rupee conversions (implemented in 6a99ddb and 20a1eaf).",
+    "decided_by": "NextSteps owner (decision recorded 2026-11-02)",
+    "decided_at": "2026-11-03T08:42:01.886616Z"
+  }
+]

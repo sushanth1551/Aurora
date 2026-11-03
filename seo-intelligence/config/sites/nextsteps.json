@@ -1,0 +1,123 @@
+{
+  "id": "nextsteps",
+  "name": "Next Steps USMLE",
+  "domain": "nextstepsusmle.com",
+  "base_url": "https://nextstepsusmle.com",
+  "niche": "USMLE Step 1 and Step 2 CK preparation, mentorship and residency-match support for international medical graduates",
+  "audiences": [
+    "Indian MBBS students and graduates preparing for the USMLE",
+    "International medical graduates (IMGs) planning a US residency"
+  ],
+  "markets": ["IN", "US"],
+  "language": "en",
+  "products": [
+    {"name": "Step 1 & Step 2 CK preparation", "url": "/step-1-2-ck"},
+    {"name": "1:1 mentorship", "url": "/mentorship"},
+    {"name": "Free Sunday webinar", "url": "/webinar"},
+    {"name": "USMLE CV building", "url": "/programs/usmle-cv"},
+    {"name": "Clinical rotations (USCE)", "url": "/programs/clinical-rotations"},
+    {"name": "Residency match support", "url": "/programs/residency-match"}
+  ],
+  "conversion_goals": [
+    "Mentorship lead form on /mentorship (OTP-verified phone, sent to the CRM)",
+    "Webinar registration on /webinar",
+    "Blog readers moving to /mentorship or /webinar"
+  ],
+  "key_pages": [
+    "/",
+    "/mentorship",
+    "/webinar",
+    "/step-1-2-ck",
+    "/blog",
+    "/success-stories",
+    "/programs/usmle-cv",
+    "/programs/clinical-rotations",
+    "/programs/residency-match"
+  ],
+  "excluded_paths": ["/payment", "/auth/", "/api/", "/mentorship/thank-you", "/webinar/thank-you"],
+  "brand_name": "Next Steps USMLE",
+  "competitors": [
+    {"domain": "medschoolbro.com", "relevance": "content", "note": "In 5 of 8 sampled Google results pages (SerpApi, 2026-11-02)."},
+    {"domain": "kaptest.com", "relevance": "content", "note": "In 3 of 8 sampled results pages (2026-11-02)."},
+    {"domain": "usmlepreps.com", "relevance": "direct", "note": "Named in the 2026-11-01 competitor gap workbook."},
+    {"domain": "quora.com", "relevance": "serp_only", "note": "Forum result, 3 of 8 sampled results pages."},
+    {"domain": "usmle.org", "relevance": "not_a_competitor", "note": "Official source; cite it, do not compete with it."},
+    {"domain": "apply.tauedu.org", "relevance": "not_a_competitor", "note": "Application portal; the 2026-11-01 workbook says it is not a realistic SEO competitor."}
+  ],
+  "seed_keywords": [
+    "usmle step 1 study plan",
+    "usmle step 2 ck study plan",
+    "usmle coaching centers in india",
+    "usmle step 2 ck syllabus",
+    "how much does usmle cost",
+    "usmle step 1 exam fee",
+    "is usmle tough for indian students",
+    "best usmle question bank",
+    "how to apply for usmle from india",
+    "oet exam fees"
+  ],
+  "rules": {
+    "title_max_chars": 60,
+    "meta_description_max_chars": 160,
+    "min_words_blog_post": 800,
+    "editorial": [
+      "Fees are shown in US dollars only; no rupee conversions (owner decision, 2026-11-02).",
+      "Use the next year (2027) only in evergreen titles; keep 2026 where the post reports 2026 data.",
+      "Append the brand suffix to a title only if the whole title stays within 60 characters.",
+      "Reach the word minimum by adding useful, sourced sections, never by padding.",
+      "No em dashes in post content; plain apostrophes.",
+      "Post structure: 'In a nutshell' callout, tables where they help, visible FAQ that matches the faq array.",
+      "Title changes by ranking tier: strong pages (position <= 5 and >= 20 clicks) change minimally; page-1 pages (positions 5-10) first; page-2+ pages freely. Change a few at a time, recheck after 2-3 weeks and revert a title if it drops.",
+      "Internal links: 4-8 natural inbound links per target page, one sentence each, placed before the FAQ, Conclusion or Sources; avoid exact-match anchors to the sales page from posts that compete for the same query.",
+      "Never invent students, outcomes or statistics; sample timelines are labelled as examples.",
+      "Cite primary sources (usmle.org, ecfmg.org, nrmp.org) for fees, dates and policies."
+    ]
+  },
+  "integrations": {
+    "search_console_property": "sc-domain:nextstepsusmle.com",
+    "analytics": ["GA4", "Meta pixel", "Google Ads conversions"],
+    "mcp_servers": ["seo-data"],
+    "notes": [
+      "Search Console is read through AURORA's own GSC integration (/api/v1/gsc, read-only OAuth); no gsc MCP server is installed.",
+      "The Search Console account is a Full user, not an Owner: the Indexing API returns permission denied; reindex requests are manual (about 7-10 per day).",
+      "PageSpeed runs through the seo-data MCP server's free quota (PAGESPEED_API_KEY optional); it was exhausted on 2026-11-02.",
+      "SE Ranking and DataForSEO are not connected: no search volume, difficulty or backlink data.",
+      "SerpApi and Firecrawl calls cost credits: get an explicit credit budget from the owner first, no retries."
+    ]
+  },
+  "repository": {
+    "path": "C:/Users/other/nextsteps-usmle",
+    "production_branch": "main",
+    "access": "read_only",
+    "seo_paths": {
+      "head_tags": "frontend/src/components/SEO.tsx",
+      "blog_post_template": "frontend/src/pages/blog/BlogPost.tsx",
+      "blog_index": "frontend/src/pages/blog/BlogIndex.tsx",
+      "manual_posts": "frontend/src/data/manual-posts.json",
+      "post_bodies": "frontend/public/blog-content/",
+      "authors": "frontend/src/data/team.ts",
+      "organization_schema": "frontend/src/data/organization.ts",
+      "sitemap_generator": "frontend/scripts/sitemap.mjs",
+      "robots": "frontend/public/robots.txt",
+      "llms_txt": "frontend/public/llms.txt",
+      "nginx_spa": "frontend/nginx-spa.conf",
+      "redirects": "blog-redirects.conf",
+      "reindex_tracker": "blog-reindex-tracker.md",
+      "routes": "frontend/src/routes.tsx"
+    }
+  },
+  "report_sources": [
+    "C:/Users/other/nextsteps-usmle/nextstepsusmle.com-audit/",
+    "C:/Users/other/Documents/SEOWORK/nextstepsusmle.com/",
+    "C:/Users/other/Documents/Aurora/data/live-verification/",
+    "C:/Users/other/Downloads/ (files named nextstepsusmle-*.pdf)"
+  ],
+  "approval_required_for": [
+    "any change to the NextSteps repository or production site",
+    "pushing, merging or deploying NextSteps branches",
+    "content publication",
+    "sitemap submission or reindex requests",
+    "paid API calls beyond an approved credit budget",
+    "skill methodology changes"
+  ]
+}

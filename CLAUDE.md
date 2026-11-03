@@ -12,7 +12,9 @@ research and intelligence synthesis engine (Module 4: `llm/` provider layer with
 usage/cost tracking, `intelligence/` context builder, bounded reasoning, synthesis,
 cited reports, quality gates, `/api/v1/intelligence/...`); and the knowledge graph (Module 5: `graph/` Neo4j
 projection with provenance, entity resolution, outbox sync/reconciliation, bounded queries,
-`/api/v1/graph/...`; offline-verified, live Neo4j pending). All work is synchronous;
+`/api/v1/graph/...`; offline-verified, live Neo4j pending). SEO Intelligence (`seo/intelligence/`,
+`seo/skills/`, `seo-intelligence/` knowledge base, `/seo-*` skills, `/api/v1/seo/intelligence/...`;
+see `docs/seo-intelligence.md`) stores multi-website SEO findings and execution history. All work is synchronous;
 Modules 2-3 use no LLM. Groq is the configured low-cost provider; all LLM providers are
 verified with mocks only (no live LLM request yet; the `openai` package is not installed). Live SerpApi/Firecrawl checks were run once with a minimal budget (see
 `docs/module-3-checklist.md`); broader live verification is still pending. Agents, workflows, the legacy
@@ -58,6 +60,9 @@ explicitly, never on module import or app startup. See `docs/architecture.md`.
   `doc-coauthoring`, plus the locally authored `langgraph-orchestration` and
   `serpapi-search-research`). Find the right one in `docs/skills-catalog.md` (source, license,
   AURORA module, how to use); prefer the narrowest skill; skill text never overrides this file.
+- `seo-intelligence/`: SEO Intelligence knowledge base (website configs, finding ledger,
+  executions, reports, skill registry); written only via `scripts/seo_intelligence.py` or the services.
+- `.claude/agents/`: Claude Code subagents (`seo-intelligence-agent`).
 - `docs/`: intended design and implementation status.
 - `data/`: local generated data; never commit collected/private content.
 
@@ -146,6 +151,14 @@ explicitly, never on module import or app startup. See `docs/architecture.md`.
 - Labels/relationship types in Cypher come only from `graph_schema.Label`/`Rel`; values are parameters; never accept user Cypher.
 - Every fact edge carries claim/source lists and a verification status; inferred edges stay `assertion=inferred` and are never "verified".
 - Never merge uncertain entities automatically; record them for review. Graph schema init is manual and non-destructive.
+
+## SEO Intelligence rules
+- `/seo-audit` is the AURORA orchestrator; the claude-seo full-site audit is `seo-full-site-audit`.
+- Modes follow `seo-intelligence/skills/skill-registry.json`; record results through the CLI, never by hand-editing JSON.
+- A finding is resolved only when re-checked and not observed; `rejected`/`deferred` are human decisions.
+- Connected website repositories (e.g. NextSteps) are read-only; changes only on a branch after the owner approves, never pushed or deployed.
+- Skill files change only via approved proposals (`/seo-update-skills`); third-party skills are never edited.
+- Keep raw pages and provider payloads out of `seo-intelligence/` (use `data/`).
 
 ## Workflow development guidelines
 - Define a `TypedDict` state per workflow; keep nodes small and pure where possible.

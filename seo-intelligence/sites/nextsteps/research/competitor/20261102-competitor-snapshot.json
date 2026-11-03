@@ -1,0 +1,48 @@
+{
+  "id": "20261102-competitor-snapshot",
+  "kind": "competitor",
+  "created_at": "2026-11-03T08:42:00.260118Z",
+  "sources": [
+    "data/live-verification/blog-seo-report-in-us.html (GSC API via AURORA, 2026-11-02)",
+    "SEOWORK/SEO_Competitor_Gap_Analysis.xlsx (seo-data MCP + WebSearch, 2026-11-01)",
+    "Downloads/nextstepsusmle-SEO-Blog-Report-2026-11-02.pdf (69-post crawl + SerpApi US)"
+  ],
+  "summary": "Recurring domains in sampled Google results (8 SerpApi pages, 2026-11-02) and the 2026-11-01 workbook.",
+  "items": [
+    {
+      "domain": "medschoolbro.com",
+      "seen_in": "5 of 8 results pages"
+    },
+    {
+      "domain": "kaptest.com",
+      "seen_in": "3 of 8"
+    },
+    {
+      "domain": "quora.com",
+      "seen_in": "3 of 8"
+    },
+    {
+      "domain": "usmle.org / ecfmg.org / nrmp.org / ama-assn.org",
+      "note": "official sources also rank"
+    },
+    {
+      "domain": "usmlepreps.com",
+      "note": "workbook competitor"
+    },
+    {
+      "domain": "apply.tauedu.org",
+      "note": "workbook: not a realistic SEO competitor"
+    },
+    {
+      "observation": "AI Overview shown on 4 of the 8 searches (other 4 not checked)"
+    },
+    {
+      "observation": "Client absent from all 8 sampled SERPs in the 2026-11-01 workbook (WebSearch sampling)"
+    }
+  ],
+  "limitations": [
+    "Sampled SERPs only; positions vary by date, device and location",
+    "No SE Ranking domain data"
+  ],
+  "execution_id": null
+}

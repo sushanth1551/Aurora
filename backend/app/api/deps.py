@@ -33,7 +33,13 @@ from app.research.url_policy import UrlPolicy
 from app.research.website_discovery import WebsiteDiscovery
 from app.research.website_intelligence_service import WebsiteIntelligenceService
 from app.research.website_mapper import WebsiteMapper
+from app.seo.intelligence.factory import (
+    build_seo_agent_service,
+    build_skill_improvement,
+)
+from app.seo.intelligence.service import SeoAgentService
 from app.seo.keywords.service import KeywordResearchService
+from app.seo.skills.improvement import SkillImprovementService
 from app.seo.technical.service import TechnicalSeoService
 from app.tools.firecrawl_tool import FirecrawlTool
 from app.tools.serpapi_tool import SerpApiTool
@@ -212,3 +218,19 @@ def get_gsc_service(request: Request, session: SessionDep) -> GscService:
 
 
 GscServiceDep = Annotated[GscService, Depends(get_gsc_service)]
+
+
+def get_seo_agent_service() -> SeoAgentService:
+    """SEO Intelligence service over the file-backed knowledge base (no network)."""
+    return build_seo_agent_service(get_settings())
+
+
+SeoAgentServiceDep = Annotated[SeoAgentService, Depends(get_seo_agent_service)]
+
+
+def get_skill_improvement() -> SkillImprovementService:
+    """Skill proposals are listed through the API; decisions stay in the CLI."""
+    return build_skill_improvement(get_settings())
+
+
+SkillImprovementDep = Annotated[SkillImprovementService, Depends(get_skill_improvement)]

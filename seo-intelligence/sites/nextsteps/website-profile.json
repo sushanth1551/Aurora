@@ -1,0 +1,19 @@
+{
+  "discovered_at": "2026-11-03",
+  "method": "baseline import from repository files and reports (no live crawl)",
+  "stack": "React + Vite + TypeScript, prerendered with vite-react-ssg; nginx on one EC2 host; CI deploys on push to main",
+  "content": {
+    "blog_posts": 69,
+    "sitemap_urls": 82,
+    "manual_posts": 46
+  },
+  "repository_state": {
+    "production_branch": "main (origin/main a70b3f7, 2026-10-23)",
+    "unpushed_branch": "update-blog-titles (10 SEO commits, 2026-11-02)"
+  },
+  "sources": [
+    "Downloads/nextstepsusmle-SEO-Audit.pdf (claude-seo seo-audit, 2026-11-01)",
+    "Downloads/nextstepsusmle-SEO-Blog-Report-2026-11-02.pdf (69-post crawl + SerpApi US)",
+    "nextsteps-usmle repository"
+  ]
+}

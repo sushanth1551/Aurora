@@ -152,6 +152,11 @@ class Settings(BaseSettings):
     # Unset = cost unknown (never guessed). Set it from your SerpApi plan for estimates.
     seo_serpapi_cost_per_search: float | None = Field(default=None, ge=0)
 
+    # SEO Intelligence: file-backed knowledge base (website configs, finding ledger,
+    # execution history) and the skills directory the registry reads (read-only).
+    seo_intelligence_root: Path = PROJECT_ROOT / "seo-intelligence"
+    seo_skills_dir: Path = PROJECT_ROOT / ".claude" / "skills"
+
     # Module 4: LLM providers and the intelligence engine. Defaults are safe: the
     # deterministic mock provider needs no credentials and costs nothing.
     llm_provider: Literal["openai", "anthropic", "groq", "mock"] = "mock"

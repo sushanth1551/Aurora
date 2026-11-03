@@ -1,0 +1,24 @@
+[
+  {
+    "id": "20261103-084156-baseline-import",
+    "mode": "baseline-import",
+    "status": "completed",
+    "started_at": "2026-11-03T08:41:56.062680Z",
+    "finished_at": "2026-11-03T08:41:57.797191Z",
+    "summary": "Baseline import (no live crawl): normalised the SEO work evidenced in the NextSteps repository, Claude Code session transcripts and six report files into the knowledge base, so the first live /seo-audit can compare against it. Findings are 'reported' unless re-checked today against the repository.",
+    "new": 35,
+    "recurring": 0,
+    "resolved": 0
+  },
+  {
+    "id": "20261103-084638-audit",
+    "mode": "audit",
+    "status": "partial",
+    "started_at": "2026-11-03T08:46:38.683653Z",
+    "finished_at": "2026-11-03T08:48:16.221531Z",
+    "summary": "First live /seo-audit after the baseline import: free seo-data checks of robots, sitemap, key pages, two retired slugs and a soft-404 probe. Nothing from the 2026-11-02 branch is live yet; both retired slugs serve the homepage. PageSpeed quota exhausted (Core Web Vitals not measured).",
+    "new": 1,
+    "recurring": 13,
+    "resolved": 0
+  }
+]

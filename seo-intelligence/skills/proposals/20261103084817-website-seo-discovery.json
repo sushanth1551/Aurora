@@ -1,0 +1,29 @@
+{
+  "id": "20261103084817-website-seo-discovery",
+  "skill": "website-seo-discovery",
+  "rationale": "Both executions found retired blog slugs serving the homepage instead of a 301; probing one slug would have missed the second.",
+  "evidence": [
+    "missing-redirect:usmle-step-2-ck-passing-score-step-by-step-guidance",
+    "missing-redirect:2024-match-pathways-application-reopened-for-imgs"
+  ],
+  "evidence_executions": [
+    "20261103-084156-baseline-import",
+    "20261103-084638-audit"
+  ],
+  "change": {
+    "kind": "append_section",
+    "text": "When the website config's repository has a reindex tracker or redirect file, probe every retired or renamed slug it lists (not just one) with audit_page, and record a `missing-redirect:<slug>` finding for each one that does not return a single-hop 301.",
+    "section_title": "Learned refinement: retired slugs",
+    "old_text": null
+  },
+  "base_hash": "0f58d31851416fbc12bfc89a0c2e57f19578ad945eb07c0a0772c0efa13633f5",
+  "created_at": "2026-11-03T08:48:17.324229Z",
+  "created_by": "seo-intelligence-agent",
+  "status": "pending",
+  "single_execution": false,
+  "decided_by": null,
+  "decided_at": null,
+  "decision_note": "",
+  "applied_at": null,
+  "new_hash": null
+}

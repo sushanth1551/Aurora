@@ -1,0 +1,182 @@
+[
+  {
+    "metric": "clicks",
+    "value": 966.0,
+    "unit": "clicks",
+    "source": "data/live-verification/blog-seo-report-in-us.html (GSC API via AURORA, 2026-11-02)",
+    "period": "2026-05-02..2026-07-31",
+    "scope": "site:IN",
+    "recorded_at": "2026-11-03T08:41:58.679971Z",
+    "execution_id": null
+  },
+  {
+    "metric": "clicks",
+    "value": 2007.0,
+    "unit": "clicks",
+    "source": "data/live-verification/blog-seo-report-in-us.html (GSC API via AURORA, 2026-11-02)",
+    "period": "2026-08-01..2026-10-30",
+    "scope": "site:IN",
+    "recorded_at": "2026-11-03T08:41:58.679971Z",
+    "execution_id": null
+  },
+  {
+    "metric": "impressions",
+    "value": 49785.0,
+    "unit": "impressions",
+    "source": "data/live-verification/blog-seo-report-in-us.html (GSC API via AURORA, 2026-11-02)",
+    "period": "2026-05-02..2026-07-31",
+    "scope": "site:IN",
+    "recorded_at": "2026-11-03T08:41:58.679971Z",
+    "execution_id": null
+  },
+  {
+    "metric": "impressions",
+    "value": 131850.0,
+    "unit": "impressions",
+    "source": "data/live-verification/blog-seo-report-in-us.html (GSC API via AURORA, 2026-11-02)",
+    "period": "2026-08-01..2026-10-30",
+    "scope": "site:IN",
+    "recorded_at": "2026-11-03T08:41:58.679971Z",
+    "execution_id": null
+  },
+  {
+    "metric": "ctr",
+    "value": 1.94,
+    "unit": "%",
+    "source": "data/live-verification/blog-seo-report-in-us.html (GSC API via AURORA, 2026-11-02)",
+    "period": "2026-05-02..2026-07-31",
+    "scope": "site:IN",
+    "recorded_at": "2026-11-03T08:41:58.679971Z",
+    "execution_id": null
+  },
+  {
+    "metric": "ctr",
+    "value": 1.52,
+    "unit": "%",
+    "source": "data/live-verification/blog-seo-report-in-us.html (GSC API via AURORA, 2026-11-02)",
+    "period": "2026-08-01..2026-10-30",
+    "scope": "site:IN",
+    "recorded_at": "2026-11-03T08:41:58.679971Z",
+    "execution_id": null
+  },
+  {
+    "metric": "average_position",
+    "value": 5.8,
+    "unit": "position",
+    "source": "data/live-verification/blog-seo-report-in-us.html (GSC API via AURORA, 2026-11-02)",
+    "period": "2026-05-02..2026-07-31",
+    "scope": "site:IN",
+    "recorded_at": "2026-11-03T08:41:58.679971Z",
+    "execution_id": null
+  },
+  {
+    "metric": "average_position",
+    "value": 6.1,
+    "unit": "position",
+    "source": "data/live-verification/blog-seo-report-in-us.html (GSC API via AURORA, 2026-11-02)",
+    "period": "2026-08-01..2026-10-30",
+    "scope": "site:IN",
+    "recorded_at": "2026-11-03T08:41:58.679971Z",
+    "execution_id": null
+  },
+  {
+    "metric": "clicks",
+    "value": 218.0,
+    "unit": "clicks",
+    "source": "data/live-verification/blog-seo-report-in-us.html (GSC API via AURORA, 2026-11-02)",
+    "period": "2026-05-02..2026-07-31",
+    "scope": "site:US",
+    "recorded_at": "2026-11-03T08:41:58.679971Z",
+    "execution_id": null
+  },
+  {
+    "metric": "clicks",
+    "value": 1557.0,
+    "unit": "clicks",
+    "source": "data/live-verification/blog-seo-report-in-us.html (GSC API via AURORA, 2026-11-02)",
+    "period": "2026-08-01..2026-10-30",
+    "scope": "site:US",
+    "recorded_at": "2026-11-03T08:41:58.679971Z",
+    "execution_id": null
+  },
+  {
+    "metric": "impressions",
+    "value": 34694.0,
+    "unit": "impressions",
+    "source": "data/live-verification/blog-seo-report-in-us.html (GSC API via AURORA, 2026-11-02)",
+    "period": "2026-05-02..2026-07-31",
+    "scope": "site:US",
+    "recorded_at": "2026-11-03T08:41:58.679971Z",
+    "execution_id": null
+  },
+  {
+    "metric": "impressions",
+    "value": 174537.0,
+    "unit": "impressions",
+    "source": "data/live-verification/blog-seo-report-in-us.html (GSC API via AURORA, 2026-11-02)",
+    "period": "2026-08-01..2026-10-30",
+    "scope": "site:US",
+    "recorded_at": "2026-11-03T08:41:58.679971Z",
+    "execution_id": null
+  },
+  {
+    "metric": "ctr",
+    "value": 0.63,
+    "unit": "%",
+    "source": "data/live-verification/blog-seo-report-in-us.html (GSC API via AURORA, 2026-11-02)",
+    "period": "2026-05-02..2026-07-31",
+    "scope": "site:US",
+    "recorded_at": "2026-11-03T08:41:58.679971Z",
+    "execution_id": null
+  },
+  {
+    "metric": "ctr",
+    "value": 0.89,
+    "unit": "%",
+    "source": "data/live-verification/blog-seo-report-in-us.html (GSC API via AURORA, 2026-11-02)",
+    "period": "2026-08-01..2026-10-30",
+    "scope": "site:US",
+    "recorded_at": "2026-11-03T08:41:58.679971Z",
+    "execution_id": null
+  },
+  {
+    "metric": "average_position",
+    "value": 16.1,
+    "unit": "position",
+    "source": "data/live-verification/blog-seo-report-in-us.html (GSC API via AURORA, 2026-11-02)",
+    "period": "2026-05-02..2026-07-31",
+    "scope": "site:US",
+    "recorded_at": "2026-11-03T08:41:58.679971Z",
+    "execution_id": null
+  },
+  {
+    "metric": "average_position",
+    "value": 8.5,
+    "unit": "position",
+    "source": "data/live-verification/blog-seo-report-in-us.html (GSC API via AURORA, 2026-11-02)",
+    "period": "2026-08-01..2026-10-30",
+    "scope": "site:US",
+    "recorded_at": "2026-11-03T08:41:58.679971Z",
+    "execution_id": null
+  },
+  {
+    "metric": "clicks",
+    "value": 6356.0,
+    "unit": "clicks",
+    "source": "data/live-verification/blog-seo-report-in-us.html (GSC API via AURORA, 2026-11-02)",
+    "period": "2026-08-01..2026-10-30",
+    "scope": "site:all-countries",
+    "recorded_at": "2026-11-03T08:41:58.679971Z",
+    "execution_id": null
+  },
+  {
+    "metric": "brand_share_of_attributed_clicks",
+    "value": 74.0,
+    "unit": "%",
+    "source": "data/live-verification/india-seo-report.html (GSC API India via AURORA, 2026-11-02)",
+    "period": "2026-08-01..2026-10-30",
+    "scope": "site:IN",
+    "recorded_at": "2026-11-03T08:41:58.679971Z",
+    "execution_id": null
+  }
+]

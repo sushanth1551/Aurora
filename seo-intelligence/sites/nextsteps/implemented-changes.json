@@ -1,0 +1,306 @@
+[
+  {
+    "description": "Single sitemap; OG/Twitter site tags; one H1 on homepage; Course + BreadcrumbList on /step-1-2-ck (2026-06-01; on origin/main)",
+    "kind": "seo_change",
+    "path": null,
+    "finding_keys": [],
+    "reference": "842b367",
+    "approved_by": null
+  },
+  {
+    "description": "Homepage FAQPage (2026-06-01; on origin/main)",
+    "kind": "seo_change",
+    "path": null,
+    "finding_keys": [],
+    "reference": "0529c29",
+    "approved_by": null
+  },
+  {
+    "description": "og:type=article for posts; one H1 per legal page (2026-06-02; on origin/main)",
+    "kind": "seo_change",
+    "path": null,
+    "finding_keys": [],
+    "reference": "f05137b",
+    "approved_by": null
+  },
+  {
+    "description": "1200x630 OG card (2026-06-02; on origin/main)",
+    "kind": "seo_change",
+    "path": null,
+    "finding_keys": [],
+    "reference": "598b12f",
+    "approved_by": null
+  },
+  {
+    "description": "Success Stories canonical and schema (2026-06-02; on origin/main)",
+    "kind": "seo_change",
+    "path": null,
+    "finding_keys": [],
+    "reference": "7edc67f",
+    "approved_by": null
+  },
+  {
+    "description": "Lighthouse/CWV pass (lazy chunks, image compression) and llms.txt (2026-06-05; on origin/main)",
+    "kind": "seo_change",
+    "path": null,
+    "finding_keys": [],
+    "reference": "300d675",
+    "approved_by": null
+  },
+  {
+    "description": "Headings; brand/NAP unified; LocalBusiness HYD/BLR; WebSite SearchAction; hero preload fix (2026-06-08; on origin/main)",
+    "kind": "seo_change",
+    "path": null,
+    "finding_keys": [],
+    "reference": "3ceb9f8",
+    "approved_by": null
+  },
+  {
+    "description": "Author and reviewer byline plus Person JSON-LD (2026-06-10; on origin/main)",
+    "kind": "seo_change",
+    "path": null,
+    "finding_keys": [],
+    "reference": "a8347e7",
+    "approved_by": null
+  },
+  {
+    "description": "BreadcrumbList on all posts (2026-06-23; on origin/main)",
+    "kind": "seo_change",
+    "path": null,
+    "finding_keys": [],
+    "reference": "b05f869",
+    "approved_by": null
+  },
+  {
+    "description": "Consolidated Organization @id with sameAs (2026-06-23; on origin/main)",
+    "kind": "seo_change",
+    "path": null,
+    "finding_keys": [],
+    "reference": "5374d25",
+    "approved_by": null
+  },
+  {
+    "description": "Author sameAs (2026-06-23; on origin/main)",
+    "kind": "seo_change",
+    "path": null,
+    "finding_keys": [],
+    "reference": "8da72c8",
+    "approved_by": null
+  },
+  {
+    "description": "Cross-linked the three Step 1 posts (cannibalisation) (2026-06-27; on origin/main)",
+    "kind": "seo_change",
+    "path": null,
+    "finding_keys": [],
+    "reference": "f14d57e",
+    "approved_by": null
+  },
+  {
+    "description": "Sitemap regenerated on every build (2026-06-28; on origin/main)",
+    "kind": "seo_change",
+    "path": null,
+    "finding_keys": [],
+    "reference": "462258d",
+    "approved_by": null
+  },
+  {
+    "description": "14 thin posts rewritten (2026-07-16; on origin/main)",
+    "kind": "seo_change",
+    "path": null,
+    "finding_keys": [],
+    "reference": "f34d965",
+    "approved_by": null
+  },
+  {
+    "description": "FAQPage schema on the 6-month Step 1 plan (2026-07-24; on origin/main)",
+    "kind": "seo_change",
+    "path": null,
+    "finding_keys": [],
+    "reference": "80f2bc6",
+    "approved_by": null
+  },
+  {
+    "description": "Retired posts return 404 instead of soft 404 (config) (2026-07-25; on origin/main)",
+    "kind": "seo_change",
+    "path": null,
+    "finding_keys": [],
+    "reference": "0236740",
+    "approved_by": null
+  },
+  {
+    "description": "Tier 1/2 posts rebuilt on sourced 2026 data (batch 2026-08-07..13 incl. 7b94cb4, b3bafe0, 21663de, b1583f7, ece799a) (2026-08-07; on origin/main)",
+    "kind": "seo_change",
+    "path": null,
+    "finding_keys": [],
+    "reference": "91fc45d",
+    "approved_by": null
+  },
+  {
+    "description": "ECFMG Pathways post rebuilt; slug ecfmg-2027-pathways-for-imgs (with 9231df8) (2026-08-10; on origin/main)",
+    "kind": "seo_change",
+    "path": null,
+    "finding_keys": [],
+    "reference": "a386145",
+    "approved_by": null
+  },
+  {
+    "description": "Three missing 301s; 16 redirect rules installed on the server per tracker (2026-08-13; on origin/main)",
+    "kind": "seo_change",
+    "path": null,
+    "finding_keys": [],
+    "reference": "fea7420",
+    "approved_by": null
+  },
+  {
+    "description": "Step 2 CK prep intent consolidated onto the 12-week plan (2,200 -> 4,215 words) (2026-08-19; on origin/main)",
+    "kind": "seo_change",
+    "path": null,
+    "finding_keys": [],
+    "reference": "a1c27cc",
+    "approved_by": null
+  },
+  {
+    "description": "/mentorship FAQ crawlable; FAQPage schema; YouTube facades (2026-08-21; on origin/main)",
+    "kind": "seo_change",
+    "path": null,
+    "finding_keys": [],
+    "reference": "72da73b",
+    "approved_by": null
+  },
+  {
+    "description": "BlogPosting instead of Article; per-post og:image:alt (2026-09-11; on origin/main)",
+    "kind": "seo_change",
+    "path": null,
+    "finding_keys": [],
+    "reference": "4aca057",
+    "approved_by": null
+  },
+  {
+    "description": "Step 2 CK cluster consolidation (2026-09-11; on origin/main)",
+    "kind": "seo_change",
+    "path": null,
+    "finding_keys": [],
+    "reference": "5ee4975",
+    "approved_by": null
+  },
+  {
+    "description": "New post: IMG Match 2026 (2026-09-01; on origin/main)",
+    "kind": "seo_change",
+    "path": null,
+    "finding_keys": [],
+    "reference": "de83b87",
+    "approved_by": null
+  },
+  {
+    "description": "New post: is it too late to start USMLE (2026-09-20; on origin/main)",
+    "kind": "seo_change",
+    "path": null,
+    "finding_keys": [],
+    "reference": "4fd0f91",
+    "approved_by": null
+  },
+  {
+    "description": "New post: how to apply for USMLE from India (2026-09-28; on origin/main)",
+    "kind": "seo_change",
+    "path": null,
+    "finding_keys": [],
+    "reference": "440296c",
+    "approved_by": null
+  },
+  {
+    "description": "New post: highest Step 2 CK score (2026-10-04; on origin/main)",
+    "kind": "seo_change",
+    "path": null,
+    "finding_keys": [],
+    "reference": "57db50f",
+    "approved_by": null
+  },
+  {
+    "description": "Mentorship redesign and first-paint speed-up (2026-09-26; on origin/main)",
+    "kind": "seo_change",
+    "path": null,
+    "finding_keys": [],
+    "reference": "e158541",
+    "approved_by": null
+  },
+  {
+    "description": "Coaching and IMG sections on the mentorship page (2026-10-23; on origin/main)",
+    "kind": "seo_change",
+    "path": null,
+    "finding_keys": [],
+    "reference": "a70b3f7",
+    "approved_by": null
+  },
+  {
+    "description": "47 blog titles shortened to <= 60 characters (2026-11-02; branch update-blog-titles, NOT pushed or deployed)",
+    "kind": "seo_change",
+    "path": null,
+    "finding_keys": [],
+    "reference": "3c54aa5",
+    "approved_by": null
+  },
+  {
+    "description": "Keep 2026 in titles tied to 2026 data (2026-11-02; branch update-blog-titles, NOT pushed or deployed)",
+    "kind": "seo_change",
+    "path": null,
+    "finding_keys": [],
+    "reference": "1b24309",
+    "approved_by": null
+  },
+  {
+    "description": "2027 in two evergreen post descriptions (2026-11-02; branch update-blog-titles, NOT pushed or deployed)",
+    "kind": "seo_change",
+    "path": null,
+    "finding_keys": [],
+    "reference": "c705eb1",
+    "approved_by": null
+  },
+  {
+    "description": "MBBS eligibility and Step 1 fee posts rebuilt past 800 words (2026-11-02; branch update-blog-titles, NOT pushed or deployed)",
+    "kind": "seo_change",
+    "path": null,
+    "finding_keys": [],
+    "reference": "c7db138",
+    "approved_by": null
+  },
+  {
+    "description": "On-page pass for seven keywords outside the top 10; inbound links 0-1 -> 4-8 (2026-11-02; branch update-blog-titles, NOT pushed or deployed)",
+    "kind": "seo_change",
+    "path": null,
+    "finding_keys": [],
+    "reference": "001bebc",
+    "approved_by": null
+  },
+  {
+    "description": "USMLE cost guide in dollars only (2026-11-02; branch update-blog-titles, NOT pushed or deployed)",
+    "kind": "seo_change",
+    "path": null,
+    "finding_keys": [],
+    "reference": "6a99ddb",
+    "approved_by": null
+  },
+  {
+    "description": "USMLE and OET fees in dollars only across posts (2026-11-02; branch update-blog-titles, NOT pushed or deployed)",
+    "kind": "seo_change",
+    "path": null,
+    "finding_keys": [],
+    "reference": "20a1eaf",
+    "approved_by": null
+  },
+  {
+    "description": "IMG section and sample timelines in the Step 1 study plan (2026-11-02; branch update-blog-titles, NOT pushed or deployed)",
+    "kind": "seo_change",
+    "path": null,
+    "finding_keys": [],
+    "reference": "77ba6e3",
+    "approved_by": null
+  },
+  {
+    "description": "Visible FAQ on 19 posts; Steps comparison table in the Step 2 CK syllabus (2026-11-02; branch update-blog-titles, NOT pushed or deployed)",
+    "kind": "seo_change",
+    "path": null,
+    "finding_keys": [],
+    "reference": "8108c8c",
+    "approved_by": null
+  }
+]

@@ -5,8 +5,8 @@ Claude Code skills available to this project live in `.claude/skills/<name>/SKIL
 changes Module 1-4 behaviour, provider integrations, `.env`, the database or the API. All skill
 text is treated as guidance that never overrides `CLAUDE.md`.
 
-Last updated 2026-11-01 (section I added; earlier: sections G and H added 2026-10-31; validation script, module/workflow mapping and
-validation results added). **101 skills** are installed. Commit hashes of every copied skill are
+Last updated 2026-11-03 (section J added and `seo-audit` renamed to `seo-full-site-audit`; earlier: section I added 2026-11-01; sections G and H added 2026-10-31; validation script, module/workflow mapping and
+validation results added). **109 skills** are installed. Commit hashes of every copied skill are
 recorded in its `ATTRIBUTION.md`; run `python scripts/validate_skills.py` to check all of them (see
 *Validation* at the end).
 
@@ -27,6 +27,8 @@ recorded in its `ATTRIBUTION.md`; run `python scripts/validate_skills.py` to che
      locally authored), `seo-gsc-diagnosis` (G), 6 development skills (H) and 32 SE Ranking
      skills (I). Each has
      `ATTRIBUTION.md`; a license copy where the source ships one.
+  4. **AURORA SEO Intelligence skills** (8, added 2026-11-03): the `/seo-*` execution modes and
+     their support skills, authored here (section J; `docs/seo-intelligence.md`).
 - Pick the **narrowest** skill that matches the task; use the orchestrator skills (`seo`,
   `seo-toolkit-orchestrator`) only for multi-domain requests. When two sets overlap, see
   *Duplicates* below.
@@ -205,6 +207,30 @@ AURORA modules: 6 (reference only).
 | `seo-technical-audit` | One-shot technical SEO audit | needs SE Ranking MCP/API; text-only here | unchanged |
 | `site-audit-to-social-distribution` | Audit findings turned into reviewed copy plus Planable distribution | needs SE Ranking MCP/API and Planable; text-only here | unchanged |
 
+### J. AURORA SEO Intelligence (added 2026-11-03)
+
+Source: authored in this repository for the SEO Intelligence agent
+(`.claude/agents/seo-intelligence-agent.md`, `docs/seo-intelligence.md`). License: the
+repository's. Dependencies: the `seo-data` MCP server (optional, free) and AURORA's own APIs; all
+bookkeeping goes through `scripts/seo_intelligence.py` (no network). Which skill runs in which mode
+is defined in `seo-intelligence/skills/skill-registry.json`, which also records each skill's
+evidenced historical use on NextSteps. AURORA modules: 6 (SEO intelligence).
+
+| Skill | What it covers | How Claude should use it | Status |
+| --- | --- | --- | --- |
+| `seo-audit` | `/seo-audit`: full SEO execution for a configured site, history comparison, report | Entry point; follows the registry plan for mode `audit`. **Replaces the name** of the claude-seo full-site audit, now `seo-full-site-audit` (content unchanged plus an AURORA note) | local |
+| `seo-competitor-analysis` | `/seo-competitor-analysis`: SERP competitors, page comparison, gaps, dated snapshot | Entry point for mode `competitor-analysis` | local |
+| `seo-content-optimization` | `/seo-content-optimization`: concrete edits to existing pages; branch-only implementation after approval | Entry point for mode `content-optimization` | local |
+| `seo-performance-review` | `/seo-performance-review`: Search Console period comparison and change attribution | Entry point for mode `performance-review`; needs GSC data | local |
+| `seo-update-skills` | `/seo-update-skills`: review, decide and apply skill proposals | User-invoked only (`disable-model-invocation`) | local |
+| `website-seo-discovery` | Site profile, sitemap/robots, key pages, technical probes, read-only repository state | Discovery step | local |
+| `seo-report-analysis` | Normalise uploaded SEO reports into findings | When report files are supplied | local |
+| `seo-learning-and-memory` | Load/store knowledge, comparison rules, skill proposals | First and last step of every mode | local |
+
+The AURORA planning skills `seo-keyword-research`, `seo-content-strategy` and `seo-quality-audit`
+(set 1) were expanded on 2026-11-03 to the SEO Intelligence format (inputs, tools, storage,
+improvement process); their original rules are kept.
+
 ## Rejected skills and why
 
 | Repository | Skill | Reason |
@@ -226,7 +252,7 @@ Duplicates were kept when they are complementary; names were prefixed so nothing
 
 | Topic | Candidates | Guidance |
 | --- | --- | --- |
-| Keyword research | AURORA `seo-keyword-research` (planning stub), `seo-toolkit-keyword-research` (method + evidence contract), `claude-seo` `seo-cluster`/`seo-plan` (tool-backed) | Method questions: toolkit. Clustering by SERP overlap with live data: `seo-cluster`. The AURORA stub remains the Module 6 planning hook. |
+| Keyword research | AURORA `seo-keyword-research` (SEO Intelligence keyword step), `seo-toolkit-keyword-research` (method + evidence contract), `claude-seo` `seo-cluster`/`seo-plan` (tool-backed) | Method questions: toolkit. Clustering by SERP overlap with live data: `seo-cluster`. The AURORA skill is the step SEO Intelligence runs; it defers to the toolkit for intent taxonomy. |
 | SERP analysis | AURORA `serp-analysis`, `seo-toolkit-serp-analysis`, `serpapi-search-research` | Observed-SERP reasoning: toolkit. Request/response mechanics and cost: `serpapi-search-research`. |
 | Content briefs | `seo-toolkit-content-brief`, `claude-seo` `seo-content-brief` | Toolkit for the evidence-contract specification; `claude-seo` when its competitor-scoring scripts are available through the plugin. |
 | Schema / structured data | `seo-toolkit-schema`, `claude-seo` `seo-schema`, `seo-mastery/structured-data.md` | Toolkit for truthfulness rules; `seo-mastery` for full JSON-LD templates and retired rich-result notes; `claude-seo` for script validation when the plugin is installed. |
@@ -343,7 +369,15 @@ Roles:
 | `seo-mastery` | 6 | W5, W7 | reference |
 | `seo-gsc-diagnosis` | 6 | W5 | blocked (gsc MCP / Search Console) |
 | `seo` | 6 | W5, W8 | secondary (hub) |
-| `seo-audit` | 6 | W5 | secondary |
+| `seo-full-site-audit` | 6 | W5 | secondary (optional step of `/seo-audit`) |
+| `seo-audit` | 6 | W5, W8 | method (SEO Intelligence orchestrator) |
+| `seo-competitor-analysis` | 6 | W3, W6, W8 | method (SEO Intelligence mode) |
+| `seo-content-optimization` | 6 | W7 | method (SEO Intelligence mode) |
+| `seo-performance-review` | 6 | W8 | method (needs Search Console data) |
+| `seo-update-skills` | 6 | DEV | dev (skill maintenance, user-invoked) |
+| `website-seo-discovery` | 6 | W5 | method |
+| `seo-report-analysis` | 6 | W5 | method |
+| `seo-learning-and-memory` | 6 | W5-W8 | method (knowledge base) |
 | `seo-technical` | 6 | W5 | secondary |
 | `seo-page` | 6 | W5, W7 | secondary |
 | `seo-schema` | 6 | W5 | secondary |

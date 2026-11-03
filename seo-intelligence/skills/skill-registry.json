@@ -1,0 +1,285 @@
+{
+  "version": 1,
+  "updated": "2026-11-03",
+  "skills": [
+    {
+      "name": "seo-audit",
+      "role": "orchestrator: one-command full SEO execution (/seo-audit)",
+      "origin": "aurora-seo-intelligence",
+      "modes": ["audit"],
+      "historical_use": "New on 2026-11-03. The name previously belonged to the claude-seo full-site audit, which the user ran as /seo-audit on 2026-11-01 (Aurora session 2b48dec3); that skill is preserved unchanged as seo-full-site-audit and is a step of this one."
+    },
+    {
+      "name": "seo-competitor-analysis",
+      "role": "mode entry: competitor and SERP intelligence (/seo-competitor-analysis)",
+      "origin": "aurora-seo-intelligence",
+      "modes": ["competitor-analysis"],
+      "historical_use": "New on 2026-11-03; encodes the competitor work done 2026-11-01 (SEOWORK session) and 2026-11-02 (Aurora session 9dccffd6)."
+    },
+    {
+      "name": "seo-content-optimization",
+      "role": "mode entry: optimise existing pages and posts (/seo-content-optimization)",
+      "origin": "aurora-seo-intelligence",
+      "modes": ["content-optimization"],
+      "historical_use": "New on 2026-11-03; encodes the 2026-11-02 implementation pass on the NextSteps blog (nextsteps session 2c629d8c), which used no skill."
+    },
+    {
+      "name": "seo-performance-review",
+      "role": "mode entry: Search Console performance review (/seo-performance-review)",
+      "origin": "aurora-seo-intelligence",
+      "modes": ["performance-review"],
+      "historical_use": "New on 2026-11-03; encodes the 2026-11-02 India/US GSC review (Aurora session 9dccffd6)."
+    },
+    {
+      "name": "seo-update-skills",
+      "role": "mode entry: review and apply approved skill proposals (/seo-update-skills)",
+      "origin": "aurora-seo-intelligence",
+      "modes": ["update-skills"],
+      "historical_use": "New on 2026-11-03."
+    },
+    {
+      "name": "website-seo-discovery",
+      "role": "website structure, pages, metadata and technical signals",
+      "origin": "aurora-seo-intelligence",
+      "modes": ["audit", "content-optimization"],
+      "requires": [{"kind": "mcp", "name": "seo-data", "note": "audit_page, analyze_sitemap, check_robots_txt, check_links"}],
+      "historical_use": "New on 2026-11-03; encodes seo-data MCP usage from 2026-11-01 and 2026-11-02."
+    },
+    {
+      "name": "seo-report-analysis",
+      "role": "normalise uploaded or third-party SEO reports into findings",
+      "origin": "aurora-seo-intelligence",
+      "modes": ["audit"],
+      "historical_use": "New on 2026-11-03; used for the baseline import of the 2026-09-21, 2026-11-01 and 2026-11-02 reports."
+    },
+    {
+      "name": "seo-learning-and-memory",
+      "role": "load and store knowledge, compare with history, propose skill changes",
+      "origin": "aurora-seo-intelligence",
+      "modes": ["audit", "competitor-analysis", "content-optimization", "performance-review", "update-skills"],
+      "historical_use": "New on 2026-11-03."
+    },
+    {
+      "name": "seo-keyword-research",
+      "role": "keyword intelligence: intent, page mapping, cannibalisation, gaps",
+      "origin": "aurora-planning",
+      "modes": ["audit", "competitor-analysis"],
+      "historical_use": "AURORA planning skill, expanded on 2026-11-03. Not invoked on NextSteps; seo-toolkit-keyword-research was (2026-11-02, method only)."
+    },
+    {
+      "name": "seo-content-strategy",
+      "role": "content gaps and plan from keyword and competitor evidence",
+      "origin": "aurora-planning",
+      "modes": ["competitor-analysis"],
+      "historical_use": "AURORA planning skill, expanded on 2026-11-03. Not invoked on NextSteps."
+    },
+    {
+      "name": "seo-quality-audit",
+      "role": "content quality, originality and editorial-rule checks",
+      "origin": "aurora-planning",
+      "modes": ["audit", "content-optimization"],
+      "historical_use": "AURORA planning skill, expanded on 2026-11-03. Not invoked on NextSteps."
+    },
+    {
+      "name": "seo-blog-writer",
+      "role": "draft content from a reviewed brief (only when requested)",
+      "origin": "aurora-planning",
+      "modes": ["content-optimization"],
+      "historical_use": "Invoked 2026-11-01 (Aurora session 2b48dec3) for two drafts that were never published."
+    },
+    {
+      "name": "seo-full-site-audit",
+      "role": "claude-seo full-site audit method (formerly named seo-audit)",
+      "origin": "claude-seo",
+      "modes": ["audit"],
+      "historical_use": "Invoked as /seo-audit on 2026-11-01 (Aurora session 2b48dec3); produced FULL-AUDIT-REPORT.md (provisional ~77/100, 7 pages). Its render/crawl scripts need the claude-seo plugin, which is not installed."
+    },
+    {
+      "name": "seo-content-brief",
+      "role": "claude-seo content brief method",
+      "origin": "claude-seo",
+      "modes": ["content-optimization"],
+      "historical_use": "Invoked 2026-11-01 (Aurora session 2b48dec3) via /seo-content-brief."
+    },
+    {
+      "name": "seo-competitor-pages",
+      "role": "comparison and alternatives page method",
+      "origin": "claude-seo",
+      "modes": ["competitor-analysis"],
+      "historical_use": "Invoked 2026-11-01 (Aurora session 2b48dec3); produced COMPARISON-PAGE.md."
+    },
+    {
+      "name": "seo-geo",
+      "role": "AI search / answer-engine readiness",
+      "origin": "claude-seo",
+      "modes": ["audit"],
+      "historical_use": "Invoked 2026-11-01 (Aurora session 2b48dec3); produced GEO-ANALYSIS.md."
+    },
+    {
+      "name": "seo-toolkit-technical-audit",
+      "role": "site-wide technical method (crawlability, indexability, redirects, rendering)",
+      "origin": "seo-toolkit",
+      "modes": ["audit"],
+      "historical_use": "Not invoked on NextSteps. AURORA's TechnicalSeoService rules cite this family of methods."
+    },
+    {
+      "name": "seo-toolkit-page-audit",
+      "role": "single-page diagnosis",
+      "origin": "seo-toolkit",
+      "modes": ["audit", "content-optimization"],
+      "historical_use": "Not invoked on NextSteps."
+    },
+    {
+      "name": "seo-toolkit-schema",
+      "role": "structured data validation",
+      "origin": "seo-toolkit",
+      "modes": ["audit"],
+      "historical_use": "Not invoked on NextSteps."
+    },
+    {
+      "name": "seo-toolkit-internal-linking",
+      "role": "internal link architecture, orphans, anchors",
+      "origin": "seo-toolkit",
+      "modes": ["audit", "content-optimization"],
+      "historical_use": "Not invoked; its practice (4-8 natural inbound links per target page) was applied manually on 2026-11-02 (commit 001bebc)."
+    },
+    {
+      "name": "seo-toolkit-cannibalization",
+      "role": "competing URLs for one intent",
+      "origin": "seo-toolkit",
+      "modes": ["audit", "performance-review"],
+      "historical_use": "Not invoked; cannibalisation was found from GSC data on 2026-11-02."
+    },
+    {
+      "name": "seo-toolkit-content-optimizer",
+      "role": "concrete edits to existing content",
+      "origin": "seo-toolkit",
+      "modes": ["content-optimization"],
+      "historical_use": "Not invoked on NextSteps."
+    },
+    {
+      "name": "seo-toolkit-content-brief",
+      "role": "specification for content that does not exist yet",
+      "origin": "seo-toolkit",
+      "modes": ["content-optimization", "competitor-analysis"],
+      "historical_use": "Invoked 2026-11-02 for method/output format only (Aurora session 9dccffd6)."
+    },
+    {
+      "name": "seo-toolkit-keyword-research",
+      "role": "intent mapping and clustering method",
+      "origin": "seo-toolkit",
+      "modes": ["competitor-analysis"],
+      "historical_use": "Invoked 2026-11-02 for method/output format only (Aurora session 9dccffd6)."
+    },
+    {
+      "name": "seo-toolkit-serp-analysis",
+      "role": "observed SERP composition and competitors",
+      "origin": "seo-toolkit",
+      "modes": ["competitor-analysis"],
+      "requires": [{"kind": "setting", "name": "serpapi_api_key", "note": "or Claude WebSearch sampling, recorded as such"}],
+      "historical_use": "Not invoked; SERP sampling was done with SerpApi and WebSearch directly."
+    },
+    {
+      "name": "seo-toolkit-performance-analysis",
+      "role": "clicks/impressions/CTR/position change analysis",
+      "origin": "seo-toolkit",
+      "modes": ["performance-review"],
+      "historical_use": "Invoked 2026-11-02 (Aurora session 9dccffd6) on GSC data pulled through AURORA."
+    },
+    {
+      "name": "seo-gsc-diagnosis",
+      "role": "differential Search Console diagnosis",
+      "origin": "external",
+      "modes": ["performance-review"],
+      "requires": [{"kind": "mcp", "name": "gsc", "note": "or GSC data exported through AURORA /api/v1/gsc"}],
+      "historical_use": "Invoked 2026-11-02 for method only; the gsc MCP server was never connected, data came from AURORA's GSC integration."
+    },
+    {
+      "name": "seo-competitor-gap-analysis",
+      "role": "domain-level keyword gap",
+      "origin": "external",
+      "modes": ["competitor-analysis"],
+      "requires": [{"kind": "mcp", "name": "seranking", "note": "SE Ranking is not connected"}],
+      "historical_use": "Invoked 2026-11-02; blocked because SE Ranking is not connected. The section was built from SERP snapshots instead."
+    },
+    {
+      "name": "seo-toolkit-prioritization",
+      "role": "impact/confidence/effort/risk ordering with a visible rubric",
+      "origin": "seo-toolkit",
+      "modes": ["audit", "competitor-analysis", "content-optimization", "performance-review"],
+      "historical_use": "Invoked 2026-11-02 for method/output format only (Aurora session 9dccffd6)."
+    }
+  ],
+  "modes": {
+    "audit": {
+      "entry_skill": "seo-audit",
+      "description": "Full SEO execution: discovery, technical and on-page checks, content quality, keyword fit, prioritisation, history comparison and report.",
+      "steps": [
+        {"key": "load-knowledge", "skill": "seo-learning-and-memory", "purpose": "Load the website config, open findings, decisions and last executions."},
+        {"key": "discovery", "skill": "website-seo-discovery", "purpose": "Map the current site: sitemap, robots, key pages, metadata, headings, links."},
+        {"key": "report-analysis", "skill": "seo-report-analysis", "purpose": "Normalise any new SEO reports into findings.", "optional": true, "when": "new report files were supplied or found in the configured report folders"},
+        {"key": "technical", "skill": "seo-toolkit-technical-audit", "purpose": "Site-wide crawlability, indexability, redirects, status codes, canonicals."},
+        {"key": "full-site-sweep", "skill": "seo-full-site-audit", "purpose": "claude-seo category sweep (technical, content, schema, images, AI search) without scores.", "optional": true, "when": "the user asks for the full claude-seo style audit"},
+        {"key": "page-audit", "skill": "seo-toolkit-page-audit", "purpose": "Diagnose the configured key pages."},
+        {"key": "schema", "skill": "seo-toolkit-schema", "purpose": "Validate JSON-LD against visible content.", "optional": true, "when": "pages carry structured data"},
+        {"key": "internal-linking", "skill": "seo-toolkit-internal-linking", "purpose": "Orphans, thin inbound links, anchor quality."},
+        {"key": "content-quality", "skill": "seo-quality-audit", "purpose": "Thin content, outdated facts, unsupported claims, site editorial rules."},
+        {"key": "cannibalization", "skill": "seo-toolkit-cannibalization", "purpose": "Pages competing for one intent.", "optional": true, "when": "Search Console query/page data or a keyword map is available"},
+        {"key": "keyword-fit", "skill": "seo-keyword-research", "purpose": "Check key pages still match their target intent and keywords.", "optional": true, "when": "keyword research exists in the knowledge base"},
+        {"key": "ai-search", "skill": "seo-geo", "purpose": "AI crawler access and passage citability.", "optional": true, "when": "the site targets AI answer surfaces"},
+        {"key": "prioritize", "skill": "seo-toolkit-prioritization", "purpose": "Order findings into Critical/High/Medium/Low with the rubric shown."},
+        {"key": "store-and-report", "skill": "seo-learning-and-memory", "purpose": "Record findings, skills and tools, compare with history and write the report."}
+      ]
+    },
+    "competitor-analysis": {
+      "entry_skill": "seo-competitor-analysis",
+      "description": "Who ranks for the site's topics, how their pages are built, and which gaps are worth closing.",
+      "steps": [
+        {"key": "load-knowledge", "skill": "seo-learning-and-memory", "purpose": "Load configured competitors, keyword research and previous competitor snapshots."},
+        {"key": "serp", "skill": "seo-toolkit-serp-analysis", "purpose": "Observe live results for target keywords in the configured markets."},
+        {"key": "domain-gap", "skill": "seo-competitor-gap-analysis", "purpose": "Domain-level keyword gap.", "optional": true, "when": "SE Ranking is connected"},
+        {"key": "keywords", "skill": "seo-keyword-research", "purpose": "Map competitor-only topics to intent and an owner page."},
+        {"key": "comparison-pages", "skill": "seo-competitor-pages", "purpose": "Assess comparison/alternatives page opportunities.", "optional": true, "when": "comparison intent appears in the SERPs"},
+        {"key": "strategy", "skill": "seo-content-strategy", "purpose": "Turn gaps into a content plan without duplicating existing pages."},
+        {"key": "prioritize", "skill": "seo-toolkit-prioritization", "purpose": "Order the gap actions."},
+        {"key": "store-and-report", "skill": "seo-learning-and-memory", "purpose": "Save a dated competitor snapshot and the execution report."}
+      ]
+    },
+    "content-optimization": {
+      "entry_skill": "seo-content-optimization",
+      "description": "Improve existing pages: titles, descriptions, headings, structure, internal links, FAQs, freshness and quality.",
+      "steps": [
+        {"key": "load-knowledge", "skill": "seo-learning-and-memory", "purpose": "Load editorial rules, rejected recommendations and open content findings."},
+        {"key": "discovery", "skill": "website-seo-discovery", "purpose": "Read the current state of the target pages (live and in the repository)."},
+        {"key": "page-audit", "skill": "seo-toolkit-page-audit", "purpose": "Diagnose each target page."},
+        {"key": "optimize", "skill": "seo-toolkit-content-optimizer", "purpose": "Concrete edits: title, description, headings, answer-first sections, FAQs."},
+        {"key": "internal-linking", "skill": "seo-toolkit-internal-linking", "purpose": "Natural inbound links from related posts."},
+        {"key": "quality", "skill": "seo-quality-audit", "purpose": "Originality, factual accuracy, no stuffing, house style."},
+        {"key": "brief", "skill": "seo-toolkit-content-brief", "purpose": "Brief for a page that does not exist yet.", "optional": true, "when": "a new page is the right fix"},
+        {"key": "draft", "skill": "seo-blog-writer", "purpose": "Draft content from an approved brief.", "optional": true, "when": "the user explicitly asks for content to be written"},
+        {"key": "prioritize", "skill": "seo-toolkit-prioritization", "purpose": "Order the edits."},
+        {"key": "store-and-report", "skill": "seo-learning-and-memory", "purpose": "Record proposed and implemented changes and the report."}
+      ]
+    },
+    "performance-review": {
+      "entry_skill": "seo-performance-review",
+      "description": "What changed in Search Console and why, and whether earlier changes worked.",
+      "steps": [
+        {"key": "load-knowledge", "skill": "seo-learning-and-memory", "purpose": "Load previous metrics and implemented changes with their dates."},
+        {"key": "performance", "skill": "seo-toolkit-performance-analysis", "purpose": "Period-over-period clicks, impressions, CTR and position by segment."},
+        {"key": "diagnosis", "skill": "seo-gsc-diagnosis", "purpose": "Differential diagnosis of drops and low CTR.", "optional": true, "when": "a drop or anomaly needs explaining"},
+        {"key": "cannibalization", "skill": "seo-toolkit-cannibalization", "purpose": "Queries split across pages."},
+        {"key": "prioritize", "skill": "seo-toolkit-prioritization", "purpose": "Order the follow-up actions."},
+        {"key": "store-and-report", "skill": "seo-learning-and-memory", "purpose": "Append sourced metrics, judge implemented changes, write the report."}
+      ]
+    },
+    "update-skills": {
+      "entry_skill": "seo-update-skills",
+      "description": "Review pending skill proposals and apply only approved ones.",
+      "steps": [
+        {"key": "review-history", "skill": "seo-learning-and-memory", "purpose": "Find recurring patterns across executions that justify a methodology change."},
+        {"key": "decide-and-apply", "skill": "seo-update-skills", "purpose": "Show proposals, record the human decision, apply approved ones."}
+      ]
+    }
+  }
+}

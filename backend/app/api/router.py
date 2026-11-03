@@ -16,6 +16,7 @@ from app.api.routes.intelligence import router as intelligence_router
 from app.api.routes.keywords import router as keywords_router
 from app.api.routes.research import router as research_router
 from app.api.routes.seo import router as seo_router
+from app.api.routes.seo_intelligence import router as seo_intelligence_router
 from app.api.security import require_api_token
 
 protected_router = APIRouter(dependencies=[Depends(require_api_token)])
@@ -33,6 +34,9 @@ protected_router.include_router(seo_router, prefix="/seo", tags=["technical-seo"
 protected_router.include_router(gsc_router, prefix="/gsc", tags=["search-console"])
 protected_router.include_router(
     keywords_router, prefix="/seo/keywords", tags=["keyword-research"]
+)
+protected_router.include_router(
+    seo_intelligence_router, prefix="/seo/intelligence", tags=["seo-intelligence"]
 )
 
 api_router = APIRouter()
