@@ -62,6 +62,7 @@ MODES = [
     "content-optimization",
     "performance-review",
     "update-skills",
+    "monitor",
     "baseline-import",
 ]
 

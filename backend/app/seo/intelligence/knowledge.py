@@ -248,3 +248,13 @@ class SeoKnowledgeRepository:
         if not path.exists():
             raise ResourceNotFoundException("Report not found.")
         return path.read_text(encoding="utf-8")
+
+    # -- generic per-site lists (monitoring state) -------------------------------
+
+    def load_list(self, site_id: str, relative: str, model: type[T]) -> list[T]:
+        """Load ``sites/<site>/<relative>`` as a list of ``model`` (fixed names only)."""
+        path = self.site_dir(site_id) / relative
+        return self._read(path, TypeAdapter(list[model]), [])  # type: ignore[valid-type]
+
+    def save_list(self, site_id: str, relative: str, items: list[Any]) -> None:
+        write_atomic(self.site_dir(site_id) / relative, _dump(items))

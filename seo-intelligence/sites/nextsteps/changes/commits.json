@@ -1,0 +1,2843 @@
+[
+  {
+    "sha": "20aa5d617a10d901159e1a49e4035def63197646",
+    "committed_at": "2026-08-07T14:43:33+05:30",
+    "subject": "content(blog): add inline concept-graphic images to 4 merge-target posts",
+    "files": [
+      "frontend/public/blog-content/how-to-create-a-winning-study-schedule-for-usmle-step-1.json",
+      "frontend/public/blog-content/how-to-make-a-good-cv-for-usmle.json",
+      "frontend/public/blog-content/what-is-the-typical-preparation-time-for-usmle-step-1.json",
+      "frontend/public/blog-content/what-is-usmle-what-are-the-usmle-steps.json"
+    ],
+    "pages": [
+      {
+        "path": "/blog/how-to-create-a-winning-study-schedule-for-usmle-step-1",
+        "changes": [
+          "body file updated"
+        ],
+        "new_title": null
+      },
+      {
+        "path": "/blog/how-to-make-a-good-cv-for-usmle",
+        "changes": [
+          "body file updated"
+        ],
+        "new_title": null
+      },
+      {
+        "path": "/blog/what-is-the-typical-preparation-time-for-usmle-step-1",
+        "changes": [
+          "body file updated"
+        ],
+        "new_title": null
+      },
+      {
+        "path": "/blog/what-is-usmle-what-are-the-usmle-steps",
+        "changes": [
+          "body file updated"
+        ],
+        "new_title": null
+      }
+    ],
+    "deployed": true,
+    "deploy_date": "2026-08-07",
+    "deploy_basis": "commit date (already on production branch)"
+  },
+  {
+    "sha": "658273d4a50064c28e467c929bbe72b8a8a30108",
+    "committed_at": "2026-08-07T15:01:06+05:30",
+    "subject": "content(blog): wire the regenerated 3-step-journey image",
+    "files": [
+      "frontend/public/blog-content/what-is-usmle-what-are-the-usmle-steps.json"
+    ],
+    "pages": [
+      {
+        "path": "/blog/what-is-usmle-what-are-the-usmle-steps",
+        "changes": [
+          "body file updated"
+        ],
+        "new_title": null
+      }
+    ],
+    "deployed": true,
+    "deploy_date": "2026-08-07",
+    "deploy_basis": "commit date (already on production branch)"
+  },
+  {
+    "sha": "7b94cb4c930581504061d2c7972d430c7a8769cd",
+    "committed_at": "2026-08-07T15:43:15+05:30",
+    "subject": "content(blog): rebuild the Match-interview cluster in house style",
+    "files": [
+      "frontend/public/blog-content/how-many-interviews-should-you-get-to-match.json",
+      "frontend/public/blog-content/sample-residency-interview-questions-and-answers.json",
+      "frontend/public/blog-content/what-do-program-directors-expect-in-the-usmle-match-interview.json",
+      "frontend/src/data/blog-index.generated.json"
+    ],
+    "pages": [
+      {
+        "path": "/blog/how-many-interviews-should-you-get-to-match",
+        "changes": [
+          "body file updated",
+          "excerpt: 'Securing a residency position in the United States is a competitive and multifaceted proc…' -> 'The real NRMP numbers behind “how many interviews do I need to match” — why the commonly-…'",
+          "faq changed (5 questions)"
+        ],
+        "new_title": null
+      },
+      {
+        "path": "/blog/sample-residency-interview-questions-and-answers",
+        "changes": [
+          "body file updated",
+          "excerpt: 'Preparing for the USMLE residency match interviews can be a daunting task, but knowing th…' -> 'The residency interview questions that come up again and again in the USMLE Match — group…'",
+          "faq changed (5 questions)"
+        ],
+        "new_title": null
+      },
+      {
+        "path": "/blog/what-do-program-directors-expect-in-the-usmle-match-interview",
+        "changes": [
+          "body file updated",
+          "excerpt: 'Securing a residency spot in the USMLE match interview process is a significant milestone…' -> 'What actually gets you invited to interview versus what decides your rank position afterw…'",
+          "faq changed (5 questions)"
+        ],
+        "new_title": null
+      }
+    ],
+    "deployed": true,
+    "deploy_date": "2026-08-07",
+    "deploy_basis": "commit date (already on production branch)"
+  },
+  {
+    "sha": "a32d7c886d57190306bec861ced07f8bb0d7c387",
+    "committed_at": "2026-08-07T16:07:45+05:30",
+    "subject": "content(blog): add inline images to the Match-interview cluster (5/6)",
+    "files": [
+      "frontend/public/blog-content/how-many-interviews-should-you-get-to-match.json",
+      "frontend/public/blog-content/sample-residency-interview-questions-and-answers.json",
+      "frontend/public/blog-content/what-do-program-directors-expect-in-the-usmle-match-interview.json"
+    ],
+    "pages": [
+      {
+        "path": "/blog/how-many-interviews-should-you-get-to-match",
+        "changes": [
+          "body file updated"
+        ],
+        "new_title": null
+      },
+      {
+        "path": "/blog/sample-residency-interview-questions-and-answers",
+        "changes": [
+          "body file updated"
+        ],
+        "new_title": null
+      },
+      {
+        "path": "/blog/what-do-program-directors-expect-in-the-usmle-match-interview",
+        "changes": [
+          "body file updated"
+        ],
+        "new_title": null
+      }
+    ],
+    "deployed": true,
+    "deploy_date": "2026-08-07",
+    "deploy_basis": "commit date (already on production branch)"
+  },
+  {
+    "sha": "0ce5c05056475033f0d8d44b5911a7dbe63f0085",
+    "committed_at": "2026-08-07T16:12:32+05:30",
+    "subject": "content(blog): wire the corrected contiguous-ranks chart (6/6)",
+    "files": [
+      "frontend/public/blog-content/how-many-interviews-should-you-get-to-match.json"
+    ],
+    "pages": [
+      {
+        "path": "/blog/how-many-interviews-should-you-get-to-match",
+        "changes": [
+          "body file updated"
+        ],
+        "new_title": null
+      }
+    ],
+    "deployed": true,
+    "deploy_date": "2026-08-07",
+    "deploy_basis": "commit date (already on production branch)"
+  },
+  {
+    "sha": "bf380dc4df0df36302638962a24d80fa257b4831",
+    "committed_at": "2026-08-07T18:42:10+05:30",
+    "subject": "content(blog): remove all em dashes from the 7 posts touched today",
+    "files": [
+      "frontend/public/blog-content/how-many-interviews-should-you-get-to-match.json",
+      "frontend/public/blog-content/how-to-create-a-winning-study-schedule-for-usmle-step-1.json",
+      "frontend/public/blog-content/how-to-make-a-good-cv-for-usmle.json",
+      "frontend/public/blog-content/sample-residency-interview-questions-and-answers.json",
+      "frontend/public/blog-content/what-do-program-directors-expect-in-the-usmle-match-interview.json",
+      "frontend/public/blog-content/what-is-the-typical-preparation-time-for-usmle-step-1.json",
+      "frontend/public/blog-content/what-is-usmle-what-are-the-usmle-steps.json"
+    ],
+    "pages": [
+      {
+        "path": "/blog/how-many-interviews-should-you-get-to-match",
+        "changes": [
+          "body file updated"
+        ],
+        "new_title": null
+      },
+      {
+        "path": "/blog/how-to-create-a-winning-study-schedule-for-usmle-step-1",
+        "changes": [
+          "body file updated"
+        ],
+        "new_title": null
+      },
+      {
+        "path": "/blog/how-to-make-a-good-cv-for-usmle",
+        "changes": [
+          "body file updated"
+        ],
+        "new_title": null
+      },
+      {
+        "path": "/blog/sample-residency-interview-questions-and-answers",
+        "changes": [
+          "body file updated"
+        ],
+        "new_title": null
+      },
+      {
+        "path": "/blog/what-do-program-directors-expect-in-the-usmle-match-interview",
+        "changes": [
+          "body file updated"
+        ],
+        "new_title": null
+      },
+      {
+        "path": "/blog/what-is-the-typical-preparation-time-for-usmle-step-1",
+        "changes": [
+          "body file updated"
+        ],
+        "new_title": null
+      },
+      {
+        "path": "/blog/what-is-usmle-what-are-the-usmle-steps",
+        "changes": [
+          "body file updated"
+        ],
+        "new_title": null
+      }
+    ],
+    "deployed": true,
+    "deploy_date": "2026-08-07",
+    "deploy_basis": "commit date (already on production branch)"
+  },
+  {
+    "sha": "91fc45d7cad080c01696a66ef612fdffe857bb99",
+    "committed_at": "2026-08-07T19:01:27+05:30",
+    "subject": "content(blog): rebuild the USCE/CV-rejection cluster in house style",
+    "files": [
+      "frontend/public/blog-content/how-to-find-the-best-us-clinical-experience-for-imgs.json",
+      "frontend/public/blog-content/usmle-personal-statement-dos-and-donts.json",
+      "frontend/public/blog-content/what-do-program-directors-seek-from-usce.json",
+      "frontend/public/blog-content/why-usmle-cv-can-be-rejected.json",
+      "frontend/src/data/blog-index.generated.json"
+    ],
+    "pages": [
+      {
+        "path": "/blog/how-to-find-the-best-us-clinical-experience-for-imgs",
+        "changes": [
+          "body file updated",
+          "excerpt: 'Securing a US clinical experience (USCE) is a crucial step for International Medical Grad…' -> 'Observership, externship, or sub-internship — what US Clinical Experience actually costs,…'",
+          "faq changed (5 questions)"
+        ],
+        "new_title": null
+      },
+      {
+        "path": "/blog/usmle-personal-statement-dos-and-donts",
+        "changes": [
+          "body file updated",
+          "title: 'Dos and Don’ts for Crafting an USMLE Personal Statement' -> 'Dos and Don&rsquo;ts for Crafting an USMLE Personal Statement'",
+          "excerpt: 'The USMLE personal statement is a crucial component of your residency application. It pro…' -> 'The exact ERAS character limit versus what program directors actually expect, a repeatabl…'",
+          "faq changed (5 questions)"
+        ],
+        "new_title": "Dos and Don&rsquo;ts for Crafting an USMLE Personal Statement"
+      },
+      {
+        "path": "/blog/what-do-program-directors-seek-from-usce",
+        "changes": [
+          "body file updated",
+          "excerpt: 'Securing a residency spot in the United States is highly competitive, especially for Inte…' -> 'The mechanism behind NRMP's 84% figure for specialty-specific letters — what actually sep…'",
+          "faq changed (5 questions)"
+        ],
+        "new_title": null
+      },
+      {
+        "path": "/blog/why-usmle-cv-can-be-rejected",
+        "changes": [
+          "body file updated",
+          "title: 'Why USMLE CV can be rejected?' -> 'Why USMLE CV Can Be Rejected?'",
+          "excerpt: 'Why Your USMLE CV Can Be Rejected: Common Mistakes and How to Avoid Them Your Curriculum …' -> 'ERAS isn't an ATS — it's program-set filters. The real two-stage screening process, the s…'",
+          "faq changed (5 questions)"
+        ],
+        "new_title": "Why USMLE CV Can Be Rejected?"
+      }
+    ],
+    "deployed": true,
+    "deploy_date": "2026-08-07",
+    "deploy_basis": "commit date (already on production branch)"
+  },
+  {
+    "sha": "942bf293317584e6e1faab6334ec190546cb687c",
+    "committed_at": "2026-08-07T19:25:56+05:30",
+    "subject": "content(blog): add inline images to the USCE/CV-rejection cluster (8/8)",
+    "files": [
+      "frontend/public/blog-content/how-to-find-the-best-us-clinical-experience-for-imgs.json",
+      "frontend/public/blog-content/usmle-personal-statement-dos-and-donts.json",
+      "frontend/public/blog-content/what-do-program-directors-seek-from-usce.json",
+      "frontend/public/blog-content/why-usmle-cv-can-be-rejected.json"
+    ],
+    "pages": [
+      {
+        "path": "/blog/how-to-find-the-best-us-clinical-experience-for-imgs",
+        "changes": [
+          "body file updated"
+        ],
+        "new_title": null
+      },
+      {
+        "path": "/blog/usmle-personal-statement-dos-and-donts",
+        "changes": [
+          "body file updated"
+        ],
+        "new_title": null
+      },
+      {
+        "path": "/blog/what-do-program-directors-seek-from-usce",
+        "changes": [
+          "body file updated"
+        ],
+        "new_title": null
+      },
+      {
+        "path": "/blog/why-usmle-cv-can-be-rejected",
+        "changes": [
+          "body file updated"
+        ],
+        "new_title": null
+      }
+    ],
+    "deployed": true,
+    "deploy_date": "2026-08-07",
+    "deploy_basis": "commit date (already on production branch)"
+  },
+  {
+    "sha": "d6d7749f1a3704d18721ffc28504a68690030dac",
+    "committed_at": "2026-08-08T12:48:24+05:30",
+    "subject": "docs(blog): add re-indexing tracker for today's 11 updated posts",
+    "files": [
+      "blog-reindex-tracker.md"
+    ],
+    "pages": [
+      {
+        "path": "site",
+        "changes": [
+          "site file changed: blog-reindex-tracker.md"
+        ],
+        "new_title": null
+      }
+    ],
+    "deployed": true,
+    "deploy_date": "2026-08-08",
+    "deploy_basis": "commit date (already on production branch)"
+  },
+  {
+    "sha": "b3bafe0a8b8bc60f1399e98d7dac329eea96bc5d",
+    "committed_at": "2026-08-08T13:02:08+05:30",
+    "subject": "content(blog): fact-check and deepen 4 already-house-style posts",
+    "files": [
+      "frontend/public/blog-content/best-study-resources-for-usmle-steps-preparation.json",
+      "frontend/public/blog-content/how-much-does-usmle-cost-in-total.json",
+      "frontend/public/blog-content/usmle-step-3-preparatio-study-plan-and-guidance.json",
+      "frontend/public/blog-content/who-are-eligible-for-usmle.json",
+      "frontend/src/data/blog-index.generated.json",
+      "frontend/src/data/manual-posts.json"
+    ],
+    "pages": [
+      {
+        "path": "/blog/best-study-resources-for-usmle-steps-preparation",
+        "changes": [
+          "body file updated",
+          "excerpt: 'The best USMLE study resources for Step 1, Step 2 CK, and Step 3 -- Qbanks, Anki/AnKing, …' -> 'The current core resource stack for every USMLE Step, real 2026 pricing, the resources mo…'",
+          "faq changed (5 questions)",
+          "body updated (+319 words, now 925)"
+        ],
+        "new_title": null
+      },
+      {
+        "path": "/blog/how-much-does-usmle-cost-in-total",
+        "changes": [
+          "body file updated",
+          "excerpt: 'A full breakdown of the real cost of the USMLE journey: exam fees, ECFMG certification an…' -> 'Actual current dollar figures for every stage of the USMLE and Match journey — Step fees,…'",
+          "faq changed (5 questions)",
+          "body updated (+409 words, now 1042)"
+        ],
+        "new_title": null
+      },
+      {
+        "path": "/blog/usmle-step-3-preparatio-study-plan-and-guidance",
+        "changes": [
+          "body file updated",
+          "excerpt: 'A real week-by-week USMLE Step 3 study plan built around its unique CCS component, best r…' -> 'The confirmed current Step 3 format (412 MCQs, 13-14 CCS cases, passing score 200), named…'",
+          "faq changed (5 questions)",
+          "body updated (+410 words, now 1041)"
+        ],
+        "new_title": null
+      },
+      {
+        "path": "/blog/who-are-eligible-for-usmle",
+        "changes": [
+          "body file updated",
+          "excerpt: 'The complete USMLE eligibility rules for US MD, DO, and IMG applicants in 2026: ECFMG Spo…' -> 'Fact-checked USMLE eligibility rules for 2026: the ECFMG Sponsor Note and 4-credit-year r…'",
+          "faq changed (5 questions)",
+          "body updated (+256 words, now 883)"
+        ],
+        "new_title": null
+      }
+    ],
+    "deployed": true,
+    "deploy_date": "2026-08-08",
+    "deploy_basis": "commit date (already on production branch)"
+  },
+  {
+    "sha": "2a26631dfd4264adc2f0aa590f2c10634bd9729d",
+    "committed_at": "2026-08-08T13:05:47+05:30",
+    "subject": "docs(blog): track the 4 posts updated in b3bafe0",
+    "files": [
+      "blog-reindex-tracker.md"
+    ],
+    "pages": [
+      {
+        "path": "site",
+        "changes": [
+          "site file changed: blog-reindex-tracker.md"
+        ],
+        "new_title": null
+      }
+    ],
+    "deployed": true,
+    "deploy_date": "2026-08-08",
+    "deploy_basis": "commit date (already on production branch)"
+  },
+  {
+    "sha": "298329abe521ca1bec74cbe32f578732c6d06bc8",
+    "committed_at": "2026-08-08T15:09:23+05:30",
+    "subject": "content(blog): add inline images to the 4 fact-checked posts (8/8)",
+    "files": [
+      "frontend/public/blog-content/best-study-resources-for-usmle-steps-preparation.json",
+      "frontend/public/blog-content/how-much-does-usmle-cost-in-total.json",
+      "frontend/public/blog-content/usmle-step-3-preparatio-study-plan-and-guidance.json",
+      "frontend/public/blog-content/who-are-eligible-for-usmle.json",
+      "frontend/src/data/manual-posts.json"
+    ],
+    "pages": [
+      {
+        "path": "/blog/best-study-resources-for-usmle-steps-preparation",
+        "changes": [
+          "body file updated",
+          "body updated (+0 words, now 925)"
+        ],
+        "new_title": null
+      },
+      {
+        "path": "/blog/how-much-does-usmle-cost-in-total",
+        "changes": [
+          "body file updated",
+          "body updated (+0 words, now 1042)"
+        ],
+        "new_title": null
+      },
+      {
+        "path": "/blog/usmle-step-3-preparatio-study-plan-and-guidance",
+        "changes": [
+          "body file updated",
+          "body updated (+0 words, now 1041)"
+        ],
+        "new_title": null
+      },
+      {
+        "path": "/blog/who-are-eligible-for-usmle",
+        "changes": [
+          "body file updated",
+          "body updated (+0 words, now 883)"
+        ],
+        "new_title": null
+      }
+    ],
+    "deployed": true,
+    "deploy_date": "2026-08-08",
+    "deploy_basis": "commit date (already on production branch)"
+  },
+  {
+    "sha": "7987d3c08124c95d5a07b7ffdefd255bc8c04b8f",
+    "committed_at": "2026-08-08T15:11:33+05:30",
+    "subject": "docs(blog): mark the 4 posts in 298329a as image-complete",
+    "files": [
+      "blog-reindex-tracker.md"
+    ],
+    "pages": [
+      {
+        "path": "site",
+        "changes": [
+          "site file changed: blog-reindex-tracker.md"
+        ],
+        "new_title": null
+      }
+    ],
+    "deployed": true,
+    "deploy_date": "2026-08-08",
+    "deploy_basis": "commit date (already on production branch)"
+  },
+  {
+    "sha": "21663de7f0eef099c2410f19d8b34bd2889d1955",
+    "committed_at": "2026-08-08T15:25:39+05:30",
+    "subject": "content(blog): research-backed rebuild of Tier-2 batch 2 (4/4)",
+    "files": [
+      "frontend/public/blog-content/can-indian-medical-graduates-work-in-the-usa-without-usmle.json",
+      "frontend/public/blog-content/how-to-prepare-for-the-residency-match-season.json",
+      "frontend/public/blog-content/what-is-the-best-usmle-question-bank.json",
+      "frontend/public/blog-content/what-is-the-role-of-mentorship-in-usmle-preparation.json",
+      "frontend/src/data/blog-index.generated.json",
+      "frontend/src/data/manual-posts.json"
+    ],
+    "pages": [
+      {
+        "path": "/blog/can-indian-medical-graduates-work-in-the-usa-without-usmle",
+        "changes": [
+          "body file updated",
+          "title: 'Can Indian Medical Graduates Work in the USA Without USMLE? The Honest Answer (2026 Updat…' -> 'Can International Medical Graduates Practice in the US Without the USMLE? What's Actually…'",
+          "excerpt: 'The honest answer on whether Indian medical graduates can practice in the US without USML…' -> 'A growing list of states now offer limited practice pathways for IMGs without the full US…'",
+          "faq changed (5 questions)",
+          "body updated (+347 words, now 1014)"
+        ],
+        "new_title": "Can International Medical Graduates Practice in the US Without the USMLE? What's Actually Changed"
+      },
+      {
+        "path": "/blog/how-to-prepare-for-the-residency-match-season",
+        "changes": [
+          "body file updated",
+          "excerpt: 'A month-by-month residency Match timeline covering ERAS, applications, interview season, …' -> 'Confirmed 2026-2027 ERAS and Match dates, the real (and widening) IMG match-rate gap from…'",
+          "faq changed (5 questions)",
+          "body updated (+247 words, now 894)"
+        ],
+        "new_title": null
+      },
+      {
+        "path": "/blog/what-is-the-best-usmle-question-bank",
+        "changes": [
+          "body file updated",
+          "title: 'Best USMLE Question Bank in 2026: UWorld vs AMBOSS vs Kaplan &mdash; Full Comparison' -> 'What Is the Best USMLE Question Bank? An Honest, Updated Comparison'",
+          "excerpt: 'An honest comparison of UWorld, AMBOSS, and Kaplan for USMLE prep -- strengths, how to ch…' -> 'UWorld still leads and AMBOSS remains a strong #2, but Kaplan's Qbank has slipped to a bu…'",
+          "faq changed (5 questions)",
+          "body updated (+226 words, now 893)"
+        ],
+        "new_title": "What Is the Best USMLE Question Bank? An Honest, Updated Comparison"
+      },
+      {
+        "path": "/blog/what-is-the-role-of-mentorship-in-usmle-preparation",
+        "changes": [
+          "body file updated",
+          "faq changed (5 questions)",
+          "body updated (-6 words, now 733)"
+        ],
+        "new_title": null
+      }
+    ],
+    "deployed": true,
+    "deploy_date": "2026-08-08",
+    "deploy_basis": "commit date (already on production branch)"
+  },
+  {
+    "sha": "fbb7cc54ab85ee6bf3de1b24fbc68d8c7a2ead55",
+    "committed_at": "2026-08-08T15:26:01+05:30",
+    "subject": "docs: add Tier-2 batch 2 posts to reindex tracker",
+    "files": [
+      "blog-reindex-tracker.md"
+    ],
+    "pages": [
+      {
+        "path": "site",
+        "changes": [
+          "site file changed: blog-reindex-tracker.md"
+        ],
+        "new_title": null
+      }
+    ],
+    "deployed": true,
+    "deploy_date": "2026-08-08",
+    "deploy_basis": "commit date (already on production branch)"
+  },
+  {
+    "sha": "bd7e195ffca9876ad4c814356f92b440eda18702",
+    "committed_at": "2026-08-08T16:11:18+05:30",
+    "subject": "content(blog): add inline images to Tier-2 batch 2 (7/8)",
+    "files": [
+      "frontend/public/blog-content/can-indian-medical-graduates-work-in-the-usa-without-usmle.json",
+      "frontend/public/blog-content/how-to-prepare-for-the-residency-match-season.json",
+      "frontend/public/blog-content/what-is-the-best-usmle-question-bank.json",
+      "frontend/public/blog-content/what-is-the-role-of-mentorship-in-usmle-preparation.json",
+      "frontend/src/data/manual-posts.json"
+    ],
+    "pages": [
+      {
+        "path": "/blog/can-indian-medical-graduates-work-in-the-usa-without-usmle",
+        "changes": [
+          "body file updated",
+          "body updated (+0 words, now 1014)"
+        ],
+        "new_title": null
+      },
+      {
+        "path": "/blog/how-to-prepare-for-the-residency-match-season",
+        "changes": [
+          "body file updated",
+          "body updated (+0 words, now 894)"
+        ],
+        "new_title": null
+      },
+      {
+        "path": "/blog/what-is-the-best-usmle-question-bank",
+        "changes": [
+          "body file updated",
+          "body updated (+0 words, now 893)"
+        ],
+        "new_title": null
+      },
+      {
+        "path": "/blog/what-is-the-role-of-mentorship-in-usmle-preparation",
+        "changes": [
+          "body file updated",
+          "body updated (+0 words, now 733)"
+        ],
+        "new_title": null
+      }
+    ],
+    "deployed": true,
+    "deploy_date": "2026-08-08",
+    "deploy_basis": "commit date (already on production branch)"
+  },
+  {
+    "sha": "b31f69bea717d8ff6398d0c1196ae24e7bae8522",
+    "committed_at": "2026-08-08T16:11:33+05:30",
+    "subject": "docs: mark Tier-2 batch 2 images-complete in reindex tracker",
+    "files": [
+      "blog-reindex-tracker.md"
+    ],
+    "pages": [
+      {
+        "path": "site",
+        "changes": [
+          "site file changed: blog-reindex-tracker.md"
+        ],
+        "new_title": null
+      }
+    ],
+    "deployed": true,
+    "deploy_date": "2026-08-08",
+    "deploy_basis": "commit date (already on production branch)"
+  },
+  {
+    "sha": "1dce06827d6ebc71997995ae79e7f1e1b1da9f5f",
+    "committed_at": "2026-08-08T16:19:49+05:30",
+    "subject": "style(blog): remove all em-dashes from Tier-2 batch 3 (5 posts)",
+    "files": [
+      "frontend/public/blog-content/2024-match-pathways-application-reopened-for-imgs.json",
+      "frontend/public/blog-content/apply-now-for-a-free-usmle-step-3-practice-examination.json",
+      "frontend/public/blog-content/ecfmg-announcement-certification-eligibility.json",
+      "frontend/public/blog-content/how-to-score-280-on-usmle-step-2-ck.json",
+      "frontend/public/blog-content/important-update-for-usmle-step1-and-step-2ck-examinees-in-2024.json",
+      "frontend/public/blog-content/official-statement-regarding-the-invalidation-of-usmle-examination-scores.json",
+      "frontend/src/data/blog-index.generated.json",
+      "frontend/src/data/manual-posts.json"
+    ],
+    "pages": [
+      {
+        "path": "/blog/2024-match-pathways-application-reopened-for-imgs",
+        "changes": [
+          "body file updated",
+          "faq changed (5 questions)",
+          "body updated (-8 words, now 797)"
+        ],
+        "new_title": null
+      },
+      {
+        "path": "/blog/apply-now-for-a-free-usmle-step-3-practice-examination",
+        "changes": [
+          "body file updated",
+          "faq changed (5 questions)",
+          "body updated (-10 words, now 977)"
+        ],
+        "new_title": null
+      },
+      {
+        "path": "/blog/ecfmg-announcement-certification-eligibility",
+        "changes": [
+          "body file updated",
+          "faq changed (5 questions)",
+          "body updated (-9 words, now 902)"
+        ],
+        "new_title": null
+      },
+      {
+        "path": "/blog/how-to-score-280-on-usmle-step-2-ck",
+        "changes": [
+          "body file updated",
+          "body updated (+0 words, now 1570)"
+        ],
+        "new_title": null
+      },
+      {
+        "path": "/blog/important-update-for-usmle-step1-and-step-2ck-examinees-in-2024",
+        "changes": [
+          "body file updated",
+          "faq changed (5 questions)",
+          "body updated (-12 words, now 1041)"
+        ],
+        "new_title": null
+      },
+      {
+        "path": "/blog/official-statement-regarding-the-invalidation-of-usmle-examination-scores",
+        "changes": [
+          "body file updated",
+          "faq changed (5 questions)",
+          "body updated (-15 words, now 762)"
+        ],
+        "new_title": null
+      }
+    ],
+    "deployed": true,
+    "deploy_date": "2026-08-08",
+    "deploy_basis": "commit date (already on production branch)"
+  },
+  {
+    "sha": "521eb7688a93ee34f7d7bfa4ed032404c503e755",
+    "committed_at": "2026-08-10T12:40:33+05:30",
+    "subject": "content(blog): add inline images to Tier-2 batch 3 (6/6)",
+    "files": [
+      "frontend/public/blog-content/2024-match-pathways-application-reopened-for-imgs.json",
+      "frontend/public/blog-content/apply-now-for-a-free-usmle-step-3-practice-examination.json",
+      "frontend/public/blog-content/ecfmg-announcement-certification-eligibility.json",
+      "frontend/public/blog-content/how-to-score-280-on-usmle-step-2-ck.json",
+      "frontend/public/blog-content/important-update-for-usmle-step1-and-step-2ck-examinees-in-2024.json",
+      "frontend/public/blog-content/official-statement-regarding-the-invalidation-of-usmle-examination-scores.json",
+      "frontend/src/data/manual-posts.json"
+    ],
+    "pages": [
+      {
+        "path": "/blog/2024-match-pathways-application-reopened-for-imgs",
+        "changes": [
+          "body file updated",
+          "body updated (+0 words, now 797)"
+        ],
+        "new_title": null
+      },
+      {
+        "path": "/blog/apply-now-for-a-free-usmle-step-3-practice-examination",
+        "changes": [
+          "body file updated",
+          "body updated (+0 words, now 977)"
+        ],
+        "new_title": null
+      },
+      {
+        "path": "/blog/ecfmg-announcement-certification-eligibility",
+        "changes": [
+          "body file updated",
+          "body updated (+0 words, now 902)"
+        ],
+        "new_title": null
+      },
+      {
+        "path": "/blog/how-to-score-280-on-usmle-step-2-ck",
+        "changes": [
+          "body file updated",
+          "body updated (+0 words, now 1570)"
+        ],
+        "new_title": null
+      },
+      {
+        "path": "/blog/important-update-for-usmle-step1-and-step-2ck-examinees-in-2024",
+        "changes": [
+          "body file updated",
+          "body updated (+0 words, now 1041)"
+        ],
+        "new_title": null
+      },
+      {
+        "path": "/blog/official-statement-regarding-the-invalidation-of-usmle-examination-scores",
+        "changes": [
+          "body file updated",
+          "body updated (+0 words, now 762)"
+        ],
+        "new_title": null
+      }
+    ],
+    "deployed": true,
+    "deploy_date": "2026-08-10",
+    "deploy_basis": "commit date (already on production branch)"
+  },
+  {
+    "sha": "5ff5fb43fd7c8b0fa3f58ddaf96461c7e3295afe",
+    "committed_at": "2026-08-10T12:44:32+05:30",
+    "subject": "docs: add Tier-2 batch 3 posts to reindex tracker",
+    "files": [
+      "blog-reindex-tracker.md"
+    ],
+    "pages": [
+      {
+        "path": "site",
+        "changes": [
+          "site file changed: blog-reindex-tracker.md"
+        ],
+        "new_title": null
+      }
+    ],
+    "deployed": true,
+    "deploy_date": "2026-08-10",
+    "deploy_basis": "commit date (already on production branch)"
+  },
+  {
+    "sha": "9231df87e64fa84a4f14b3ceca80c7939a29cd16",
+    "committed_at": "2026-08-10T13:22:14+05:30",
+    "subject": "content(blog): rebuild ECFMG Pathways post for the 2027 cycle",
+    "files": [
+      "frontend/public/blog-content/2024-match-pathways-application-reopened-for-imgs.json",
+      "frontend/src/data/blog-index.generated.json",
+      "frontend/src/data/manual-posts.json"
+    ],
+    "pages": [
+      {
+        "path": "/blog/2024-match-pathways-application-reopened-for-imgs",
+        "changes": [
+          "body file updated",
+          "title: 'ECFMG Pathways for IMGs: Eligibility, Deadlines &amp; How to Complete Your Clinical Skill…' -> 'ECFMG 2027 Pathways for IMGs: Eligibility, Deadlines &amp; How to Complete Your Clinical …'",
+          "excerpt: 'ECFMG Pathways explained: the 6 routes IMGs use to satisfy the clinical and communication…' -> 'The 2027 ECFMG Pathways explained precisely: exact eligibility criteria for all 6 Pathway…'",
+          "faq changed (6 questions)",
+          "body updated (+674 words, now 1471)"
+        ],
+        "new_title": "ECFMG 2027 Pathways for IMGs: Eligibility, Deadlines &amp; How to Complete Your Clinical Skills Requirement"
+      }
+    ],
+    "deployed": true,
+    "deploy_date": "2026-08-10",
+    "deploy_basis": "commit date (already on production branch)"
+  },
+  {
+    "sha": "7ba15de87969720d3e18ebc9ede8ca8e0ea3dad5",
+    "committed_at": "2026-08-10T13:24:05+05:30",
+    "subject": "docs: note the 2027 Pathways title/content update in reindex tracker",
+    "files": [
+      "blog-reindex-tracker.md"
+    ],
+    "pages": [
+      {
+        "path": "site",
+        "changes": [
+          "site file changed: blog-reindex-tracker.md"
+        ],
+        "new_title": null
+      }
+    ],
+    "deployed": true,
+    "deploy_date": "2026-08-10",
+    "deploy_basis": "commit date (already on production branch)"
+  },
+  {
+    "sha": "a386145d0ff58355520e9d940680e7351c5ffa13",
+    "committed_at": "2026-08-10T13:29:32+05:30",
+    "subject": "content(blog): change slug to ecfmg-2027-pathways-for-imgs",
+    "files": [
+      "frontend/public/blog-content/ecfmg-2027-pathways-for-imgs.json",
+      "frontend/public/blog-content/ecfmg-announcement-certification-eligibility.json",
+      "frontend/public/blog-content/what-is-oet-exam-how-much-does-it-costs.json",
+      "frontend/src/data/blog-index.generated.json",
+      "frontend/src/data/manual-posts.json"
+    ],
+    "pages": [
+      {
+        "path": "/blog/ecfmg-2027-pathways-for-imgs",
+        "changes": [
+          "body file updated",
+          "post added"
+        ],
+        "new_title": "ECFMG 2027 Pathways for IMGs: Eligibility, Deadlines &amp; How to Complete Your Clinical Skills Requirement"
+      },
+      {
+        "path": "/blog/ecfmg-announcement-certification-eligibility",
+        "changes": [
+          "body file updated",
+          "body updated (+0 words, now 902)"
+        ],
+        "new_title": null
+      },
+      {
+        "path": "/blog/what-is-oet-exam-how-much-does-it-costs",
+        "changes": [
+          "body file updated",
+          "body updated (+0 words, now 1298)"
+        ],
+        "new_title": null
+      },
+      {
+        "path": "/blog/2024-match-pathways-application-reopened-for-imgs",
+        "changes": [
+          "post removed from this file"
+        ],
+        "new_title": null
+      }
+    ],
+    "deployed": true,
+    "deploy_date": "2026-08-10",
+    "deploy_basis": "commit date (already on production branch)"
+  },
+  {
+    "sha": "3fe65677b4696c99d3df3772d5c6ee4380f9e11a",
+    "committed_at": "2026-08-10T13:30:05+05:30",
+    "subject": "docs: update reindex tracker for the pathways slug change",
+    "files": [
+      "blog-reindex-tracker.md"
+    ],
+    "pages": [
+      {
+        "path": "site",
+        "changes": [
+          "site file changed: blog-reindex-tracker.md"
+        ],
+        "new_title": null
+      }
+    ],
+    "deployed": true,
+    "deploy_date": "2026-08-10",
+    "deploy_basis": "commit date (already on production branch)"
+  },
+  {
+    "sha": "acf5ec1f2d023b9692fde294ea46b9419d39d522",
+    "committed_at": "2026-08-10T13:36:25+05:30",
+    "subject": "content(blog): clarify the six-Pathways table with a \"Based on\" column",
+    "files": [
+      "frontend/public/blog-content/ecfmg-2027-pathways-for-imgs.json",
+      "frontend/src/data/manual-posts.json"
+    ],
+    "pages": [
+      {
+        "path": "/blog/ecfmg-2027-pathways-for-imgs",
+        "changes": [
+          "body file updated",
+          "body updated (+16 words, now 1487)"
+        ],
+        "new_title": null
+      }
+    ],
+    "deployed": true,
+    "deploy_date": "2026-08-10",
+    "deploy_basis": "commit date (already on production branch)"
+  },
+  {
+    "sha": "b1583f7ea18aea17be395cd08136438101c6b7d8",
+    "committed_at": "2026-08-13T13:31:24+05:30",
+    "subject": "content(blog): rebuild the nine thinnest posts on sourced 2026 data",
+    "files": [
+      "frontend/public/blog-content/5-silent-usmle-killers.json",
+      "frontend/public/blog-content/6-month-usmle-step-1-study-plan.json",
+      "frontend/public/blog-content/common-mistakes-to-avoid-while-preparing-for-the-usmle-step-1.json",
+      "frontend/public/blog-content/comprehensive-guide-to-the-usmle-step-1-syllabus.json",
+      "frontend/public/blog-content/how-many-years-is-usmle-valid.json",
+      "frontend/public/blog-content/how-to-balance-usmle-preparation-and-medical-school.json",
+      "frontend/public/blog-content/how-to-create-a-winning-study-schedule-for-usmle-step-1.json",
+      "frontend/public/blog-content/how-to-make-a-good-cv-for-usmle.json",
+      "frontend/public/blog-content/how-to-review-a-uworld-qbank-block.json",
+      "frontend/public/blog-content/is-the-usmle-tough-for-indian-students.json",
+      "frontend/public/blog-content/usmle-step-1-vs-step-2-ck-key-differences-you-need-to-know.json",
+      "frontend/public/blog-content/usmle-step-2-ck-exam-format-2026.json",
+      "frontend/public/blog-content/what-happens-if-you-fail-in-usmle-step-1.json",
+      "frontend/public/blog-content/what-is-the-difference-between-the-match-and-soap.json",
+      "frontend/public/blog-content/what-is-the-typical-preparation-time-for-usmle-step-1.json",
+      "frontend/public/blog-content/why-dont-imgs-get-usmle-residency-interviews.json",
+      "frontend/src/data/blog-index.generated.json",
+      "frontend/src/data/manual-posts.json"
+    ],
+    "pages": [
+      {
+        "path": "/blog/5-silent-usmle-killers",
+        "changes": [
+          "body file updated",
+          "post removed from this file"
+        ],
+        "new_title": null
+      },
+      {
+        "path": "/blog/6-month-usmle-step-1-study-plan",
+        "changes": [
+          "body file updated",
+          "body updated (+0 words, now 1158)"
+        ],
+        "new_title": null
+      },
+      {
+        "path": "/blog/common-mistakes-to-avoid-while-preparing-for-the-usmle-step-1",
+        "changes": [
+          "body file updated",
+          "title: 'Common Mistakes to Avoid While Preparing for USMLE Step 1' -> 'Common USMLE Step 1 Mistakes: The 5 Silent Score Killers (2026)'",
+          "excerpt: 'Preparing for the USMLE Step 1 can be a daunting task, given the breadth and depth of the…' -> 'The five mistakes that quietly cost IMGs their Step 1 attempt: over-relying on First Aid,…'",
+          "faq changed (5 questions)",
+          "post added"
+        ],
+        "new_title": "Common USMLE Step 1 Mistakes: The 5 Silent Score Killers (2026)"
+      },
+      {
+        "path": "/blog/comprehensive-guide-to-the-usmle-step-1-syllabus",
+        "changes": [
+          "body file updated",
+          "title: 'Comprehensive Guide to the USMLE Step 1 Syllabus' -> 'USMLE Step 1 Syllabus 2026: Full Content Outline and Weightings'",
+          "excerpt: 'Preparing for the USMLE Step 1 exam is a significant milestone for medical students. Unde…' -> 'The official Step 1 content outline with real percentage ranges by discipline and body sy…'",
+          "faq changed (5 questions)",
+          "post added"
+        ],
+        "new_title": "USMLE Step 1 Syllabus 2026: Full Content Outline and Weightings"
+      },
+      {
+        "path": "/blog/how-many-years-is-usmle-valid",
+        "changes": [
+          "body file updated",
+          "title: 'How many years is USMLE valid?' -> 'How Long Is the USMLE Valid? The Seven Year Rule Explained (2026)'",
+          "excerpt: 'How Many Years is USMLE Valid? Everything You Need to Know The United States Medical Lice…' -> 'USMLE scores do not expire, but the seven year rule does apply: most licensing boards req…'",
+          "faq changed (5 questions)",
+          "post added"
+        ],
+        "new_title": "How Long Is the USMLE Valid? The Seven Year Rule Explained (2026)"
+      },
+      {
+        "path": "/blog/how-to-balance-usmle-preparation-and-medical-school",
+        "changes": [
+          "body file updated",
+          "title: 'How to Balance USMLE Preparation and Medical School?' -> 'How to Prepare for the USMLE During MBBS Without Failing Your Exams'",
+          "excerpt: 'Balancing USMLE preparation with the demands of medical school can be a daunting task. Wi…' -> 'A realistic system for preparing for the USMLE alongside medical school: what overlaps wi…'",
+          "faq changed (5 questions)",
+          "post added"
+        ],
+        "new_title": "How to Prepare for the USMLE During MBBS Without Failing Your Exams"
+      },
+      {
+        "path": "/blog/how-to-create-a-winning-study-schedule-for-usmle-step-1",
+        "changes": [
+          "body file updated"
+        ],
+        "new_title": null
+      },
+      {
+        "path": "/blog/how-to-make-a-good-cv-for-usmle",
+        "changes": [
+          "body file updated"
+        ],
+        "new_title": null
+      },
+      {
+        "path": "/blog/how-to-review-a-uworld-qbank-block",
+        "changes": [
+          "body file updated",
+          "body updated (+0 words, now 1673)"
+        ],
+        "new_title": null
+      },
+      {
+        "path": "/blog/is-the-usmle-tough-for-indian-students",
+        "changes": [
+          "body file updated",
+          "title: 'Is the USMLE Tough for Indian Students?' -> 'Is the USMLE Tough for Indian Students? An Honest 2026 Answer'",
+          "excerpt: 'The United States Medical Licensing Examination (USMLE) is a series of highly rigorous ex…' -> 'The honest answer with real data: IMG pass rates of 75% for Step 1 and 90% for Step 2 CK,…'",
+          "faq changed (5 questions)",
+          "post added"
+        ],
+        "new_title": "Is the USMLE Tough for Indian Students? An Honest 2026 Answer"
+      },
+      {
+        "path": "/blog/usmle-step-1-vs-step-2-ck-key-differences-you-need-to-know",
+        "changes": [
+          "body file updated",
+          "title: 'USMLE Step 1 vs Step 2 CK key differences you need to know' -> 'USMLE Step 1 vs Step 2 CK: Every Key Difference (2026 Update)'",
+          "excerpt: 'USMLE Step 1 vs Step 2 CK: Key Differences You Need to Know The United States Medical Lic…' -> 'Step 1 is pass or fail, Step 2 CK carries the score programmes screen on. Both changed fo…'",
+          "faq changed (5 questions)",
+          "post added"
+        ],
+        "new_title": "USMLE Step 1 vs Step 2 CK: Every Key Difference (2026 Update)"
+      },
+      {
+        "path": "/blog/usmle-step-2-ck-exam-format-2026",
+        "changes": [
+          "body file updated",
+          "body updated (+0 words, now 2330)"
+        ],
+        "new_title": null
+      },
+      {
+        "path": "/blog/what-happens-if-you-fail-in-usmle-step-1",
+        "changes": [
+          "body file updated",
+          "title: 'What Happens If You Fail in USMLE Step 1?' -> 'Failing USMLE Step 1: What Happens Next and How to Recover (2026)'",
+          "excerpt: 'The United States Medical Licensing Examination (USMLE) Step 1 is a critical milestone fo…' -> 'A Step 1 fail is recoverable but it changes your strategy. The attempt limit, retake timi…'",
+          "faq changed (5 questions)",
+          "post added"
+        ],
+        "new_title": "Failing USMLE Step 1: What Happens Next and How to Recover (2026)"
+      },
+      {
+        "path": "/blog/what-is-the-difference-between-the-match-and-soap",
+        "changes": [
+          "body file updated",
+          "title: 'What is the Difference Between the Match and SOAP?' -> 'Match vs SOAP: What Actually Happens in Match Week (2026 Data)'",
+          "excerpt: 'What is the Difference Between the Match and SOAP? If you're preparing to enter a medical…' -> 'The Match and SOAP are two different things that happen in the same week. Here is how eac…'",
+          "faq changed (5 questions)",
+          "post added"
+        ],
+        "new_title": "Match vs SOAP: What Actually Happens in Match Week (2026 Data)"
+      },
+      {
+        "path": "/blog/what-is-the-typical-preparation-time-for-usmle-step-1",
+        "changes": [
+          "body file updated"
+        ],
+        "new_title": null
+      },
+      {
+        "path": "/blog/why-dont-imgs-get-usmle-residency-interviews",
+        "changes": [
+          "body file updated",
+          "title: 'Why Don&#8217;t IMGs Get USMLE Residency Interviews?' -> 'Why IMGs Do Not Get Residency Interviews (and How to Fix It)'",
+          "excerpt: 'Securing a residency spot in the United States is a highly competitive process, especiall…' -> 'Most IMG applications are rejected by filters before a human reads them. The real 2026 Ma…'",
+          "faq changed (5 questions)",
+          "post added"
+        ],
+        "new_title": "Why IMGs Do Not Get Residency Interviews (and How to Fix It)"
+      }
+    ],
+    "deployed": true,
+    "deploy_date": "2026-08-13",
+    "deploy_basis": "commit date (already on production branch)"
+  },
+  {
+    "sha": "fea74206f4e8d5062f9c004fb5d82de822b13dc4",
+    "committed_at": "2026-08-13T13:32:50+05:30",
+    "subject": "seo(redirects): add the three missing blog 301s",
+    "files": [
+      "blog-redirects.conf"
+    ],
+    "pages": [
+      {
+        "path": "site",
+        "changes": [
+          "site file changed: blog-redirects.conf"
+        ],
+        "new_title": null
+      }
+    ],
+    "deployed": true,
+    "deploy_date": "2026-08-13",
+    "deploy_basis": "commit date (already on production branch)"
+  },
+  {
+    "sha": "9590841a32a7c1dfdb713aef833784da5c86c6f8",
+    "committed_at": "2026-08-13T14:09:14+05:30",
+    "subject": "docs: log the 2026-08-13 rewrite batch in the reindex tracker",
+    "files": [
+      "blog-reindex-tracker.md"
+    ],
+    "pages": [
+      {
+        "path": "site",
+        "changes": [
+          "site file changed: blog-reindex-tracker.md"
+        ],
+        "new_title": null
+      }
+    ],
+    "deployed": true,
+    "deploy_date": "2026-08-13",
+    "deploy_basis": "commit date (already on production branch)"
+  },
+  {
+    "sha": "ece799ab1be802035b171b34a9ba505e26b293c0",
+    "committed_at": "2026-08-13T18:27:12+05:30",
+    "subject": "content(blog): rebuild the last seven Elementor posts with sourced data",
+    "files": [
+      "frontend/public/blog-content/do-mbbs-marks-have-an-impact-on-the-usmle.json",
+      "frontend/public/blog-content/how-can-you-stand-out-in-usmle-clinical-rotations.json",
+      "frontend/public/blog-content/how-to-crack-usmle-on-your-first-attempt.json",
+      "frontend/public/blog-content/how-to-prepare-for-usmle-from-1st-year-mbbs.json",
+      "frontend/public/blog-content/top-usmle-coaching-centers-in-india.json",
+      "frontend/public/blog-content/usmle-step-1-passing-score-step-by-step-guidance.json",
+      "frontend/public/blog-content/what-are-usmle-clinical-rotations-and-electives.json",
+      "frontend/src/data/blog-index.generated.json",
+      "frontend/src/data/manual-posts.json"
+    ],
+    "pages": [
+      {
+        "path": "/blog/do-mbbs-marks-have-an-impact-on-the-usmle",
+        "changes": [
+          "body file updated",
+          "title: 'Do MBBS Marks Have An Impact On The USMLE?' -> 'Do MBBS Marks Affect Your USMLE Score or the Match? (2026)'",
+          "excerpt: 'Does MBBS Marks Matter in USMLE? Understanding the Role of Academic Performance One of th…' -> 'MBBS marks do not predict USMLE performance and are rarely used in Match screening. What …'",
+          "faq changed (5 questions)",
+          "post added"
+        ],
+        "new_title": "Do MBBS Marks Affect Your USMLE Score or the Match? (2026)"
+      },
+      {
+        "path": "/blog/how-can-you-stand-out-in-usmle-clinical-rotations",
+        "changes": [
+          "body file updated",
+          "title: 'How can you stand out in USMLE clinical rotations?' -> 'How to Stand Out on US Clinical Rotations as an IMG (2026)'",
+          "excerpt: 'How to Stand Out During Your USMLE Clinical Rotations: Tips for Success Clinical rotation…' -> 'Not all USCE counts equally. The rotation tier hierarchy, the case presentation structure…'",
+          "faq changed (5 questions)",
+          "post added"
+        ],
+        "new_title": "How to Stand Out on US Clinical Rotations as an IMG (2026)"
+      },
+      {
+        "path": "/blog/how-to-crack-usmle-on-your-first-attempt",
+        "changes": [
+          "body file updated",
+          "title: 'How to crack USMLE on your first attempt?' -> 'How to Pass the USMLE on Your First Attempt (2026 Strategy)'",
+          "excerpt: 'How to Crack USMLE on Your First Attempt: Key Strategies for Success The United States Me…' -> 'First time takers pass Step 1 at 75%, repeaters at 54%. The gap is method, not ability. W…'",
+          "faq changed (5 questions)",
+          "post added"
+        ],
+        "new_title": "How to Pass the USMLE on Your First Attempt (2026 Strategy)"
+      },
+      {
+        "path": "/blog/how-to-prepare-for-usmle-from-1st-year-mbbs",
+        "changes": [
+          "body file updated",
+          "title: 'How to prepare for USMLE from 1st year MBBS?' -> 'How to Prepare for the USMLE from 1st Year MBBS (2026 Roadmap)'",
+          "excerpt: 'How to Prepare for the USMLE from 1st Year MBBS: A Step-by-Step Guide If you're an MBBS s…' -> 'Starting in first year is an advantage only if you use it correctly. What to do each year…'",
+          "faq changed (5 questions)",
+          "post added"
+        ],
+        "new_title": "How to Prepare for the USMLE from 1st Year MBBS (2026 Roadmap)"
+      },
+      {
+        "path": "/blog/top-usmle-coaching-centers-in-india",
+        "changes": [
+          "body file updated",
+          "title: 'Top USMLE Coaching Centers in India' -> 'How to Choose USMLE Coaching in India: What Actually Matters (2026)'",
+          "excerpt: 'Top USMLE Coaching Centers in India: Your Guide to Success The United States Medical Lice…' -> 'A framework for evaluating USMLE coaching rather than a ranked list: what coaching can an…'",
+          "faq changed (5 questions)",
+          "post added"
+        ],
+        "new_title": "How to Choose USMLE Coaching in India: What Actually Matters (2026)"
+      },
+      {
+        "path": "/blog/usmle-step-1-passing-score-step-by-step-guidance",
+        "changes": [
+          "body file updated",
+          "title: 'Step-by-Step Guidance on the USMLE Step 1 Passing Score' -> 'USMLE Step 1 Passing Standard 2026: Pass or Fail Explained'",
+          "excerpt: 'The USMLE Step 1 is one of the most challenging exams medical students face on their jour…' -> 'Step 1 has been pass or fail since 2022, so there is no score to target. What the passing…'",
+          "faq changed (5 questions)",
+          "post added"
+        ],
+        "new_title": "USMLE Step 1 Passing Standard 2026: Pass or Fail Explained"
+      },
+      {
+        "path": "/blog/what-are-usmle-clinical-rotations-and-electives",
+        "changes": [
+          "body file updated",
+          "title: 'What are USMLE Clinical Rotations and Electives?' -> 'USMLE Clinical Rotations and Electives: The IMG Guide (2026)'",
+          "excerpt: 'Introduction In the world of medical education, USMLE (United States Medical Licensing Ex…' -> 'Electives, externships, observerships and sub-internships are not equal. What each one is…'",
+          "faq changed (5 questions)",
+          "post added"
+        ],
+        "new_title": "USMLE Clinical Rotations and Electives: The IMG Guide (2026)"
+      }
+    ],
+    "deployed": true,
+    "deploy_date": "2026-08-13",
+    "deploy_basis": "commit date (already on production branch)"
+  },
+  {
+    "sha": "775fa95399c42e2eaabdc4ccf4970c2f3fb9beb9",
+    "committed_at": "2026-08-13T19:38:25+05:30",
+    "subject": "docs: track the Tier 2 batch and the Request Indexing quota limit",
+    "files": [
+      "blog-reindex-tracker.md"
+    ],
+    "pages": [
+      {
+        "path": "site",
+        "changes": [
+          "site file changed: blog-reindex-tracker.md"
+        ],
+        "new_title": null
+      }
+    ],
+    "deployed": true,
+    "deploy_date": "2026-08-13",
+    "deploy_basis": "commit date (already on production branch)"
+  },
+  {
+    "sha": "63a508827701e6cee6755d21207ddc4fd22bd056",
+    "committed_at": "2026-08-14T12:26:53+05:30",
+    "subject": "docs: mark the 2026-08-14 reindex requests",
+    "files": [
+      "blog-reindex-tracker.md"
+    ],
+    "pages": [
+      {
+        "path": "site",
+        "changes": [
+          "site file changed: blog-reindex-tracker.md"
+        ],
+        "new_title": null
+      }
+    ],
+    "deployed": true,
+    "deploy_date": "2026-08-14",
+    "deploy_basis": "commit date (already on production branch)"
+  },
+  {
+    "sha": "ca0b010585a9d93666f92143106f16ffadb77e9b",
+    "committed_at": "2026-08-18T16:42:20+05:30",
+    "subject": "content(blog): add missing banner for how-to-score-280-on-usmle-step-2-ck",
+    "files": [
+      "frontend/src/data/blog-index.generated.json"
+    ],
+    "pages": [],
+    "deployed": true,
+    "deploy_date": "2026-08-18",
+    "deploy_basis": "commit date (already on production branch)"
+  },
+  {
+    "sha": "4ebf0c4163a0d6a39aecfea5aa9dc07ed2345b7f",
+    "committed_at": "2026-08-18T16:49:40+05:30",
+    "subject": "content(blog): set published date to match the 2026 content refresh",
+    "files": [
+      "frontend/src/data/blog-index.generated.json",
+      "frontend/src/data/manual-posts.json"
+    ],
+    "pages": [],
+    "deployed": true,
+    "deploy_date": "2026-08-18",
+    "deploy_basis": "commit date (already on production branch)"
+  },
+  {
+    "sha": "98f6b7380302f80692a302c7f25d068cf41ed5a8",
+    "committed_at": "2026-08-18T17:50:12+05:30",
+    "subject": "content(blog): honest multi-year title + em-dash cleanup on Indian-pass-rate post",
+    "files": [
+      "frontend/public/blog-content/how-many-indians-pass-the-usmle-each-year.json",
+      "frontend/src/data/blog-index.generated.json",
+      "frontend/src/data/manual-posts.json"
+    ],
+    "pages": [
+      {
+        "path": "/blog/how-many-indians-pass-the-usmle-each-year",
+        "changes": [
+          "body file updated",
+          "title: 'How Many Indians Pass the USMLE Each Year? (2026 Data)' -> 'How Many Indians Pass the USMLE Each Year? (2024–2026 Data)'",
+          "excerpt: 'No official Indian pass count exists — ECFMG and the USMLE do not publish country-level d…' -> 'No official Indian pass count exists: ECFMG and the USMLE do not publish country-level da…'",
+          "faq changed (5 questions)",
+          "body updated (-8 words, now 1007)"
+        ],
+        "new_title": "How Many Indians Pass the USMLE Each Year? (2024–2026 Data)"
+      }
+    ],
+    "deployed": true,
+    "deploy_date": "2026-08-18",
+    "deploy_basis": "commit date (already on production branch)"
+  },
+  {
+    "sha": "8baa7bad56614f89552cded70d1aec3169fd144e",
+    "committed_at": "2026-08-18T17:53:03+05:30",
+    "subject": "content(blog): constrain Indian-pass-rate post to 2025 data (2024 only where unavoidable)",
+    "files": [
+      "frontend/public/blog-content/how-many-indians-pass-the-usmle-each-year.json",
+      "frontend/src/data/blog-index.generated.json",
+      "frontend/src/data/manual-posts.json"
+    ],
+    "pages": [
+      {
+        "path": "/blog/how-many-indians-pass-the-usmle-each-year",
+        "changes": [
+          "body file updated",
+          "title: 'How Many Indians Pass the USMLE Each Year? (2024–2026 Data)' -> 'How Many Indians Pass the USMLE Each Year? (2025 Data)'",
+          "excerpt: 'No official Indian pass count exists: ECFMG and the USMLE do not publish country-level da…' -> 'No official Indian pass count exists: ECFMG and the USMLE do not publish country-level da…'",
+          "faq changed (5 questions)",
+          "body updated (+22 words, now 1029)"
+        ],
+        "new_title": "How Many Indians Pass the USMLE Each Year? (2025 Data)"
+      }
+    ],
+    "deployed": true,
+    "deploy_date": "2026-08-18",
+    "deploy_basis": "commit date (already on production branch)"
+  },
+  {
+    "sha": "ed9b237f2cee040b75b5fc3ea12767499a39f9d5",
+    "committed_at": "2026-08-18T18:14:52+05:30",
+    "subject": "content(blog): make how-many-indians-pass-the-usmle-each-year consistently 2024 data",
+    "files": [
+      "blog-reindex-tracker.md",
+      "frontend/public/blog-content/how-many-indians-pass-the-usmle-each-year.json",
+      "frontend/src/data/blog-index.generated.json",
+      "frontend/src/data/manual-posts.json"
+    ],
+    "pages": [
+      {
+        "path": "/blog/how-many-indians-pass-the-usmle-each-year",
+        "changes": [
+          "body file updated",
+          "title: 'How Many Indians Pass the USMLE Each Year? (2025 Data)' -> 'How Many Indians Pass the USMLE Each Year? (2024 Data)'",
+          "excerpt: 'No official Indian pass count exists: ECFMG and the USMLE do not publish country-level da…' -> 'No official Indian pass count exists: ECFMG and the USMLE do not publish country-level da…'",
+          "faq changed (5 questions)",
+          "body updated (+56 words, now 1085)"
+        ],
+        "new_title": "How Many Indians Pass the USMLE Each Year? (2024 Data)"
+      },
+      {
+        "path": "site",
+        "changes": [
+          "site file changed: blog-reindex-tracker.md"
+        ],
+        "new_title": null
+      }
+    ],
+    "deployed": true,
+    "deploy_date": "2026-08-18",
+    "deploy_basis": "commit date (already on production branch)"
+  },
+  {
+    "sha": "a1c27ccf95f35415fdab9531ce26ba8da2319442",
+    "committed_at": "2026-08-19T17:44:02+05:30",
+    "subject": "seo(step-2-ck): consolidate prep intent onto the 12-week study plan",
+    "files": [
+      "blog-redirects.conf",
+      "blog-reindex-tracker.md",
+      "frontend/public/blog-content/comprehensive-guide-to-the-usmle-step-2-ck-syllabus.json",
+      "frontend/public/blog-content/usmle-step-2-ck-passing-score-step-by-step-guidance.json",
+      "frontend/public/blog-content/usmle-step-2-ck-study-plan-12-weeks.json",
+      "frontend/src/data/blog-index.generated.json",
+      "frontend/src/data/manual-posts.json"
+    ],
+    "pages": [
+      {
+        "path": "/blog/comprehensive-guide-to-the-usmle-step-2-ck-syllabus",
+        "changes": [
+          "body file updated"
+        ],
+        "new_title": null
+      },
+      {
+        "path": "/blog/usmle-step-2-ck-passing-score-step-by-step-guidance",
+        "changes": [
+          "body file updated"
+        ],
+        "new_title": null
+      },
+      {
+        "path": "/blog/usmle-step-2-ck-study-plan-12-weeks",
+        "changes": [
+          "body file updated",
+          "title: 'USMLE Step 2 CK Preparation: 12-Week Plan to a 250+ Score' -> 'USMLE Step 2 CK Study Plan: A Realistic 12-Week Preparation Schedule'",
+          "excerpt: 'A realistic week-by-week USMLE Step 2 CK study plan to score 250+ in 12 weeks: phase-by-p…' -> 'A realistic week-by-week USMLE Step 2 CK study plan and preparation schedule: the four-ph…'",
+          "faq changed (10 questions)",
+          "body updated (+1953 words, now 3859)"
+        ],
+        "new_title": "USMLE Step 2 CK Study Plan: A Realistic 12-Week Preparation Schedule"
+      },
+      {
+        "path": "site",
+        "changes": [
+          "site file changed: blog-redirects.conf",
+          "site file changed: blog-reindex-tracker.md"
+        ],
+        "new_title": null
+      }
+    ],
+    "deployed": true,
+    "deploy_date": "2026-08-19",
+    "deploy_basis": "commit date (already on production branch)"
+  },
+  {
+    "sha": "61bd88a1d8951ced678d0753128c4aec59c7df4c",
+    "committed_at": "2026-08-19T18:34:26+05:30",
+    "subject": "content(blog): add five figures to the 12-week Step 2 CK study plan",
+    "files": [
+      "blog-reindex-tracker.md",
+      "frontend/public/blog-content/usmle-step-2-ck-study-plan-12-weeks.json",
+      "frontend/src/data/blog-index.generated.json",
+      "frontend/src/data/manual-posts.json"
+    ],
+    "pages": [
+      {
+        "path": "/blog/usmle-step-2-ck-study-plan-12-weeks",
+        "changes": [
+          "body file updated",
+          "body updated (+0 words, now 3859)"
+        ],
+        "new_title": null
+      },
+      {
+        "path": "site",
+        "changes": [
+          "site file changed: blog-reindex-tracker.md"
+        ],
+        "new_title": null
+      }
+    ],
+    "deployed": true,
+    "deploy_date": "2026-08-19",
+    "deploy_basis": "commit date (already on production branch)"
+  },
+  {
+    "sha": "e57d37195d8d9cb5fe7524d4c7e286b9f34ab15e",
+    "committed_at": "2026-08-19T18:52:36+05:30",
+    "subject": "content(blog): add the recovery-ladder figure to the 12-week Step 2 CK plan",
+    "files": [
+      "blog-reindex-tracker.md",
+      "frontend/public/blog-content/usmle-step-2-ck-study-plan-12-weeks.json",
+      "frontend/src/data/blog-index.generated.json",
+      "frontend/src/data/manual-posts.json"
+    ],
+    "pages": [
+      {
+        "path": "/blog/usmle-step-2-ck-study-plan-12-weeks",
+        "changes": [
+          "body file updated",
+          "body updated (+0 words, now 3859)"
+        ],
+        "new_title": null
+      },
+      {
+        "path": "site",
+        "changes": [
+          "site file changed: blog-reindex-tracker.md"
+        ],
+        "new_title": null
+      }
+    ],
+    "deployed": true,
+    "deploy_date": "2026-08-19",
+    "deploy_basis": "commit date (already on production branch)"
+  },
+  {
+    "sha": "de83b87d8cb2b6449e907c3c85874c9f9a9725c6",
+    "committed_at": "2026-09-01T16:37:07+05:30",
+    "subject": "content(blog): add \"IMG Match 2026: What the NRMP Data Says About Rates, Specialties & Step 2 CK Scores\"",
+    "files": [
+      "frontend/public/blog-content/img-match-2026-nrmp-data.json",
+      "frontend/src/data/blog-index.generated.json",
+      "frontend/src/data/manual-posts.json"
+    ],
+    "pages": [
+      {
+        "path": "/blog/img-match-2026-nrmp-data",
+        "changes": [
+          "body file updated",
+          "post added"
+        ],
+        "new_title": "IMG Match 2026: What the NRMP Data Says About Rates, Specialties &amp; Step 2 CK Scores"
+      }
+    ],
+    "deployed": true,
+    "deploy_date": "2026-09-01",
+    "deploy_basis": "commit date (already on production branch)"
+  },
+  {
+    "sha": "0f2ba065550c332b05df61327376912e12088ace",
+    "committed_at": "2026-09-01T16:37:44+05:30",
+    "subject": "docs: track img-match-2026-nrmp-data for re-indexing",
+    "files": [
+      "blog-reindex-tracker.md"
+    ],
+    "pages": [
+      {
+        "path": "site",
+        "changes": [
+          "site file changed: blog-reindex-tracker.md"
+        ],
+        "new_title": null
+      }
+    ],
+    "deployed": true,
+    "deploy_date": "2026-09-01",
+    "deploy_basis": "commit date (already on production branch)"
+  },
+  {
+    "sha": "641e2c4b8a3b328b008c44bd7ec03ce2d5e67754",
+    "committed_at": "2026-09-01T17:36:37+05:30",
+    "subject": "content(blog): tighten IMG Match 2026 title for the SERP cutoff",
+    "files": [
+      "frontend/src/data/blog-index.generated.json",
+      "frontend/src/data/manual-posts.json"
+    ],
+    "pages": [
+      {
+        "path": "/blog/img-match-2026-nrmp-data",
+        "changes": [
+          "title: 'IMG Match 2026: What the NRMP Data Says About Rates, Specialties &amp; Step 2 CK Scores' -> 'IMG Match Rate 2026: Specialties, Step 2 CK Scores &amp; Interviews'"
+        ],
+        "new_title": "IMG Match Rate 2026: Specialties, Step 2 CK Scores &amp; Interviews"
+      }
+    ],
+    "deployed": true,
+    "deploy_date": "2026-09-01",
+    "deploy_basis": "commit date (already on production branch)"
+  },
+  {
+    "sha": "677874295a173bbafd7a1601cc9339220509f7e1",
+    "committed_at": "2026-09-03T13:20:57+05:30",
+    "subject": "content(blog): title-card banner for the IMG Match 2026 post",
+    "files": [
+      "blog-reindex-tracker.md",
+      "frontend/src/data/blog-index.generated.json",
+      "frontend/src/data/manual-posts.json"
+    ],
+    "pages": [
+      {
+        "path": "site",
+        "changes": [
+          "site file changed: blog-reindex-tracker.md"
+        ],
+        "new_title": null
+      }
+    ],
+    "deployed": true,
+    "deploy_date": "2026-09-03",
+    "deploy_basis": "commit date (already on production branch)"
+  },
+  {
+    "sha": "db7d699b12dd2308dc29186f688fb870b2c664dd",
+    "committed_at": "2026-09-03T13:33:24+05:30",
+    "subject": "content(blog): drop em dashes from the IMG Match 2026 FAQ",
+    "files": [
+      "frontend/public/blog-content/img-match-2026-nrmp-data.json",
+      "frontend/src/data/blog-index.generated.json",
+      "frontend/src/data/manual-posts.json"
+    ],
+    "pages": [
+      {
+        "path": "/blog/img-match-2026-nrmp-data",
+        "changes": [
+          "body file updated",
+          "faq changed (11 questions)",
+          "body updated (-10 words, now 4236)"
+        ],
+        "new_title": null
+      }
+    ],
+    "deployed": true,
+    "deploy_date": "2026-09-03",
+    "deploy_basis": "commit date (already on production branch)"
+  },
+  {
+    "sha": "8df7c8c03d9221a26cabe21f4b70191bdfbd43ef",
+    "committed_at": "2026-09-04T12:11:26+05:30",
+    "subject": "feat(mentorship): drop off-page exits, wire the lead into GA4",
+    "files": [
+      "frontend/src/routes.tsx"
+    ],
+    "pages": [
+      {
+        "path": "site",
+        "changes": [
+          "site file changed: frontend/src/routes.tsx"
+        ],
+        "new_title": null
+      }
+    ],
+    "deployed": true,
+    "deploy_date": "2026-09-04",
+    "deploy_basis": "commit date (already on production branch)"
+  },
+  {
+    "sha": "4aca057425a581875b9d237dab59ce4aa684bd87",
+    "committed_at": "2026-09-11T16:00:16+05:30",
+    "subject": "feat(seo): emit BlogPosting schema and a per-post og:image:alt",
+    "files": [
+      "frontend/src/pages/blog/BlogPost.tsx"
+    ],
+    "pages": [
+      {
+        "path": "site",
+        "changes": [
+          "site file changed: frontend/src/pages/blog/BlogPost.tsx"
+        ],
+        "new_title": null
+      }
+    ],
+    "deployed": true,
+    "deploy_date": "2026-09-11",
+    "deploy_basis": "commit date (already on production branch)"
+  },
+  {
+    "sha": "5ee4975d199092079c3a70b6af4351f4425287d0",
+    "committed_at": "2026-09-11T16:00:29+05:30",
+    "subject": "content(step-2-ck): consolidate the Step 2 CK cluster",
+    "files": [
+      "frontend/public/blog-content/comprehensive-guide-to-the-usmle-step-2-ck-syllabus.json",
+      "frontend/public/blog-content/how-to-score-280-on-usmle-step-2-ck.json",
+      "frontend/public/blog-content/img-match-2026-nrmp-data.json",
+      "frontend/public/blog-content/usmle-step-2-ck-passing-score-step-by-step-guidance.json",
+      "frontend/public/blog-content/usmle-step-2-ck-study-plan-12-weeks.json",
+      "frontend/src/data/blog-index.generated.json",
+      "frontend/src/data/manual-posts.json"
+    ],
+    "pages": [
+      {
+        "path": "/blog/comprehensive-guide-to-the-usmle-step-2-ck-syllabus",
+        "changes": [
+          "body file updated",
+          "title: 'Comprehensive Guide to the USMLE Step 2 CK Syllabus' -> 'USMLE Step 2 CK Syllabus 2026: Subjects and Official Weightings'",
+          "excerpt: 'The USMLE Step 2 CK (Clinical Knowledge) exam is a critical component of the United State…' -> 'There is no official Step 2 CK syllabus. Here are the USMLE's real weightings: Medicine 5…'",
+          "faq changed (6 questions)",
+          "post added"
+        ],
+        "new_title": "USMLE Step 2 CK Syllabus 2026: Subjects and Official Weightings"
+      },
+      {
+        "path": "/blog/how-to-score-280-on-usmle-step-2-ck",
+        "changes": [
+          "body file updated",
+          "excerpt: 'The highest possible USMLE Step 2 CK score is 300, but 280 already sits at the 100th perc…' -> '280 is already the 100th percentile on Step 2 CK. How scores are calculated, the average …'",
+          "faq changed (9 questions)",
+          "body updated (+405 words, now 1975)"
+        ],
+        "new_title": null
+      },
+      {
+        "path": "/blog/img-match-2026-nrmp-data",
+        "changes": [
+          "body file updated",
+          "body updated (+0 words, now 4236)"
+        ],
+        "new_title": null
+      },
+      {
+        "path": "/blog/usmle-step-2-ck-passing-score-step-by-step-guidance",
+        "changes": [
+          "body file updated",
+          "post removed from this file"
+        ],
+        "new_title": null
+      },
+      {
+        "path": "/blog/usmle-step-2-ck-study-plan-12-weeks",
+        "changes": [
+          "body file updated",
+          "title: 'USMLE Step 2 CK Study Plan: A Realistic 12-Week Preparation Schedule' -> 'USMLE Step 2 CK Study Plan: A Realistic 12-Week Schedule'",
+          "excerpt: 'A realistic week-by-week USMLE Step 2 CK study plan and preparation schedule: the four-ph…' -> 'How to prepare for Step 2 CK and target 250+: a realistic 12-week study plan with four ph…'",
+          "faq changed (11 questions)",
+          "body updated (+52 words, now 3911)"
+        ],
+        "new_title": "USMLE Step 2 CK Study Plan: A Realistic 12-Week Schedule"
+      }
+    ],
+    "deployed": true,
+    "deploy_date": "2026-09-11",
+    "deploy_basis": "commit date (already on production branch)"
+  },
+  {
+    "sha": "3528c277535fbf8daf064ece31acb451d6363443",
+    "committed_at": "2026-09-11T16:00:35+05:30",
+    "subject": "docs: log the Step 2 CK consolidation in the reindex tracker",
+    "files": [
+      "blog-reindex-tracker.md"
+    ],
+    "pages": [
+      {
+        "path": "site",
+        "changes": [
+          "site file changed: blog-reindex-tracker.md"
+        ],
+        "new_title": null
+      }
+    ],
+    "deployed": true,
+    "deploy_date": "2026-09-11",
+    "deploy_basis": "commit date (already on production branch)"
+  },
+  {
+    "sha": "2f7dffd9224ab6100660fe58b5c76e84243d50e6",
+    "committed_at": "2026-09-13T16:33:02+05:30",
+    "subject": "feat(leads): tag every website lead with an organic/paid lead_channel",
+    "files": [
+      "frontend/src/routes.tsx"
+    ],
+    "pages": [
+      {
+        "path": "site",
+        "changes": [
+          "site file changed: frontend/src/routes.tsx"
+        ],
+        "new_title": null
+      }
+    ],
+    "deployed": true,
+    "deploy_date": "2026-09-13",
+    "deploy_basis": "commit date (already on production branch)"
+  },
+  {
+    "sha": "4fd0f91abb68f31f48045bfa62578ce79214ce90",
+    "committed_at": "2026-09-20T16:15:37+05:30",
+    "subject": "content(blog): add \"Is It Too Late to Start the USMLE?\"",
+    "files": [
+      "blog-reindex-tracker.md",
+      "frontend/public/blog-content/is-it-too-late-to-start-usmle.json",
+      "frontend/src/data/blog-index.generated.json",
+      "frontend/src/data/manual-posts.json"
+    ],
+    "pages": [
+      {
+        "path": "/blog/is-it-too-late-to-start-usmle",
+        "changes": [
+          "body file updated",
+          "post added"
+        ],
+        "new_title": "Is It Too Late to Start the USMLE? Age and YOG Rules (2026)"
+      },
+      {
+        "path": "site",
+        "changes": [
+          "site file changed: blog-reindex-tracker.md"
+        ],
+        "new_title": null
+      }
+    ],
+    "deployed": true,
+    "deploy_date": "2026-09-20",
+    "deploy_basis": "commit date (already on production branch)"
+  },
+  {
+    "sha": "912434cd4b16e6838e2059621980a2d0ea442f5a",
+    "committed_at": "2026-09-21T12:52:10+05:30",
+    "subject": "content(blog): match webinar CTA copy to the manual signup flow",
+    "files": [
+      "frontend/public/blog-content/is-it-too-late-to-start-usmle.json",
+      "frontend/src/data/manual-posts.json"
+    ],
+    "pages": [
+      {
+        "path": "/blog/is-it-too-late-to-start-usmle",
+        "changes": [
+          "body file updated",
+          "body updated (+5 words, now 2376)"
+        ],
+        "new_title": null
+      }
+    ],
+    "deployed": true,
+    "deploy_date": "2026-09-21",
+    "deploy_basis": "commit date (already on production branch)"
+  },
+  {
+    "sha": "255a1d22768826e7b93490d13808ff9312aa1e38",
+    "committed_at": "2026-09-21T13:07:53+05:30",
+    "subject": "content(blog): fix SEO defects found auditing the too-late post",
+    "files": [
+      "frontend/public/blog-content/how-many-years-is-usmle-valid.json",
+      "frontend/public/blog-content/img-match-2026-nrmp-data.json",
+      "frontend/public/blog-content/is-it-too-late-to-start-usmle.json",
+      "frontend/src/data/blog-index.generated.json",
+      "frontend/src/data/manual-posts.json"
+    ],
+    "pages": [
+      {
+        "path": "/blog/how-many-years-is-usmle-valid",
+        "changes": [
+          "body file updated",
+          "body updated (+54 words, now 1140)"
+        ],
+        "new_title": null
+      },
+      {
+        "path": "/blog/img-match-2026-nrmp-data",
+        "changes": [
+          "body file updated",
+          "body updated (+45 words, now 4281)"
+        ],
+        "new_title": null
+      },
+      {
+        "path": "/blog/is-it-too-late-to-start-usmle",
+        "changes": [
+          "body file updated",
+          "excerpt: 'There is no USMLE age limit, and NRMP does not publish a year-of-graduation cut-off &mdas…' -> 'There is no USMLE age limit, and NRMP does not publish a year-of-graduation cut-off — its…'",
+          "body updated (+83 words, now 2459)"
+        ],
+        "new_title": null
+      }
+    ],
+    "deployed": true,
+    "deploy_date": "2026-09-21",
+    "deploy_basis": "commit date (already on production branch)"
+  },
+  {
+    "sha": "22081ba5fa405d2bd81da7e460f9494972cbaf43",
+    "committed_at": "2026-09-21T14:56:02+05:30",
+    "subject": "content(blog): ship the designed banner under a cache-busting filename",
+    "files": [
+      "frontend/src/data/blog-index.generated.json",
+      "frontend/src/data/manual-posts.json"
+    ],
+    "pages": [],
+    "deployed": true,
+    "deploy_date": "2026-09-21",
+    "deploy_basis": "commit date (already on production branch)"
+  },
+  {
+    "sha": "e158541c094d2c0084954970f38030c712892457",
+    "committed_at": "2026-09-26T15:29:13+05:30",
+    "subject": "feat(mentorship): redesign the landing page and speed up first paint",
+    "files": [
+      "frontend/src/components/SEO.tsx",
+      "frontend/src/routes.tsx"
+    ],
+    "pages": [
+      {
+        "path": "site",
+        "changes": [
+          "site file changed: frontend/src/components/SEO.tsx",
+          "site file changed: frontend/src/routes.tsx"
+        ],
+        "new_title": null
+      }
+    ],
+    "deployed": true,
+    "deploy_date": "2026-09-26",
+    "deploy_basis": "commit date (already on production branch)"
+  },
+  {
+    "sha": "ee816f77c4fb0c30f4f8eee6b8fd063a6f626c02",
+    "committed_at": "2026-09-28T12:26:57+05:30",
+    "subject": "feat(webinar): add the /webinar registration landing page",
+    "files": [
+      "frontend/scripts/sitemap.mjs",
+      "frontend/src/routes.tsx"
+    ],
+    "pages": [
+      {
+        "path": "site",
+        "changes": [
+          "site file changed: frontend/scripts/sitemap.mjs",
+          "site file changed: frontend/src/routes.tsx"
+        ],
+        "new_title": null
+      }
+    ],
+    "deployed": true,
+    "deploy_date": "2026-09-28",
+    "deploy_basis": "commit date (already on production branch)"
+  },
+  {
+    "sha": "440296cbcbeaa0fd3d6b12661175559b243867ab",
+    "committed_at": "2026-09-28T16:09:36+05:30",
+    "subject": "content(blog): add \"How to Apply for the USMLE from India (2026)\"",
+    "files": [
+      "blog-reindex-tracker.md",
+      "frontend/public/blog-content/how-to-apply-for-usmle-from-india.json",
+      "frontend/src/data/blog-index.generated.json",
+      "frontend/src/data/manual-posts.json"
+    ],
+    "pages": [
+      {
+        "path": "/blog/how-to-apply-for-usmle-from-india",
+        "changes": [
+          "body file updated",
+          "post added"
+        ],
+        "new_title": "How to Apply for the USMLE from India (2026): Registration, Fees &amp; Test Centres"
+      },
+      {
+        "path": "site",
+        "changes": [
+          "site file changed: blog-reindex-tracker.md"
+        ],
+        "new_title": null
+      }
+    ],
+    "deployed": true,
+    "deploy_date": "2026-09-28",
+    "deploy_basis": "commit date (already on production branch)"
+  },
+  {
+    "sha": "57db50f4e5d4eeffabd560ee3b2143433340d0e0",
+    "committed_at": "2026-10-04T15:40:26+05:30",
+    "subject": "content(blog): add \"What Is the Highest USMLE Step 2 CK Score?\"",
+    "files": [
+      "blog-reindex-tracker.md",
+      "frontend/public/blog-content/highest-usmle-step-2-ck-score.json",
+      "frontend/src/data/blog-index.generated.json",
+      "frontend/src/data/manual-posts.json"
+    ],
+    "pages": [
+      {
+        "path": "/blog/highest-usmle-step-2-ck-score",
+        "changes": [
+          "body file updated",
+          "post added"
+        ],
+        "new_title": "What Is the Highest USMLE Step 2 CK Score? Max Score, What’s Realistic & How Rare 270 and 280 Are (2026)"
+      },
+      {
+        "path": "site",
+        "changes": [
+          "site file changed: blog-reindex-tracker.md"
+        ],
+        "new_title": null
+      }
+    ],
+    "deployed": true,
+    "deploy_date": "2026-10-04",
+    "deploy_basis": "commit date (already on production branch)"
+  },
+  {
+    "sha": "dc56bcdebc8a01e658687c6f54577da50610144e",
+    "committed_at": "2026-10-04T16:16:18+05:30",
+    "subject": "content(blog): remove em dashes from highest Step 2 CK score post",
+    "files": [
+      "frontend/public/blog-content/highest-usmle-step-2-ck-score.json",
+      "frontend/src/data/blog-index.generated.json",
+      "frontend/src/data/manual-posts.json"
+    ],
+    "pages": [
+      {
+        "path": "/blog/highest-usmle-step-2-ck-score",
+        "changes": [
+          "body file updated",
+          "faq changed (7 questions)",
+          "body updated (-16 words, now 1664)"
+        ],
+        "new_title": null
+      }
+    ],
+    "deployed": true,
+    "deploy_date": "2026-10-04",
+    "deploy_basis": "commit date (already on production branch)"
+  },
+  {
+    "sha": "3c54aa587f350fbb48801240cd06253ab3d1b4f9",
+    "committed_at": "2026-11-02T19:17:30+05:30",
+    "subject": "content(blog): shorten 47 blog titles to fit the SERP limit",
+    "files": [
+      "frontend/src/data/blog-index.generated.json",
+      "frontend/src/data/manual-posts.json",
+      "frontend/src/pages/blog/BlogPost.tsx"
+    ],
+    "pages": [
+      {
+        "path": "/blog/6-keys-to-usmle-match-success",
+        "changes": [
+          "title: 'Tips and Tricks for IMGs to Succeed on the USMLE' -> '6 Keys to USMLE Match Success for IMGs'"
+        ],
+        "new_title": "6 Keys to USMLE Match Success for IMGs"
+      },
+      {
+        "path": "/blog/6-month-usmle-step-1-study-plan",
+        "changes": [
+          "title: 'The Ultimate 6-Month USMLE Step 1 Blueprint: From Foundation to Exam-Ready' -> '6-Month USMLE Step 1 Study Plan: Week-by-Week Blueprint'"
+        ],
+        "new_title": "6-Month USMLE Step 1 Study Plan: Week-by-Week Blueprint"
+      },
+      {
+        "path": "/blog/an-average-students-path-to-usmle-success",
+        "changes": [
+          "title: 'An Average Student’s Path to USMLE Success' -> 'An Average Student's Path to USMLE Success'"
+        ],
+        "new_title": "An Average Student's Path to USMLE Success"
+      },
+      {
+        "path": "/blog/apply-now-for-a-free-usmle-step-3-practice-examination",
+        "changes": [
+          "title: 'USMLE Step 3 Practice Resources: Every Official (and Free) Option to Use Before Test Day' -> 'USMLE Step 3 Practice Tests: Free &amp; Official Options'"
+        ],
+        "new_title": "USMLE Step 3 Practice Tests: Free &amp; Official Options"
+      },
+      {
+        "path": "/blog/best-study-resources-for-usmle-steps-preparation",
+        "changes": [
+          "title: 'Best USMLE Study Resources for Step 1, Step 2 CK &amp; Step 3 (2026 Guide + Comparison Ta…' -> 'Best USMLE Resources for Step 1, Step 2 CK &amp; Step 3 (2027)'"
+        ],
+        "new_title": "Best USMLE Resources for Step 1, Step 2 CK &amp; Step 3 (2027)"
+      },
+      {
+        "path": "/blog/can-indian-medical-graduates-work-in-the-usa-without-usmle",
+        "changes": [
+          "title: 'Can International Medical Graduates Practice in the US Without the USMLE? What's Actually…' -> 'Can Indian Doctors Work in the USA Without USMLE? (2027)'"
+        ],
+        "new_title": "Can Indian Doctors Work in the USA Without USMLE? (2027)"
+      },
+      {
+        "path": "/blog/can-you-prepare-for-the-usmle-during-med-school",
+        "changes": [
+          "title: 'Can you Prepare for the USMLE During Med School?' -> 'Can You Prepare for USMLE During Med School?'"
+        ],
+        "new_title": "Can You Prepare for USMLE During Med School?"
+      },
+      {
+        "path": "/blog/can-you-take-the-usmle-right-after-mbbs-in-india",
+        "changes": [
+          "title: 'Can You Take the USMLE Right After MBBS in India? (2026 Eligibility & Timeline)' -> 'USMLE After MBBS in India: Eligibility &amp; Timeline (2027)'"
+        ],
+        "new_title": "USMLE After MBBS in India: Eligibility &amp; Timeline (2027)"
+      },
+      {
+        "path": "/blog/common-mistakes-to-avoid-while-preparing-for-the-usmle-step-1",
+        "changes": [
+          "title: 'Common USMLE Step 1 Mistakes: The 5 Silent Score Killers (2026)' -> 'Common USMLE Step 1 Mistakes: 5 Score Killers (2027)'"
+        ],
+        "new_title": "Common USMLE Step 1 Mistakes: 5 Score Killers (2027)"
+      },
+      {
+        "path": "/blog/common-pitfalls-in-the-usmle-journey-and-how-to-avoid-them",
+        "changes": [
+          "title: 'USMLE Common Pitfalls and How to Avoid Them?' -> 'Common USMLE Pitfalls and How to Avoid Them'"
+        ],
+        "new_title": "Common USMLE Pitfalls and How to Avoid Them"
+      },
+      {
+        "path": "/blog/comprehensive-guide-to-the-usmle-step-1-syllabus",
+        "changes": [
+          "title: 'USMLE Step 1 Syllabus 2026: Full Content Outline and Weightings' -> 'USMLE Step 1 Syllabus 2027: Subjects &amp; Content Outline'"
+        ],
+        "new_title": "USMLE Step 1 Syllabus 2027: Subjects &amp; Content Outline"
+      },
+      {
+        "path": "/blog/comprehensive-guide-to-the-usmle-step-2-ck-syllabus",
+        "changes": [
+          "title: 'USMLE Step 2 CK Syllabus 2026: Subjects and Official Weightings' -> 'USMLE Step 2 CK Syllabus 2027: Subjects &amp; Weightings'"
+        ],
+        "new_title": "USMLE Step 2 CK Syllabus 2027: Subjects &amp; Weightings"
+      },
+      {
+        "path": "/blog/ecfmg-2027-pathways-for-imgs",
+        "changes": [
+          "title: 'ECFMG 2027 Pathways for IMGs: Eligibility, Deadlines &amp; How to Complete Your Clinical …' -> 'ECFMG Pathways 2027: Eligibility &amp; Deadlines for IMGs'"
+        ],
+        "new_title": "ECFMG Pathways 2027: Eligibility &amp; Deadlines for IMGs"
+      },
+      {
+        "path": "/blog/ecfmg-announcement-certification-eligibility",
+        "changes": [
+          "title: 'ECFMG Certification Eligibility in 2026: The Complete WFME Accreditation Requirement Expl…' -> 'ECFMG Certification Eligibility 2027: WFME Rule Explained'"
+        ],
+        "new_title": "ECFMG Certification Eligibility 2027: WFME Rule Explained"
+      },
+      {
+        "path": "/blog/highest-usmle-step-2-ck-score",
+        "changes": [
+          "title: 'What Is the Highest USMLE Step 2 CK Score? Max Score, What’s Realistic & How Rare 270 and…' -> 'Highest Step 2 Score: 300 Max, What 270 vs 280 Means'"
+        ],
+        "new_title": "Highest Step 2 Score: 300 Max, What 270 vs 280 Means"
+      },
+      {
+        "path": "/blog/how-many-interviews-should-you-get-to-match",
+        "changes": [
+          "title: 'How Many Interviews Should You Get to Match?' -> 'How Many Interviews to Match? Internal Medicine &amp; More'"
+        ],
+        "new_title": "How Many Interviews to Match? Internal Medicine &amp; More"
+      },
+      {
+        "path": "/blog/how-many-years-is-usmle-valid",
+        "changes": [
+          "title: 'How Long Is the USMLE Valid? The Seven Year Rule Explained (2026)' -> 'How Long Is USMLE Step 1 Valid? The 7-Year Rule (2027)'"
+        ],
+        "new_title": "How Long Is USMLE Step 1 Valid? The 7-Year Rule (2027)"
+      },
+      {
+        "path": "/blog/how-much-does-usmle-cost-in-total",
+        "changes": [
+          "title: 'The Real Cost of the USMLE in 2026: Every Fee You Need to Budget For' -> 'USMLE Exam Fees 2027: Total Cost in Rupees and Dollars'"
+        ],
+        "new_title": "USMLE Exam Fees 2027: Total Cost in Rupees and Dollars"
+      },
+      {
+        "path": "/blog/how-should-imgs-approach-the-usmle-match-process",
+        "changes": [
+          "title: 'How should IMGs approach the USMLE Match process?' -> 'USMLE Match for IMGs: How to Approach It Step by Step'"
+        ],
+        "new_title": "USMLE Match for IMGs: How to Approach It Step by Step"
+      },
+      {
+        "path": "/blog/how-to-apply-for-usmle-from-india",
+        "changes": [
+          "title: 'How to Apply for the USMLE from India (2026): Registration, Fees &amp; Test Centres' -> 'How to Apply for USMLE from India: 2027 Registration Steps'"
+        ],
+        "new_title": "How to Apply for USMLE from India: 2027 Registration Steps"
+      },
+      {
+        "path": "/blog/how-to-balance-usmle-preparation-and-medical-school",
+        "changes": [
+          "title: 'How to Prepare for the USMLE During MBBS Without Failing Your Exams' -> 'How to Prepare for USMLE During MBBS Without Failing Exams'"
+        ],
+        "new_title": "How to Prepare for USMLE During MBBS Without Failing Exams"
+      },
+      {
+        "path": "/blog/how-to-find-the-best-us-clinical-experience-for-imgs",
+        "changes": [
+          "title: 'How to Find the Best US Clinical Experience for IMGs?' -> 'How to Find US Clinical Experience (USCE) as an IMG'"
+        ],
+        "new_title": "How to Find US Clinical Experience (USCE) as an IMG"
+      },
+      {
+        "path": "/blog/how-to-make-a-good-cv-for-usmle",
+        "changes": [
+          "title: 'USMLE CV: How to Build a Strong Residency CV (2026)' -> 'USMLE CV: How to Build a Strong Residency CV (2027)'"
+        ],
+        "new_title": "USMLE CV: How to Build a Strong Residency CV (2027)"
+      },
+      {
+        "path": "/blog/how-to-prepare-for-the-residency-match-season",
+        "changes": [
+          "title: 'The Complete Residency Match Timeline: A Month-by-Month Guide for US MD, DO &amp; IMG App…' -> 'Residency Match Timeline 2027: Month-by-Month Guide'"
+        ],
+        "new_title": "Residency Match Timeline 2027: Month-by-Month Guide"
+      },
+      {
+        "path": "/blog/how-to-prepare-for-usmle-from-1st-year-mbbs",
+        "changes": [
+          "title: 'How to Prepare for the USMLE from 1st Year MBBS (2026 Roadmap)' -> 'How to Prepare for USMLE from 1st Year MBBS (2027)'"
+        ],
+        "new_title": "How to Prepare for USMLE from 1st Year MBBS (2027)"
+      },
+      {
+        "path": "/blog/img-match-2026-nrmp-data",
+        "changes": [
+          "title: 'IMG Match Rate 2026: Specialties, Step 2 CK Scores &amp; Interviews' -> 'IMG Match Rate by Specialty 2027: NRMP Data &amp; Step 2 Scores'"
+        ],
+        "new_title": "IMG Match Rate by Specialty 2027: NRMP Data &amp; Step 2 Scores"
+      },
+      {
+        "path": "/blog/important-update-for-usmle-step1-and-step-2ck-examinees-in-2024",
+        "changes": [
+          "title: 'USMLE Step 1 &amp; Step 2 CK Score Release Timeline: How Long It Really Takes (2026 Guide)' -> 'USMLE Step 1 &amp; Step 2 CK Score Release Dates 2027'"
+        ],
+        "new_title": "USMLE Step 1 &amp; Step 2 CK Score Release Dates 2027"
+      },
+      {
+        "path": "/blog/in-which-year-of-mbbs-can-you-give-usmle-step-2-ck",
+        "changes": [
+          "title: 'When can you take USMLE Step 2 CK in MBBS?' -> 'When Can You Take USMLE Step 2 CK During MBBS?'"
+        ],
+        "new_title": "When Can You Take USMLE Step 2 CK During MBBS?"
+      },
+      {
+        "path": "/blog/is-the-usmle-tough-for-indian-students",
+        "changes": [
+          "title: 'Is the USMLE Tough for Indian Students? An Honest 2026 Answer' -> 'Is the USMLE Tough for Indian Students? Honest 2027 Answer'"
+        ],
+        "new_title": "Is the USMLE Tough for Indian Students? Honest 2027 Answer"
+      },
+      {
+        "path": "/blog/is-usmle-only-for-mbbs-students",
+        "changes": [
+          "title: 'Is the USMLE exclusively for MBBS Students?' -> 'Is the USMLE Only for MBBS Students? Who Can Take It'"
+        ],
+        "new_title": "Is the USMLE Only for MBBS Students? Who Can Take It"
+      },
+      {
+        "path": "/blog/official-statement-regarding-the-invalidation-of-usmle-examination-scores",
+        "changes": [
+          "title: 'USMLE Score Validity &amp; Invalidation: Policy, Causes &amp; the Appeals Process Explain…' -> 'USMLE Score Invalidation: Causes &amp; Appeals Explained'"
+        ],
+        "new_title": "USMLE Score Invalidation: Causes &amp; Appeals Explained"
+      },
+      {
+        "path": "/blog/top-usmle-coaching-centers-in-india",
+        "changes": [
+          "title: 'How to Choose USMLE Coaching in India: What Actually Matters (2026)' -> 'USMLE Coaching in India: How to Choose (2027)'"
+        ],
+        "new_title": "USMLE Coaching in India: How to Choose (2027)"
+      },
+      {
+        "path": "/blog/ultimate-guide-to-choosing-the-best-usmle-step-1-book",
+        "changes": [
+          "title: 'Ultimate Guide to Choosing the Best USMLE Step 1 Book' -> 'Best USMLE Step 1 Books (2027): How to Choose'"
+        ],
+        "new_title": "Best USMLE Step 1 Books (2027): How to Choose"
+      },
+      {
+        "path": "/blog/usmle-personal-statement-dos-and-donts",
+        "changes": [
+          "title: 'Dos and Don&rsquo;ts for Crafting an USMLE Personal Statement' -> 'USMLE Personal Statement: Dos and Don'ts for IMGs'"
+        ],
+        "new_title": "USMLE Personal Statement: Dos and Don'ts for IMGs"
+      },
+      {
+        "path": "/blog/usmle-step-1-exam-fee-what-you-need-to-know",
+        "changes": [
+          "title: 'USMLE Step 1 Exam Fee: What You Need to Know' -> 'USMLE Step 1 Exam Fee 2027: What You Pay &amp; Why'"
+        ],
+        "new_title": "USMLE Step 1 Exam Fee 2027: What You Pay &amp; Why"
+      },
+      {
+        "path": "/blog/usmle-step-1-vs-step-2-ck-key-differences-you-need-to-know",
+        "changes": [
+          "title: 'USMLE Step 1 vs Step 2 CK: Every Key Difference (2026 Update)' -> 'USMLE Step 1 vs Step 2 CK: Key Differences (2027)'"
+        ],
+        "new_title": "USMLE Step 1 vs Step 2 CK: Key Differences (2027)"
+      },
+      {
+        "path": "/blog/usmle-step-2-ck-exam-format-2026",
+        "changes": [
+          "title: 'USMLE Step 2 CK in 2026: New 16-Block Format, Real Score Targets & Test-Day Strategy' -> 'USMLE Step 2 CK 2027: New Format, Score Targets &amp; Strategy'"
+        ],
+        "new_title": "USMLE Step 2 CK 2027: New Format, Score Targets &amp; Strategy"
+      },
+      {
+        "path": "/blog/usmle-step-3-preparatio-study-plan-and-guidance",
+        "changes": [
+          "title: 'USMLE Step 3 Study Plan 2026: Week-by-Week Guide, Best Resources &amp; CCS Strategy' -> 'USMLE Step 3 Study Plan 2027: How to Study, Week by Week'"
+        ],
+        "new_title": "USMLE Step 3 Study Plan 2027: How to Study, Week by Week"
+      },
+      {
+        "path": "/blog/what-happens-if-you-fail-in-usmle-step-1",
+        "changes": [
+          "title: 'Failing USMLE Step 1: What Happens Next and How to Recover (2026)' -> 'Failed USMLE Step 1? What Happens Next &amp; How to Recover'"
+        ],
+        "new_title": "Failed USMLE Step 1? What Happens Next &amp; How to Recover"
+      },
+      {
+        "path": "/blog/what-is-the-best-usmle-question-bank",
+        "changes": [
+          "title: 'What Is the Best USMLE Question Bank? An Honest, Updated Comparison' -> 'Best USMLE Question Bank 2027: Honest QBank Comparison'"
+        ],
+        "new_title": "Best USMLE Question Bank 2027: Honest QBank Comparison"
+      },
+      {
+        "path": "/blog/what-is-the-difference-between-the-match-and-soap",
+        "changes": [
+          "title: 'Match vs SOAP: What Actually Happens in Match Week (2026 Data)' -> 'SOAP vs Match: What Happens in Match Week (2027)'"
+        ],
+        "new_title": "SOAP vs Match: What Happens in Match Week (2027)"
+      },
+      {
+        "path": "/blog/what-is-the-role-of-mentorship-in-usmle-preparation",
+        "changes": [
+          "title: 'Do You Need a USMLE Mentor? What Great Mentorship Actually Looks Like' -> 'USMLE Mentorship: Do You Need a Mentor? (2027)'"
+        ],
+        "new_title": "USMLE Mentorship: Do You Need a Mentor? (2027)"
+      },
+      {
+        "path": "/blog/what-is-the-salary-after-usmle",
+        "changes": [
+          "title: 'Salary After USMLE: What Doctors Actually Earn in the US (Monthly & Yearly)' -> 'USMLE Salary: What Doctors Earn in the US (Monthly &amp; Yearly)'"
+        ],
+        "new_title": "USMLE Salary: What Doctors Earn in the US (Monthly &amp; Yearly)"
+      },
+      {
+        "path": "/blog/what-is-the-typical-preparation-time-for-usmle-step-1",
+        "changes": [
+          "title: 'How Long to Study for USMLE Step 1? (2026 Guide)' -> 'How Long to Study for USMLE Step 1? (2027 Guide)'"
+        ],
+        "new_title": "How Long to Study for USMLE Step 1? (2027 Guide)"
+      },
+      {
+        "path": "/blog/what-is-usmle-what-are-the-usmle-steps",
+        "changes": [
+          "title: 'What Is the USMLE? The 3 Steps, Scoring &amp; Cost (2026)' -> 'What Is the USMLE? Steps, Scoring &amp; Cost (2027)'"
+        ],
+        "new_title": "What Is the USMLE? Steps, Scoring &amp; Cost (2027)"
+      },
+      {
+        "path": "/blog/who-are-eligible-for-usmle",
+        "changes": [
+          "title: 'USMLE Eligibility in 2026: The Complete Rules for US MD, DO &amp; IMG Applicants' -> 'USMLE Eligibility 2027: Exam Rules for MD, DO &amp; IMGs'"
+        ],
+        "new_title": "USMLE Eligibility 2027: Exam Rules for MD, DO &amp; IMGs"
+      },
+      {
+        "path": "site",
+        "changes": [
+          "site file changed: frontend/src/pages/blog/BlogPost.tsx"
+        ],
+        "new_title": null
+      }
+    ],
+    "deployed": false,
+    "deploy_date": null,
+    "deploy_basis": ""
+  },
+  {
+    "sha": "1b24309ab1bfd1040cddfdacfabda1adf05ce008",
+    "committed_at": "2026-11-02T19:21:33+05:30",
+    "subject": "content(blog): keep 2026 in titles tied to 2026 data",
+    "files": [
+      "frontend/src/data/blog-index.generated.json",
+      "frontend/src/data/manual-posts.json"
+    ],
+    "pages": [
+      {
+        "path": "/blog/how-much-does-usmle-cost-in-total",
+        "changes": [
+          "title: 'USMLE Exam Fees 2027: Total Cost in Rupees and Dollars' -> 'USMLE Exam Fees 2026: Total Cost in Rupees and Dollars'"
+        ],
+        "new_title": "USMLE Exam Fees 2026: Total Cost in Rupees and Dollars"
+      },
+      {
+        "path": "/blog/img-match-2026-nrmp-data",
+        "changes": [
+          "title: 'IMG Match Rate by Specialty 2027: NRMP Data &amp; Step 2 Scores' -> 'IMG Match Rate by Specialty 2026: NRMP Data &amp; Step 2 Scores'"
+        ],
+        "new_title": "IMG Match Rate by Specialty 2026: NRMP Data &amp; Step 2 Scores"
+      },
+      {
+        "path": "/blog/important-update-for-usmle-step1-and-step-2ck-examinees-in-2024",
+        "changes": [
+          "title: 'USMLE Step 1 &amp; Step 2 CK Score Release Dates 2027' -> 'USMLE Step 1 &amp; Step 2 CK Score Release Dates 2026'"
+        ],
+        "new_title": "USMLE Step 1 &amp; Step 2 CK Score Release Dates 2026"
+      },
+      {
+        "path": "/blog/usmle-step-1-exam-fee-what-you-need-to-know",
+        "changes": [
+          "title: 'USMLE Step 1 Exam Fee 2027: What You Pay &amp; Why' -> 'USMLE Step 1 Exam Fee 2026: What You Pay &amp; Why'"
+        ],
+        "new_title": "USMLE Step 1 Exam Fee 2026: What You Pay &amp; Why"
+      },
+      {
+        "path": "/blog/usmle-step-2-ck-exam-format-2026",
+        "changes": [
+          "title: 'USMLE Step 2 CK 2027: New Format, Score Targets &amp; Strategy' -> 'USMLE Step 2 CK 2026: New Format, Score Targets &amp; Strategy'"
+        ],
+        "new_title": "USMLE Step 2 CK 2026: New Format, Score Targets &amp; Strategy"
+      },
+      {
+        "path": "/blog/what-is-the-difference-between-the-match-and-soap",
+        "changes": [
+          "title: 'SOAP vs Match: What Happens in Match Week (2027)' -> 'SOAP vs Match: What Happens in Match Week (2026)'"
+        ],
+        "new_title": "SOAP vs Match: What Happens in Match Week (2026)"
+      }
+    ],
+    "deployed": false,
+    "deploy_date": null,
+    "deploy_basis": ""
+  },
+  {
+    "sha": "c705eb1b4acfddde940b4b14087b021d7c9dec89",
+    "committed_at": "2026-11-02T19:31:32+05:30",
+    "subject": "content(blog): use 2027 in two evergreen post descriptions",
+    "files": [
+      "frontend/src/data/blog-index.generated.json",
+      "frontend/src/data/manual-posts.json"
+    ],
+    "pages": [
+      {
+        "path": "/blog/what-is-usmle-what-are-the-usmle-steps",
+        "changes": [
+          "excerpt: 'A complete guide to the USMLE: what it is, what Step 1, Step 2 CK, and Step 3 each test, …' -> 'A complete guide to the USMLE: what it is, what Step 1, Step 2 CK, and Step 3 each test, …'"
+        ],
+        "new_title": null
+      },
+      {
+        "path": "/blog/who-are-eligible-for-usmle",
+        "changes": [
+          "excerpt: 'Fact-checked USMLE eligibility rules for 2026: the ECFMG Sponsor Note and 4-credit-year r…' -> 'Fact-checked USMLE eligibility rules for 2027: the ECFMG Sponsor Note and 4-credit-year r…'"
+        ],
+        "new_title": null
+      }
+    ],
+    "deployed": false,
+    "deploy_date": null,
+    "deploy_basis": ""
+  },
+  {
+    "sha": "c7db1388023a0e1f9cbbee77424852b878e8360a",
+    "committed_at": "2026-11-02T19:48:05+05:30",
+    "subject": "content(blog): rebuild MBBS eligibility and Step 1 fee posts past 800 words",
+    "files": [
+      "blog-reindex-tracker.md",
+      "frontend/public/blog-content/is-usmle-only-for-mbbs-students.json",
+      "frontend/public/blog-content/usmle-step-1-exam-fee-what-you-need-to-know.json",
+      "frontend/src/data/blog-index.generated.json",
+      "frontend/src/data/manual-posts.json"
+    ],
+    "pages": [
+      {
+        "path": "/blog/is-usmle-only-for-mbbs-students",
+        "changes": [
+          "body file updated",
+          "excerpt: 'Is USMLE Only for MBBS Students? Understanding Who Can Take the USMLE The United States M…' -> 'No. MBBS, MD and DO students and graduates worldwide can take the USMLE. Who qualifies, w…'",
+          "faq changed (5 questions)",
+          "post added"
+        ],
+        "new_title": "Is the USMLE Only for MBBS Students? Who Can Take It"
+      },
+      {
+        "path": "/blog/usmle-step-1-exam-fee-what-you-need-to-know",
+        "changes": [
+          "body file updated",
+          "excerpt: 'Preparing for the USMLE Step 1 exam is not only a significant academic endeavor but also …' -> 'The USMLE Step 1 fee in 2026 is $695, plus a $210 region fee abroad and 18% GST in India:…'",
+          "faq changed (5 questions)",
+          "post added"
+        ],
+        "new_title": "USMLE Step 1 Exam Fee 2026: What You Pay &amp; Why"
+      },
+      {
+        "path": "site",
+        "changes": [
+          "site file changed: blog-reindex-tracker.md"
+        ],
+        "new_title": null
+      }
+    ],
+    "deployed": false,
+    "deploy_date": null,
+    "deploy_basis": ""
+  },
+  {
+    "sha": "001bebc8cf92b91723fdc14c64dd2e987a004841",
+    "committed_at": "2026-11-02T19:58:16+05:30",
+    "subject": "content(blog): on-page SEO pass for seven keywords outside the top 10",
+    "files": [
+      "blog-reindex-tracker.md",
+      "frontend/public/blog-content/6-month-usmle-step-1-study-plan.json",
+      "frontend/public/blog-content/an-average-students-path-to-usmle-success.json",
+      "frontend/public/blog-content/can-you-take-the-usmle-right-after-mbbs-in-india.json",
+      "frontend/public/blog-content/common-mistakes-to-avoid-while-preparing-for-the-usmle-step-1.json",
+      "frontend/public/blog-content/comprehensive-guide-to-the-usmle-step-1-syllabus.json",
+      "frontend/public/blog-content/how-many-indians-pass-the-usmle-each-year.json",
+      "frontend/public/blog-content/how-much-does-usmle-cost-in-total.json",
+      "frontend/public/blog-content/how-to-apply-for-usmle-from-india.json",
+      "frontend/public/blog-content/how-to-crack-usmle-on-your-first-attempt.json",
+      "frontend/public/blog-content/how-to-prepare-for-usmle-from-1st-year-mbbs.json",
+      "frontend/public/blog-content/how-to-score-280-on-usmle-step-2-ck.json",
+      "frontend/public/blog-content/is-the-usmle-tough-for-indian-students.json",
+      "frontend/public/blog-content/top-usmle-coaching-centers-in-india.json",
+      "frontend/public/blog-content/usmle-step-1-vs-step-2-ck-key-differences-you-need-to-know.json",
+      "frontend/public/blog-content/usmle-step-2-ck-exam-format-2026.json",
+      "frontend/public/blog-content/usmle-step-2-ck-study-plan-12-weeks.json",
+      "frontend/public/blog-content/what-happens-if-you-fail-in-usmle-step-1.json",
+      "frontend/public/blog-content/what-is-the-role-of-mentorship-in-usmle-preparation.json",
+      "frontend/public/blog-content/what-is-usmle-what-are-the-usmle-steps.json",
+      "frontend/src/data/blog-index.generated.json",
+      "frontend/src/data/manual-posts.json"
+    ],
+    "pages": [
+      {
+        "path": "/blog/6-month-usmle-step-1-study-plan",
+        "changes": [
+          "body file updated",
+          "title: '6-Month USMLE Step 1 Study Plan: Week-by-Week Blueprint' -> 'USMLE Step 1 Study Plan (2027): 6-Month Schedule'",
+          "excerpt: 'A month-by-month 6-month USMLE Step 1 study plan - how many hours a day, which systems to…' -> 'A 6-month USMLE Step 1 study plan, month by month: how many hours a day, which systems to…'",
+          "body updated (+0 words, now 1158)"
+        ],
+        "new_title": "USMLE Step 1 Study Plan (2027): 6-Month Schedule"
+      },
+      {
+        "path": "/blog/an-average-students-path-to-usmle-success",
+        "changes": [
+          "body file updated"
+        ],
+        "new_title": null
+      },
+      {
+        "path": "/blog/can-you-take-the-usmle-right-after-mbbs-in-india",
+        "changes": [
+          "body file updated",
+          "body updated (+21 words, now 1406)"
+        ],
+        "new_title": null
+      },
+      {
+        "path": "/blog/common-mistakes-to-avoid-while-preparing-for-the-usmle-step-1",
+        "changes": [
+          "body file updated",
+          "body updated (+16 words, now 1428)"
+        ],
+        "new_title": null
+      },
+      {
+        "path": "/blog/comprehensive-guide-to-the-usmle-step-1-syllabus",
+        "changes": [
+          "body file updated",
+          "body updated (+37 words, now 1186)"
+        ],
+        "new_title": null
+      },
+      {
+        "path": "/blog/how-many-indians-pass-the-usmle-each-year",
+        "changes": [
+          "body file updated",
+          "body updated (+31 words, now 1116)"
+        ],
+        "new_title": null
+      },
+      {
+        "path": "/blog/how-much-does-usmle-cost-in-total",
+        "changes": [
+          "body file updated",
+          "title: 'USMLE Exam Fees 2026: Total Cost in Rupees and Dollars' -> 'How Much Does the USMLE Cost? 2026 Fees in ₹ and $'",
+          "excerpt: 'Actual current dollar figures for every stage of the USMLE and Match journey — Step fees,…' -> 'How much does the USMLE cost? Every 2026 fee in dollars and rupees: Step exams, ECFMG and…'",
+          "body updated (+73 words, now 1115)"
+        ],
+        "new_title": "How Much Does the USMLE Cost? 2026 Fees in ₹ and $"
+      },
+      {
+        "path": "/blog/how-to-apply-for-usmle-from-india",
+        "changes": [
+          "body file updated",
+          "body updated (+26 words, now 3013)"
+        ],
+        "new_title": null
+      },
+      {
+        "path": "/blog/how-to-crack-usmle-on-your-first-attempt",
+        "changes": [
+          "body file updated",
+          "body updated (+25 words, now 1178)"
+        ],
+        "new_title": null
+      },
+      {
+        "path": "/blog/how-to-prepare-for-usmle-from-1st-year-mbbs",
+        "changes": [
+          "body file updated",
+          "body updated (+51 words, now 1164)"
+        ],
+        "new_title": null
+      },
+      {
+        "path": "/blog/how-to-score-280-on-usmle-step-2-ck",
+        "changes": [
+          "body file updated",
+          "body updated (+20 words, now 1995)"
+        ],
+        "new_title": null
+      },
+      {
+        "path": "/blog/is-the-usmle-tough-for-indian-students",
+        "changes": [
+          "body file updated",
+          "body updated (+44 words, now 1094)"
+        ],
+        "new_title": null
+      },
+      {
+        "path": "/blog/top-usmle-coaching-centers-in-india",
+        "changes": [
+          "body file updated",
+          "title: 'USMLE Coaching in India: How to Choose (2027)' -> 'USMLE Coaching Centres in India: How to Choose (2027)'",
+          "excerpt: 'A framework for evaluating USMLE coaching rather than a ranked list: what coaching can an…' -> 'How to choose between USMLE coaching centres in India: what coaching can and cannot do, t…'",
+          "body updated (+23 words, now 1169)"
+        ],
+        "new_title": "USMLE Coaching Centres in India: How to Choose (2027)"
+      },
+      {
+        "path": "/blog/usmle-step-1-vs-step-2-ck-key-differences-you-need-to-know",
+        "changes": [
+          "body file updated",
+          "body updated (+18 words, now 1187)"
+        ],
+        "new_title": null
+      },
+      {
+        "path": "/blog/usmle-step-2-ck-exam-format-2026",
+        "changes": [
+          "body file updated",
+          "body updated (+17 words, now 2347)"
+        ],
+        "new_title": null
+      },
+      {
+        "path": "/blog/usmle-step-2-ck-study-plan-12-weeks",
+        "changes": [
+          "body file updated",
+          "body updated (+31 words, now 3942)"
+        ],
+        "new_title": null
+      },
+      {
+        "path": "/blog/what-happens-if-you-fail-in-usmle-step-1",
+        "changes": [
+          "body file updated",
+          "body updated (+62 words, now 1417)"
+        ],
+        "new_title": null
+      },
+      {
+        "path": "/blog/what-is-the-role-of-mentorship-in-usmle-preparation",
+        "changes": [
+          "body file updated",
+          "body updated (+30 words, now 763)"
+        ],
+        "new_title": null
+      },
+      {
+        "path": "/blog/what-is-usmle-what-are-the-usmle-steps",
+        "changes": [
+          "body file updated"
+        ],
+        "new_title": null
+      },
+      {
+        "path": "site",
+        "changes": [
+          "site file changed: blog-reindex-tracker.md"
+        ],
+        "new_title": null
+      }
+    ],
+    "deployed": false,
+    "deploy_date": null,
+    "deploy_basis": ""
+  },
+  {
+    "sha": "6a99ddbc5f643541de848a542e2a862df0b31026",
+    "committed_at": "2026-11-02T20:04:55+05:30",
+    "subject": "content(blog): keep the USMLE cost guide in dollars only",
+    "files": [
+      "blog-reindex-tracker.md",
+      "frontend/public/blog-content/how-much-does-usmle-cost-in-total.json",
+      "frontend/public/blog-content/what-is-usmle-what-are-the-usmle-steps.json",
+      "frontend/src/data/blog-index.generated.json",
+      "frontend/src/data/manual-posts.json"
+    ],
+    "pages": [
+      {
+        "path": "/blog/how-much-does-usmle-cost-in-total",
+        "changes": [
+          "body file updated",
+          "title: 'How Much Does the USMLE Cost? 2026 Fees in ₹ and $' -> 'How Much Does the USMLE Cost? Total Fees for 2026'",
+          "excerpt: 'How much does the USMLE cost? Every 2026 fee in dollars and rupees: Step exams, ECFMG and…' -> 'How much does the USMLE cost? Every 2026 fee: Step exams, ECFMG and Pathway fees, OET, ER…'",
+          "body updated (-41 words, now 1074)"
+        ],
+        "new_title": "How Much Does the USMLE Cost? Total Fees for 2026"
+      },
+      {
+        "path": "/blog/what-is-usmle-what-are-the-usmle-steps",
+        "changes": [
+          "body file updated"
+        ],
+        "new_title": null
+      },
+      {
+        "path": "site",
+        "changes": [
+          "site file changed: blog-reindex-tracker.md"
+        ],
+        "new_title": null
+      }
+    ],
+    "deployed": false,
+    "deploy_date": null,
+    "deploy_basis": ""
+  },
+  {
+    "sha": "20a1eafea8c64452d83b6a4a626543a649134990",
+    "committed_at": "2026-11-02T20:08:30+05:30",
+    "subject": "content(blog): show USMLE and OET fees in dollars only",
+    "files": [
+      "frontend/public/blog-content/how-to-apply-for-usmle-from-india.json",
+      "frontend/public/blog-content/usmle-step-1-exam-fee-what-you-need-to-know.json",
+      "frontend/public/blog-content/what-is-oet-exam-how-much-does-it-costs.json",
+      "frontend/src/data/blog-index.generated.json",
+      "frontend/src/data/manual-posts.json"
+    ],
+    "pages": [
+      {
+        "path": "/blog/how-to-apply-for-usmle-from-india",
+        "changes": [
+          "body file updated",
+          "excerpt: 'Since 12 January 2026, Step 1 and Step 2 CK registration runs through FSMB, not ECFMG. He…' -> 'Since 12 January 2026, Step 1 and Step 2 CK registration runs through FSMB, not ECFMG. He…'",
+          "faq changed (8 questions)",
+          "body updated (-53 words, now 2960)"
+        ],
+        "new_title": null
+      },
+      {
+        "path": "/blog/usmle-step-1-exam-fee-what-you-need-to-know",
+        "changes": [
+          "body file updated",
+          "excerpt: 'The USMLE Step 1 fee in 2026 is $695, plus a $210 region fee abroad and 18% GST in India:…' -> 'The USMLE Step 1 fee in 2026 is $695, plus a $210 region fee abroad and 18% GST in India:…'",
+          "faq changed (5 questions)",
+          "body updated (-13 words, now 1288)"
+        ],
+        "new_title": null
+      },
+      {
+        "path": "/blog/what-is-oet-exam-how-much-does-it-costs",
+        "changes": [
+          "body file updated",
+          "faq changed (6 questions)",
+          "body updated (-11 words, now 1287)"
+        ],
+        "new_title": null
+      }
+    ],
+    "deployed": false,
+    "deploy_date": null,
+    "deploy_basis": ""
+  },
+  {
+    "sha": "77ba6e320427f1ee09f0b535bf5deb0648825616",
+    "committed_at": "2026-11-02T20:13:05+05:30",
+    "subject": "content(blog): add IMG section and sample timelines to Step 1 study plan",
+    "files": [
+      "blog-reindex-tracker.md",
+      "frontend/public/blog-content/6-month-usmle-step-1-study-plan.json",
+      "frontend/src/data/blog-index.generated.json",
+      "frontend/src/data/manual-posts.json"
+    ],
+    "pages": [
+      {
+        "path": "/blog/6-month-usmle-step-1-study-plan",
+        "changes": [
+          "body file updated",
+          "faq changed (5 questions)",
+          "body updated (+711 words, now 1869)"
+        ],
+        "new_title": null
+      },
+      {
+        "path": "site",
+        "changes": [
+          "site file changed: blog-reindex-tracker.md"
+        ],
+        "new_title": null
+      }
+    ],
+    "deployed": false,
+    "deploy_date": null,
+    "deploy_basis": ""
+  },
+  {
+    "sha": "8108c8c6d91cddeab898f4dd8e8e54ad4c69b5b9",
+    "committed_at": "2026-11-02T20:25:30+05:30",
+    "subject": "feat(blog): show FAQ data on the page; compare Steps in Step 2 CK syllabus",
+    "files": [
+      "frontend/public/blog-content/comprehensive-guide-to-the-usmle-step-2-ck-syllabus.json",
+      "frontend/src/data/blog-index.generated.json",
+      "frontend/src/data/manual-posts.json",
+      "frontend/src/pages/blog/BlogPost.tsx"
+    ],
+    "pages": [
+      {
+        "path": "/blog/comprehensive-guide-to-the-usmle-step-2-ck-syllabus",
+        "changes": [
+          "body file updated",
+          "faq changed (8 questions)",
+          "body updated (+292 words, now 1595)"
+        ],
+        "new_title": null
+      },
+      {
+        "path": "site",
+        "changes": [
+          "site file changed: frontend/src/pages/blog/BlogPost.tsx"
+        ],
+        "new_title": null
+      }
+    ],
+    "deployed": false,
+    "deploy_date": null,
+    "deploy_basis": ""
+  }
+]

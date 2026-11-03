@@ -163,6 +163,7 @@ class SeoAgentService:
         execution.skills_used += payload.skills_used
         execution.tools_used += payload.tools_used
         execution.changes += payload.changes
+        execution.sections += payload.sections
         latest = {f.key: f for f in execution.findings}
         latest.update({f.key: f for f in payload.findings})
         execution.findings = list(latest.values())

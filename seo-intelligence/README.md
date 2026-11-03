@@ -18,6 +18,10 @@ sites/<site>/research/{keyword,competitor,content-strategy}/<id>.json
 sites/<site>/executions/execution-history.json  index of executions
 sites/<site>/executions/<execution_id>.json     full execution record
 sites/<site>/reports/<execution_id>.md, latest-report.md
+sites/<site>/changes/commits.json    SEO commits detected in the site repository (monitor)
+sites/<site>/checklist.json          change checklist: deploy, live title, reindex, ranking checks
+sites/<site>/learning/change-effects.json   ranking effect by change type, net of site trend
+skills/skill-hashes.json             baseline for detecting direct skill edits
 ```
 
 Rules: no credentials, no raw page dumps or provider payloads (use `data/`), no invented metrics,

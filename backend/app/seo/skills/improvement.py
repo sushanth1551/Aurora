@@ -15,6 +15,7 @@ named person approves the proposal and ``apply`` is run. Safeguards:
 
 from __future__ import annotations
 
+import json
 import re
 from datetime import datetime
 from pathlib import Path
@@ -71,6 +72,7 @@ class SkillImprovementService:
         self.registry = registry
         self.folder = Path(knowledge_root) / "skills" / "proposals"
         self.changelog = Path(knowledge_root) / "skills" / "CHANGELOG.md"
+        self.baseline = Path(knowledge_root) / "skills" / "skill-hashes.json"
 
     def _path(self, proposal_id: str) -> Path:
         if not PROPOSAL_ID_RE.match(proposal_id) or len(proposal_id) > 100:
@@ -208,3 +210,49 @@ class SkillImprovementService:
             f"- Hash: `{before[:12]}` → `{(proposal.new_hash or '')[:12]}`\n"
         )
         write_atomic(self.changelog, existing.rstrip("\n") + "\n" + entry)
+
+    def detect_direct_edits(self) -> list[str]:
+        """Registered skills whose files changed since the last check.
+
+        Changes made through ``apply`` are already logged; anything else (an owner
+        editing a SKILL.md by hand) is logged here as a direct edit and becomes the
+        new baseline, so later executions record and use the current version. The
+        first call only creates the baseline.
+        """
+        current = {
+            entry.name: content_hash(self.registry.skill_file(entry.name))
+            for entry in self.registry.load().skills
+            if self.registry.skill_file(entry.name).is_file()
+        }
+        first = not self.baseline.exists()
+        previous: dict[str, str] = (
+            {} if first else json.loads(self.baseline.read_text(encoding="utf-8"))
+        )
+        applied = {p.new_hash for p in self.list("applied") if p.new_hash}
+        edited = sorted(
+            name
+            for name, digest in current.items()
+            if not first
+            and name in previous
+            and previous[name] != digest
+            and digest not in applied
+        )
+        write_atomic(
+            self.baseline, json.dumps(current, indent=2, sort_keys=True) + "\n"
+        )
+        if edited:
+            header = "# SEO skill change log\n\nApplied, approved skill proposals.\n"
+            text = (
+                self.changelog.read_text(encoding="utf-8")
+                if self.changelog.exists()
+                else header
+            )
+            stamp = utcnow().strftime("%Y-%m-%d %H:%M")
+            for name in edited:
+                text = text.rstrip("\n") + (
+                    f"\n\n## {stamp} UTC · `{name}` (direct edit detected)\n\n"
+                    "- Changed outside the proposal process (by the owner or by hand).\n"
+                    f"- Hash: `{previous[name][:12]}` → `{current[name][:12]}`\n"
+                )
+            write_atomic(self.changelog, text)
+        return edited

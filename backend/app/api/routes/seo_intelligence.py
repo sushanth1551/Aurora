@@ -41,6 +41,7 @@ Mode = Literal[
     "content-optimization",
     "performance-review",
     "update-skills",
+    "monitor",
 ]
 
 

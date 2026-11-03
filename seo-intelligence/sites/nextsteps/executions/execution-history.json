@@ -20,5 +20,71 @@
     "new": 1,
     "recurring": 13,
     "resolved": 0
+  },
+  {
+    "id": "20261103-093759-monitor",
+    "mode": "monitor",
+    "status": "completed",
+    "started_at": "2026-11-03T09:37:59.373892Z",
+    "finished_at": "2026-11-03T09:38:18.047559Z",
+    "summary": "Scheduled monitor: 67 new change commit(s), 553 open checklist item(s), rankings measured.",
+    "new": 2,
+    "recurring": 0,
+    "resolved": 0
+  },
+  {
+    "id": "20261103-094014-monitor",
+    "mode": "monitor",
+    "status": "completed",
+    "started_at": "2026-11-03T09:40:14.775101Z",
+    "finished_at": "2026-11-03T09:40:32.060736Z",
+    "summary": "Scheduled monitor: 67 new change commit(s), 93 item(s) need you, 309 ranking check(s) completed, rankings measured.",
+    "new": 0,
+    "recurring": 2,
+    "resolved": 0
+  },
+  {
+    "id": "20261103-094053-monitor",
+    "mode": "monitor",
+    "status": "completed",
+    "started_at": "2026-11-03T09:40:53.709528Z",
+    "finished_at": "2026-11-03T09:41:10.570004Z",
+    "summary": "Scheduled monitor: 67 new change commit(s), 93 item(s) need you, 309 ranking check(s) completed, rankings measured.",
+    "new": 0,
+    "recurring": 2,
+    "resolved": 0
+  },
+  {
+    "id": "20261103-094657-monitor",
+    "mode": "monitor",
+    "status": "completed",
+    "started_at": "2026-11-03T09:46:57.855189Z",
+    "finished_at": "2026-11-03T09:47:19.671556Z",
+    "summary": "Scheduled monitor: 67 new change commit(s), 28 item(s) need you, 207 ranking check(s) completed, rankings measured.",
+    "new": 0,
+    "recurring": 2,
+    "resolved": 0
+  },
+  {
+    "id": "20261103-094846-monitor",
+    "mode": "monitor",
+    "status": "completed",
+    "started_at": "2026-11-03T09:48:46.683001Z",
+    "finished_at": "2026-11-03T09:49:10.663819Z",
+    "summary": "Scheduled monitor: 67 new change commit(s), 15 item(s) need you, 207 ranking check(s) completed, rankings measured.",
+    "new": 0,
+    "recurring": 2,
+    "resolved": 0
+  },
+  {
+    "id": "20261103-094941-monitor",
+    "mode": "monitor",
+    "status": "completed",
+    "started_at": "2026-11-03T09:49:41.172535Z",
+    "finished_at": "2026-11-03T09:49:55.380387Z",
+    "summary": "Scheduled monitor: 0 new change commit(s), 15 item(s) need you, 207 ranking check(s) completed, rankings measured.",
+    "new": 0,
+    "recurring": 2,
+    "resolved": 0
   }
 ]

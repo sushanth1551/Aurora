@@ -6,7 +6,7 @@ changes Module 1-4 behaviour, provider integrations, `.env`, the database or the
 text is treated as guidance that never overrides `CLAUDE.md`.
 
 Last updated 2026-11-03 (section J added and `seo-audit` renamed to `seo-full-site-audit`; earlier: section I added 2026-11-01; sections G and H added 2026-10-31; validation script, module/workflow mapping and
-validation results added). **109 skills** are installed. Commit hashes of every copied skill are
+validation results added). **110 skills** are installed. Commit hashes of every copied skill are
 recorded in its `ATTRIBUTION.md`; run `python scripts/validate_skills.py` to check all of them (see
 *Validation* at the end).
 
@@ -27,7 +27,7 @@ recorded in its `ATTRIBUTION.md`; run `python scripts/validate_skills.py` to che
      locally authored), `seo-gsc-diagnosis` (G), 6 development skills (H) and 32 SE Ranking
      skills (I). Each has
      `ATTRIBUTION.md`; a license copy where the source ships one.
-  4. **AURORA SEO Intelligence skills** (8, added 2026-11-03): the `/seo-*` execution modes and
+  4. **AURORA SEO Intelligence skills** (9, added 2026-11-03): the `/seo-*` execution modes and
      their support skills, authored here (section J; `docs/seo-intelligence.md`).
 - Pick the **narrowest** skill that matches the task; use the orchestrator skills (`seo`,
   `seo-toolkit-orchestrator`) only for multi-domain requests. When two sets overlap, see
@@ -222,6 +222,7 @@ evidenced historical use on NextSteps. AURORA modules: 6 (SEO intelligence).
 | `seo-competitor-analysis` | `/seo-competitor-analysis`: SERP competitors, page comparison, gaps, dated snapshot | Entry point for mode `competitor-analysis` | local |
 | `seo-content-optimization` | `/seo-content-optimization`: concrete edits to existing pages; branch-only implementation after approval | Entry point for mode `content-optimization` | local |
 | `seo-performance-review` | `/seo-performance-review`: Search Console period comparison and change attribution | Entry point for mode `performance-review`; needs GSC data | local |
+| `seo-monitor` | `/seo-monitor` and the 14-day scheduled run: the owner's changes, change checklist, blog rankings, learning from ranking checks | Runs `scripts/seo_monitor.py`; candidate rules need the user's approval | local |
 | `seo-update-skills` | `/seo-update-skills`: review, decide and apply skill proposals | User-invoked only (`disable-model-invocation`) | local |
 | `website-seo-discovery` | Site profile, sitemap/robots, key pages, technical probes, read-only repository state | Discovery step | local |
 | `seo-report-analysis` | Normalise uploaded SEO reports into findings | When report files are supplied | local |
@@ -374,6 +375,7 @@ Roles:
 | `seo-competitor-analysis` | 6 | W3, W6, W8 | method (SEO Intelligence mode) |
 | `seo-content-optimization` | 6 | W7 | method (SEO Intelligence mode) |
 | `seo-performance-review` | 6 | W8 | method (needs Search Console data) |
+| `seo-monitor` | 6 | W8 | method (scheduled monitoring; needs Search Console for rankings) |
 | `seo-update-skills` | 6 | DEV | dev (skill maintenance, user-invoked) |
 | `website-seo-discovery` | 6 | W5 | method |
 | `seo-report-analysis` | 6 | W5 | method |

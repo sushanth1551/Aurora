@@ -114,6 +114,7 @@ SEO_INTELLIGENCE = {
     "seo-competitor-analysis",
     "seo-content-optimization",
     "seo-performance-review",
+    "seo-monitor",
     "seo-update-skills",
     "website-seo-discovery",
     "seo-report-analysis",

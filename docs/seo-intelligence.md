@@ -126,6 +126,7 @@ structured findings and short evidence only: raw HTML, provider payloads and exp
 /seo-content-optimization nextsteps from-findings
 /seo-performance-review nextsteps
 /seo-update-skills
+/seo-monitor nextsteps        # also runs every 14 days via Windows Task Scheduler
 
 # bookkeeping CLI (used by the skills; safe to run by hand)
 .venv\Scripts\python scripts\seo_intelligence.py context nextsteps
@@ -141,7 +142,50 @@ POST /api/v1/seo/intelligence/websites/{site}/imports/technical-audits/{audit_id
 GET  /api/v1/seo/intelligence/skills | skills/proposals
 ```
 
-## 8. Status (verified 2026-11-03)
+## 8. Scheduled monitoring and learning from your changes (`/seo-monitor`)
+
+Every 14 days the Windows task **"AURORA SEO Monitor (nextsteps)"** runs
+`scripts/seo-monitor.ps1 -Site nextsteps -StartDatabase` (registered by
+`scripts/register-seo-monitor.ps1`; remove with `-Unregister`). It starts PostgreSQL (needed for
+the sealed Search Console token), runs `scripts/seo_monitor.py`, logs to
+`data/logs/seo-monitor-*.log` and shows a Windows notification. No paid API is called; nothing is
+written to the website, Search Console or git.
+
+What one run does (`backend/app/seo/intelligence/monitor.py`):
+
+1. **Your changes:** read-only `git log` of the site repository (all local branches and
+   `origin/main`), keeping commits that touch the configured SEO paths. Post JSON files are
+   diffed per slug: title, description (excerpt), FAQ, body word count, new posts
+   (`changes.py`). Stored in `sites/<site>/changes/commits.json`.
+2. **Go-live:** a commit counts as live when it is on `origin/<production branch>` (as last
+   fetched) or the live page shows its new title. Each commit records how its go-live date was
+   established.
+3. **Checklist** (`sites/<site>/checklist.json`): per changed page: deploy, live title, request
+   indexing (manual; detected from the site's reindex tracker), ranking checks 14/28/56 days
+   after go-live, and re-verifying linked findings. Older live-title/reindex items for the same
+   page are superseded; changes older than 30 days at the first sync skip manual items.
+4. **Rankings:** Search Console `date x page` rows, last 14 days vs the previous 14
+   (final data, 3-day lag). Drops of 3+ positions on pages with 100+ impressions become
+   `ranking-drop:<path>` findings, which later runs mark resolved or recurring.
+5. **Learning:** each ranking check compares the page with **all blog pages over the same
+   windows** (`rankings.relative_verdict`), so site-wide growth or a Google update is not
+   credited to a change. Results are aggregated by change type in
+   `sites/<site>/learning/change-effects.json`. When one change type beats (or trails) the site
+   trend in >= 70% of >= 5 pages at 28 days, it is reported as a **candidate rule**; it becomes a
+   website rule or a skill proposal only after you approve it (`/seo-monitor`, `/seo-update-skills`).
+6. **Skill edits:** skills changed outside the proposal process (for example edited by you) are
+   detected by content hash, logged in `skills/CHANGELOG.md`, and used from then on
+   (`skills/skill-hashes.json` is the baseline).
+
+First result (2026-11-03): 67 SEO commits from the last 90 days tracked; 10 not on production;
+measured against the site trend, no change type reliably beats it yet (for example title changes
+at 56 days: 8 pages ahead, 12 behind), so no rule is proposed.
+
+Limits: go-live dates of changes already on production at the first sync use the commit date;
+`origin/main` is only as fresh as the last `git fetch`; the live-title check proves deployment
+for retitled pages only; positions are page averages across all queries.
+
+## 9. Status (verified 2026-11-03)
 
 - 16 tests in `backend/tests/test_seo_intelligence.py`: models, path safety, comparison rules,
   lifecycle, report sections, registry availability, proposal approval/stale handling, audit

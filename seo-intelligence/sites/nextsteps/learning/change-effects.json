@@ -1,0 +1,129 @@
+{
+  "computed_on": "2026-11-03",
+  "method": "Search Console page position/clicks in the N days after go-live vs the N days before, relative to all blog pages over the same windows; verdict rules in app/seo/intelligence/rankings.py (relative_verdict). Other changes, seasonality and Google updates also move rankings: these are observations, not proof of cause.",
+  "effects": {
+    "body": {
+      "14d": {
+        "behind site trend": 23,
+        "newly ranking": 8,
+        "in line with site": 9,
+        "beat site trend": 20,
+        "not enough data": 13
+      },
+      "28d": {
+        "behind site trend": 22,
+        "newly ranking": 10,
+        "in line with site": 9,
+        "beat site trend": 22,
+        "not enough data": 9
+      },
+      "56d": {
+        "behind site trend": 25,
+        "newly ranking": 8,
+        "beat site trend": 21,
+        "not enough data": 5,
+        "in line with site": 3
+      }
+    },
+    "description": {
+      "14d": {
+        "in line with site": 6,
+        "beat site trend": 15,
+        "behind site trend": 8,
+        "not enough data": 6,
+        "newly ranking": 2
+      },
+      "28d": {
+        "in line with site": 4,
+        "behind site trend": 11,
+        "beat site trend": 15,
+        "not enough data": 5,
+        "newly ranking": 2
+      },
+      "56d": {
+        "beat site trend": 13,
+        "behind site trend": 13,
+        "newly ranking": 2,
+        "not enough data": 3,
+        "in line with site": 2
+      }
+    },
+    "faq": {
+      "14d": {
+        "in line with site": 6,
+        "beat site trend": 16,
+        "behind site trend": 10,
+        "not enough data": 9,
+        "newly ranking": 3
+      },
+      "28d": {
+        "in line with site": 4,
+        "behind site trend": 12,
+        "beat site trend": 17,
+        "not enough data": 7,
+        "newly ranking": 3
+      },
+      "56d": {
+        "beat site trend": 15,
+        "behind site trend": 15,
+        "newly ranking": 4,
+        "not enough data": 4,
+        "in line with site": 2
+      }
+    },
+    "new-post": {
+      "14d": {
+        "not enough data": 3,
+        "beat site trend": 8,
+        "behind site trend": 4,
+        "newly ranking": 5,
+        "in line with site": 2
+      },
+      "28d": {
+        "newly ranking": 5,
+        "in line with site": 2,
+        "beat site trend": 7,
+        "behind site trend": 6,
+        "not enough data": 1
+      },
+      "56d": {
+        "newly ranking": 3,
+        "beat site trend": 7,
+        "behind site trend": 8
+      }
+    },
+    "other": {
+      "14d": {
+        "not enough data": 1
+      },
+      "28d": {
+        "not enough data": 1
+      },
+      "56d": {
+        "not enough data": 1
+      }
+    },
+    "title": {
+      "14d": {
+        "behind site trend": 7,
+        "not enough data": 4,
+        "beat site trend": 10,
+        "newly ranking": 2,
+        "in line with site": 3
+      },
+      "28d": {
+        "behind site trend": 10,
+        "not enough data": 3,
+        "beat site trend": 9,
+        "in line with site": 2,
+        "newly ranking": 2
+      },
+      "56d": {
+        "behind site trend": 12,
+        "not enough data": 2,
+        "beat site trend": 8,
+        "newly ranking": 2
+      }
+    }
+  }
+}

@@ -28,6 +28,7 @@ ExecutionMode = Literal[
     "content-optimization",
     "performance-review",
     "update-skills",
+    "monitor",
     "baseline-import",
     "technical-audit-import",
 ]
@@ -239,6 +240,13 @@ class LearningSummary(_Strict):
     needs_approval: list[str] = []
 
 
+class ReportSection(_Strict):
+    """Extra Markdown rendered in the report (for example monitoring tables)."""
+
+    title: str
+    markdown: str
+
+
 class Comparison(_Strict):
     new: list[str] = []
     recurring: list[str] = []
@@ -265,6 +273,7 @@ class Execution(_Strict):
     blockers: list[str] = []
     learning: LearningSummary = LearningSummary()
     comparison: Comparison | None = None
+    sections: list[ReportSection] = []
     notes: list[str] = []
 
 
@@ -281,6 +290,7 @@ class ExecutionPayload(_Strict):
     changes: list[ChangeRecord] = []
     blockers: list[str] = []
     learning: LearningSummary = LearningSummary()
+    sections: list[ReportSection] = []
     notes: list[str] = []
 
 

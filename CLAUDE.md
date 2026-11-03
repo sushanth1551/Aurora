@@ -159,6 +159,7 @@ explicitly, never on module import or app startup. See `docs/architecture.md`.
 - Connected website repositories (e.g. NextSteps) are read-only; changes only on a branch after the owner approves, never pushed or deployed.
 - Skill files change only via approved proposals (`/seo-update-skills`); third-party skills are never edited.
 - Keep raw pages and provider payloads out of `seo-intelligence/` (use `data/`).
+- `/seo-monitor` runs every 14 days (Windows task "AURORA SEO Monitor (nextsteps)", `scripts/register-seo-monitor.ps1`); candidate rules from it need the owner's approval.
 
 ## Workflow development guidelines
 - Define a `TypedDict` state per workflow; keep nodes small and pure where possible.

@@ -134,6 +134,9 @@ def render_report(
                 + ", ".join(f"`{k}`" for k in stale),
             ]
 
+    for section in execution.sections:
+        out += ["", f"## {section.title}", "", section.markdown.strip()]
+
     out += ["", "## Skills used", ""]
     if execution.skills_used:
         out += [

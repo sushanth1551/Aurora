@@ -94,6 +94,7 @@
       "blog_post_template": "frontend/src/pages/blog/BlogPost.tsx",
       "blog_index": "frontend/src/pages/blog/BlogIndex.tsx",
       "manual_posts": "frontend/src/data/manual-posts.json",
+      "blog_index_data": "frontend/src/data/blog-index.generated.json",
       "post_bodies": "frontend/public/blog-content/",
       "authors": "frontend/src/data/team.ts",
       "organization_schema": "frontend/src/data/organization.ts",
