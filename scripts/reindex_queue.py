@@ -2,7 +2,7 @@
 
     python scripts/reindex_queue.py check nextsteps    # batch due? (no network)
     python scripts/reindex_queue.py refresh nextsteps  # live site + GSC, build batch
-    python scripts/reindex_queue.py confirm nextsteps <batch-id>
+    python scripts/reindex_queue.py confirm nextsteps <batch-id> [--paths /blog/a ...]
     python scripts/reindex_queue.py snooze nextsteps --hours 2
     python scripts/reindex_queue.py status nextsteps   # refresh, write status.md
 
@@ -315,7 +315,9 @@ async def run(args: argparse.Namespace) -> dict[str, object]:
         store.save(state)
         return {"snoozed_until": state.snooze_until.isoformat()}
     if args.command == "confirm":
-        lines = reindex.confirm(state, args.batch, now)
+        lines = reindex.confirm(
+            state, args.batch, now, only=args.paths or None, via=args.via
+        )
         store.append_log(lines)
         store.save(state)
         write_atomic(store.status_file, reindex.status_markdown(state, now))
@@ -361,6 +363,8 @@ def main(argv: list[str] | None = None) -> int:
     p = sub.add_parser("confirm")
     p.add_argument("site")
     p.add_argument("batch")
+    p.add_argument("--paths", nargs="+", help="record only these batch pages")
+    p.add_argument("--via", default="Search Console URL Inspection")
     p = sub.add_parser("snooze")
     p.add_argument("site")
     p.add_argument("--hours", type=float, default=2.0)

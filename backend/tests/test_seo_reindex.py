@@ -133,3 +133,18 @@ def test_inspect_link_and_status_markdown() -> None:
     assert "id=https%3A%2F%2Fx.com%2Fblog%2Fa" in link
     md = reindex.status_markdown(due_state(2), T0)
     assert "| /blog/p0 |" in md and "needs a request: 2" in md
+
+
+def test_partial_confirm_records_only_requested_pages() -> None:
+    state = due_state(12)
+    batch = reindex.build_batch(state, T0)
+    assert batch is not None
+    done, missed = batch.pages[:3], batch.pages[3:]
+    with pytest.raises(ValueError):
+        reindex.confirm(state, batch.id, T0, only=["/blog/not-in-batch"])
+    lines = reindex.confirm(state, batch.id, T0, only=done, via="Claude in Chrome")
+    assert len(lines) == 3 and "Claude in Chrome" in lines[0]
+    assert all(state.pages[p].status == "requested" for p in done)
+    assert all(state.pages[p].status == "due" for p in missed)  # come back next batch
+    nxt = reindex.build_batch(state, T0 + timedelta(hours=24))
+    assert nxt is not None and set(missed) <= set(nxt.pages)

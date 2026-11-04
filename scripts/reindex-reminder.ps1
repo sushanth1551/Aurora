@@ -10,8 +10,13 @@
      token), then refreshes the queue from the live site and Search Console.
   3. Shows a notification and a window with the date, the day's pages, the pages newly added
      since the last batch, and the pages Google re-read since then. Buttons:
-       Open in Search Console   opens each page's URL Inspection screen in your browser;
-                                you click "Request indexing" on each (Google allows no API).
+       Approve: reindex all     after you confirm, opens a PowerShell window
+                                (scripts\reindex-chrome.ps1) where Claude in Chrome clicks
+                                "Request indexing" on each page; only the pages Google
+                                confirmed are recorded, the rest come back next batch.
+       I will do it myself      opens the Search Console property page and copies the page
+                                URLs to the clipboard: paste each into "Inspect any URL" and
+                                click "Request indexing" (direct inspection links return 404).
        I requested them         asks you to confirm, then records the pages as requested
                                 with today's date; the next batch is ready 24 hours later.
        Remind me in 2 hours     closes the window and asks again later.
@@ -57,6 +62,11 @@ function Show-Toast([string]$Title, [string]$Text) {
             [Windows.UI.Notifications.ToastNotification]::new($xml))
     } catch { Write-Log "Toast not shown: $($_.Exception.Message)" }
 }
+
+# 0. Keep the personal copies of AURORA's agents current (edits made outside Claude Code).
+try {
+    & (Join-Path $PSScriptRoot 'sync-agents.ps1') -All -Quiet | Out-Null
+} catch { Write-Log "Agent sync failed: $($_.Exception.Message)" }
 
 # 1. Due? (cheap, no network)
 if (-not $Force) {
@@ -132,18 +142,49 @@ $box.Size = New-Object System.Drawing.Size(860, 520)
 $box.Text = ($lines -join "`r`n")
 $form.Controls.Add($box)
 
+$auto = New-Object System.Windows.Forms.Button
+$auto.Text = "Approve: reindex all $count for me"
+$auto.Font = New-Object System.Drawing.Font('Segoe UI', 9, [System.Drawing.FontStyle]::Bold)
+$auto.Location = New-Object System.Drawing.Point(12, 545); $auto.Size = New-Object System.Drawing.Size(250, 40)
+$auto.Add_Click({
+    $msg = "Claude will open these $count page(s) in Chrome and click 'Request indexing' on each:`r`n`r`n" +
+        (($batch.pages | ForEach-Object { $_.path }) -join "`r`n") +
+        "`r`n`r`nChrome must be open with the Claude extension connected and signed in to " +
+        "Search Console. A PowerShell window will show the progress. Approve?"
+    $answer = [System.Windows.Forms.MessageBox]::Show($form, $msg, 'Approve automatic reindexing', 'YesNo', 'Question')
+    if ($answer -ne 'Yes') { return }
+    New-Item -ItemType Directory -Force -Path $script:RunDir | Out-Null
+    $pagesFile = Join-Path $script:RunDir "reindex-batch-$($batch.id -replace '[^A-Za-z0-9._-]', '_').json"
+    ConvertTo-Json -InputObject @($batch.pages) -Depth 4 | Set-Content -Path $pagesFile -Encoding UTF8
+    $runner = Join-Path $PSScriptRoot 'reindex-chrome.ps1'
+    Start-Process -FilePath 'powershell.exe' -WorkingDirectory $script:Root -ArgumentList @(
+        '-NoProfile', '-ExecutionPolicy', 'Bypass', '-File', "`"$runner`"",
+        '-Site', $Site, '-BatchId', $batch.id, '-PagesFile', "`"$pagesFile`"")
+    Write-Log "Approved batch $($batch.id) for Claude in Chrome ($count pages)."
+    $form.Tag = 'chrome'; $form.Close()
+})
+$form.Controls.Add($auto)
+
 $open = New-Object System.Windows.Forms.Button
-$open.Text = "Open $count in Search Console"
-$open.Location = New-Object System.Drawing.Point(12, 545); $open.Size = New-Object System.Drawing.Size(250, 40)
+$open.Text = 'I will do it myself'
+$open.Location = New-Object System.Drawing.Point(272, 545); $open.Size = New-Object System.Drawing.Size(210, 40)
 $open.Add_Click({
-    foreach ($p in $batch.pages) { Start-Process $p.inspect; Start-Sleep -Milliseconds 400 }
-    Write-Log "Opened $count Search Console tabs."
+    # Direct URL Inspection links return 404, so open the property page once and put the
+    # page URLs on the clipboard for its "Inspect any URL" box.
+    ($batch.pages | ForEach-Object { $_.url }) -join "`r`n" | Set-Clipboard
+    $scHome = $batch.pages[0].inspect -replace '/inspect\?resource_id=([^&]+).*$', '?resource_id=$1'
+    Start-Process $scHome
+    [System.Windows.Forms.MessageBox]::Show($form,
+        "Search Console is opening and the $count page URLs are on your clipboard.`r`n`r`n" +
+        "For each URL: paste it into 'Inspect any URL' at the top, press Enter, then click " +
+        "'Request indexing'. Afterwards press 'I requested them: record'.", 'Do it yourself') | Out-Null
+    Write-Log "Opened Search Console; copied $count URLs to the clipboard."
 })
 $form.Controls.Add($open)
 
 $done = New-Object System.Windows.Forms.Button
 $done.Text = 'I requested them: record'
-$done.Location = New-Object System.Drawing.Point(275, 545); $done.Size = New-Object System.Drawing.Size(250, 40)
+$done.Location = New-Object System.Drawing.Point(492, 545); $done.Size = New-Object System.Drawing.Size(200, 40)
 $done.Add_Click({
     $when = Get-Date -Format 'dd MMM yyyy HH:mm'
     $msg = "Record these $count page(s) as requested on $when?`r`n`r`n" +
@@ -165,12 +206,15 @@ $form.Controls.Add($done)
 
 $later = New-Object System.Windows.Forms.Button
 $later.Text = 'Remind me in 2 hours'
-$later.Location = New-Object System.Drawing.Point(538, 545); $later.Size = New-Object System.Drawing.Size(200, 40)
+$later.Location = New-Object System.Drawing.Point(702, 545); $later.Size = New-Object System.Drawing.Size(170, 40)
 $later.Add_Click({ $form.Close() })
 $form.Controls.Add($later)
 
 [void]$form.ShowDialog()
-if ($form.Tag -ne 'done') {
+if ($form.Tag -eq 'chrome') {
+    # Claude is working in Chrome; if nothing gets recorded, the batch comes back in 2 hours.
+    Invoke-Queue "snooze $Site --hours 2" | Out-Null
+} elseif ($form.Tag -ne 'done') {
     Invoke-Queue "snooze $Site --hours 2" | Out-Null
     Write-Log 'Snoozed for 2 hours.'
 }

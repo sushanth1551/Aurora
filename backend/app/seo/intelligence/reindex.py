@@ -207,20 +207,33 @@ def build_batch(state: ReindexState, now: datetime) -> Batch | None:
     return batch
 
 
-def confirm(state: ReindexState, batch_id: str, now: datetime) -> list[str]:
-    """Mark the pending batch as requested; returns the log lines to append."""
+def confirm(
+    state: ReindexState,
+    batch_id: str,
+    now: datetime,
+    only: list[str] | None = None,
+    via: str = "Search Console URL Inspection",
+) -> list[str]:
+    """Mark the pending batch as requested; returns the log lines to append.
+
+    ``only`` records just those batch pages (for example when Google's daily quota
+    stopped the run); the others stay due and come back in the next batch.
+    """
     batch = state.pending
     if batch is None or batch.id != batch_id:
         raise ValueError(f"no pending batch {batch_id}")
+    if only is not None:
+        unknown = sorted(set(only) - set(batch.pages))
+        if unknown:
+            raise ValueError(f"not in batch {batch_id}: {', '.join(unknown)}")
+    requested = [p for p in batch.pages if only is None or p in only]
     lines = []
-    for path in batch.pages:
+    for path in requested:
         page = state.pages[path]
         page.requested_at = now
         page.status = "requested"
-        lines.append(
-            f"- `{path}` requested {now:%Y-%m-%d} (batch {batch.id}, Search Console URL Inspection)"
-        )
-    state.due_at_last_batch = [p.path for p in due_pages(state)] + batch.pages
+        lines.append(f"- `{path}` requested {now:%Y-%m-%d} (batch {batch.id}, {via})")
+    state.due_at_last_batch = [p.path for p in due_pages(state)] + requested
     state.uncrawled_at_last_batch = sorted(
         p.path for p in state.pages.values() if p.status in {"due", "requested"}
     )
