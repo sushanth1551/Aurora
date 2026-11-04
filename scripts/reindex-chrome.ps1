@@ -38,7 +38,14 @@ function Say([string]$Text, [string]$Color = 'Gray') {
 }
 
 $Host.UI.RawUI.WindowTitle = "AURORA: requesting indexing ($BatchId)"
-$pages = @(Get-Content $PagesFile -Raw -Encoding UTF8 | ConvertFrom-Json)
+# Two steps on purpose: in Windows PowerShell 5.1, @(... | ConvertFrom-Json) wraps the whole
+# JSON array as ONE element (on 2026-11-04 this turned a 10-page batch into "1 page").
+$parsed = Get-Content $PagesFile -Raw -Encoding UTF8 | ConvertFrom-Json
+$pages = @($parsed)
+if ($pages.Count -lt 1 -or ($pages | Where-Object { $_.path -isnot [string] })) {
+    Say "Could not read the approved pages from $PagesFile; nothing was requested." 'Red'
+    Read-Host 'Press Enter to close'; exit 1
+}
 $config = Get-Content (Join-Path $script:Root "seo-intelligence\config\sites\$Site.json") -Raw -Encoding UTF8 |
     ConvertFrom-Json
 $property = $config.integrations.search_console_property
@@ -87,8 +94,9 @@ $list
    (Direct .../search-console/inspect?... links return 404; do not use them.)
 
 ## Record the result
-Run exactly this command once, listing only the paths that showed "Indexing requested":
-.venv/Scripts/python scripts/reindex_queue.py confirm $Site $BatchId --via "Claude in Chrome" --paths <requested paths>
+Run exactly this command once in Bash, listing only the paths that showed "Indexing requested"
+(MSYS_NO_PATHCONV=1 stops Git Bash from turning /blog/... into a Windows path):
+MSYS_NO_PATHCONV=1 .venv/Scripts/python scripts/reindex_queue.py confirm $Site $BatchId --via "Claude in Chrome" --paths <requested paths>
 (all $($pages.Count) paths: $paths)
 If no page was requested, do not run it. Then print a short summary table and tell the owner they
 can close this window.
@@ -120,7 +128,7 @@ Push-Location $script:Root
 try {
     & $claude --chrome --agent seo-reindex-agent --model $Model `
         --allowedTools 'mcp__claude-in-chrome' 'Read' `
-        'Bash(.venv/Scripts/python scripts/reindex_queue.py confirm *)' `
+        'Bash(MSYS_NO_PATHCONV=1 .venv/Scripts/python scripts/reindex_queue.py confirm *)' `
         -- $prompt
 } finally {
     Pop-Location
