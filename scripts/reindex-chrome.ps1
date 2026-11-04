@@ -19,7 +19,10 @@ param(
     [Parameter(Mandatory)] [string]$Site,
     [Parameter(Mandatory)] [string]$BatchId,
     [Parameter(Mandatory)] [string]$PagesFile,
-    [string]$Model = 'sonnet'
+    [string]$Model = 'sonnet',
+    # Chrome profile with the Claude extension and the Search Console login
+    # ("nextstepsusmle.com", sushanth@nextstepsusmle.com).
+    [string]$ChromeProfile = 'Profile 3'
 )
 
 . (Join-Path $PSScriptRoot 'aurora-common.ps1')
@@ -93,6 +96,24 @@ can close this window.
 $taskFile = Join-Path $script:RunDir "reindex-task-$($BatchId -replace '[^A-Za-z0-9._-]', '_').md"
 Set-Content -Path $taskFile -Value $task -Encoding UTF8
 Say "Task file: $taskFile" 'DarkGray'
+
+# Claude in Chrome needs a running Chrome with the extension: open the right profile on the
+# Search Console property (starts Chrome if it is closed; adds a window if it is open).
+$chromeExe = @(
+    "$env:ProgramFiles\Google\Chrome\Application\chrome.exe",
+    "${env:ProgramFiles(x86)}\Google\Chrome\Application\chrome.exe",
+    "$env:LOCALAPPDATA\Google\Chrome\Application\chrome.exe"
+) | Where-Object { Test-Path $_ } | Select-Object -First 1
+if ($chromeExe) {
+    $wasRunning = [bool](Get-Process chrome -ErrorAction SilentlyContinue)
+    Start-Process -FilePath $chromeExe -ArgumentList "--profile-directory=`"$ChromeProfile`"", $scHome
+    $wait = if ($wasRunning) { 5 } else { 15 }
+    Say "Opened Chrome ($ChromeProfile) on Search Console; waiting $wait s for the Claude extension." 'DarkGray'
+    Start-Sleep -Seconds $wait
+} else {
+    Say 'Google Chrome was not found; Claude in Chrome cannot run.' 'Red'
+    Read-Host 'Press Enter to close'; exit 1
+}
 
 $prompt = "Read $taskFile and carry out exactly what it says for the approved reindex batch."
 Push-Location $script:Root
