@@ -128,5 +128,22 @@
     "sitemap submission or reindex requests",
     "paid API calls beyond an approved credit budget",
     "skill methodology changes"
-  ]
+  ],
+  "rank_tracking": {"keywords": [], "markets": ["IN", "US"], "devices": ["mobile"], "serpapi_monthly_budget": 0, "serp_check_every_days": 7, "gsc_window_days": 7},
+  "keyword_data": {"provider": "none", "monthly_budget_usd": 0, "location_codes": {"IN": 2356, "US": 2840}},
+  "ai_visibility": {
+    "prompts": [
+      "best usmle coaching in india",
+      "how to prepare for usmle step 1 from india",
+      "how much does usmle cost for indian students",
+      "usmle step 1 study plan for img",
+      "is usmle tough for indian students",
+      "best usmle mentorship for international medical graduates"
+    ],
+    "allow_training_crawlers": null
+  },
+  "ymyl": {"facts": []},
+  "video": {"playlists": ["https://www.youtube.com/playlist?list=PLHsOObYl5mXeqPPBRjMnByWeGSRQTctNs"]},
+  "alerts": {"every_days": 7, "run_time": "09:00", "min_weekly_clicks": 20, "robust_z": 3.0, "min_drop_pct": 25.0, "inspect_key_pages": true},
+  "competitor_watch": {"max_urls_per_site": 3000, "max_title_fetches": 15}
 }

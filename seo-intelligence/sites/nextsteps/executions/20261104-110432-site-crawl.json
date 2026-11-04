@@ -1,0 +1,1865 @@
+{
+  "id": "20261104-110432-site-crawl",
+  "site_id": "nextsteps",
+  "mode": "site-crawl",
+  "status": "completed",
+  "started_at": "2026-11-04T11:04:32.266638Z",
+  "finished_at": "2026-11-04T11:04:48.915225Z",
+  "summary": "83 pages audited, 8 technical rule findings, 28 findings in total (no paid calls).",
+  "pages_analysed": [
+    "https://nextstepsusmle.com/",
+    "https://nextstepsusmle.com/step-1-2-ck",
+    "https://nextstepsusmle.com/success-stories",
+    "https://nextstepsusmle.com/blog",
+    "https://nextstepsusmle.com/contact",
+    "https://nextstepsusmle.com/blog/highest-usmle-step-2-ck-score",
+    "https://nextstepsusmle.com/blog/how-to-apply-for-usmle-from-india",
+    "https://nextstepsusmle.com/blog/is-it-too-late-to-start-usmle",
+    "https://nextstepsusmle.com/blog/img-match-2026-nrmp-data",
+    "https://nextstepsusmle.com/programs/usmle-cv",
+    "https://nextstepsusmle.com/programs/clinical-rotations",
+    "https://nextstepsusmle.com/programs/residency-match",
+    "https://nextstepsusmle.com/terms",
+    "https://nextstepsusmle.com/cancellation-policy",
+    "https://nextstepsusmle.com/privacy-policy",
+    "https://nextstepsusmle.com/mentorship",
+    "https://nextstepsusmle.com/webinar",
+    "https://nextstepsusmle.com/blog/how-many-indians-pass-the-usmle-each-year",
+    "https://nextstepsusmle.com/blog/usmle-step-2-ck-exam-format-2026",
+    "https://nextstepsusmle.com/blog/who-are-eligible-for-usmle",
+    "https://nextstepsusmle.com/blog/can-indian-medical-graduates-work-in-the-usa-without-usmle",
+    "https://nextstepsusmle.com/blog/how-to-prepare-for-the-residency-match-season",
+    "https://nextstepsusmle.com/blog/how-much-does-usmle-cost-in-total",
+    "https://nextstepsusmle.com/blog/what-is-the-role-of-mentorship-in-usmle-preparation",
+    "https://nextstepsusmle.com/blog/what-is-the-best-usmle-question-bank",
+    "https://nextstepsusmle.com/blog/best-study-resources-for-usmle-steps-preparation",
+    "https://nextstepsusmle.com/blog/usmle-step-3-preparatio-study-plan-and-guidance",
+    "https://nextstepsusmle.com/blog/what-is-oet-exam-how-much-does-it-costs",
+    "https://nextstepsusmle.com/blog/official-statement-regarding-the-invalidation-of-usmle-examination-scores",
+    "https://nextstepsusmle.com/blog/ecfmg-announcement-certification-eligibility",
+    "https://nextstepsusmle.com/blog/ecfmg-2027-pathways-for-imgs",
+    "https://nextstepsusmle.com/blog/apply-now-for-a-free-usmle-step-3-practice-examination",
+    "https://nextstepsusmle.com/blog/important-update-for-usmle-step1-and-step-2ck-examinees-in-2024",
+    "https://nextstepsusmle.com/blog/how-to-review-a-uworld-qbank-block",
+    "https://nextstepsusmle.com/blog/usmle-lor-letters-of-recommendation-img-residency-match",
+    "https://nextstepsusmle.com/blog/usmle-step-2-ck-study-plan-12-weeks",
+    "https://nextstepsusmle.com/blog/6-month-usmle-step-1-study-plan",
+    "https://nextstepsusmle.com/blog/top-usmle-coaching-centers-in-india",
+    "https://nextstepsusmle.com/blog/usmle-step-1-vs-step-2-ck-key-differences-you-need-to-know",
+    "https://nextstepsusmle.com/blog/what-are-the-most-important-questions-covered-in-the-usmle",
+    "https://nextstepsusmle.com/blog/what-is-the-typical-preparation-time-for-usmle-step-1",
+    "https://nextstepsusmle.com/blog/how-to-create-a-winning-study-schedule-for-usmle-step-1",
+    "https://nextstepsusmle.com/blog/what-is-the-salary-after-usmle",
+    "https://nextstepsusmle.com/blog/how-many-years-is-usmle-valid",
+    "https://nextstepsusmle.com/blog/in-which-year-of-mbbs-can-you-give-usmle-step-2-ck",
+    "https://nextstepsusmle.com/blog/do-mbbs-marks-have-an-impact-on-the-usmle",
+    "https://nextstepsusmle.com/blog/how-to-crack-usmle-on-your-first-attempt",
+    "https://nextstepsusmle.com/blog/how-to-start-your-usmle-prep-journey",
+    "https://nextstepsusmle.com/blog/is-usmle-only-for-mbbs-students",
+    "https://nextstepsusmle.com/blog/how-should-imgs-approach-the-usmle-match-process",
+    "https://nextstepsusmle.com/blog/how-can-you-stand-out-in-usmle-clinical-rotations",
+    "https://nextstepsusmle.com/blog/why-usmle-cv-can-be-rejected",
+    "https://nextstepsusmle.com/blog/how-to-prepare-for-usmle-from-1st-year-mbbs",
+    "https://nextstepsusmle.com/blog/an-average-students-path-to-usmle-success",
+    "https://nextstepsusmle.com/blog/can-you-take-the-usmle-right-after-mbbs-in-india",
+    "https://nextstepsusmle.com/blog/6-keys-to-usmle-match-success",
+    "https://nextstepsusmle.com/blog/common-pitfalls-in-the-usmle-journey-and-how-to-avoid-them",
+    "https://nextstepsusmle.com/blog/how-to-improve-your-prospects-for-success-on-residency-match-day",
+    "https://nextstepsusmle.com/blog/what-is-the-difference-between-the-match-and-soap",
+    "https://nextstepsusmle.com/blog/how-to-find-research-opportunities-for-usmle-cv-in-mbbs",
+    "https://nextstepsusmle.com/blog/common-mistakes-to-avoid-while-preparing-for-the-usmle-step-1",
+    "https://nextstepsusmle.com/blog/comprehensive-guide-to-the-usmle-step-2-ck-syllabus",
+    "https://nextstepsusmle.com/blog/understanding-usmle-step-1-questions-a-comprehensive-guide",
+    "https://nextstepsusmle.com/blog/usmle-step-1-exam-fee-what-you-need-to-know",
+    "https://nextstepsusmle.com/blog/usmle-step-1-passing-score-step-by-step-guidance",
+    "https://nextstepsusmle.com/blog/comprehensive-guide-to-the-usmle-step-1-syllabus",
+    "https://nextstepsusmle.com/blog/ultimate-guide-to-choosing-the-best-usmle-step-1-book",
+    "https://nextstepsusmle.com/blog/how-to-balance-usmle-preparation-and-medical-school",
+    "https://nextstepsusmle.com/blog/how-to-make-a-good-cv-for-usmle",
+    "https://nextstepsusmle.com/blog/how-to-score-280-on-usmle-step-2-ck",
+    "https://nextstepsusmle.com/blog/what-happens-if-you-fail-in-usmle-step-1",
+    "https://nextstepsusmle.com/blog/is-the-usmle-tough-for-indian-students",
+    "https://nextstepsusmle.com/blog/how-many-interviews-should-you-get-to-match",
+    "https://nextstepsusmle.com/blog/why-dont-imgs-get-usmle-residency-interviews",
+    "https://nextstepsusmle.com/blog/usmle-personal-statement-dos-and-donts",
+    "https://nextstepsusmle.com/blog/can-you-prepare-for-the-usmle-during-med-school",
+    "https://nextstepsusmle.com/blog/what-do-program-directors-seek-from-usce",
+    "https://nextstepsusmle.com/blog/how-to-find-the-best-us-clinical-experience-for-imgs",
+    "https://nextstepsusmle.com/blog/sample-residency-interview-questions-and-answers",
+    "https://nextstepsusmle.com/blog/what-do-program-directors-expect-in-the-usmle-match-interview",
+    "https://nextstepsusmle.com/blog/what-are-usmle-clinical-rotations-and-electives",
+    "https://nextstepsusmle.com/blog/what-is-usmle-what-are-the-usmle-steps",
+    "https://nextstepsusmle.com/"
+  ],
+  "reports_processed": [],
+  "skills_used": [
+    {
+      "name": "seo-site-crawl",
+      "reason": "Free repeatable crawl with the technical rules, YMYL, video and source-map checks.",
+      "analysed": "83 pages audited, 8 technical rule findings, 28 findings in total (no paid calls).",
+      "actions": [
+        "YMYL checks on 82 pages (0 registry facts)"
+      ],
+      "output": "28 findings",
+      "content_hash": "19c6966ddb9c53c0a1ed88fb24cab250f02dd7dc6a922a91672b254d34919f02"
+    }
+  ],
+  "tools_used": [
+    {
+      "name": "AURORA crawler (direct HTML, UrlPolicy)",
+      "kind": "aurora",
+      "status": "success",
+      "calls": 170,
+      "note": "83 pages audited"
+    },
+    {
+      "name": "git ls-files + text search (read-only)",
+      "kind": "git",
+      "status": "success",
+      "calls": 0,
+      "note": "348 files, 68 locations"
+    }
+  ],
+  "findings": [
+    {
+      "key": "tech:robots.blocks_pages",
+      "issue": "Audited pages are disallowed for Googlebot by robots.txt",
+      "category": "technical/crawlability",
+      "priority": "medium",
+      "evidence": [
+        {
+          "source": "AURORA crawl (robots_txt)",
+          "observation": "{\"googlebot_allowed\": false, \"via\": [\"link\"]}",
+          "url": "https://nextstepsusmle.com/payment",
+          "observed_at": "2026-11-04T11:04:38.099731Z",
+          "execution_id": "20261104-110432-site-crawl"
+        }
+      ],
+      "evidence_state": "observed",
+      "affected_urls": [
+        "https://nextstepsusmle.com/payment"
+      ],
+      "seo_impact": "These URLs were linked from the site or listed in a sitemap but robots.txt disallows them for Googlebot. Disallowed URLs can still be indexed without content if linked; use noindex (on a crawlable page) to keep them out.",
+      "recommended_action": "Fix on the 1 affected URL(s); see the technical rule's guidance (seo-toolkit-technical-audit).",
+      "expected_outcome": "The check passes on the next crawl.",
+      "verification_method": "Re-run /seo-site-crawl; the finding is not observed.",
+      "status": "open",
+      "skill": "seo-site-crawl",
+      "first_seen": null,
+      "last_seen": null,
+      "seen_in": [],
+      "history": []
+    },
+    {
+      "key": "tech:sitemap.lists_non_200",
+      "issue": "Sitemap lists URLs that redirect or do not return 2xx",
+      "category": "technical/crawlability",
+      "priority": "medium",
+      "evidence": [
+        {
+          "source": "AURORA crawl (http_trace)",
+          "observation": "{\"status\": 200, \"redirects\": 1, \"final_url\": \"https://nextstepsusmle.com/\"}",
+          "url": "https://www.nextstepsusmle.com/",
+          "observed_at": "2026-11-04T11:04:38.100739Z",
+          "execution_id": "20261104-110432-site-crawl"
+        },
+        {
+          "source": "Website repository (read-only text search)",
+          "observation": "/ title: frontend/src/pages/Index.tsx:53",
+          "url": null,
+          "observed_at": "2026-11-04T11:04:46.724579Z",
+          "execution_id": "20261104-110432-site-crawl"
+        }
+      ],
+      "evidence_state": "observed",
+      "affected_urls": [
+        "https://www.nextstepsusmle.com/"
+      ],
+      "seo_impact": "Sitemaps should list final, 200-status URLs. Checked for the audited URLs only.",
+      "recommended_action": "Fix on the 1 affected URL(s); see the technical rule's guidance (seo-toolkit-technical-audit).",
+      "expected_outcome": "The check passes on the next crawl.",
+      "verification_method": "Re-run /seo-site-crawl; the finding is not observed.",
+      "status": "open",
+      "skill": "seo-site-crawl",
+      "first_seen": null,
+      "last_seen": null,
+      "seen_in": [],
+      "history": []
+    },
+    {
+      "key": "tech:title.duplicate",
+      "issue": "Duplicate titles across pages",
+      "category": "technical/metadata",
+      "priority": "medium",
+      "evidence": [
+        {
+          "source": "AURORA crawl (direct HTML)",
+          "observation": "{\"value\": \"#1 usmle preparation platform | next steps usmle\", \"shared_by\": 2}",
+          "url": "https://nextstepsusmle.com/",
+          "observed_at": "2026-11-04T11:04:38.100739Z",
+          "execution_id": "20261104-110432-site-crawl"
+        },
+        {
+          "source": "AURORA crawl (direct HTML)",
+          "observation": "{\"value\": \"#1 usmle preparation platform | next steps usmle\", \"shared_by\": 2}",
+          "url": "https://www.nextstepsusmle.com/",
+          "observed_at": "2026-11-04T11:04:38.100739Z",
+          "execution_id": "20261104-110432-site-crawl"
+        },
+        {
+          "source": "Website repository (read-only text search)",
+          "observation": "/ title: frontend/src/pages/Index.tsx:53; / title: frontend/src/pages/Index.tsx:53",
+          "url": null,
+          "observed_at": "2026-11-04T11:04:46.782990Z",
+          "execution_id": "20261104-110432-site-crawl"
+        }
+      ],
+      "evidence_state": "observed",
+      "affected_urls": [
+        "https://nextstepsusmle.com/",
+        "https://www.nextstepsusmle.com/"
+      ],
+      "seo_impact": "1 title(s) are shared by more than one audited page (within the audited sample).",
+      "recommended_action": "Fix on the 2 affected URL(s); see the technical rule's guidance (seo-toolkit-technical-audit).",
+      "expected_outcome": "The check passes on the next crawl.",
+      "verification_method": "Re-run /seo-site-crawl; the finding is not observed.",
+      "status": "open",
+      "skill": "seo-site-crawl",
+      "first_seen": null,
+      "last_seen": null,
+      "seen_in": [],
+      "history": []
+    },
+    {
+      "key": "tech:description.duplicate",
+      "issue": "Duplicate meta descriptions across pages",
+      "category": "technical/metadata",
+      "priority": "low",
+      "evidence": [
+        {
+          "source": "AURORA crawl (direct HTML)",
+          "observation": "{\"value\": \"usmle step 1 & step 2 ck prep for imgs — 1-on-1 mentorship, structured modules, cv building & residency match support trusted by 700+ students.\", \"shared_by\": 2}",
+          "url": "https://nextstepsusmle.com/",
+          "observed_at": "2026-11-04T11:04:38.100739Z",
+          "execution_id": "20261104-110432-site-crawl"
+        },
+        {
+          "source": "AURORA crawl (direct HTML)",
+          "observation": "{\"value\": \"usmle step 1 & step 2 ck prep for imgs — 1-on-1 mentorship, structured modules, cv building & residency match support trusted by 700+ students.\", \"shared_by\": 2}",
+          "url": "https://www.nextstepsusmle.com/",
+          "observed_at": "2026-11-04T11:04:38.100739Z",
+          "execution_id": "20261104-110432-site-crawl"
+        },
+        {
+          "source": "Website repository (read-only text search)",
+          "observation": "/ title: frontend/src/pages/Index.tsx:53; / title: frontend/src/pages/Index.tsx:53",
+          "url": null,
+          "observed_at": "2026-11-04T11:04:46.834418Z",
+          "execution_id": "20261104-110432-site-crawl"
+        }
+      ],
+      "evidence_state": "observed",
+      "affected_urls": [
+        "https://nextstepsusmle.com/",
+        "https://www.nextstepsusmle.com/"
+      ],
+      "seo_impact": "1 meta description(s) are shared by more than one audited page (within the audited sample).",
+      "recommended_action": "Fix on the 2 affected URL(s); see the technical rule's guidance (seo-toolkit-technical-audit).",
+      "expected_outcome": "The check passes on the next crawl.",
+      "verification_method": "Re-run /seo-site-crawl; the finding is not observed.",
+      "status": "open",
+      "skill": "seo-site-crawl",
+      "first_seen": null,
+      "last_seen": null,
+      "seen_in": [],
+      "history": []
+    },
+    {
+      "key": "tech:title.length",
+      "issue": "Titles outside the typical display length",
+      "category": "technical/metadata",
+      "priority": "low",
+      "evidence": [
+        {
+          "source": "AURORA crawl (direct HTML)",
+          "observation": "{\"title\": \"CV for USMLE Residency Applications: Structure, Tips & ERAS Format | Next Steps USMLE\", \"length\": 85}",
+          "url": "https://nextstepsusmle.com/programs/usmle-cv",
+          "observed_at": "2026-11-04T11:04:38.100739Z",
+          "execution_id": "20261104-110432-site-crawl"
+        },
+        {
+          "source": "AURORA crawl (direct HTML)",
+          "observation": "{\"title\": \"Clinical Rotations & Electives in USA: Complete Guide for IMGs\", \"length\": 62}",
+          "url": "https://nextstepsusmle.com/programs/clinical-rotations",
+          "observed_at": "2026-11-04T11:04:38.100739Z",
+          "execution_id": "20261104-110432-site-crawl"
+        },
+        {
+          "source": "AURORA crawl (direct HTML)",
+          "observation": "{\"title\": \"Residency Match Strategy: Complete Guide for IMGs & US Grads | Next Steps USMLE\", \"length\": 79}",
+          "url": "https://nextstepsusmle.com/programs/residency-match",
+          "observed_at": "2026-11-04T11:04:38.100739Z",
+          "execution_id": "20261104-110432-site-crawl"
+        },
+        {
+          "source": "AURORA crawl (direct HTML)",
+          "observation": "{\"title\": \"Next Steps — Crack USMLE Step 1 & Step 2 CK with 1:1 Mentorship\", \"length\": 63}",
+          "url": "https://nextstepsusmle.com/mentorship",
+          "observed_at": "2026-11-04T11:04:38.100739Z",
+          "execution_id": "20261104-110432-site-crawl"
+        },
+        {
+          "source": "AURORA crawl (direct HTML)",
+          "observation": "{\"title\": \"Free USMLE Webinar Every Sunday — The Whole Route in One Hour | Next Steps\", \"length\": 74}",
+          "url": "https://nextstepsusmle.com/webinar",
+          "observed_at": "2026-11-04T11:04:38.100739Z",
+          "execution_id": "20261104-110432-site-crawl"
+        },
+        {
+          "source": "Website repository (read-only text search)",
+          "observation": "/programs/usmle-cv title: frontend/src/pages/USMLECv.tsx:203; /programs/clinical-rotations title: frontend/src/pages/ClinicalRotations.tsx:310; /programs/residency-match title: frontend/src/pages/ResidencyMatch.tsx:309; /mentorship title: frontend/src/pages/Mentorship.legacy.tsx:807; /webinar title: frontend/src/pages/Webinar.tsx:113",
+          "url": null,
+          "observed_at": "2026-11-04T11:04:47.015409Z",
+          "execution_id": "20261104-110432-site-crawl"
+        }
+      ],
+      "evidence_state": "observed",
+      "affected_urls": [
+        "https://nextstepsusmle.com/programs/usmle-cv",
+        "https://nextstepsusmle.com/programs/clinical-rotations",
+        "https://nextstepsusmle.com/programs/residency-match",
+        "https://nextstepsusmle.com/mentorship",
+        "https://nextstepsusmle.com/webinar"
+      ],
+      "seo_impact": "Shorter than 10 or longer than 60 characters. This is a display heuristic, not a ranking rule; search engines may rewrite titles.",
+      "recommended_action": "Fix on the 5 affected URL(s); see the technical rule's guidance (seo-toolkit-technical-audit).",
+      "expected_outcome": "The check passes on the next crawl.",
+      "verification_method": "Re-run /seo-site-crawl; the finding is not observed.",
+      "status": "open",
+      "skill": "seo-site-crawl",
+      "first_seen": null,
+      "last_seen": null,
+      "seen_in": [],
+      "history": []
+    },
+    {
+      "key": "tech:schema.missing_recommended",
+      "issue": "Structured data missing recommended properties",
+      "category": "technical/structured_data",
+      "priority": "low",
+      "evidence": [
+        {
+          "source": "AURORA crawl (direct HTML)",
+          "observation": "{\"type\": \"Article\", \"property\": \"image\", \"message\": \"Article has no recommended 'image'.\", \"level\": \"info\"}",
+          "url": "https://nextstepsusmle.com/programs/usmle-cv",
+          "observed_at": "2026-11-04T11:04:38.100739Z",
+          "execution_id": "20261104-110432-site-crawl"
+        },
+        {
+          "source": "AURORA crawl (direct HTML)",
+          "observation": "{\"type\": \"Article\", \"property\": \"image\", \"message\": \"Article has no recommended 'image'.\", \"level\": \"info\"}",
+          "url": "https://nextstepsusmle.com/programs/clinical-rotations",
+          "observed_at": "2026-11-04T11:04:38.100739Z",
+          "execution_id": "20261104-110432-site-crawl"
+        },
+        {
+          "source": "AURORA crawl (direct HTML)",
+          "observation": "{\"type\": \"Article\", \"property\": \"image\", \"message\": \"Article has no recommended 'image'.\", \"level\": \"info\"}",
+          "url": "https://nextstepsusmle.com/programs/residency-match",
+          "observed_at": "2026-11-04T11:04:38.100739Z",
+          "execution_id": "20261104-110432-site-crawl"
+        },
+        {
+          "source": "Website repository (read-only text search)",
+          "observation": "/programs/usmle-cv title: frontend/src/pages/USMLECv.tsx:203; /programs/clinical-rotations title: frontend/src/pages/ClinicalRotations.tsx:310; /programs/residency-match title: frontend/src/pages/ResidencyMatch.tsx:309",
+          "url": null,
+          "observed_at": "2026-11-04T11:04:47.124034Z",
+          "execution_id": "20261104-110432-site-crawl"
+        }
+      ],
+      "evidence_state": "observed",
+      "affected_urls": [
+        "https://nextstepsusmle.com/programs/usmle-cv",
+        "https://nextstepsusmle.com/programs/clinical-rotations",
+        "https://nextstepsusmle.com/programs/residency-match"
+      ],
+      "seo_impact": "Add only when the fact is visible on the page.",
+      "recommended_action": "Fix on the 3 affected URL(s); see the technical rule's guidance (seo-toolkit-technical-audit).",
+      "expected_outcome": "The check passes on the next crawl.",
+      "verification_method": "Re-run /seo-site-crawl; the finding is not observed.",
+      "status": "open",
+      "skill": "seo-site-crawl",
+      "first_seen": null,
+      "last_seen": null,
+      "seen_in": [],
+      "history": []
+    },
+    {
+      "key": "tech:schema.retired_feature",
+      "issue": "Markup for retired rich-result features",
+      "category": "technical/structured_data",
+      "priority": "low",
+      "evidence": [
+        {
+          "source": "AURORA crawl (direct HTML)",
+          "observation": "{\"type\": \"SearchAction\", \"property\": null, \"message\": \"The sitelinks search box (SearchAction) was retired in November 2024.\", \"level\": \"info\"}",
+          "url": "https://nextstepsusmle.com/",
+          "observed_at": "2026-11-04T11:04:38.100739Z",
+          "execution_id": "20261104-110432-site-crawl"
+        },
+        {
+          "source": "AURORA crawl (direct HTML)",
+          "observation": "{\"type\": \"FAQPage\", \"property\": null, \"message\": \"FAQ rich results were fully retired on 2026-05-07; keep only if accurate for other consumers.\", \"level\": \"info\"}",
+          "url": "https://nextstepsusmle.com/",
+          "observed_at": "2026-11-04T11:04:38.100739Z",
+          "execution_id": "20261104-110432-site-crawl"
+        },
+        {
+          "source": "AURORA crawl (direct HTML)",
+          "observation": "{\"type\": \"FAQPage\", \"property\": null, \"message\": \"FAQ rich results were fully retired on 2026-05-07; keep only if accurate for other consumers.\", \"level\": \"info\"}",
+          "url": "https://nextstepsusmle.com/blog/highest-usmle-step-2-ck-score",
+          "observed_at": "2026-11-04T11:04:38.100739Z",
+          "execution_id": "20261104-110432-site-crawl"
+        },
+        {
+          "source": "AURORA crawl (direct HTML)",
+          "observation": "{\"type\": \"FAQPage\", \"property\": null, \"message\": \"FAQ rich results were fully retired on 2026-05-07; keep only if accurate for other consumers.\", \"level\": \"info\"}",
+          "url": "https://nextstepsusmle.com/blog/how-to-apply-for-usmle-from-india",
+          "observed_at": "2026-11-04T11:04:38.100739Z",
+          "execution_id": "20261104-110432-site-crawl"
+        },
+        {
+          "source": "AURORA crawl (direct HTML)",
+          "observation": "{\"type\": \"FAQPage\", \"property\": null, \"message\": \"FAQ rich results were fully retired on 2026-05-07; keep only if accurate for other consumers.\", \"level\": \"info\"}",
+          "url": "https://nextstepsusmle.com/blog/is-it-too-late-to-start-usmle",
+          "observed_at": "2026-11-04T11:04:38.100739Z",
+          "execution_id": "20261104-110432-site-crawl"
+        },
+        {
+          "source": "AURORA crawl (direct HTML)",
+          "observation": "{\"type\": \"FAQPage\", \"property\": null, \"message\": \"FAQ rich results were fully retired on 2026-05-07; keep only if accurate for other consumers.\", \"level\": \"info\"}",
+          "url": "https://nextstepsusmle.com/blog/img-match-2026-nrmp-data",
+          "observed_at": "2026-11-04T11:04:38.100739Z",
+          "execution_id": "20261104-110432-site-crawl"
+        },
+        {
+          "source": "AURORA crawl (direct HTML)",
+          "observation": "{\"type\": \"FAQPage\", \"property\": null, \"message\": \"FAQ rich results were fully retired on 2026-05-07; keep only if accurate for other consumers.\", \"level\": \"info\"}",
+          "url": "https://nextstepsusmle.com/programs/usmle-cv",
+          "observed_at": "2026-11-04T11:04:38.100739Z",
+          "execution_id": "20261104-110432-site-crawl"
+        },
+        {
+          "source": "AURORA crawl (direct HTML)",
+          "observation": "{\"type\": \"FAQPage\", \"property\": null, \"message\": \"FAQ rich results were fully retired on 2026-05-07; keep only if accurate for other consumers.\", \"level\": \"info\"}",
+          "url": "https://nextstepsusmle.com/programs/clinical-rotations",
+          "observed_at": "2026-11-04T11:04:38.100739Z",
+          "execution_id": "20261104-110432-site-crawl"
+        },
+        {
+          "source": "AURORA crawl (direct HTML)",
+          "observation": "{\"type\": \"FAQPage\", \"property\": null, \"message\": \"FAQ rich results were fully retired on 2026-05-07; keep only if accurate for other consumers.\", \"level\": \"info\"}",
+          "url": "https://nextstepsusmle.com/programs/residency-match",
+          "observed_at": "2026-11-04T11:04:38.100739Z",
+          "execution_id": "20261104-110432-site-crawl"
+        },
+        {
+          "source": "AURORA crawl (direct HTML)",
+          "observation": "{\"type\": \"FAQPage\", \"property\": null, \"message\": \"FAQ rich results were fully retired on 2026-05-07; keep only if accurate for other consumers.\", \"level\": \"info\"}",
+          "url": "https://nextstepsusmle.com/mentorship",
+          "observed_at": "2026-11-04T11:04:38.100739Z",
+          "execution_id": "20261104-110432-site-crawl"
+        },
+        {
+          "source": "Website repository (read-only text search)",
+          "observation": "/ title: frontend/src/pages/Index.tsx:53; /blog/highest-usmle-step-2-ck-score title: frontend/src/data/blog-index.generated.json:7; /blog/how-to-apply-for-usmle-from-india title: blog-reindex-tracker.md:72; /blog/is-it-too-late-to-start-usmle title: frontend/src/data/blog-index.generated.json:119; /blog/img-match-2026-nrmp-data title: frontend/src/data/blog-index.generated.json:173; /programs/usmle-cv title: frontend/src/pages/USMLECv.tsx:203; /programs/clinical-rotations title: frontend/src/pages/ClinicalRotations.tsx:310; /programs/residency-match title: frontend/src/pages/ResidencyMatch.tsx:309",
+          "url": null,
+          "observed_at": "2026-11-04T11:04:47.327942Z",
+          "execution_id": "20261104-110432-site-crawl"
+        }
+      ],
+      "evidence_state": "observed",
+      "affected_urls": [
+        "https://nextstepsusmle.com/",
+        "https://nextstepsusmle.com/blog/highest-usmle-step-2-ck-score",
+        "https://nextstepsusmle.com/blog/how-to-apply-for-usmle-from-india",
+        "https://nextstepsusmle.com/blog/is-it-too-late-to-start-usmle",
+        "https://nextstepsusmle.com/blog/img-match-2026-nrmp-data",
+        "https://nextstepsusmle.com/programs/usmle-cv",
+        "https://nextstepsusmle.com/programs/clinical-rotations",
+        "https://nextstepsusmle.com/programs/residency-match",
+        "https://nextstepsusmle.com/mentorship",
+        "https://nextstepsusmle.com/webinar",
+        "https://nextstepsusmle.com/blog/how-many-indians-pass-the-usmle-each-year",
+        "https://nextstepsusmle.com/blog/usmle-step-2-ck-exam-format-2026",
+        "https://nextstepsusmle.com/blog/who-are-eligible-for-usmle",
+        "https://nextstepsusmle.com/blog/can-indian-medical-graduates-work-in-the-usa-without-usmle",
+        "https://nextstepsusmle.com/blog/how-to-prepare-for-the-residency-match-season",
+        "https://nextstepsusmle.com/blog/how-much-does-usmle-cost-in-total",
+        "https://nextstepsusmle.com/blog/what-is-the-role-of-mentorship-in-usmle-preparation",
+        "https://nextstepsusmle.com/blog/what-is-the-best-usmle-question-bank",
+        "https://nextstepsusmle.com/blog/best-study-resources-for-usmle-steps-preparation",
+        "https://nextstepsusmle.com/blog/usmle-step-3-preparatio-study-plan-and-guidance",
+        "https://nextstepsusmle.com/blog/what-is-oet-exam-how-much-does-it-costs",
+        "https://nextstepsusmle.com/blog/official-statement-regarding-the-invalidation-of-usmle-examination-scores",
+        "https://nextstepsusmle.com/blog/ecfmg-announcement-certification-eligibility",
+        "https://nextstepsusmle.com/blog/ecfmg-2027-pathways-for-imgs",
+        "https://nextstepsusmle.com/blog/apply-now-for-a-free-usmle-step-3-practice-examination",
+        "https://nextstepsusmle.com/blog/important-update-for-usmle-step1-and-step-2ck-examinees-in-2024",
+        "https://nextstepsusmle.com/blog/how-to-review-a-uworld-qbank-block",
+        "https://nextstepsusmle.com/blog/usmle-lor-letters-of-recommendation-img-residency-match",
+        "https://nextstepsusmle.com/blog/usmle-step-2-ck-study-plan-12-weeks",
+        "https://nextstepsusmle.com/blog/6-month-usmle-step-1-study-plan",
+        "https://nextstepsusmle.com/blog/top-usmle-coaching-centers-in-india",
+        "https://nextstepsusmle.com/blog/usmle-step-1-vs-step-2-ck-key-differences-you-need-to-know",
+        "https://nextstepsusmle.com/blog/what-is-the-typical-preparation-time-for-usmle-step-1",
+        "https://nextstepsusmle.com/blog/how-to-create-a-winning-study-schedule-for-usmle-step-1",
+        "https://nextstepsusmle.com/blog/what-is-the-salary-after-usmle",
+        "https://nextstepsusmle.com/blog/how-many-years-is-usmle-valid",
+        "https://nextstepsusmle.com/blog/do-mbbs-marks-have-an-impact-on-the-usmle",
+        "https://nextstepsusmle.com/blog/how-to-crack-usmle-on-your-first-attempt",
+        "https://nextstepsusmle.com/blog/is-usmle-only-for-mbbs-students",
+        "https://nextstepsusmle.com/blog/how-can-you-stand-out-in-usmle-clinical-rotations",
+        "https://nextstepsusmle.com/blog/why-usmle-cv-can-be-rejected",
+        "https://nextstepsusmle.com/blog/how-to-prepare-for-usmle-from-1st-year-mbbs",
+        "https://nextstepsusmle.com/blog/can-you-take-the-usmle-right-after-mbbs-in-india",
+        "https://nextstepsusmle.com/blog/what-is-the-difference-between-the-match-and-soap",
+        "https://nextstepsusmle.com/blog/how-to-find-research-opportunities-for-usmle-cv-in-mbbs",
+        "https://nextstepsusmle.com/blog/common-mistakes-to-avoid-while-preparing-for-the-usmle-step-1",
+        "https://nextstepsusmle.com/blog/comprehensive-guide-to-the-usmle-step-2-ck-syllabus",
+        "https://nextstepsusmle.com/blog/usmle-step-1-exam-fee-what-you-need-to-know",
+        "https://nextstepsusmle.com/blog/usmle-step-1-passing-score-step-by-step-guidance",
+        "https://nextstepsusmle.com/blog/comprehensive-guide-to-the-usmle-step-1-syllabus"
+      ],
+      "seo_impact": "These types no longer produce Google rich results; no removal is required.",
+      "recommended_action": "Fix on the 65 affected URL(s); see the technical rule's guidance (seo-toolkit-technical-audit).",
+      "expected_outcome": "The check passes on the next crawl.",
+      "verification_method": "Re-run /seo-site-crawl; the finding is not observed.",
+      "status": "open",
+      "skill": "seo-site-crawl",
+      "first_seen": null,
+      "last_seen": null,
+      "seen_in": [],
+      "history": []
+    },
+    {
+      "key": "tech:links.redirecting_internal",
+      "issue": "Internal links that redirect",
+      "category": "technical/links",
+      "priority": "low",
+      "evidence": [
+        {
+          "source": "AURORA crawl (link_check)",
+          "observation": "{\"final_url\": \"https://nextstepsusmle.com/\", \"redirects\": 1, \"linked_from\": [\"https://nextstepsusmle.com/contact\"]}",
+          "url": "https://www.nextstepsusmle.com/",
+          "observed_at": "2026-11-04T11:04:38.100739Z",
+          "execution_id": "20261104-110432-site-crawl"
+        },
+        {
+          "source": "Website repository (read-only text search)",
+          "observation": "/contact title: frontend/src/pages/Contact.tsx:39",
+          "url": null,
+          "observed_at": "2026-11-04T11:04:47.358133Z",
+          "execution_id": "20261104-110432-site-crawl"
+        }
+      ],
+      "evidence_state": "observed",
+      "affected_urls": [
+        "https://nextstepsusmle.com/contact"
+      ],
+      "seo_impact": "Linking to the final URL avoids a hop.",
+      "recommended_action": "Fix on the 1 affected URL(s); see the technical rule's guidance (seo-toolkit-technical-audit).",
+      "expected_outcome": "The check passes on the next crawl.",
+      "verification_method": "Re-run /seo-site-crawl; the finding is not observed.",
+      "status": "open",
+      "skill": "seo-site-crawl",
+      "first_seen": null,
+      "last_seen": null,
+      "seen_in": [],
+      "history": []
+    },
+    {
+      "key": "soft-404:site",
+      "issue": "Unknown URLs return HTTP 200 instead of 404 (soft 404)",
+      "category": "technical/status-codes",
+      "priority": "high",
+      "evidence": [
+        {
+          "source": "AURORA probe of a random non-existent URL",
+          "observation": "status 200",
+          "url": null,
+          "observed_at": "2026-11-04T11:04:38.100739Z",
+          "execution_id": "20261104-110432-site-crawl"
+        }
+      ],
+      "evidence_state": "observed",
+      "affected_urls": [],
+      "seo_impact": "Search engines can index junk URLs as duplicates, and broken links never surface.",
+      "recommended_action": "Return a real 404 status (with a helpful page) for unmatched routes in the web server or app router.",
+      "expected_outcome": "Unknown URLs return 404.",
+      "verification_method": "Re-run /seo-site-crawl; the probe returns 404.",
+      "status": "open",
+      "skill": "seo-site-crawl",
+      "first_seen": null,
+      "last_seen": null,
+      "seen_in": [],
+      "history": []
+    },
+    {
+      "key": "image-dimensions-missing:/",
+      "issue": "12 of 14 images on / have no width/height",
+      "category": "performance/layout",
+      "priority": "medium",
+      "evidence": [
+        {
+          "source": "AURORA crawl (direct HTML)",
+          "observation": "12/14 <img> without width/height or aspect-ratio",
+          "url": "https://nextstepsusmle.com/",
+          "observed_at": "2026-11-04T11:04:40.425866Z",
+          "execution_id": "20261104-110432-site-crawl"
+        },
+        {
+          "source": "Website repository (read-only text search)",
+          "observation": "/ title: frontend/src/pages/Index.tsx:53",
+          "url": null,
+          "observed_at": "2026-11-04T11:04:47.382368Z",
+          "execution_id": "20261104-110432-site-crawl"
+        }
+      ],
+      "evidence_state": "observed",
+      "affected_urls": [
+        "https://nextstepsusmle.com/"
+      ],
+      "seo_impact": "Images without reserved space cause layout shift (CLS, a Core Web Vital).",
+      "recommended_action": "Add width and height (or CSS aspect-ratio) to every <img>.",
+      "expected_outcome": "No image without reserved dimensions.",
+      "verification_method": "Re-run /seo-site-crawl; confirm CLS with PageSpeed.",
+      "status": "open",
+      "skill": "seo-site-crawl",
+      "first_seen": null,
+      "last_seen": null,
+      "seen_in": [],
+      "history": []
+    },
+    {
+      "key": "image-dimensions-missing:/blog",
+      "issue": "12 of 14 images on /blog have no width/height",
+      "category": "performance/layout",
+      "priority": "medium",
+      "evidence": [
+        {
+          "source": "AURORA crawl (direct HTML)",
+          "observation": "12/14 <img> without width/height or aspect-ratio",
+          "url": "https://nextstepsusmle.com/blog",
+          "observed_at": "2026-11-04T11:04:40.425866Z",
+          "execution_id": "20261104-110432-site-crawl"
+        },
+        {
+          "source": "Website repository (read-only text search)",
+          "observation": "/blog title: frontend/src/pages/blog/BlogIndex.tsx:69",
+          "url": null,
+          "observed_at": "2026-11-04T11:04:47.417818Z",
+          "execution_id": "20261104-110432-site-crawl"
+        }
+      ],
+      "evidence_state": "observed",
+      "affected_urls": [
+        "https://nextstepsusmle.com/blog"
+      ],
+      "seo_impact": "Images without reserved space cause layout shift (CLS, a Core Web Vital).",
+      "recommended_action": "Add width and height (or CSS aspect-ratio) to every <img>.",
+      "expected_outcome": "No image without reserved dimensions.",
+      "verification_method": "Re-run /seo-site-crawl; confirm CLS with PageSpeed.",
+      "status": "open",
+      "skill": "seo-site-crawl",
+      "first_seen": null,
+      "last_seen": null,
+      "seen_in": [],
+      "history": []
+    },
+    {
+      "key": "image-dimensions-missing:/mentorship",
+      "issue": "22 of 40 images on /mentorship have no width/height",
+      "category": "performance/layout",
+      "priority": "medium",
+      "evidence": [
+        {
+          "source": "AURORA crawl (direct HTML)",
+          "observation": "22/40 <img> without width/height or aspect-ratio",
+          "url": "https://nextstepsusmle.com/mentorship",
+          "observed_at": "2026-11-04T11:04:40.427615Z",
+          "execution_id": "20261104-110432-site-crawl"
+        },
+        {
+          "source": "Website repository (read-only text search)",
+          "observation": "/mentorship title: frontend/src/pages/Mentorship.legacy.tsx:807",
+          "url": null,
+          "observed_at": "2026-11-04T11:04:47.455648Z",
+          "execution_id": "20261104-110432-site-crawl"
+        }
+      ],
+      "evidence_state": "observed",
+      "affected_urls": [
+        "https://nextstepsusmle.com/mentorship"
+      ],
+      "seo_impact": "Images without reserved space cause layout shift (CLS, a Core Web Vital).",
+      "recommended_action": "Add width and height (or CSS aspect-ratio) to every <img>.",
+      "expected_outcome": "No image without reserved dimensions.",
+      "verification_method": "Re-run /seo-site-crawl; confirm CLS with PageSpeed.",
+      "status": "open",
+      "skill": "seo-site-crawl",
+      "first_seen": null,
+      "last_seen": null,
+      "seen_in": [],
+      "history": []
+    },
+    {
+      "key": "image-dimensions-missing:/step-1-2-ck",
+      "issue": "3 of 5 images on /step-1-2-ck have no width/height",
+      "category": "performance/layout",
+      "priority": "low",
+      "evidence": [
+        {
+          "source": "AURORA crawl (direct HTML)",
+          "observation": "3/5 <img> without width/height or aspect-ratio",
+          "url": "https://nextstepsusmle.com/step-1-2-ck",
+          "observed_at": "2026-11-04T11:04:40.427615Z",
+          "execution_id": "20261104-110432-site-crawl"
+        },
+        {
+          "source": "Website repository (read-only text search)",
+          "observation": "/step-1-2-ck title: frontend/src/pages/StepPrep.tsx:104",
+          "url": null,
+          "observed_at": "2026-11-04T11:04:47.500767Z",
+          "execution_id": "20261104-110432-site-crawl"
+        }
+      ],
+      "evidence_state": "observed",
+      "affected_urls": [
+        "https://nextstepsusmle.com/step-1-2-ck"
+      ],
+      "seo_impact": "Images without reserved space cause layout shift (CLS, a Core Web Vital).",
+      "recommended_action": "Add width and height (or CSS aspect-ratio) to every <img>.",
+      "expected_outcome": "No image without reserved dimensions.",
+      "verification_method": "Re-run /seo-site-crawl; confirm CLS with PageSpeed.",
+      "status": "open",
+      "skill": "seo-site-crawl",
+      "first_seen": null,
+      "last_seen": null,
+      "seen_in": [],
+      "history": []
+    },
+    {
+      "key": "image-dimensions-missing:/success-stories",
+      "issue": "1 of 3 images on /success-stories have no width/height",
+      "category": "performance/layout",
+      "priority": "low",
+      "evidence": [
+        {
+          "source": "AURORA crawl (direct HTML)",
+          "observation": "1/3 <img> without width/height or aspect-ratio",
+          "url": "https://nextstepsusmle.com/success-stories",
+          "observed_at": "2026-11-04T11:04:40.427615Z",
+          "execution_id": "20261104-110432-site-crawl"
+        },
+        {
+          "source": "Website repository (read-only text search)",
+          "observation": "/success-stories title: frontend/src/pages/SuccessStories.tsx:54",
+          "url": null,
+          "observed_at": "2026-11-04T11:04:47.532524Z",
+          "execution_id": "20261104-110432-site-crawl"
+        }
+      ],
+      "evidence_state": "observed",
+      "affected_urls": [
+        "https://nextstepsusmle.com/success-stories"
+      ],
+      "seo_impact": "Images without reserved space cause layout shift (CLS, a Core Web Vital).",
+      "recommended_action": "Add width and height (or CSS aspect-ratio) to every <img>.",
+      "expected_outcome": "No image without reserved dimensions.",
+      "verification_method": "Re-run /seo-site-crawl; confirm CLS with PageSpeed.",
+      "status": "open",
+      "skill": "seo-site-crawl",
+      "first_seen": null,
+      "last_seen": null,
+      "seen_in": [],
+      "history": []
+    },
+    {
+      "key": "image-dimensions-missing:/webinar",
+      "issue": "90 of 247 images on /webinar have no width/height",
+      "category": "performance/layout",
+      "priority": "medium",
+      "evidence": [
+        {
+          "source": "AURORA crawl (direct HTML)",
+          "observation": "90/247 <img> without width/height or aspect-ratio",
+          "url": "https://nextstepsusmle.com/webinar",
+          "observed_at": "2026-11-04T11:04:40.427615Z",
+          "execution_id": "20261104-110432-site-crawl"
+        },
+        {
+          "source": "Website repository (read-only text search)",
+          "observation": "/webinar title: frontend/src/pages/Webinar.tsx:113",
+          "url": null,
+          "observed_at": "2026-11-04T11:04:47.568856Z",
+          "execution_id": "20261104-110432-site-crawl"
+        }
+      ],
+      "evidence_state": "observed",
+      "affected_urls": [
+        "https://nextstepsusmle.com/webinar"
+      ],
+      "seo_impact": "Images without reserved space cause layout shift (CLS, a Core Web Vital).",
+      "recommended_action": "Add width and height (or CSS aspect-ratio) to every <img>.",
+      "expected_outcome": "No image without reserved dimensions.",
+      "verification_method": "Re-run /seo-site-crawl; confirm CLS with PageSpeed.",
+      "status": "open",
+      "skill": "seo-site-crawl",
+      "first_seen": null,
+      "last_seen": null,
+      "seen_in": [],
+      "history": []
+    },
+    {
+      "key": "security-headers-missing:site",
+      "issue": "Security headers missing on the homepage: strict-transport-security, x-content-type-options, referrer-policy, x-frame-options / CSP frame-ancestors",
+      "category": "technical/security",
+      "priority": "medium",
+      "evidence": [
+        {
+          "source": "AURORA crawl (response headers)",
+          "observation": "strict-transport-security, x-content-type-options, referrer-policy, x-frame-options / CSP frame-ancestors",
+          "url": "https://nextstepsusmle.com/",
+          "observed_at": "2026-11-04T11:04:40.427615Z",
+          "execution_id": "20261104-110432-site-crawl"
+        }
+      ],
+      "evidence_state": "observed",
+      "affected_urls": [],
+      "seo_impact": "Low direct ranking impact; standard trust and safety hygiene.",
+      "recommended_action": "Add the headers in the web server (nginx) configuration.",
+      "expected_outcome": "The headers are present.",
+      "verification_method": "Re-run /seo-site-crawl.",
+      "status": "open",
+      "skill": "seo-site-crawl",
+      "first_seen": null,
+      "last_seen": null,
+      "seen_in": [],
+      "history": []
+    },
+    {
+      "key": "unsupported-claim:/",
+      "issue": "/ uses claim terms: #1, success rate",
+      "category": "content/claims",
+      "priority": "high",
+      "evidence": [
+        {
+          "source": "AURORA crawl (visible text)",
+          "observation": "'#1': …#1 USMLE Preparation Platform | Next Steps USMLE Get free in-person advice Globa… | 'success rate': …top Solution for USMLE 100+ Days Program 1:1 Mentorship 95% Success Rate Start Your Journey Book a Consultation Global Leading USMLE Mentors…",
+          "url": "https://nextstepsusmle.com/",
+          "observed_at": "2026-11-04T11:04:43.246903Z",
+          "execution_id": "20261104-110432-site-crawl"
+        },
+        {
+          "source": "Website repository (read-only text search)",
+          "observation": "/ title: frontend/src/pages/Index.tsx:53",
+          "url": null,
+          "observed_at": "2026-11-04T11:04:47.597304Z",
+          "execution_id": "20261104-110432-site-crawl"
+        }
+      ],
+      "evidence_state": "observed",
+      "affected_urls": [
+        "https://nextstepsusmle.com/"
+      ],
+      "seo_impact": "Unproven superlatives and promises reduce trust and can breach advertising rules.",
+      "recommended_action": "Back each claim with published, dated evidence (method, cohort, period) or rephrase it.",
+      "expected_outcome": "Every claim is substantiated or removed.",
+      "verification_method": "Re-run /seo-ymyl-accuracy.",
+      "status": "open",
+      "skill": "seo-ymyl-accuracy",
+      "first_seen": null,
+      "last_seen": null,
+      "seen_in": [],
+      "history": []
+    },
+    {
+      "key": "unsourced-numbers:/step-1-2-ck",
+      "issue": "/step-1-2-ck states 1 fees/percentages/pass rates without an official source nearby (no official source linked anywhere on the page)",
+      "category": "content/ymyl",
+      "priority": "medium",
+      "evidence": [
+        {
+          "source": "AURORA crawl (visible text)",
+          "observation": "An exclusive, faculty-crafted revision resource — the same caliber our own faculty would demand before walking into the exam. It delivers 360° coverage of the entire concept base f",
+          "url": "https://nextstepsusmle.com/step-1-2-ck",
+          "observed_at": "2026-11-04T11:04:43.246903Z",
+          "execution_id": "20261104-110432-site-crawl"
+        },
+        {
+          "source": "Website repository (read-only text search)",
+          "observation": "/step-1-2-ck title: frontend/src/pages/StepPrep.tsx:104",
+          "url": null,
+          "observed_at": "2026-11-04T11:04:47.636281Z",
+          "execution_id": "20261104-110432-site-crawl"
+        }
+      ],
+      "evidence_state": "observed",
+      "affected_urls": [
+        "https://nextstepsusmle.com/step-1-2-ck"
+      ],
+      "seo_impact": "Unsourced health/education numbers weaken trust (E-E-A-T) and AI citability, and go stale silently.",
+      "recommended_action": "Link each number to its official source and year (usmle.org, nbme.org, ecfmg.org, intealth.org, fsmb.org), or remove it.",
+      "expected_outcome": "Every fee, rate and pass figure links to its source.",
+      "verification_method": "Re-run /seo-ymyl-accuracy.",
+      "status": "open",
+      "skill": "seo-ymyl-accuracy",
+      "first_seen": null,
+      "last_seen": null,
+      "seen_in": [],
+      "history": []
+    },
+    {
+      "key": "unsupported-claim:/programs/clinical-rotations",
+      "issue": "/programs/clinical-rotations uses claim terms: guarantee",
+      "category": "content/claims",
+      "priority": "medium",
+      "evidence": [
+        {
+          "source": "AURORA crawl (visible text)",
+          "observation": "'guarantee': …orly formatted documents. ● Do not expect every rotation to guarantee a letter of recommendation. ● Do not ignore visa, insurance, or immuni…",
+          "url": "https://nextstepsusmle.com/programs/clinical-rotations",
+          "observed_at": "2026-11-04T11:04:43.247904Z",
+          "execution_id": "20261104-110432-site-crawl"
+        },
+        {
+          "source": "Website repository (read-only text search)",
+          "observation": "/programs/clinical-rotations title: frontend/src/pages/ClinicalRotations.tsx:310",
+          "url": null,
+          "observed_at": "2026-11-04T11:04:47.675843Z",
+          "execution_id": "20261104-110432-site-crawl"
+        }
+      ],
+      "evidence_state": "observed",
+      "affected_urls": [
+        "https://nextstepsusmle.com/programs/clinical-rotations"
+      ],
+      "seo_impact": "Unproven superlatives and promises reduce trust and can breach advertising rules.",
+      "recommended_action": "Back each claim with published, dated evidence (method, cohort, period) or rephrase it.",
+      "expected_outcome": "Every claim is substantiated or removed.",
+      "verification_method": "Re-run /seo-ymyl-accuracy.",
+      "status": "open",
+      "skill": "seo-ymyl-accuracy",
+      "first_seen": null,
+      "last_seen": null,
+      "seen_in": [],
+      "history": []
+    },
+    {
+      "key": "unsourced-numbers:/terms",
+      "issue": "/terms states 1 fees/percentages/pass rates without an official source nearby (no official source linked anywhere on the page)",
+      "category": "content/ymyl",
+      "priority": "medium",
+      "evidence": [
+        {
+          "source": "AURORA crawl (visible text)",
+          "observation": "5.7. The delay fee for this service is 1% per week, meaning that for every week of delay, a penalty of 1% of the total amount will be charged.",
+          "url": "https://nextstepsusmle.com/terms",
+          "observed_at": "2026-11-04T11:04:43.247904Z",
+          "execution_id": "20261104-110432-site-crawl"
+        },
+        {
+          "source": "Website repository (read-only text search)",
+          "observation": "/terms title: frontend/src/pages/TermsAndConditions.tsx:11",
+          "url": null,
+          "observed_at": "2026-11-04T11:04:47.717659Z",
+          "execution_id": "20261104-110432-site-crawl"
+        }
+      ],
+      "evidence_state": "observed",
+      "affected_urls": [
+        "https://nextstepsusmle.com/terms"
+      ],
+      "seo_impact": "Unsourced health/education numbers weaken trust (E-E-A-T) and AI citability, and go stale silently.",
+      "recommended_action": "Link each number to its official source and year (usmle.org, nbme.org, ecfmg.org, intealth.org, fsmb.org), or remove it.",
+      "expected_outcome": "Every fee, rate and pass figure links to its source.",
+      "verification_method": "Re-run /seo-ymyl-accuracy.",
+      "status": "open",
+      "skill": "seo-ymyl-accuracy",
+      "first_seen": null,
+      "last_seen": null,
+      "seen_in": [],
+      "history": []
+    },
+    {
+      "key": "unsourced-numbers:/mentorship",
+      "issue": "/mentorship states 2 fees/percentages/pass rates without an official source nearby (no official source linked anywhere on the page)",
+      "category": "content/ymyl",
+      "priority": "medium",
+      "evidence": [
+        {
+          "source": "AURORA crawl (visible text)",
+          "observation": "In the 2026 Main Residency Match, 56.4% of non-US-citizen IMGs who submitted a rank list matched to a PGY-1 position. The largest single gap in that data is visa status — 54.4% for | The consultation is free, and we'll map the costs to your situation. As a guide: testing outside the US, Step 1 is $905 and Step 2 CK is $930 including the international surcharge.",
+          "url": "https://nextstepsusmle.com/mentorship",
+          "observed_at": "2026-11-04T11:04:43.247904Z",
+          "execution_id": "20261104-110432-site-crawl"
+        },
+        {
+          "source": "Website repository (read-only text search)",
+          "observation": "/mentorship title: frontend/src/pages/Mentorship.legacy.tsx:807",
+          "url": null,
+          "observed_at": "2026-11-04T11:04:47.747550Z",
+          "execution_id": "20261104-110432-site-crawl"
+        }
+      ],
+      "evidence_state": "observed",
+      "affected_urls": [
+        "https://nextstepsusmle.com/mentorship"
+      ],
+      "seo_impact": "Unsourced health/education numbers weaken trust (E-E-A-T) and AI citability, and go stale silently.",
+      "recommended_action": "Link each number to its official source and year (usmle.org, nbme.org, ecfmg.org, intealth.org, fsmb.org), or remove it.",
+      "expected_outcome": "Every fee, rate and pass figure links to its source.",
+      "verification_method": "Re-run /seo-ymyl-accuracy.",
+      "status": "open",
+      "skill": "seo-ymyl-accuracy",
+      "first_seen": null,
+      "last_seen": null,
+      "seen_in": [],
+      "history": []
+    },
+    {
+      "key": "unsupported-claim:/mentorship",
+      "issue": "/mentorship uses claim terms: guarantee, guaranteed, success rate",
+      "category": "content/claims",
+      "priority": "medium",
+      "evidence": [
+        {
+          "source": "AURORA crawl (visible text)",
+          "observation": "'guaranteed': … those who did not. It is a competitive route rather than a guaranteed one, which is exactly why the application strategy matters as much as… | 'guarantee': … those who did not. It is a competitive route rather than a guaranteed one, which is exactly why the application strategy matters as much as… | 'success rate': …licy . 100+ day structured program 1:1 dedicated mentor 95% success rate* USMLE coaching Online USMLE coaching across India Next Steps is 1:…",
+          "url": "https://nextstepsusmle.com/mentorship",
+          "observed_at": "2026-11-04T11:04:43.247904Z",
+          "execution_id": "20261104-110432-site-crawl"
+        },
+        {
+          "source": "Website repository (read-only text search)",
+          "observation": "/mentorship title: frontend/src/pages/Mentorship.legacy.tsx:807",
+          "url": null,
+          "observed_at": "2026-11-04T11:04:47.780236Z",
+          "execution_id": "20261104-110432-site-crawl"
+        }
+      ],
+      "evidence_state": "observed",
+      "affected_urls": [
+        "https://nextstepsusmle.com/mentorship"
+      ],
+      "seo_impact": "Unproven superlatives and promises reduce trust and can breach advertising rules.",
+      "recommended_action": "Back each claim with published, dated evidence (method, cohort, period) or rephrase it.",
+      "expected_outcome": "Every claim is substantiated or removed.",
+      "verification_method": "Re-run /seo-ymyl-accuracy.",
+      "status": "open",
+      "skill": "seo-ymyl-accuracy",
+      "first_seen": null,
+      "last_seen": null,
+      "seen_in": [],
+      "history": []
+    },
+    {
+      "key": "unsourced-numbers:/webinar",
+      "issue": "/webinar states 1 fees/percentages/pass rates without an official source nearby (no official source linked anywhere on the page)",
+      "category": "content/ymyl",
+      "priority": "medium",
+      "evidence": [
+        {
+          "source": "AURORA crawl (visible text)",
+          "observation": "15 Next Steps students, the Match years 2025 and 2026, the hospitals they are training at now.",
+          "url": "https://nextstepsusmle.com/webinar",
+          "observed_at": "2026-11-04T11:04:43.247904Z",
+          "execution_id": "20261104-110432-site-crawl"
+        },
+        {
+          "source": "Website repository (read-only text search)",
+          "observation": "/webinar title: frontend/src/pages/Webinar.tsx:113",
+          "url": null,
+          "observed_at": "2026-11-04T11:04:47.806339Z",
+          "execution_id": "20261104-110432-site-crawl"
+        }
+      ],
+      "evidence_state": "observed",
+      "affected_urls": [
+        "https://nextstepsusmle.com/webinar"
+      ],
+      "seo_impact": "Unsourced health/education numbers weaken trust (E-E-A-T) and AI citability, and go stale silently.",
+      "recommended_action": "Link each number to its official source and year (usmle.org, nbme.org, ecfmg.org, intealth.org, fsmb.org), or remove it.",
+      "expected_outcome": "Every fee, rate and pass figure links to its source.",
+      "verification_method": "Re-run /seo-ymyl-accuracy.",
+      "status": "open",
+      "skill": "seo-ymyl-accuracy",
+      "first_seen": null,
+      "last_seen": null,
+      "seen_in": [],
+      "history": []
+    },
+    {
+      "key": "image-dimensions-missing:blog",
+      "issue": "Images without width/height on 35 blog post(s)",
+      "category": "performance/layout",
+      "priority": "low",
+      "evidence": [
+        {
+          "source": "AURORA crawl (direct HTML)",
+          "observation": "/blog/6-keys-to-usmle-match-success: 1/4 <img> without width/height or aspect-ratio",
+          "url": "https://nextstepsusmle.com/blog/6-keys-to-usmle-match-success",
+          "observed_at": "2026-11-04T11:04:45.611339Z",
+          "execution_id": "20261104-110432-site-crawl"
+        },
+        {
+          "source": "AURORA crawl (direct HTML)",
+          "observation": "/blog/an-average-students-path-to-usmle-success: 1/4 <img> without width/height or aspect-ratio",
+          "url": "https://nextstepsusmle.com/blog/an-average-students-path-to-usmle-success",
+          "observed_at": "2026-11-04T11:04:45.611339Z",
+          "execution_id": "20261104-110432-site-crawl"
+        },
+        {
+          "source": "AURORA crawl (direct HTML)",
+          "observation": "/blog/apply-now-for-a-free-usmle-step-3-practice-examination: 1/6 <img> without width/height or aspect-ratio",
+          "url": "https://nextstepsusmle.com/blog/apply-now-for-a-free-usmle-step-3-practice-examination",
+          "observed_at": "2026-11-04T11:04:45.611339Z",
+          "execution_id": "20261104-110432-site-crawl"
+        },
+        {
+          "source": "AURORA crawl (direct HTML)",
+          "observation": "/blog/best-study-resources-for-usmle-steps-preparation: 1/6 <img> without width/height or aspect-ratio",
+          "url": "https://nextstepsusmle.com/blog/best-study-resources-for-usmle-steps-preparation",
+          "observed_at": "2026-11-04T11:04:45.611339Z",
+          "execution_id": "20261104-110432-site-crawl"
+        },
+        {
+          "source": "AURORA crawl (direct HTML)",
+          "observation": "/blog/can-indian-medical-graduates-work-in-the-usa-without-usmle: 1/5 <img> without width/height or aspect-ratio",
+          "url": "https://nextstepsusmle.com/blog/can-indian-medical-graduates-work-in-the-usa-without-usmle",
+          "observed_at": "2026-11-04T11:04:45.611339Z",
+          "execution_id": "20261104-110432-site-crawl"
+        },
+        {
+          "source": "AURORA crawl (direct HTML)",
+          "observation": "/blog/can-you-prepare-for-the-usmle-during-med-school: 1/4 <img> without width/height or aspect-ratio",
+          "url": "https://nextstepsusmle.com/blog/can-you-prepare-for-the-usmle-during-med-school",
+          "observed_at": "2026-11-04T11:04:45.611339Z",
+          "execution_id": "20261104-110432-site-crawl"
+        },
+        {
+          "source": "AURORA crawl (direct HTML)",
+          "observation": "/blog/can-you-take-the-usmle-right-after-mbbs-in-india: 1/7 <img> without width/height or aspect-ratio",
+          "url": "https://nextstepsusmle.com/blog/can-you-take-the-usmle-right-after-mbbs-in-india",
+          "observed_at": "2026-11-04T11:04:45.611339Z",
+          "execution_id": "20261104-110432-site-crawl"
+        },
+        {
+          "source": "AURORA crawl (direct HTML)",
+          "observation": "/blog/common-pitfalls-in-the-usmle-journey-and-how-to-avoid-them: 1/4 <img> without width/height or aspect-ratio",
+          "url": "https://nextstepsusmle.com/blog/common-pitfalls-in-the-usmle-journey-and-how-to-avoid-them",
+          "observed_at": "2026-11-04T11:04:45.611339Z",
+          "execution_id": "20261104-110432-site-crawl"
+        },
+        {
+          "source": "AURORA crawl (direct HTML)",
+          "observation": "/blog/comprehensive-guide-to-the-usmle-step-2-ck-syllabus: 1/6 <img> without width/height or aspect-ratio",
+          "url": "https://nextstepsusmle.com/blog/comprehensive-guide-to-the-usmle-step-2-ck-syllabus",
+          "observed_at": "2026-11-04T11:04:45.611339Z",
+          "execution_id": "20261104-110432-site-crawl"
+        },
+        {
+          "source": "AURORA crawl (direct HTML)",
+          "observation": "/blog/ecfmg-2027-pathways-for-imgs: 1/6 <img> without width/height or aspect-ratio",
+          "url": "https://nextstepsusmle.com/blog/ecfmg-2027-pathways-for-imgs",
+          "observed_at": "2026-11-04T11:04:45.611339Z",
+          "execution_id": "20261104-110432-site-crawl"
+        },
+        {
+          "source": "AURORA crawl (direct HTML)",
+          "observation": "/blog/ecfmg-announcement-certification-eligibility: 1/6 <img> without width/height or aspect-ratio",
+          "url": "https://nextstepsusmle.com/blog/ecfmg-announcement-certification-eligibility",
+          "observed_at": "2026-11-04T11:04:45.611339Z",
+          "execution_id": "20261104-110432-site-crawl"
+        },
+        {
+          "source": "AURORA crawl (direct HTML)",
+          "observation": "/blog/how-much-does-usmle-cost-in-total: 1/6 <img> without width/height or aspect-ratio",
+          "url": "https://nextstepsusmle.com/blog/how-much-does-usmle-cost-in-total",
+          "observed_at": "2026-11-04T11:04:45.611339Z",
+          "execution_id": "20261104-110432-site-crawl"
+        },
+        {
+          "source": "AURORA crawl (direct HTML)",
+          "observation": "/blog/how-should-imgs-approach-the-usmle-match-process: 1/4 <img> without width/height or aspect-ratio",
+          "url": "https://nextstepsusmle.com/blog/how-should-imgs-approach-the-usmle-match-process",
+          "observed_at": "2026-11-04T11:04:45.611339Z",
+          "execution_id": "20261104-110432-site-crawl"
+        },
+        {
+          "source": "AURORA crawl (direct HTML)",
+          "observation": "/blog/how-to-create-a-winning-study-schedule-for-usmle-step-1: 1/6 <img> without width/height or aspect-ratio",
+          "url": "https://nextstepsusmle.com/blog/how-to-create-a-winning-study-schedule-for-usmle-step-1",
+          "observed_at": "2026-11-04T11:04:45.611339Z",
+          "execution_id": "20261104-110432-site-crawl"
+        },
+        {
+          "source": "AURORA crawl (direct HTML)",
+          "observation": "/blog/how-to-improve-your-prospects-for-success-on-residency-match-day: 1/4 <img> without width/height or aspect-ratio",
+          "url": "https://nextstepsusmle.com/blog/how-to-improve-your-prospects-for-success-on-residency-match-day",
+          "observed_at": "2026-11-04T11:04:45.611339Z",
+          "execution_id": "20261104-110432-site-crawl"
+        },
+        {
+          "source": "Website repository (read-only text search)",
+          "observation": "/blog/6-keys-to-usmle-match-success slug: frontend/public/blog-content/how-should-imgs-approach-the-usmle-match-process.json:1; /blog/an-average-students-path-to-usmle-success title: frontend/src/data/blog-index.generated.json:1764; /blog/apply-now-for-a-free-usmle-step-3-practice-examination title: frontend/src/data/blog-index.generated.json:894; /blog/best-study-resources-for-usmle-steps-preparation title: frontend/src/data/blog-index.generated.json:610; /blog/can-indian-medical-graduates-work-in-the-usa-without-usmle title: frontend/src/data/blog-index.generated.json:380; /blog/can-you-prepare-for-the-usmle-during-med-school title: frontend/src/data/blog-index.generated.json:2552; /blog/can-you-take-the-usmle-right-after-mbbs-in-india title: frontend/src/data/blog-index.generated.json:1781; /blog/common-pitfalls-in-the-usmle-journey-and-how-to-avoid-them title: frontend/src/data/blog-index.generated.json:1841",
+          "url": null,
+          "observed_at": "2026-11-04T11:04:48.253576Z",
+          "execution_id": "20261104-110432-site-crawl"
+        }
+      ],
+      "evidence_state": "observed",
+      "affected_urls": [
+        "https://nextstepsusmle.com/blog/6-keys-to-usmle-match-success",
+        "https://nextstepsusmle.com/blog/an-average-students-path-to-usmle-success",
+        "https://nextstepsusmle.com/blog/apply-now-for-a-free-usmle-step-3-practice-examination",
+        "https://nextstepsusmle.com/blog/best-study-resources-for-usmle-steps-preparation",
+        "https://nextstepsusmle.com/blog/can-indian-medical-graduates-work-in-the-usa-without-usmle",
+        "https://nextstepsusmle.com/blog/can-you-prepare-for-the-usmle-during-med-school",
+        "https://nextstepsusmle.com/blog/can-you-take-the-usmle-right-after-mbbs-in-india",
+        "https://nextstepsusmle.com/blog/common-pitfalls-in-the-usmle-journey-and-how-to-avoid-them",
+        "https://nextstepsusmle.com/blog/comprehensive-guide-to-the-usmle-step-2-ck-syllabus",
+        "https://nextstepsusmle.com/blog/ecfmg-2027-pathways-for-imgs",
+        "https://nextstepsusmle.com/blog/ecfmg-announcement-certification-eligibility",
+        "https://nextstepsusmle.com/blog/how-much-does-usmle-cost-in-total",
+        "https://nextstepsusmle.com/blog/how-should-imgs-approach-the-usmle-match-process",
+        "https://nextstepsusmle.com/blog/how-to-create-a-winning-study-schedule-for-usmle-step-1",
+        "https://nextstepsusmle.com/blog/how-to-improve-your-prospects-for-success-on-residency-match-day",
+        "https://nextstepsusmle.com/blog/how-to-make-a-good-cv-for-usmle",
+        "https://nextstepsusmle.com/blog/how-to-prepare-for-the-residency-match-season",
+        "https://nextstepsusmle.com/blog/how-to-score-280-on-usmle-step-2-ck",
+        "https://nextstepsusmle.com/blog/how-to-start-your-usmle-prep-journey",
+        "https://nextstepsusmle.com/blog/important-update-for-usmle-step1-and-step-2ck-examinees-in-2024",
+        "https://nextstepsusmle.com/blog/in-which-year-of-mbbs-can-you-give-usmle-step-2-ck",
+        "https://nextstepsusmle.com/blog/is-usmle-only-for-mbbs-students",
+        "https://nextstepsusmle.com/blog/official-statement-regarding-the-invalidation-of-usmle-examination-scores",
+        "https://nextstepsusmle.com/blog/ultimate-guide-to-choosing-the-best-usmle-step-1-book",
+        "https://nextstepsusmle.com/blog/understanding-usmle-step-1-questions-a-comprehensive-guide",
+        "https://nextstepsusmle.com/blog/usmle-step-1-exam-fee-what-you-need-to-know",
+        "https://nextstepsusmle.com/blog/usmle-step-3-preparatio-study-plan-and-guidance",
+        "https://nextstepsusmle.com/blog/what-are-the-most-important-questions-covered-in-the-usmle",
+        "https://nextstepsusmle.com/blog/what-is-oet-exam-how-much-does-it-costs",
+        "https://nextstepsusmle.com/blog/what-is-the-best-usmle-question-bank",
+        "https://nextstepsusmle.com/blog/what-is-the-role-of-mentorship-in-usmle-preparation",
+        "https://nextstepsusmle.com/blog/what-is-the-salary-after-usmle",
+        "https://nextstepsusmle.com/blog/what-is-the-typical-preparation-time-for-usmle-step-1",
+        "https://nextstepsusmle.com/blog/what-is-usmle-what-are-the-usmle-steps",
+        "https://nextstepsusmle.com/blog/who-are-eligible-for-usmle"
+      ],
+      "seo_impact": "Images without reserved space cause layout shift (CLS, a Core Web Vital).",
+      "recommended_action": "Add width and height (or CSS aspect-ratio) to every <img>.",
+      "expected_outcome": "No image without reserved dimensions.",
+      "verification_method": "Re-run /seo-site-crawl; confirm CLS with PageSpeed.",
+      "status": "open",
+      "skill": "seo-site-crawl",
+      "first_seen": null,
+      "last_seen": null,
+      "seen_in": [],
+      "history": []
+    },
+    {
+      "key": "unsourced-numbers:blog",
+      "issue": "Fees, rates or pass figures without an official source nearby on 42 blog post(s)",
+      "category": "content/ymyl",
+      "priority": "high",
+      "evidence": [
+        {
+          "source": "AURORA crawl (visible text)",
+          "observation": "/blog/highest-usmle-step-2-ck-score: The mean is 250 with a standard deviation of 15 . A 280 is about 2 SD above it, roughly the top 2%. | It can be, for a small group. If you are aiming at one of the most competitive specialties, extra points can matter. For everyone else the returns fall off quickly: a 280 is roughl | The highest Step 2 CK score is 300 on paper and unconfirmed in practice. The number that should drive your plan is different: the mean is 250, a 270 is roughly the top 6–9%, a 280 ",
+          "url": "https://nextstepsusmle.com/blog/highest-usmle-step-2-ck-score",
+          "observed_at": "2026-11-04T11:04:45.611339Z",
+          "execution_id": "20261104-110432-site-crawl"
+        },
+        {
+          "source": "AURORA crawl (visible text)",
+          "observation": "/blog/how-to-apply-for-usmle-from-india: Every fee below is in US dollars, with the approximate amount in Indian rupees (INR) in brackets, at ₹96 to the dollar. Fees are charged in dollars, so your bank’s exchange rate an | Budget about $1,720–2,010 (~₹1.65–1.93 lakh) for your first Step from India , one-time ECFMG fees included, and about $1,030–1,100 (~₹0.99–1.06 lakh) for each Step after that. | Pay by Visa, Mastercard or Amex — not RuPay. 18% GST applies to Steps taken in India. | Open an account on ECFMG’s MyIntealth portal ( $110 (~₹10,600) , including $50 (~₹4,800) for online notarisati",
+          "url": "https://nextstepsusmle.com/blog/how-to-apply-for-usmle-from-india",
+          "observed_at": "2026-11-04T11:04:45.611339Z",
+          "execution_id": "20261104-110432-site-crawl"
+        },
+        {
+          "source": "AURORA crawl (visible text)",
+          "observation": "/blog/img-match-2026-nrmp-data: 56.4% of non-U.S.-citizen IMGs who submitted a rank list matched to a PGY-1 position in 2026 — 6,733 of 11,944 — against 70.0% for U.S.-citizen IMGs. | The widest gap in the whole dataset is not a score gap. It is visa status : 54.4% for applicants needing sponsorship vs 67.9% for those who did not. | “IMG-friendly” needs two answers — rate and volume . Internal Medicine sits mid-table at 48.5% but produced 3,392 matched IMGs. | Start with the headline figures. In 2026, 11,944 non-U.S.-citizen IMGs submitted a rank order list and 6,733 matched to a PGY-1 positio",
+          "url": "https://nextstepsusmle.com/blog/img-match-2026-nrmp-data",
+          "observed_at": "2026-11-04T11:04:45.611339Z",
+          "execution_id": "20261104-110432-site-crawl"
+        },
+        {
+          "source": "AURORA crawl (visible text)",
+          "observation": "/blog/how-many-indians-pass-the-usmle-each-year: Nobody publishes it. Neither ECFMG nor the USMLE releases pass counts by country , so an exact \"Indians who passed\" figure does not exist in any official dataset. What we can say f | The USMLE publishes pass rates split only into two buckets: examinees from US/Canadian schools, and everyone else. | Step 1 is where IMG journeys end. More than one in four first-time takers fails, and repeaters pass only 52% of the time . A first-attempt fail does not just cost you months; it pe | 70% overall pass rate",
+          "url": "https://nextstepsusmle.com/blog/how-many-indians-pass-the-usmle-each-year",
+          "observed_at": "2026-11-04T11:04:45.611339Z",
+          "execution_id": "20261104-110432-site-crawl"
+        },
+        {
+          "source": "AURORA crawl (visible text)",
+          "observation": "/blog/usmle-step-2-ck-exam-format-2026: First-attempt pass rates: US MD 98%, DO 96%, IMG 68% . The IMG gap is the widest in the USMLE sequence. | The 96–98% pass rate you see quoted everywhere describes US and Canadian MD students only. The full picture is far more divided: | That IMG drop from roughly 82% to 68% is not because the exam got harder. When Step 1 went pass/fail in 2022, it stopped acting as a numerical filter — so more candidates now reach | 68% of examinees changed at least one answer. Of those, about 45% increased their score and only 28% decreased it. Changes ran wrong-to-righ",
+          "url": "https://nextstepsusmle.com/blog/usmle-step-2-ck-exam-format-2026",
+          "observed_at": "2026-11-04T11:04:45.611339Z",
+          "execution_id": "20261104-110432-site-crawl"
+        },
+        {
+          "source": "AURORA crawl (visible text)",
+          "observation": "/blog/how-to-prepare-for-the-residency-match-season: 70% (first time crossing this threshold) | 54.4% (a five-year low) | 67.9% (a five-year high) | ERAS fee tiers: $11 per program for your first 30 in a specialty, $30 per program after that; see our full cost breakdown .",
+          "url": "https://nextstepsusmle.com/blog/how-to-prepare-for-the-residency-match-season",
+          "observed_at": "2026-11-04T11:04:45.611339Z",
+          "execution_id": "20261104-110432-site-crawl"
+        },
+        {
+          "source": "AURORA crawl (visible text)",
+          "observation": "/blog/how-much-does-usmle-cost-in-total: Every fee below is in US dollars, with the approximate amount in Indian rupees (INR) in brackets, at ₹96 to the dollar. Fees are charged in dollars, so your bank’s exchange rate an | The short answer: Step 1 and Step 2 CK taken abroad, ECFMG certification and OET come to about $3,200 (~₹3.1 lakh) , or about $3,500 (~₹3.4 lakh) with the 18% GST charged on Steps  | ECFMG certification fees add about $910 (~₹87,400) on top of exam fees, plus $945 (~₹90,700) for a Pathways application if you need one. | US clinical experience , if pursued, is usually the si",
+          "url": "https://nextstepsusmle.com/blog/how-much-does-usmle-cost-in-total",
+          "observed_at": "2026-11-04T11:04:45.611339Z",
+          "execution_id": "20261104-110432-site-crawl"
+        },
+        {
+          "source": "AURORA crawl (visible text)",
+          "observation": "/blog/what-is-the-best-usmle-question-bank: ~$189 (30 days) to ~$499–$600 (longer bundles) | ~$14.99/mo basic; ~$428/yr full bundle | ~$299–$449 standalone Qbank; up to ~$2,000 for full course bundles | UWorld runs roughly $189 for a 30-day block up to $499–$600 for longer bundles depending on subject coverage. AMBOSS starts around $14.99/month for a basic plan or roughly $428/yea",
+          "url": "https://nextstepsusmle.com/blog/what-is-the-best-usmle-question-bank",
+          "observed_at": "2026-11-04T11:04:45.611339Z",
+          "execution_id": "20261104-110432-site-crawl"
+        },
+        {
+          "source": "AURORA crawl (visible text)",
+          "observation": "/blog/best-study-resources-for-usmle-steps-preparation: $319–$560/yr by window | UWorld, used by roughly 90% of students and still the most predictive of the real exam. Most successful examinees build their prep around UWorld plus Anki (the AnKing deck), with P",
+          "url": "https://nextstepsusmle.com/blog/best-study-resources-for-usmle-steps-preparation",
+          "observed_at": "2026-11-04T11:04:45.611339Z",
+          "execution_id": "20261104-110432-site-crawl"
+        },
+        {
+          "source": "AURORA crawl (visible text)",
+          "observation": "/blog/usmle-step-3-preparatio-study-plan-and-guidance: Total: 412 MCQs . Passing score is 200 ; the 2025 mean for first-time LCME graduates was 227 (SD 15) . First-attempt pass rates run roughly 96% for US MD, 89% for US DO, and 75–85%",
+          "url": "https://nextstepsusmle.com/blog/usmle-step-3-preparatio-study-plan-and-guidance",
+          "observed_at": "2026-11-04T11:04:45.611339Z",
+          "execution_id": "20261104-110432-site-crawl"
+        },
+        {
+          "source": "AURORA crawl (visible text)",
+          "observation": "/blog/what-is-oet-exam-how-much-does-it-costs: Every fee below is in US dollars, with the approximate amount in Indian rupees (INR) in brackets, at ₹96 to the dollar. Fees are charged in dollars, so your bank’s exchange rate an | Roughly USD 385 (~₹37,000) · GBP 300 at mid-2026 rates. | The full OET test, covering all four sub-tests, is AUD 587 . That is roughly USD 385 (~₹37,000) or GBP 300 at mid-2026 rates. The price is the same whether you sit OET on Computer ",
+          "url": "https://nextstepsusmle.com/blog/what-is-oet-exam-how-much-does-it-costs",
+          "observed_at": "2026-11-04T11:04:45.611339Z",
+          "execution_id": "20261104-110432-site-crawl"
+        },
+        {
+          "source": "AURORA crawl (visible text)",
+          "observation": "/blog/ecfmg-2027-pathways-for-imgs: The 2027 Pathways application deadline is January 31, 2027 , with a $945 application fee , non-refundable, credit card only. | $945 USD, non-refundable, credit card only | The 2027 Pathways application deadline is January 31, 2027 (Eastern Time), and the application fee is $945 USD, non-refundable, paid by credit card only. Confirm these details dire",
+          "url": "https://nextstepsusmle.com/blog/ecfmg-2027-pathways-for-imgs",
+          "observed_at": "2026-11-04T11:04:45.611339Z",
+          "execution_id": "20261104-110432-site-crawl"
+        },
+        {
+          "source": "AURORA crawl (visible text)",
+          "observation": "/blog/how-to-review-a-uworld-qbank-block: This is the step almost everyone skips. Review your correct answers and ask honestly: did I truly know this, or did I eliminate my way to it and get lucky? If you guessed, treat it",
+          "url": "https://nextstepsusmle.com/blog/how-to-review-a-uworld-qbank-block",
+          "observed_at": "2026-11-04T11:04:45.611339Z",
+          "execution_id": "20261104-110432-site-crawl"
+        },
+        {
+          "source": "AURORA crawl (visible text)",
+          "observation": "/blog/usmle-step-2-ck-study-plan-12-weeks: The official Step 2 CK self-assessment is NBME’s Comprehensive Clinical Science Self-Assessment (CCSSA) : 200 questions across four 50-question blocks, priced from $62 per form, wi | Percentage complete is a vanity metric. Finishing 70% of the Qbank with rigorous review beats 100% skimmed, and it is not close. | +$235 if you test outside the US or Canada | From $62 each — budget for five or six",
+          "url": "https://nextstepsusmle.com/blog/usmle-step-2-ck-study-plan-12-weeks",
+          "observed_at": "2026-11-04T11:04:45.611339Z",
+          "execution_id": "20261104-110432-site-crawl"
+        },
+        {
+          "source": "AURORA crawl (visible text)",
+          "observation": "/blog/6-month-usmle-step-1-study-plan: A fail costs IMGs more. Step 1 is pass/fail, but each attempt stays on your record, there is a limit of four attempts, and among IMGs in 2025 first-time takers passed at 75% while ",
+          "url": "https://nextstepsusmle.com/blog/6-month-usmle-step-1-study-plan",
+          "observed_at": "2026-11-04T11:04:45.611339Z",
+          "execution_id": "20261104-110432-site-crawl"
+        },
+        {
+          "source": "Website repository (read-only text search)",
+          "observation": "/blog/highest-usmle-step-2-ck-score title: frontend/src/data/blog-index.generated.json:7; /blog/how-to-apply-for-usmle-from-india title: blog-reindex-tracker.md:72; /blog/img-match-2026-nrmp-data title: frontend/src/data/blog-index.generated.json:173; /blog/how-many-indians-pass-the-usmle-each-year title: frontend/src/data/blog-index.generated.json:243; /blog/usmle-step-2-ck-exam-format-2026 title: frontend/src/data/blog-index.generated.json:284; /blog/how-to-prepare-for-the-residency-match-season title: frontend/src/data/blog-index.generated.json:426; /blog/how-much-does-usmle-cost-in-total title: blog-reindex-tracker.md:70; /blog/what-is-the-best-usmle-question-bank title: frontend/src/data/blog-index.generated.json:564",
+          "url": null,
+          "observed_at": "2026-11-04T11:04:48.430921Z",
+          "execution_id": "20261104-110432-site-crawl"
+        }
+      ],
+      "evidence_state": "observed",
+      "affected_urls": [
+        "https://nextstepsusmle.com/blog/highest-usmle-step-2-ck-score",
+        "https://nextstepsusmle.com/blog/how-to-apply-for-usmle-from-india",
+        "https://nextstepsusmle.com/blog/img-match-2026-nrmp-data",
+        "https://nextstepsusmle.com/blog/how-many-indians-pass-the-usmle-each-year",
+        "https://nextstepsusmle.com/blog/usmle-step-2-ck-exam-format-2026",
+        "https://nextstepsusmle.com/blog/how-to-prepare-for-the-residency-match-season",
+        "https://nextstepsusmle.com/blog/how-much-does-usmle-cost-in-total",
+        "https://nextstepsusmle.com/blog/what-is-the-best-usmle-question-bank",
+        "https://nextstepsusmle.com/blog/best-study-resources-for-usmle-steps-preparation",
+        "https://nextstepsusmle.com/blog/usmle-step-3-preparatio-study-plan-and-guidance",
+        "https://nextstepsusmle.com/blog/what-is-oet-exam-how-much-does-it-costs",
+        "https://nextstepsusmle.com/blog/ecfmg-2027-pathways-for-imgs",
+        "https://nextstepsusmle.com/blog/how-to-review-a-uworld-qbank-block",
+        "https://nextstepsusmle.com/blog/usmle-step-2-ck-study-plan-12-weeks",
+        "https://nextstepsusmle.com/blog/6-month-usmle-step-1-study-plan",
+        "https://nextstepsusmle.com/blog/top-usmle-coaching-centers-in-india",
+        "https://nextstepsusmle.com/blog/usmle-step-1-vs-step-2-ck-key-differences-you-need-to-know",
+        "https://nextstepsusmle.com/blog/what-is-the-salary-after-usmle",
+        "https://nextstepsusmle.com/blog/how-many-years-is-usmle-valid",
+        "https://nextstepsusmle.com/blog/do-mbbs-marks-have-an-impact-on-the-usmle",
+        "https://nextstepsusmle.com/blog/how-to-crack-usmle-on-your-first-attempt",
+        "https://nextstepsusmle.com/blog/how-can-you-stand-out-in-usmle-clinical-rotations",
+        "https://nextstepsusmle.com/blog/why-usmle-cv-can-be-rejected",
+        "https://nextstepsusmle.com/blog/how-to-prepare-for-usmle-from-1st-year-mbbs",
+        "https://nextstepsusmle.com/blog/what-is-the-difference-between-the-match-and-soap",
+        "https://nextstepsusmle.com/blog/common-mistakes-to-avoid-while-preparing-for-the-usmle-step-1",
+        "https://nextstepsusmle.com/blog/comprehensive-guide-to-the-usmle-step-2-ck-syllabus",
+        "https://nextstepsusmle.com/blog/usmle-step-1-exam-fee-what-you-need-to-know",
+        "https://nextstepsusmle.com/blog/usmle-step-1-passing-score-step-by-step-guidance",
+        "https://nextstepsusmle.com/blog/comprehensive-guide-to-the-usmle-step-1-syllabus",
+        "https://nextstepsusmle.com/blog/how-to-balance-usmle-preparation-and-medical-school",
+        "https://nextstepsusmle.com/blog/how-to-score-280-on-usmle-step-2-ck",
+        "https://nextstepsusmle.com/blog/what-happens-if-you-fail-in-usmle-step-1",
+        "https://nextstepsusmle.com/blog/is-the-usmle-tough-for-indian-students",
+        "https://nextstepsusmle.com/blog/how-many-interviews-should-you-get-to-match",
+        "https://nextstepsusmle.com/blog/why-dont-imgs-get-usmle-residency-interviews",
+        "https://nextstepsusmle.com/blog/usmle-personal-statement-dos-and-donts",
+        "https://nextstepsusmle.com/blog/what-do-program-directors-seek-from-usce",
+        "https://nextstepsusmle.com/blog/how-to-find-the-best-us-clinical-experience-for-imgs",
+        "https://nextstepsusmle.com/blog/what-do-program-directors-expect-in-the-usmle-match-interview",
+        "https://nextstepsusmle.com/blog/what-are-usmle-clinical-rotations-and-electives",
+        "https://nextstepsusmle.com/blog/what-is-usmle-what-are-the-usmle-steps"
+      ],
+      "seo_impact": "Unsourced health/education numbers weaken trust (E-E-A-T) and AI citability, and go stale silently.",
+      "recommended_action": "Link each number to its official source and year (usmle.org, nbme.org, ecfmg.org, intealth.org, fsmb.org), or remove it.",
+      "expected_outcome": "Every fee, rate and pass figure links to its source.",
+      "verification_method": "Re-run /seo-ymyl-accuracy.",
+      "status": "open",
+      "skill": "seo-ymyl-accuracy",
+      "first_seen": null,
+      "last_seen": null,
+      "seen_in": [],
+      "history": []
+    },
+    {
+      "key": "unsupported-claim:blog",
+      "issue": "Claim terms (superlatives or promises) on 11 blog post(s)",
+      "category": "content/claims",
+      "priority": "medium",
+      "evidence": [
+        {
+          "source": "AURORA crawl (visible text)",
+          "observation": "/blog/img-match-2026-nrmp-data: 'guarantee': …from the double-digit figure people assume. Do publications guarantee a match? + No, and Pediatrics is the proof: matched applicants had a m…",
+          "url": "https://nextstepsusmle.com/blog/img-match-2026-nrmp-data",
+          "observed_at": "2026-11-04T11:04:45.612345Z",
+          "execution_id": "20261104-110432-site-crawl"
+        },
+        {
+          "source": "AURORA crawl (visible text)",
+          "observation": "/blog/usmle-step-2-ck-exam-format-2026: 'best in': …k your next two long-stem questions and answer them fast on best instinct. Recover deliberately, not in a panic. Switch your Qbank to 20-que…",
+          "url": "https://nextstepsusmle.com/blog/usmle-step-2-ck-exam-format-2026",
+          "observed_at": "2026-11-04T11:04:45.612345Z",
+          "execution_id": "20261104-110432-site-crawl"
+        },
+        {
+          "source": "AURORA crawl (visible text)",
+          "observation": "/blog/what-is-the-role-of-mentorship-in-usmle-preparation: 'guaranteed': …ine, and honest data-driven feedback. Watch for red flags : guaranteed-score promises, pressure before you’ve seen a real curriculum, and no… | 'guarantee': …ine, and honest data-driven feedback. Watch for red flags : guaranteed-score promises, pressure before you’ve seen a real curriculum, and no…",
+          "url": "https://nextstepsusmle.com/blog/what-is-the-role-of-mentorship-in-usmle-preparation",
+          "observed_at": "2026-11-04T11:04:45.612345Z",
+          "execution_id": "20261104-110432-site-crawl"
+        },
+        {
+          "source": "AURORA crawl (visible text)",
+          "observation": "/blog/usmle-step-2-ck-study-plan-12-weeks: '100%': …tric. Finishing 70% of the Qbank with rigorous review beats 100% skimmed, and it is not close. Protect the Anki streak above all else. A mis…",
+          "url": "https://nextstepsusmle.com/blog/usmle-step-2-ck-study-plan-12-weeks",
+          "observed_at": "2026-11-04T11:04:45.612345Z",
+          "execution_id": "20261104-110432-site-crawl"
+        },
+        {
+          "source": "AURORA crawl (visible text)",
+          "observation": "/blog/top-usmle-coaching-centers-in-india: 'guaranteed': …eting rather than a service. Red flags Walk away from these Guaranteed scores or guaranteed Match. Nobody can promise either. Guaranteed US … | 'guarantee': …eting rather than a service. Red flags Walk away from these Guaranteed scores or guaranteed Match. Nobody can promise either. Guaranteed US …",
+          "url": "https://nextstepsusmle.com/blog/top-usmle-coaching-centers-in-india",
+          "observed_at": "2026-11-04T11:04:45.612345Z",
+          "execution_id": "20261104-110432-site-crawl"
+        },
+        {
+          "source": "AURORA crawl (visible text)",
+          "observation": "/blog/how-can-you-stand-out-in-usmle-clinical-rotations: 'guarantee': …ng as a search engine Sending no materials after they agree Guarantees a short, vague letter The whole thing in one sentence Everything abov…",
+          "url": "https://nextstepsusmle.com/blog/how-can-you-stand-out-in-usmle-clinical-rotations",
+          "observed_at": "2026-11-04T11:04:45.612345Z",
+          "execution_id": "20261104-110432-site-crawl"
+        },
+        {
+          "source": "AURORA crawl (visible text)",
+          "observation": "/blog/comprehensive-guide-to-the-usmle-step-2-ck-syllabus: '100%': …management, not recall The ranges overlap and sum well past 100% because a single question is counted on more than one axis. Format from 7 M…",
+          "url": "https://nextstepsusmle.com/blog/comprehensive-guide-to-the-usmle-step-2-ck-syllabus",
+          "observed_at": "2026-11-04T11:04:45.612345Z",
+          "execution_id": "20261104-110432-site-crawl"
+        },
+        {
+          "source": "AURORA crawl (visible text)",
+          "observation": "/blog/comprehensive-guide-to-the-usmle-step-1-syllabus: '100%': …gy 5 to 15% Genetics 5 to 10% Why these add up to more than 100% Questions are deliberately integrative, so one item can count towards sever…",
+          "url": "https://nextstepsusmle.com/blog/comprehensive-guide-to-the-usmle-step-1-syllabus",
+          "observed_at": "2026-11-04T11:04:45.612345Z",
+          "execution_id": "20261104-110432-site-crawl"
+        },
+        {
+          "source": "AURORA crawl (visible text)",
+          "observation": "/blog/how-many-interviews-should-you-get-to-match: 'guarantee': …nclusion There is no single magic number of interviews that guarantees a match, and the “10–15” figure repeated across the internet is a loo…",
+          "url": "https://nextstepsusmle.com/blog/how-many-interviews-should-you-get-to-match",
+          "observed_at": "2026-11-04T11:04:45.612345Z",
+          "execution_id": "20261104-110432-site-crawl"
+        },
+        {
+          "source": "AURORA crawl (visible text)",
+          "observation": "/blog/how-to-find-the-best-us-clinical-experience-for-imgs: 'guaranteed': …s of Low-Value or Scam USCE Programs ⚠ Walk away from these Guaranteed letters of recommendation promised before you have even met the physi… | 'guarantee': …s of Low-Value or Scam USCE Programs ⚠ Walk away from these Guaranteed letters of recommendation promised before you have even met the physi…",
+          "url": "https://nextstepsusmle.com/blog/how-to-find-the-best-us-clinical-experience-for-imgs",
+          "observed_at": "2026-11-04T11:04:45.612345Z",
+          "execution_id": "20261104-110432-site-crawl"
+        },
+        {
+          "source": "AURORA crawl (visible text)",
+          "observation": "/blog/what-are-usmle-clinical-rotations-and-electives: 'guaranteed': …dency programme on site, or pressures you to pay quickly. A guaranteed letter is a generic letter , and programme directors have read thousa… | 'guarantee': …rmous. Rotation mill red flags Be cautious of anything that guarantees a letter, cannot name the hospital before payment, offers only unaffi…",
+          "url": "https://nextstepsusmle.com/blog/what-are-usmle-clinical-rotations-and-electives",
+          "observed_at": "2026-11-04T11:04:45.612345Z",
+          "execution_id": "20261104-110432-site-crawl"
+        },
+        {
+          "source": "Website repository (read-only text search)",
+          "observation": "/blog/img-match-2026-nrmp-data title: frontend/src/data/blog-index.generated.json:173; /blog/usmle-step-2-ck-exam-format-2026 title: frontend/src/data/blog-index.generated.json:284; /blog/what-is-the-role-of-mentorship-in-usmle-preparation title: frontend/src/data/blog-index.generated.json:518; /blog/usmle-step-2-ck-study-plan-12-weeks title: frontend/src/data/blog-index.generated.json:1086; /blog/top-usmle-coaching-centers-in-india title: blog-reindex-tracker.md:74; /blog/how-can-you-stand-out-in-usmle-clinical-rotations title: frontend/src/data/blog-index.generated.json:1642; /blog/comprehensive-guide-to-the-usmle-step-2-ck-syllabus title: frontend/src/data/blog-index.generated.json:1997; /blog/comprehensive-guide-to-the-usmle-step-1-syllabus title: frontend/src/data/blog-index.generated.json:2147",
+          "url": null,
+          "observed_at": "2026-11-04T11:04:48.603579Z",
+          "execution_id": "20261104-110432-site-crawl"
+        }
+      ],
+      "evidence_state": "observed",
+      "affected_urls": [
+        "https://nextstepsusmle.com/blog/img-match-2026-nrmp-data",
+        "https://nextstepsusmle.com/blog/usmle-step-2-ck-exam-format-2026",
+        "https://nextstepsusmle.com/blog/what-is-the-role-of-mentorship-in-usmle-preparation",
+        "https://nextstepsusmle.com/blog/usmle-step-2-ck-study-plan-12-weeks",
+        "https://nextstepsusmle.com/blog/top-usmle-coaching-centers-in-india",
+        "https://nextstepsusmle.com/blog/how-can-you-stand-out-in-usmle-clinical-rotations",
+        "https://nextstepsusmle.com/blog/comprehensive-guide-to-the-usmle-step-2-ck-syllabus",
+        "https://nextstepsusmle.com/blog/comprehensive-guide-to-the-usmle-step-1-syllabus",
+        "https://nextstepsusmle.com/blog/how-many-interviews-should-you-get-to-match",
+        "https://nextstepsusmle.com/blog/how-to-find-the-best-us-clinical-experience-for-imgs",
+        "https://nextstepsusmle.com/blog/what-are-usmle-clinical-rotations-and-electives"
+      ],
+      "seo_impact": "Unproven superlatives and promises reduce trust and can breach advertising rules.",
+      "recommended_action": "Back each claim with published, dated evidence (method, cohort, period) or rephrase it.",
+      "expected_outcome": "Every claim is substantiated or removed.",
+      "verification_method": "Re-run /seo-ymyl-accuracy.",
+      "status": "open",
+      "skill": "seo-ymyl-accuracy",
+      "first_seen": null,
+      "last_seen": null,
+      "seen_in": [],
+      "history": []
+    },
+    {
+      "key": "stale-year:blog",
+      "issue": "Past years presented as current on 8 blog post(s)",
+      "category": "content/freshness",
+      "priority": "medium",
+      "evidence": [
+        {
+          "source": "AURORA crawl (titles, headings, text)",
+          "observation": "/blog/how-many-indians-pass-the-usmle-each-year: title: How Many Indians Pass the USMLE Each Year? (2024 Data) | h1: How Many Indians Pass the USMLE Each Year? (2024 Data) | h2: What the data does show: IMG pass rates in 2024",
+          "url": "https://nextstepsusmle.com/blog/how-many-indians-pass-the-usmle-each-year",
+          "observed_at": "2026-11-04T11:04:45.612345Z",
+          "execution_id": "20261104-110432-site-crawl"
+        },
+        {
+          "source": "AURORA crawl (titles, headings, text)",
+          "observation": "/blog/ecfmg-announcement-certification-eligibility: h2: Timeline: From “2023 Requirement” to “2024 Recommendation”",
+          "url": "https://nextstepsusmle.com/blog/ecfmg-announcement-certification-eligibility",
+          "observed_at": "2026-11-04T11:04:45.612345Z",
+          "execution_id": "20261104-110432-site-crawl"
+        },
+        {
+          "source": "AURORA crawl (titles, headings, text)",
+          "observation": "/blog/usmle-step-1-vs-step-2-ck-key-differences-you-need-to-know: Since Step 1 became pass or fail in 2022, the relationship between these two exams inverted. Advice written before that change is actively misleading. Here is where things stand in",
+          "url": "https://nextstepsusmle.com/blog/usmle-step-1-vs-step-2-ck-key-differences-you-need-to-know",
+          "observed_at": "2026-11-04T11:04:45.612345Z",
+          "execution_id": "20261104-110432-site-crawl"
+        },
+        {
+          "source": "AURORA crawl (titles, headings, text)",
+          "observation": "/blog/how-to-crack-usmle-on-your-first-attempt: Among IMGs in 2025, 75% of first time Step 1 takers passed and only 54% of repeaters did . That gap is not about ability, because they are largely the same people. It is about meth",
+          "url": "https://nextstepsusmle.com/blog/how-to-crack-usmle-on-your-first-attempt",
+          "observed_at": "2026-11-04T11:04:45.612345Z",
+          "execution_id": "20261104-110432-site-crawl"
+        },
+        {
+          "source": "AURORA crawl (titles, headings, text)",
+          "observation": "/blog/can-you-take-the-usmle-right-after-mbbs-in-india: h2: The 2024 rule that changed things for Indian graduates",
+          "url": "https://nextstepsusmle.com/blog/can-you-take-the-usmle-right-after-mbbs-in-india",
+          "observed_at": "2026-11-04T11:04:45.612345Z",
+          "execution_id": "20261104-110432-site-crawl"
+        },
+        {
+          "source": "AURORA crawl (titles, headings, text)",
+          "observation": "/blog/how-many-interviews-should-you-get-to-match: Match rates differ sharply by citizenship: 67.8% (U.S. IMGs) vs 58.0% (non-U.S. IMGs) in 2025.",
+          "url": "https://nextstepsusmle.com/blog/how-many-interviews-should-you-get-to-match",
+          "observed_at": "2026-11-04T11:04:45.612345Z",
+          "execution_id": "20261104-110432-site-crawl"
+        },
+        {
+          "source": "AURORA crawl (titles, headings, text)",
+          "observation": "/blog/usmle-personal-statement-dos-and-donts: Programs do not run automated AI scans on ERAS submissions. The AAMC’s policy relies on applicant certification that the statement is your own work, not detection software, though ",
+          "url": "https://nextstepsusmle.com/blog/usmle-personal-statement-dos-and-donts",
+          "observed_at": "2026-11-04T11:04:45.612345Z",
+          "execution_id": "20261104-110432-site-crawl"
+        },
+        {
+          "source": "AURORA crawl (titles, headings, text)",
+          "observation": "/blog/what-do-program-directors-expect-in-the-usmle-match-interview: Most specialties, including Internal Medicine, continue to recommend a virtual interview format for 2025–2026 per specialty society guidance, largely due to cost savings for both a",
+          "url": "https://nextstepsusmle.com/blog/what-do-program-directors-expect-in-the-usmle-match-interview",
+          "observed_at": "2026-11-04T11:04:45.612345Z",
+          "execution_id": "20261104-110432-site-crawl"
+        },
+        {
+          "source": "Website repository (read-only text search)",
+          "observation": "/blog/how-many-indians-pass-the-usmle-each-year title: frontend/src/data/blog-index.generated.json:243; /blog/ecfmg-announcement-certification-eligibility title: frontend/src/data/blog-index.generated.json:798; /blog/usmle-step-1-vs-step-2-ck-key-differences-you-need-to-know title: frontend/src/data/blog-index.generated.json:1243; /blog/how-to-crack-usmle-on-your-first-attempt title: frontend/src/data/blog-index.generated.json:1526; /blog/can-you-take-the-usmle-right-after-mbbs-in-india title: frontend/src/data/blog-index.generated.json:1781; /blog/how-many-interviews-should-you-get-to-match title: frontend/src/data/blog-index.generated.json:2431; /blog/usmle-personal-statement-dos-and-donts title: frontend/src/data/blog-index.generated.json:2512; /blog/what-do-program-directors-expect-in-the-usmle-match-interview title: frontend/src/data/blog-index.generated.json:2689",
+          "url": null,
+          "observed_at": "2026-11-04T11:04:48.813453Z",
+          "execution_id": "20261104-110432-site-crawl"
+        }
+      ],
+      "evidence_state": "observed",
+      "affected_urls": [
+        "https://nextstepsusmle.com/blog/how-many-indians-pass-the-usmle-each-year",
+        "https://nextstepsusmle.com/blog/ecfmg-announcement-certification-eligibility",
+        "https://nextstepsusmle.com/blog/usmle-step-1-vs-step-2-ck-key-differences-you-need-to-know",
+        "https://nextstepsusmle.com/blog/how-to-crack-usmle-on-your-first-attempt",
+        "https://nextstepsusmle.com/blog/can-you-take-the-usmle-right-after-mbbs-in-india",
+        "https://nextstepsusmle.com/blog/how-many-interviews-should-you-get-to-match",
+        "https://nextstepsusmle.com/blog/usmle-personal-statement-dos-and-donts",
+        "https://nextstepsusmle.com/blog/what-do-program-directors-expect-in-the-usmle-match-interview"
+      ],
+      "seo_impact": "Outdated exam facts mislead readers and lose clicks to fresher pages.",
+      "recommended_action": "Check whether newer official data or rules exist: update the page and its dateModified if so; if the year is the latest available, say so ('latest available data'); label dated news as an archived update linking to current rules.",
+      "expected_outcome": "No stale year presented as current.",
+      "verification_method": "Re-run /seo-ymyl-accuracy.",
+      "status": "open",
+      "skill": "seo-ymyl-accuracy",
+      "first_seen": null,
+      "last_seen": null,
+      "seen_in": [],
+      "history": []
+    },
+    {
+      "key": "videoobject-missing:blog",
+      "issue": "Embedded videos without VideoObject markup on 1 blog post(s)",
+      "category": "schema/video",
+      "priority": "medium",
+      "evidence": [
+        {
+          "source": "AURORA crawl (embeds and JSON-LD)",
+          "observation": "/blog/usmle-lor-letters-of-recommendation-img-residency-match: video ids: DQqrI9tI8mU",
+          "url": "https://nextstepsusmle.com/blog/usmle-lor-letters-of-recommendation-img-residency-match",
+          "observed_at": "2026-11-04T11:04:45.612345Z",
+          "execution_id": "20261104-110432-site-crawl"
+        },
+        {
+          "source": "Website repository (read-only text search)",
+          "observation": "/blog/usmle-lor-letters-of-recommendation-img-residency-match title: frontend/src/data/blog-index.generated.json:1032",
+          "url": null,
+          "observed_at": "2026-11-04T11:04:48.834518Z",
+          "execution_id": "20261104-110432-site-crawl"
+        }
+      ],
+      "evidence_state": "observed",
+      "affected_urls": [
+        "https://nextstepsusmle.com/blog/usmle-lor-letters-of-recommendation-img-residency-match"
+      ],
+      "seo_impact": "Without VideoObject the videos are unlikely to appear as video results or key moments.",
+      "recommended_action": "Add the proposed VideoObject JSON-LD (insights/videos-videoobject-proposals.json); fill missing upload dates from YouTube.",
+      "expected_outcome": "Every embedded video has valid VideoObject markup.",
+      "verification_method": "Re-run /seo-site-crawl; validate with the Rich Results Test.",
+      "status": "open",
+      "skill": "seo-video",
+      "first_seen": null,
+      "last_seen": null,
+      "seen_in": [],
+      "history": []
+    }
+  ],
+  "checked": {
+    "keys": [
+      "image-dimensions-missing:/",
+      "image-dimensions-missing:/blog",
+      "image-dimensions-missing:/cancellation-policy",
+      "image-dimensions-missing:/contact",
+      "image-dimensions-missing:/mentorship",
+      "image-dimensions-missing:/privacy-policy",
+      "image-dimensions-missing:/programs/clinical-rotations",
+      "image-dimensions-missing:/programs/residency-match",
+      "image-dimensions-missing:/programs/usmle-cv",
+      "image-dimensions-missing:/step-1-2-ck",
+      "image-dimensions-missing:/success-stories",
+      "image-dimensions-missing:/terms",
+      "image-dimensions-missing:/webinar",
+      "image-dimensions-missing:blog",
+      "security-headers-missing:site",
+      "soft-404:site",
+      "stale-year:/",
+      "stale-year:/blog",
+      "stale-year:/cancellation-policy",
+      "stale-year:/contact",
+      "stale-year:/mentorship",
+      "stale-year:/privacy-policy",
+      "stale-year:/programs/clinical-rotations",
+      "stale-year:/programs/residency-match",
+      "stale-year:/programs/usmle-cv",
+      "stale-year:/step-1-2-ck",
+      "stale-year:/success-stories",
+      "stale-year:/terms",
+      "stale-year:/webinar",
+      "stale-year:blog",
+      "tech:description.duplicate",
+      "tech:links.redirecting_internal",
+      "tech:robots.blocks_pages",
+      "tech:schema.missing_recommended",
+      "tech:schema.retired_feature",
+      "tech:sitemap.lists_non_200",
+      "tech:title.duplicate",
+      "tech:title.length",
+      "thin-content:blog",
+      "unsourced-numbers:/",
+      "unsourced-numbers:/blog",
+      "unsourced-numbers:/cancellation-policy",
+      "unsourced-numbers:/contact",
+      "unsourced-numbers:/mentorship",
+      "unsourced-numbers:/privacy-policy",
+      "unsourced-numbers:/programs/clinical-rotations",
+      "unsourced-numbers:/programs/residency-match",
+      "unsourced-numbers:/programs/usmle-cv",
+      "unsourced-numbers:/step-1-2-ck",
+      "unsourced-numbers:/success-stories",
+      "unsourced-numbers:/terms",
+      "unsourced-numbers:/webinar",
+      "unsourced-numbers:blog",
+      "unsupported-claim:/",
+      "unsupported-claim:/blog",
+      "unsupported-claim:/cancellation-policy",
+      "unsupported-claim:/contact",
+      "unsupported-claim:/mentorship",
+      "unsupported-claim:/privacy-policy",
+      "unsupported-claim:/programs/clinical-rotations",
+      "unsupported-claim:/programs/residency-match",
+      "unsupported-claim:/programs/usmle-cv",
+      "unsupported-claim:/step-1-2-ck",
+      "unsupported-claim:/success-stories",
+      "unsupported-claim:/terms",
+      "unsupported-claim:/webinar",
+      "unsupported-claim:blog",
+      "video-embed-opportunities:site",
+      "videoobject-missing:/",
+      "videoobject-missing:/blog",
+      "videoobject-missing:/cancellation-policy",
+      "videoobject-missing:/contact",
+      "videoobject-missing:/mentorship",
+      "videoobject-missing:/privacy-policy",
+      "videoobject-missing:/programs/clinical-rotations",
+      "videoobject-missing:/programs/residency-match",
+      "videoobject-missing:/programs/usmle-cv",
+      "videoobject-missing:/step-1-2-ck",
+      "videoobject-missing:/success-stories",
+      "videoobject-missing:/terms",
+      "videoobject-missing:/webinar",
+      "videoobject-missing:blog"
+    ],
+    "categories": []
+  },
+  "changes": [],
+  "blockers": [],
+  "learning": {
+    "learned": [],
+    "reused": [],
+    "patterns": [],
+    "skill_proposals": [],
+    "needs_approval": []
+  },
+  "comparison": {
+    "new": [
+      "image-dimensions-missing:/blog",
+      "image-dimensions-missing:/mentorship",
+      "image-dimensions-missing:/step-1-2-ck",
+      "image-dimensions-missing:/success-stories",
+      "image-dimensions-missing:/webinar",
+      "image-dimensions-missing:blog",
+      "stale-year:blog",
+      "tech:description.duplicate",
+      "tech:links.redirecting_internal",
+      "tech:robots.blocks_pages",
+      "tech:schema.missing_recommended",
+      "tech:schema.retired_feature",
+      "tech:sitemap.lists_non_200",
+      "tech:title.duplicate",
+      "tech:title.length",
+      "unsourced-numbers:/mentorship",
+      "unsourced-numbers:/step-1-2-ck",
+      "unsourced-numbers:/terms",
+      "unsourced-numbers:/webinar",
+      "unsourced-numbers:blog",
+      "unsupported-claim:/programs/clinical-rotations",
+      "unsupported-claim:blog",
+      "videoobject-missing:blog"
+    ],
+    "recurring": [
+      "image-dimensions-missing:/",
+      "security-headers-missing:site",
+      "soft-404:site",
+      "unsupported-claim:/",
+      "unsupported-claim:/mentorship"
+    ],
+    "resolved": [],
+    "not_rechecked": [
+      "blog-index-metadata:/blog",
+      "blogposting-citation-missing:site",
+      "brand-name-inconsistent:site",
+      "broken-link:facebook-profile",
+      "cannibalization:step-2-ck-score",
+      "content-gap:free-120-and-free-qbanks",
+      "content-gap:nbme-self-assessments",
+      "content-gap:step-2-ck-passing-score",
+      "content-gap:usmle-vs-neet-pg",
+      "cover-images-old-titles:blog",
+      "eeat-first-hand-outcomes:site",
+      "fee-intent-owner:india",
+      "hidden-faq:blog",
+      "images-missing-alt:/mentorship",
+      "images-missing-alt:/step-1-2-ck",
+      "knowsabout-narrow:site",
+      "long-titles:blog",
+      "low-ctr:/blog/what-is-oet-exam-how-much-does-it-costs",
+      "meta-description-length:/mentorship",
+      "missing-redirect:2024-match-pathways-application-reopened-for-imgs",
+      "missing-redirect:usmle-step-2-ck-passing-score-step-by-step-guidance",
+      "orphan-posts:blog",
+      "rank-outside-top10:priority-keywords",
+      "ranking-drop:/blog/how-to-make-a-good-cv-for-usmle",
+      "ranking-drop:/blog/usmle-step-1-exam-fee-what-you-need-to-know",
+      "reindex-pending:blog",
+      "reviewer-schema-missing-sameas:site",
+      "robots-ai-crawlers:site",
+      "thin-content:/success-stories",
+      "thin-content:blog-two-posts",
+      "title-length:/mentorship",
+      "undeployed-seo-changes:update-blog-titles"
+    ],
+    "reopened": []
+  },
+  "sections": [],
+  "notes": [
+    "Site source: react ^18.3.1 (frontend/package.json)",
+    "Site source: vite ^5.4.19 (frontend/package.json)",
+    "Site source: react-helmet-async ^3.0.0 (frontend/package.json)",
+    "Site source: react-helmet-async / react-helmet: e.g. frontend/index.html",
+    "Site source: templated <title> in components: e.g. frontend/src/components/SEO.tsx"
+  ]
+}

@@ -119,5 +119,104 @@
     "new": 0,
     "recurring": 2,
     "resolved": 0
+  },
+  {
+    "id": "20261104-110432-site-crawl",
+    "mode": "site-crawl",
+    "status": "completed",
+    "started_at": "2026-11-04T11:04:32.266638Z",
+    "finished_at": "2026-11-04T11:04:48.915225Z",
+    "summary": "83 pages audited, 8 technical rule findings, 28 findings in total (no paid calls).",
+    "new": 23,
+    "recurring": 5,
+    "resolved": 0
+  },
+  {
+    "id": "20261104-110508-ai-visibility",
+    "mode": "ai-visibility",
+    "status": "completed",
+    "started_at": "2026-11-04T11:05:08.626270Z",
+    "finished_at": "2026-11-04T11:05:09.125305Z",
+    "summary": "0 of 19 AI agents blocked somewhere; llms.txt valid; 0 AI Overview observations; 0 recorded AI answers.",
+    "new": 0,
+    "recurring": 1,
+    "resolved": 0
+  },
+  {
+    "id": "20261104-110511-opportunities",
+    "mode": "opportunities",
+    "status": "completed",
+    "started_at": "2026-11-04T11:05:11.048117Z",
+    "finished_at": "2026-11-04T11:05:24.064594Z",
+    "summary": "10 striking-distance pages, 0 low-CTR queries, 11 decaying and 1 dormant pages.",
+    "new": 25,
+    "recurring": 0,
+    "resolved": 0
+  },
+  {
+    "id": "20261104-110525-alerts",
+    "mode": "alerts",
+    "status": "completed",
+    "started_at": "2026-11-04T11:05:25.808077Z",
+    "finished_at": "2026-11-04T11:07:11.487042Z",
+    "summary": "7 alert(s) for the 7 days ending 2026-11-01.",
+    "new": 7,
+    "recurring": 0,
+    "resolved": 0
+  },
+  {
+    "id": "20261104-110713-rank-tracking",
+    "mode": "rank-tracking",
+    "status": "completed",
+    "started_at": "2026-11-04T11:07:13.457405Z",
+    "finished_at": "2026-11-04T11:07:17.947230Z",
+    "summary": "10/20 keyword-market pairs have Search Console impressions; 0 live SERP checks.",
+    "new": 0,
+    "recurring": 0,
+    "resolved": 0
+  },
+  {
+    "id": "20261104-110719-rank-tracking",
+    "mode": "rank-tracking",
+    "status": "completed",
+    "started_at": "2026-11-04T11:07:19.830117Z",
+    "finished_at": "2026-11-04T11:07:24.814828Z",
+    "summary": "49 keywords x 2 markets; provider: none.",
+    "new": 0,
+    "recurring": 0,
+    "resolved": 0
+  },
+  {
+    "id": "20261104-110726-competitor-watch",
+    "mode": "competitor-watch",
+    "status": "completed",
+    "started_at": "2026-11-04T11:07:26.644685Z",
+    "finished_at": "2026-11-04T11:08:39.622797Z",
+    "summary": "3 competitors read; 0 new and 45 updated URLs.",
+    "new": 1,
+    "recurring": 0,
+    "resolved": 0
+  },
+  {
+    "id": "20261104-110954-video-seo",
+    "mode": "video-seo",
+    "status": "completed",
+    "started_at": "2026-11-04T11:09:54.692169Z",
+    "finished_at": "2026-11-04T11:10:37.978317Z",
+    "summary": "Video catalog has 35 videos; run the crawl to check embeds and matches.",
+    "new": 0,
+    "recurring": 0,
+    "resolved": 0
+  },
+  {
+    "id": "20261104-111046-video-seo",
+    "mode": "video-seo",
+    "status": "completed",
+    "started_at": "2026-11-04T11:10:46.401158Z",
+    "finished_at": "2026-11-04T11:11:28.501495Z",
+    "summary": "Video catalog has 35 videos; run the crawl to check embeds and matches.",
+    "new": 0,
+    "recurring": 0,
+    "resolved": 0
   }
 ]

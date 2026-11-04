@@ -64,6 +64,9 @@ class Settings(BaseSettings):
     groq_api_key: SecretStr | None = Field(default=None)
     anthropic_api_key: SecretStr | None = Field(default=None)
     openai_api_key: SecretStr | None = Field(default=None)
+    # DataForSEO (optional, paid per request): keyword volume/difficulty and backlinks.
+    dataforseo_login: str | None = None
+    dataforseo_password: SecretStr | None = Field(default=None)
 
     wordpress_url: str | None = None
     wordpress_username: str | None = None
@@ -156,6 +159,8 @@ class Settings(BaseSettings):
     # execution history) and the skills directory the registry reads (read-only).
     seo_intelligence_root: Path = PROJECT_ROOT / "seo-intelligence"
     seo_skills_dir: Path = PROJECT_ROOT / ".claude" / "skills"
+    # Bulky collected data of SEO Intelligence runs (never committed).
+    seo_intelligence_data_root: Path = PROJECT_ROOT / "data"
 
     # Module 4: LLM providers and the intelligence engine. Defaults are safe: the
     # deterministic mock provider needs no credentials and costs nothing.
@@ -228,6 +233,7 @@ class Settings(BaseSettings):
     @field_validator(
         "aurora_api_token",
         "google_client_id",
+        "dataforseo_login",
         "seo_serpapi_cost_per_search",
         "openai_model",
         "anthropic_model",

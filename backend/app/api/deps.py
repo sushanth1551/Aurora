@@ -34,9 +34,11 @@ from app.research.website_discovery import WebsiteDiscovery
 from app.research.website_intelligence_service import WebsiteIntelligenceService
 from app.research.website_mapper import WebsiteMapper
 from app.seo.intelligence.factory import (
+    build_insight_store,
     build_seo_agent_service,
     build_skill_improvement,
 )
+from app.seo.intelligence.insights.store import InsightStore
 from app.seo.intelligence.service import SeoAgentService
 from app.seo.keywords.service import KeywordResearchService
 from app.seo.skills.improvement import SkillImprovementService
@@ -226,6 +228,14 @@ def get_seo_agent_service() -> SeoAgentService:
 
 
 SeoAgentServiceDep = Annotated[SeoAgentService, Depends(get_seo_agent_service)]
+
+
+def get_insight_store() -> InsightStore:
+    """Latest SEO insight snapshots from the knowledge base (no network)."""
+    return build_insight_store(get_settings())
+
+
+InsightStoreDep = Annotated[InsightStore, Depends(get_insight_store)]
 
 
 def get_skill_improvement() -> SkillImprovementService:

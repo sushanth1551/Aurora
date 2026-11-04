@@ -62,9 +62,9 @@ class PageResult(BaseModel):
     status_source: Literal["http_trace", "firecrawl_reported", "none"] = "none"
     redirect_chain: list[HopView] = []
     headers: dict[str, str] = {}
-    fetch_source: Literal["firecrawl_raw_html", "http_only", "not_fetched"] = (
-        "not_fetched"
-    )
+    fetch_source: Literal[
+        "firecrawl_raw_html", "direct_html", "http_only", "not_fetched"
+    ] = "not_fetched"
     fetch_status: str = "pending"
     fetch_detail: str | None = None
     fetched_at: datetime | None = None

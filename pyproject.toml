@@ -19,6 +19,10 @@ dev = [
   "mypy>=1.13,<2.0",
   "ruff>=0.8",
 ]
+# SEO Intelligence video checks: read YouTube playlist metadata (no downloads).
+video = [
+  "yt-dlp>=2025.1.1",
+]
 
 [tool.setuptools]
 package-dir = {"" = "backend"}
@@ -56,6 +60,8 @@ select = ["E", "F", "I", "UP", "B"]
 "backend/app/llm/**" = ["E501"]
 "backend/app/graph/**" = ["E501"]  # long Cypher fragments and registry tables
 "backend/app/seo/**" = ["E501"]  # audit rule tables and finding texts
+"scripts/seo_insights.py" = ["E501"]  # report table rows and finding texts
+"scripts/build_seo_plugin.py" = ["E501"]  # plugin description and README text
 "backend/app/api/routes/graph.py" = ["E501"]
 "backend/app/tools/search_console_tool.py" = ["E501"]  # long error messages
 "backend/app/monitoring/**" = ["E501"]

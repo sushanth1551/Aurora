@@ -5,8 +5,8 @@ Claude Code skills available to this project live in `.claude/skills/<name>/SKIL
 changes Module 1-4 behaviour, provider integrations, `.env`, the database or the API. All skill
 text is treated as guidance that never overrides `CLAUDE.md`.
 
-Last updated 2026-11-03 (section J added and `seo-audit` renamed to `seo-full-site-audit`; earlier: section I added 2026-11-01; sections G and H added 2026-10-31; validation script, module/workflow mapping and
-validation results added). **110 skills** are installed. Commit hashes of every copied skill are
+Last updated 2026-11-04 (section J: eight scripted SEO Intelligence skills added; 2026-11-03: section J added and `seo-audit` renamed to `seo-full-site-audit`; earlier: section I added 2026-11-01; sections G and H added 2026-10-31; validation script, module/workflow mapping and
+validation results added). **118 skills** are installed. Commit hashes of every copied skill are
 recorded in its `ATTRIBUTION.md`; run `python scripts/validate_skills.py` to check all of them (see
 *Validation* at the end).
 
@@ -227,6 +227,14 @@ evidenced historical use on NextSteps. AURORA modules: 6 (SEO intelligence).
 | `website-seo-discovery` | Site profile, sitemap/robots, key pages, technical probes, read-only repository state | Discovery step | local |
 | `seo-report-analysis` | Normalise uploaded SEO reports into findings | When report files are supplied | local |
 | `seo-learning-and-memory` | Load/store knowledge, comparison rules, skill proposals | First and last step of every mode | local |
+| `seo-opportunities` | `/seo-opportunities`: striking distance, low CTR vs the site's own CTR curve, decay vs best window, prune review, merges, lead value | Runs `scripts/seo_insights.py opportunities` (Search Console, free) | local |
+| `seo-alerts` | `/seo-alerts` and the weekly scheduled run: robust drops (median/MAD), position drops, key-page index status | Runs `scripts/seo_insights.py alerts`; Windows task via `scripts/register-seo-alerts.ps1` | local |
+| `seo-rank-tracking` | `/seo-rank-tracking`: positions per keyword and market (free GSC), budgeted SERP checks, keyword demand, optional DataForSEO | Paid parts only within the owner's budgets | local |
+| `seo-ai-visibility` | `/seo-ai-visibility`: AI crawler access by purpose, llms.txt, AI Overview citations, prompt panel and share of voice | Runs `scripts/seo_insights.py ai-visibility`; answers are recorded, never generated | local |
+| `seo-site-crawl` | `/seo-site-crawl`: free repeatable crawl with every technical-audit rule, extras and a read-only source map | Runs `scripts/seo_insights.py crawl` | local |
+| `seo-ymyl-accuracy` | Unsourced fees/rates, stale years, claims, owner-verified facts registry | Part of the crawl; facts only from official sources | local |
+| `seo-video` | `/seo-video`: playlist catalog (yt-dlp metadata), VideoObject proposals, video-to-page matches | Optional `video` extra | local |
+| `seo-competitor-watch` | `/seo-competitor-watch`: competitor sitemap changes, new pages on the site's keywords, uncovered topics | Runs `scripts/seo_insights.py competitors` (free) | local |
 
 The AURORA planning skills `seo-keyword-research`, `seo-content-strategy` and `seo-quality-audit`
 (set 1) were expanded on 2026-11-03 to the SEO Intelligence format (inputs, tools, storage,
@@ -380,6 +388,14 @@ Roles:
 | `website-seo-discovery` | 6 | W5 | method |
 | `seo-report-analysis` | 6 | W5 | method |
 | `seo-learning-and-memory` | 6 | W5-W8 | method (knowledge base) |
+| `seo-opportunities` | 6 | W6, W8 | method (needs Search Console) |
+| `seo-alerts` | 6 | W8 | method (weekly; needs Search Console) |
+| `seo-rank-tracking` | 6 | W6, W8 | method (free GSC part; paid parts budgeted) |
+| `seo-ai-visibility` | 6 | W5, W8 | method |
+| `seo-site-crawl` | 6 | W5 | method (free scripted crawl) |
+| `seo-ymyl-accuracy` | 6 | W5, W7 | method |
+| `seo-video` | 6 | W5, W7 | method (catalog needs the `video` extra) |
+| `seo-competitor-watch` | 6 | W3, W6 | method |
 | `seo-technical` | 6 | W5 | secondary |
 | `seo-page` | 6 | W5, W7 | secondary |
 | `seo-schema` | 6 | W5 | secondary |

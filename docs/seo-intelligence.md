@@ -197,3 +197,54 @@ for retitled pages only; positions are page averages across all queries.
 - Not verified: the API import against a live PostgreSQL audit (tested with a fake repository);
   the GSC, SerpApi and Firecrawl paths inside the new modes (they reuse the existing, separately
   tested AURORA services).
+
+## 10. Insights: scripted analyses (added 2026-11-04)
+
+Deterministic analyses in `backend/app/seo/intelligence/insights/`, run by
+`scripts/seo_insights.py <command> <site>` (each one is an execution, or records into
+`--execution <id>`), with one skill each and their own registry modes. No LLM is involved in any
+check; inputs are injected, so every module is unit-tested offline
+(`backend/tests/test_seo_insights.py`).
+
+| Feature | Command / mode | Data | What is new compared with common SEO agents |
+| --- | --- | --- | --- |
+| Quick wins (striking distance 4-20) | `opportunities` / `seo-opportunities` | Search Console (free) | "Extra clicks" use the site's **own** CTR curve, never a generic one; too little data = not estimated |
+| Low CTR at good positions | same | same | Judged against the site's own CTR at that position (snippet problem vs ranking problem) |
+| Content decay, prune review, merges, never-shown pages | same | same | Decay vs the previous **and** the page's best 28-day window, with the queries that lost the clicks; merges only from real query overlap; pages never shown get `no-impressions` (index check), not "delete" |
+| Lead value per page | `opportunities --conversions file.csv` | GA4 / CRM export | Opportunities ranked by extra leads (page's own conversions per click) |
+| Alerts | `alerts` / `seo-alerts`, weekly task | Search Console + URL Inspection (free) | Robust z-score (median/MAD) over 8 weeks, so one odd week neither hides nor fires an alert; index status of key pages |
+| Rank tracking per market | `ranks` / `seo-rank-tracking` | Search Console `query x country` (free) | Free daily positions per market (IN, US) with history; SerpApi only as budgeted weekly spot checks |
+| SERP features | `ranks --serp` | SerpApi (paid, monthly budget) | Featured-snippet owner, AI Overview presence and citations, People Also Ask |
+| Keyword volume, difficulty, backlinks | `keyword-data [--backlinks]` | GSC demand (free) + DataForSEO (paid, USD budget) | Budget enforced against the cost DataForSEO reports; never estimated |
+| AI-search visibility | `ai-visibility`, `record-ai-answer` / `seo-ai-visibility` | robots.txt, llms.txt, SERP checks, recorded answers | AI crawlers judged **by purpose** (answer/search vs training) with RFC 9309 matching; prompt panel share of voice from observed answers only |
+| Free repeatable crawl | `crawl` / `seo-site-crawl` | direct HTML via `UrlPolicy` | Every technical-audit rule without Firecrawl credits, plus soft 404, image dimensions, security headers, thin posts |
+| Source-code locations | part of `crawl` | website repository (read-only) | Each finding gets `file:line` of the title/description/slug in the source |
+| YMYL accuracy | part of `crawl` / `seo-ymyl-accuracy` | crawled HTML + facts registry | Unsourced fees/rates, stale years, claims (negations and teasers skipped), owner-verified facts with review dates |
+| Video SEO | `videos`, `crawl` / `seo-video` | yt-dlp metadata (optional `video` extra) | VideoObject proposals from real upload dates/durations; testimonial videos matched to posts |
+| Competitor change watch | `competitors` / `seo-competitor-watch` | competitors' sitemaps (free) | New pages on your keywords and topics you do not cover; bulk lastmod changes recognised |
+| Exports and dashboard | `export`, `dashboard`; API `GET /websites/{id}/insights[/{kind}]`; dashboard tab **SEO Agent** | knowledge base | CSV (Excel-ready) and one dashboard document |
+| Parallel execution | registry step `group` | - | Steps sharing a group run as parallel subagents; payloads are recorded one at a time |
+| Rollback | `rollback-plan`, `rollback-prepare --approved-by` | website repository | Stages a revert on `seo-rollback/<sha>`; never commits, pushes or touches the production branch |
+| Portable plugin | `scripts/build_seo_plugin.py` | - | Builds `data/plugins/seo-intelligence/` (plugin.json + marketplace.json, agents, 38 skills) |
+
+**Keys and rechecks.** Findings follow `<check>:<scope>` and reuse existing keys (`soft-404:site`,
+`security-headers-missing:site`, `low-ctr:<path>`, `unsupported-claim:<path>`, ...); per-post
+issues are one `<check>:blog` finding. A run claims a recheck only for keys its test could observe
+(for example `low-ctr:` only for pages with top-5 rows), so nothing is marked resolved or
+verified by a different test.
+
+**Storage.** Snapshots, rank history, budget ledgers, AI answers and the video catalog:
+`seo-intelligence/sites/<site>/insights/`. Competitor sitemap URL lists and CSV exports:
+`data/seo-intelligence/<site>/` (never committed).
+
+**Budgets.** `rank_tracking.serpapi_monthly_budget` (searches) and
+`keyword_data.monthly_budget_usd` default to 0; only the owner raises them.
+
+**Verified 2026-11-04 (nextsteps, free runs):** crawl 83 pages (28 findings, 5 matched existing
+ledger keys), opportunities (10 striking-distance pages, 11 decaying, 1 dormant), alerts (7),
+rank tracking (10 of 20 keyword-market pairs with impressions), keyword demand (49 keywords, no
+paid provider), AI visibility (no AI crawler blocked, llms.txt valid), competitor watch (3
+competitors), video catalog (35 videos). Not verified live: SerpApi checks and DataForSEO (no
+budget set), the weekly alerts task (registration needs the owner to run
+`scripts\register-seo-alerts.ps1`), the dashboard tab against the running API (it needs an
+AURORA restart to load the new routes).

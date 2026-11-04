@@ -1,0 +1,152 @@
+{
+  "id": "20261104-110508-ai-visibility",
+  "site_id": "nextsteps",
+  "mode": "ai-visibility",
+  "status": "completed",
+  "started_at": "2026-11-04T11:05:08.626270Z",
+  "finished_at": "2026-11-04T11:05:09.125305Z",
+  "summary": "0 of 19 AI agents blocked somewhere; llms.txt valid; 0 AI Overview observations; 0 recorded AI answers.",
+  "pages_analysed": [],
+  "reports_processed": [],
+  "skills_used": [
+    {
+      "name": "seo-ai-visibility",
+      "reason": "AI crawler access, llms.txt, AI Overview citations and the prompt panel.",
+      "analysed": "0 of 19 AI agents blocked somewhere; llms.txt valid; 0 AI Overview observations; 0 recorded AI answers.",
+      "actions": [],
+      "output": "1 findings",
+      "content_hash": "d44d7c89cb263e5dbdd824b43e80a6a95874f88c43af84722f6d3f96c7dff80a"
+    }
+  ],
+  "tools_used": [
+    {
+      "name": "HTTP GET robots.txt, llms.txt (UrlPolicy)",
+      "kind": "aurora",
+      "status": "success",
+      "calls": 2,
+      "note": ""
+    }
+  ],
+  "findings": [
+    {
+      "key": "robots-ai-crawlers:site",
+      "issue": "robots.txt has no explicit policy for AI crawlers",
+      "category": "technical/robots",
+      "priority": "low",
+      "evidence": [
+        {
+          "source": "robots.txt (groups)",
+          "observation": "No group names an AI user agent; they fall back to '*'.",
+          "url": "https://nextstepsusmle.com/robots.txt",
+          "observed_at": "2026-11-04T11:05:09.090156Z",
+          "execution_id": "20261104-110508-ai-visibility"
+        }
+      ],
+      "evidence_state": "observed",
+      "affected_urls": [],
+      "seo_impact": "AI crawlers follow the generic rules, so training and answer use are not a deliberate choice.",
+      "recommended_action": "Decide per AI crawler (answer/search agents vs training agents) and write the policy in robots.txt.",
+      "expected_outcome": "robots.txt states an explicit AI policy.",
+      "verification_method": "Re-run /seo-ai-visibility.",
+      "status": "open",
+      "skill": "seo-ai-visibility",
+      "first_seen": null,
+      "last_seen": null,
+      "seen_in": [],
+      "history": []
+    }
+  ],
+  "checked": {
+    "keys": [
+      "ai-answer-crawlers-blocked:site",
+      "llms-txt:site",
+      "robots-ai-crawlers:site"
+    ],
+    "categories": []
+  },
+  "changes": [],
+  "blockers": [],
+  "learning": {
+    "learned": [],
+    "reused": [],
+    "patterns": [],
+    "skill_proposals": [],
+    "needs_approval": []
+  },
+  "comparison": {
+    "new": [],
+    "recurring": [
+      "robots-ai-crawlers:site"
+    ],
+    "resolved": [],
+    "not_rechecked": [
+      "blog-index-metadata:/blog",
+      "blogposting-citation-missing:site",
+      "brand-name-inconsistent:site",
+      "broken-link:facebook-profile",
+      "cannibalization:step-2-ck-score",
+      "content-gap:free-120-and-free-qbanks",
+      "content-gap:nbme-self-assessments",
+      "content-gap:step-2-ck-passing-score",
+      "content-gap:usmle-vs-neet-pg",
+      "cover-images-old-titles:blog",
+      "eeat-first-hand-outcomes:site",
+      "fee-intent-owner:india",
+      "hidden-faq:blog",
+      "image-dimensions-missing:/",
+      "image-dimensions-missing:/blog",
+      "image-dimensions-missing:/mentorship",
+      "image-dimensions-missing:/step-1-2-ck",
+      "image-dimensions-missing:/success-stories",
+      "image-dimensions-missing:/webinar",
+      "image-dimensions-missing:blog",
+      "images-missing-alt:/mentorship",
+      "images-missing-alt:/step-1-2-ck",
+      "knowsabout-narrow:site",
+      "long-titles:blog",
+      "low-ctr:/blog/what-is-oet-exam-how-much-does-it-costs",
+      "meta-description-length:/mentorship",
+      "missing-redirect:2024-match-pathways-application-reopened-for-imgs",
+      "missing-redirect:usmle-step-2-ck-passing-score-step-by-step-guidance",
+      "orphan-posts:blog",
+      "rank-outside-top10:priority-keywords",
+      "ranking-drop:/blog/how-to-make-a-good-cv-for-usmle",
+      "ranking-drop:/blog/usmle-step-1-exam-fee-what-you-need-to-know",
+      "reindex-pending:blog",
+      "reviewer-schema-missing-sameas:site",
+      "security-headers-missing:site",
+      "soft-404:site",
+      "stale-year:blog",
+      "tech:description.duplicate",
+      "tech:links.redirecting_internal",
+      "tech:robots.blocks_pages",
+      "tech:schema.missing_recommended",
+      "tech:schema.retired_feature",
+      "tech:sitemap.lists_non_200",
+      "tech:title.duplicate",
+      "tech:title.length",
+      "thin-content:/success-stories",
+      "thin-content:blog-two-posts",
+      "title-length:/mentorship",
+      "undeployed-seo-changes:update-blog-titles",
+      "unsourced-numbers:/mentorship",
+      "unsourced-numbers:/step-1-2-ck",
+      "unsourced-numbers:/terms",
+      "unsourced-numbers:/webinar",
+      "unsourced-numbers:blog",
+      "unsupported-claim:/",
+      "unsupported-claim:/mentorship",
+      "unsupported-claim:/programs/clinical-rotations",
+      "unsupported-claim:blog",
+      "videoobject-missing:blog"
+    ],
+    "reopened": []
+  },
+  "sections": [
+    {
+      "title": "AI crawler access (robots.txt, RFC 9309)",
+      "markdown": "| Agent | Operator | Purpose | Blocked on |\n|---|---|---|---|\n| OAI-SearchBot | OpenAI | search | - |\n| ChatGPT-User | OpenAI | user | - |\n| GPTBot | OpenAI | training | - |\n| Claude-SearchBot | Anthropic | search | - |\n| Claude-User | Anthropic | user | - |\n| ClaudeBot | Anthropic | training | - |\n| PerplexityBot | Perplexity | search | - |\n| Perplexity-User | Perplexity | user | - |\n| Googlebot | Google (Search, AI Overviews, AI Mode) | search | - |\n| Google-Extended | Google (Gemini training/grounding opt-out) | training | - |\n| Bingbot | Microsoft (Bing, Copilot) | search | - |\n| Applebot | Apple | search | - |\n| Applebot-Extended | Apple | training | - |\n| DuckAssistBot | DuckDuckGo | user | - |\n| MistralAI-User | Mistral | user | - |\n| meta-externalagent | Meta | training | - |\n| Amazonbot | Amazon | search | - |\n| CCBot | Common Crawl | training | - |\n| Bytespider | ByteDance | training | - |"
+    }
+  ],
+  "notes": []
+}

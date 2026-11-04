@@ -7,9 +7,10 @@ import { submitResearch } from "../services/research";
 import type { ResearchResponse } from "../types/research";
 import { KeywordsPage } from "./KeywordsPage";
 import { SearchConsolePage } from "./SearchConsolePage";
+import { SeoAgentPage } from "./SeoAgentPage";
 import { TechnicalSeoPage } from "./TechnicalSeoPage";
 
-type View = "research" | "seo" | "keywords" | "gsc";
+type View = "research" | "seo" | "keywords" | "gsc" | "agent";
 
 export function DashboardPage() {
   const [view, setView] = useState<View>("research");
@@ -84,6 +85,13 @@ export function DashboardPage() {
           >
             Search Console
           </button>
+          <button
+            type="button"
+            aria-current={view === "agent" ? "page" : undefined}
+            onClick={() => setView("agent")}
+          >
+            SEO Agent
+          </button>
         </nav>
         {connected ? (
           <button
@@ -109,6 +117,12 @@ export function DashboardPage() {
         />
       ) : connected && view === "gsc" ? (
         <SearchConsolePage
+          onUnauthorized={() =>
+            disconnect("The API token is no longer accepted. Enter it again.")
+          }
+        />
+      ) : connected && view === "agent" ? (
+        <SeoAgentPage
           onUnauthorized={() =>
             disconnect("The API token is no longer accepted. Enter it again.")
           }

@@ -1,0 +1,915 @@
+{
+  "id": "20261104-110511-opportunities",
+  "site_id": "nextsteps",
+  "mode": "opportunities",
+  "status": "completed",
+  "started_at": "2026-11-04T11:05:11.048117Z",
+  "finished_at": "2026-11-04T11:05:24.064594Z",
+  "summary": "10 striking-distance pages, 0 low-CTR queries, 11 decaying and 1 dormant pages.",
+  "pages_analysed": [],
+  "reports_processed": [],
+  "skills_used": [
+    {
+      "name": "seo-opportunities",
+      "reason": "Find quick wins, decaying content and page value from Search Console.",
+      "analysed": "10 striking-distance pages, 0 low-CTR queries, 11 decaying and 1 dormant pages.",
+      "actions": [],
+      "output": "25 findings",
+      "content_hash": "7743d111d6caf938fb9472af02da6b7bcba80aa32f40a18d8bd82f48d4566837"
+    }
+  ],
+  "tools_used": [
+    {
+      "name": "Google Search Console API (query x page)",
+      "kind": "api",
+      "status": "success",
+      "calls": 1,
+      "note": "2026-10-05..2026-11-01, 5896 rows"
+    },
+    {
+      "name": "Google Search Console API (query x page)",
+      "kind": "api",
+      "status": "success",
+      "calls": 1,
+      "note": "2026-09-07..2026-10-04, 6930 rows"
+    },
+    {
+      "name": "Google Search Console API (date x page)",
+      "kind": "api",
+      "status": "success",
+      "calls": 1,
+      "note": "2026-05-06..2026-11-01, 11015 rows"
+    }
+  ],
+  "findings": [
+    {
+      "key": "striking-distance:/blog/what-is-usmle-what-are-the-usmle-steps",
+      "issue": "/blog/what-is-usmle-what-are-the-usmle-steps ranks 4-20 for 2 queries with real impressions",
+      "category": "performance/opportunity",
+      "priority": "high",
+      "evidence": [
+        {
+          "source": "Google Search Console (query x page)",
+          "observation": "'usmle' pos 6.6, 3142 impr, CTR 0.0%, +29 clicks; 'usmle steps' pos 8.2, 266 impr, CTR 0.4%, +1 clicks",
+          "url": "https://nextstepsusmle.com/blog/what-is-usmle-what-are-the-usmle-steps",
+          "observed_at": "2026-11-04T11:05:23.995494Z",
+          "execution_id": "20261104-110511-opportunities"
+        }
+      ],
+      "evidence_state": "observed",
+      "affected_urls": [
+        "https://nextstepsusmle.com/blog/what-is-usmle-what-are-the-usmle-steps"
+      ],
+      "seo_impact": "About 30 extra clicks per period if these queries reached the site's own top-3 CTR (estimate from the site's own data).",
+      "recommended_action": "Strengthen this page for the listed queries: answer them in a heading and the first paragraph, add internal links from related posts with the query as anchor, and refresh outdated facts.",
+      "expected_outcome": "Average position for these queries moves into the top 3.",
+      "verification_method": "Re-run /seo-opportunities after 28 days; compare position and clicks.",
+      "status": "open",
+      "skill": "seo-opportunities",
+      "first_seen": null,
+      "last_seen": null,
+      "seen_in": [],
+      "history": []
+    },
+    {
+      "key": "striking-distance:/blog/what-is-oet-exam-how-much-does-it-costs",
+      "issue": "/blog/what-is-oet-exam-how-much-does-it-costs ranks 4-20 for 10 queries with real impressions",
+      "category": "performance/opportunity",
+      "priority": "high",
+      "evidence": [
+        {
+          "source": "Google Search Console (query x page)",
+          "observation": "'oet exam fees' pos 6.8, 2496 impr, CTR 0.6%, +9 clicks; 'oet exam fee' pos 7.8, 801 impr, CTR 0.5%, +3 clicks; 'oet fee' pos 5.5, 198 impr, CTR 0.0%, +2 clicks; 'oet price' pos 5.2, 287 impr, CTR 0.4%, +2 clicks; 'oet fees' pos 6.2, 229 impr, CTR 0.4%, +1 clicks",
+          "url": "https://nextstepsusmle.com/blog/what-is-oet-exam-how-much-does-it-costs",
+          "observed_at": "2026-11-04T11:05:23.995494Z",
+          "execution_id": "20261104-110511-opportunities"
+        }
+      ],
+      "evidence_state": "observed",
+      "affected_urls": [
+        "https://nextstepsusmle.com/blog/what-is-oet-exam-how-much-does-it-costs"
+      ],
+      "seo_impact": "About 18 extra clicks per period if these queries reached the site's own top-3 CTR (estimate from the site's own data).",
+      "recommended_action": "Strengthen this page for the listed queries: answer them in a heading and the first paragraph, add internal links from related posts with the query as anchor, and refresh outdated facts.",
+      "expected_outcome": "Average position for these queries moves into the top 3.",
+      "verification_method": "Re-run /seo-opportunities after 28 days; compare position and clicks.",
+      "status": "open",
+      "skill": "seo-opportunities",
+      "first_seen": null,
+      "last_seen": null,
+      "seen_in": [],
+      "history": []
+    },
+    {
+      "key": "striking-distance:/",
+      "issue": "/ ranks 4-20 for 4 queries with real impressions",
+      "category": "performance/opportunity",
+      "priority": "high",
+      "evidence": [
+        {
+          "source": "Google Search Console (query x page)",
+          "observation": "'next step' pos 6.4, 1465 impr, CTR 0.1%, +11 clicks; 'nextstep' pos 4.5, 138 impr, CTR 0.0%, +1 clicks; 'next steps' pos 5.6, 1379 impr, CTR 1.9%, +0 clicks; 'nextsteps' pos 4.2, 154 impr, CTR 5.2%, +0 clicks",
+          "url": "https://nextstepsusmle.com/",
+          "observed_at": "2026-11-04T11:05:23.995494Z",
+          "execution_id": "20261104-110511-opportunities"
+        }
+      ],
+      "evidence_state": "observed",
+      "affected_urls": [
+        "https://nextstepsusmle.com/"
+      ],
+      "seo_impact": "About 13 extra clicks per period if these queries reached the site's own top-3 CTR (estimate from the site's own data).",
+      "recommended_action": "Strengthen this page for the listed queries: answer them in a heading and the first paragraph, add internal links from related posts with the query as anchor, and refresh outdated facts.",
+      "expected_outcome": "Average position for these queries moves into the top 3.",
+      "verification_method": "Re-run /seo-opportunities after 28 days; compare position and clicks.",
+      "status": "open",
+      "skill": "seo-opportunities",
+      "first_seen": null,
+      "last_seen": null,
+      "seen_in": [],
+      "history": []
+    },
+    {
+      "key": "striking-distance:/blog/how-to-apply-for-usmle-from-india",
+      "issue": "/blog/how-to-apply-for-usmle-from-india ranks 4-20 for 5 queries with real impressions",
+      "category": "performance/opportunity",
+      "priority": "medium",
+      "evidence": [
+        {
+          "source": "Google Search Console (query x page)",
+          "observation": "'usmle step 1 fees in india' pos 6.6, 275 impr, CTR 0.0%, +2 clicks; 'usmle exam fees' pos 9.9, 204 impr, CTR 0.0%, +2 clicks; 'usmle exam fees in rupees' pos 6.1, 134 impr, CTR 0.0%, +1 clicks; 'usmle step 1 fees india' pos 6.7, 231 impr, CTR 0.4%, +1 clicks; 'usmle exam fees in indian rupees' pos 4.8, 102 impr, CTR 0.0%, +1 clicks",
+          "url": "https://nextstepsusmle.com/blog/how-to-apply-for-usmle-from-india",
+          "observed_at": "2026-11-04T11:05:23.995494Z",
+          "execution_id": "20261104-110511-opportunities"
+        }
+      ],
+      "evidence_state": "observed",
+      "affected_urls": [
+        "https://nextstepsusmle.com/blog/how-to-apply-for-usmle-from-india"
+      ],
+      "seo_impact": "About 8 extra clicks per period if these queries reached the site's own top-3 CTR (estimate from the site's own data).",
+      "recommended_action": "Strengthen this page for the listed queries: answer them in a heading and the first paragraph, add internal links from related posts with the query as anchor, and refresh outdated facts.",
+      "expected_outcome": "Average position for these queries moves into the top 3.",
+      "verification_method": "Re-run /seo-opportunities after 28 days; compare position and clicks.",
+      "status": "open",
+      "skill": "seo-opportunities",
+      "first_seen": null,
+      "last_seen": null,
+      "seen_in": [],
+      "history": []
+    },
+    {
+      "key": "striking-distance:/blog/highest-usmle-step-2-ck-score",
+      "issue": "/blog/highest-usmle-step-2-ck-score ranks 4-20 for 4 queries with real impressions",
+      "category": "performance/opportunity",
+      "priority": "medium",
+      "evidence": [
+        {
+          "source": "Google Search Console (query x page)",
+          "observation": "'max step 2 score' pos 5.4, 146 impr, CTR 0.0%, +1 clicks; 'step 2 max score' pos 4.8, 125 impr, CTR 0.0%, +1 clicks; 'highest step 2 score' pos 4.9, 381 impr, CTR 1.1%, +0 clicks; 'highest step 2 score ever' pos 4.7, 146 impr, CTR 2.7%, +0 clicks",
+          "url": "https://nextstepsusmle.com/blog/highest-usmle-step-2-ck-score",
+          "observed_at": "2026-11-04T11:05:23.995494Z",
+          "execution_id": "20261104-110511-opportunities"
+        }
+      ],
+      "evidence_state": "observed",
+      "affected_urls": [
+        "https://nextstepsusmle.com/blog/highest-usmle-step-2-ck-score"
+      ],
+      "seo_impact": "About 2 extra clicks per period if these queries reached the site's own top-3 CTR (estimate from the site's own data).",
+      "recommended_action": "Strengthen this page for the listed queries: answer them in a heading and the first paragraph, add internal links from related posts with the query as anchor, and refresh outdated facts.",
+      "expected_outcome": "Average position for these queries moves into the top 3.",
+      "verification_method": "Re-run /seo-opportunities after 28 days; compare position and clicks.",
+      "status": "open",
+      "skill": "seo-opportunities",
+      "first_seen": null,
+      "last_seen": null,
+      "seen_in": [],
+      "history": []
+    },
+    {
+      "key": "striking-distance:/blog/usmle-step-1-vs-step-2-ck-key-differences-you-need-to-know",
+      "issue": "/blog/usmle-step-1-vs-step-2-ck-key-differences-you-need-to-know ranks 4-20 for 1 queries with real impressions",
+      "category": "performance/opportunity",
+      "priority": "medium",
+      "evidence": [
+        {
+          "source": "Google Search Console (query x page)",
+          "observation": "'step 1 step 2' pos 5.8, 268 impr, CTR 0.0%, +2 clicks",
+          "url": "https://nextstepsusmle.com/blog/usmle-step-1-vs-step-2-ck-key-differences-you-need-to-know",
+          "observed_at": "2026-11-04T11:05:23.995494Z",
+          "execution_id": "20261104-110511-opportunities"
+        }
+      ],
+      "evidence_state": "observed",
+      "affected_urls": [
+        "https://nextstepsusmle.com/blog/usmle-step-1-vs-step-2-ck-key-differences-you-need-to-know"
+      ],
+      "seo_impact": "About 2 extra clicks per period if these queries reached the site's own top-3 CTR (estimate from the site's own data).",
+      "recommended_action": "Strengthen this page for the listed queries: answer them in a heading and the first paragraph, add internal links from related posts with the query as anchor, and refresh outdated facts.",
+      "expected_outcome": "Average position for these queries moves into the top 3.",
+      "verification_method": "Re-run /seo-opportunities after 28 days; compare position and clicks.",
+      "status": "open",
+      "skill": "seo-opportunities",
+      "first_seen": null,
+      "last_seen": null,
+      "seen_in": [],
+      "history": []
+    },
+    {
+      "key": "striking-distance:/blog/what-is-the-typical-preparation-time-for-usmle-step-1",
+      "issue": "/blog/what-is-the-typical-preparation-time-for-usmle-step-1 ranks 4-20 for 1 queries with real impressions",
+      "category": "performance/opportunity",
+      "priority": "medium",
+      "evidence": [
+        {
+          "source": "Google Search Console (query x page)",
+          "observation": "'how long is step 1' pos 5.6, 185 impr, CTR 0.0%, +2 clicks",
+          "url": "https://nextstepsusmle.com/blog/what-is-the-typical-preparation-time-for-usmle-step-1",
+          "observed_at": "2026-11-04T11:05:23.995494Z",
+          "execution_id": "20261104-110511-opportunities"
+        }
+      ],
+      "evidence_state": "observed",
+      "affected_urls": [
+        "https://nextstepsusmle.com/blog/what-is-the-typical-preparation-time-for-usmle-step-1"
+      ],
+      "seo_impact": "About 2 extra clicks per period if these queries reached the site's own top-3 CTR (estimate from the site's own data).",
+      "recommended_action": "Strengthen this page for the listed queries: answer them in a heading and the first paragraph, add internal links from related posts with the query as anchor, and refresh outdated facts.",
+      "expected_outcome": "Average position for these queries moves into the top 3.",
+      "verification_method": "Re-run /seo-opportunities after 28 days; compare position and clicks.",
+      "status": "open",
+      "skill": "seo-opportunities",
+      "first_seen": null,
+      "last_seen": null,
+      "seen_in": [],
+      "history": []
+    },
+    {
+      "key": "striking-distance:/blog/how-many-interviews-should-you-get-to-match",
+      "issue": "/blog/how-many-interviews-should-you-get-to-match ranks 4-20 for 1 queries with real impressions",
+      "category": "performance/opportunity",
+      "priority": "medium",
+      "evidence": [
+        {
+          "source": "Google Search Console (query x page)",
+          "observation": "'how many im interviews to match' pos 6.1, 127 impr, CTR 0.0%, +1 clicks",
+          "url": "https://nextstepsusmle.com/blog/how-many-interviews-should-you-get-to-match",
+          "observed_at": "2026-11-04T11:05:23.995494Z",
+          "execution_id": "20261104-110511-opportunities"
+        }
+      ],
+      "evidence_state": "observed",
+      "affected_urls": [
+        "https://nextstepsusmle.com/blog/how-many-interviews-should-you-get-to-match"
+      ],
+      "seo_impact": "About 1 extra clicks per period if these queries reached the site's own top-3 CTR (estimate from the site's own data).",
+      "recommended_action": "Strengthen this page for the listed queries: answer them in a heading and the first paragraph, add internal links from related posts with the query as anchor, and refresh outdated facts.",
+      "expected_outcome": "Average position for these queries moves into the top 3.",
+      "verification_method": "Re-run /seo-opportunities after 28 days; compare position and clicks.",
+      "status": "open",
+      "skill": "seo-opportunities",
+      "first_seen": null,
+      "last_seen": null,
+      "seen_in": [],
+      "history": []
+    },
+    {
+      "key": "striking-distance:/blog/what-is-the-best-usmle-question-bank",
+      "issue": "/blog/what-is-the-best-usmle-question-bank ranks 4-20 for 1 queries with real impressions",
+      "category": "performance/opportunity",
+      "priority": "medium",
+      "evidence": [
+        {
+          "source": "Google Search Console (query x page)",
+          "observation": "'usmle question bank' pos 9.3, 116 impr, CTR 0.0%, +1 clicks",
+          "url": "https://nextstepsusmle.com/blog/what-is-the-best-usmle-question-bank",
+          "observed_at": "2026-11-04T11:05:23.995494Z",
+          "execution_id": "20261104-110511-opportunities"
+        }
+      ],
+      "evidence_state": "observed",
+      "affected_urls": [
+        "https://nextstepsusmle.com/blog/what-is-the-best-usmle-question-bank"
+      ],
+      "seo_impact": "About 1 extra clicks per period if these queries reached the site's own top-3 CTR (estimate from the site's own data).",
+      "recommended_action": "Strengthen this page for the listed queries: answer them in a heading and the first paragraph, add internal links from related posts with the query as anchor, and refresh outdated facts.",
+      "expected_outcome": "Average position for these queries moves into the top 3.",
+      "verification_method": "Re-run /seo-opportunities after 28 days; compare position and clicks.",
+      "status": "open",
+      "skill": "seo-opportunities",
+      "first_seen": null,
+      "last_seen": null,
+      "seen_in": [],
+      "history": []
+    },
+    {
+      "key": "striking-distance:/contact",
+      "issue": "/contact ranks 4-20 for 1 queries with real impressions",
+      "category": "performance/opportunity",
+      "priority": "medium",
+      "evidence": [
+        {
+          "source": "Google Search Console (query x page)",
+          "observation": "'next steps usmle' pos 5.5, 114 impr, CTR 0.0%, +1 clicks",
+          "url": "https://nextstepsusmle.com/contact",
+          "observed_at": "2026-11-04T11:05:23.995494Z",
+          "execution_id": "20261104-110511-opportunities"
+        }
+      ],
+      "evidence_state": "observed",
+      "affected_urls": [
+        "https://nextstepsusmle.com/contact"
+      ],
+      "seo_impact": "About 1 extra clicks per period if these queries reached the site's own top-3 CTR (estimate from the site's own data).",
+      "recommended_action": "Strengthen this page for the listed queries: answer them in a heading and the first paragraph, add internal links from related posts with the query as anchor, and refresh outdated facts.",
+      "expected_outcome": "Average position for these queries moves into the top 3.",
+      "verification_method": "Re-run /seo-opportunities after 28 days; compare position and clicks.",
+      "status": "open",
+      "skill": "seo-opportunities",
+      "first_seen": null,
+      "last_seen": null,
+      "seen_in": [],
+      "history": []
+    },
+    {
+      "key": "striking-distance:/step-1-2-ck",
+      "issue": "/step-1-2-ck ranks 4-20 for 1 queries with real impressions",
+      "category": "performance/opportunity",
+      "priority": "low",
+      "evidence": [
+        {
+          "source": "Google Search Console (query x page)",
+          "observation": "'next steps' pos 6.3, 110 impr, CTR 0.0%, +1 clicks",
+          "url": "https://nextstepsusmle.com/step-1-2-ck",
+          "observed_at": "2026-11-04T11:05:23.995494Z",
+          "execution_id": "20261104-110511-opportunities"
+        }
+      ],
+      "evidence_state": "observed",
+      "affected_urls": [
+        "https://nextstepsusmle.com/step-1-2-ck"
+      ],
+      "seo_impact": "About 1 extra clicks per period if these queries reached the site's own top-3 CTR (estimate from the site's own data).",
+      "recommended_action": "Strengthen this page for the listed queries: answer them in a heading and the first paragraph, add internal links from related posts with the query as anchor, and refresh outdated facts.",
+      "expected_outcome": "Average position for these queries moves into the top 3.",
+      "verification_method": "Re-run /seo-opportunities after 28 days; compare position and clicks.",
+      "status": "open",
+      "skill": "seo-opportunities",
+      "first_seen": null,
+      "last_seen": null,
+      "seen_in": [],
+      "history": []
+    },
+    {
+      "key": "striking-distance:/blog/comprehensive-guide-to-the-usmle-step-1-syllabus",
+      "issue": "/blog/comprehensive-guide-to-the-usmle-step-1-syllabus ranks 4-20 for 1 queries with real impressions",
+      "category": "performance/opportunity",
+      "priority": "low",
+      "evidence": [
+        {
+          "source": "Google Search Console (query x page)",
+          "observation": "'usmle step 1 syllabus' pos 6.9, 527 impr, CTR 1.9%, +0 clicks",
+          "url": "https://nextstepsusmle.com/blog/comprehensive-guide-to-the-usmle-step-1-syllabus",
+          "observed_at": "2026-11-04T11:05:23.995494Z",
+          "execution_id": "20261104-110511-opportunities"
+        }
+      ],
+      "evidence_state": "observed",
+      "affected_urls": [
+        "https://nextstepsusmle.com/blog/comprehensive-guide-to-the-usmle-step-1-syllabus"
+      ],
+      "seo_impact": "Not estimated: too little data for the site's own top-3 CTR.",
+      "recommended_action": "Strengthen this page for the listed queries: answer them in a heading and the first paragraph, add internal links from related posts with the query as anchor, and refresh outdated facts.",
+      "expected_outcome": "Average position for these queries moves into the top 3.",
+      "verification_method": "Re-run /seo-opportunities after 28 days; compare position and clicks.",
+      "status": "open",
+      "skill": "seo-opportunities",
+      "first_seen": null,
+      "last_seen": null,
+      "seen_in": [],
+      "history": []
+    },
+    {
+      "key": "striking-distance:/blog/usmle-step-3-preparatio-study-plan-and-guidance",
+      "issue": "/blog/usmle-step-3-preparatio-study-plan-and-guidance ranks 4-20 for 1 queries with real impressions",
+      "category": "performance/opportunity",
+      "priority": "low",
+      "evidence": [
+        {
+          "source": "Google Search Console (query x page)",
+          "observation": "'step 3 study plan' pos 7.0, 171 impr, CTR 5.3%, +0 clicks",
+          "url": "https://nextstepsusmle.com/blog/usmle-step-3-preparatio-study-plan-and-guidance",
+          "observed_at": "2026-11-04T11:05:23.995494Z",
+          "execution_id": "20261104-110511-opportunities"
+        }
+      ],
+      "evidence_state": "observed",
+      "affected_urls": [
+        "https://nextstepsusmle.com/blog/usmle-step-3-preparatio-study-plan-and-guidance"
+      ],
+      "seo_impact": "Not estimated: too little data for the site's own top-3 CTR.",
+      "recommended_action": "Strengthen this page for the listed queries: answer them in a heading and the first paragraph, add internal links from related posts with the query as anchor, and refresh outdated facts.",
+      "expected_outcome": "Average position for these queries moves into the top 3.",
+      "verification_method": "Re-run /seo-opportunities after 28 days; compare position and clicks.",
+      "status": "open",
+      "skill": "seo-opportunities",
+      "first_seen": null,
+      "last_seen": null,
+      "seen_in": [],
+      "history": []
+    },
+    {
+      "key": "prune-review:/blog/5-silent-usmle-killers",
+      "issue": "/blog/5-silent-usmle-killers had no Google impressions in 90 days",
+      "category": "content/decay",
+      "priority": "low",
+      "evidence": [
+        {
+          "source": "Google Search Console (date x page)",
+          "observation": "clicks last 28d 0 (impr 0), previous 28d 0, best 28d window 2",
+          "url": "https://nextstepsusmle.com/blog/5-silent-usmle-killers",
+          "observed_at": "2026-11-04T11:05:23.995494Z",
+          "execution_id": "20261104-110511-opportunities"
+        }
+      ],
+      "evidence_state": "observed",
+      "affected_urls": [
+        "https://nextstepsusmle.com/blog/5-silent-usmle-killers"
+      ],
+      "seo_impact": "The page earns no search visibility and may dilute crawl attention.",
+      "recommended_action": "Review it (owner decision): improve and reindex, merge into a stronger page with a redirect, or noindex it. Check backlinks and conversions first; never delete a page that converts.",
+      "expected_outcome": "Every indexable page either earns impressions or is consolidated.",
+      "verification_method": "Impressions appear within 28 days of the change, or the URL is redirected.",
+      "status": "open",
+      "skill": "seo-opportunities",
+      "first_seen": null,
+      "last_seen": null,
+      "seen_in": [],
+      "history": []
+    },
+    {
+      "key": "content-decay:/blog/best-study-resources-for-usmle-steps-preparation",
+      "issue": "/blog/best-study-resources-for-usmle-steps-preparation is losing clicks",
+      "category": "content/decay",
+      "priority": "medium",
+      "evidence": [
+        {
+          "source": "Google Search Console (date x page)",
+          "observation": "clicks last 28d 15 (impr 2534), previous 28d 44, best 28d window 41",
+          "url": "https://nextstepsusmle.com/blog/best-study-resources-for-usmle-steps-preparation",
+          "observed_at": "2026-11-04T11:05:23.996502Z",
+          "execution_id": "20261104-110511-opportunities"
+        }
+      ],
+      "evidence_state": "observed",
+      "affected_urls": [
+        "https://nextstepsusmle.com/blog/best-study-resources-for-usmle-steps-preparation"
+      ],
+      "seo_impact": "Clicks fell 30%+ against the previous window and 40%+ against the page's best window.",
+      "recommended_action": "Refresh it: update facts and dates, cover the lost queries, improve the intro and internal links.",
+      "expected_outcome": "Clicks return to at least the previous window's level.",
+      "verification_method": "Re-run /seo-opportunities 28 days after the update.",
+      "status": "open",
+      "skill": "seo-opportunities",
+      "first_seen": null,
+      "last_seen": null,
+      "seen_in": [],
+      "history": []
+    },
+    {
+      "key": "content-decay:/blog/can-you-take-the-usmle-right-after-mbbs-in-india",
+      "issue": "/blog/can-you-take-the-usmle-right-after-mbbs-in-india is losing clicks",
+      "category": "content/decay",
+      "priority": "high",
+      "evidence": [
+        {
+          "source": "Google Search Console (date x page)",
+          "observation": "clicks last 28d 25 (impr 5614), previous 28d 68, best 28d window 72; lost queries: 'usmle after mbbs in india' 5->1",
+          "url": "https://nextstepsusmle.com/blog/can-you-take-the-usmle-right-after-mbbs-in-india",
+          "observed_at": "2026-11-04T11:05:23.996502Z",
+          "execution_id": "20261104-110511-opportunities"
+        }
+      ],
+      "evidence_state": "observed",
+      "affected_urls": [
+        "https://nextstepsusmle.com/blog/can-you-take-the-usmle-right-after-mbbs-in-india"
+      ],
+      "seo_impact": "Clicks fell 30%+ against the previous window and 40%+ against the page's best window.",
+      "recommended_action": "Refresh it: update facts and dates, cover the lost queries, improve the intro and internal links.",
+      "expected_outcome": "Clicks return to at least the previous window's level.",
+      "verification_method": "Re-run /seo-opportunities 28 days after the update.",
+      "status": "open",
+      "skill": "seo-opportunities",
+      "first_seen": null,
+      "last_seen": null,
+      "seen_in": [],
+      "history": []
+    },
+    {
+      "key": "content-decay:/blog/do-mbbs-marks-have-an-impact-on-the-usmle",
+      "issue": "/blog/do-mbbs-marks-have-an-impact-on-the-usmle is losing clicks",
+      "category": "content/decay",
+      "priority": "medium",
+      "evidence": [
+        {
+          "source": "Google Search Console (date x page)",
+          "observation": "clicks last 28d 10 (impr 1015), previous 28d 20, best 28d window 26",
+          "url": "https://nextstepsusmle.com/blog/do-mbbs-marks-have-an-impact-on-the-usmle",
+          "observed_at": "2026-11-04T11:05:23.996502Z",
+          "execution_id": "20261104-110511-opportunities"
+        }
+      ],
+      "evidence_state": "observed",
+      "affected_urls": [
+        "https://nextstepsusmle.com/blog/do-mbbs-marks-have-an-impact-on-the-usmle"
+      ],
+      "seo_impact": "Clicks fell 30%+ against the previous window and 40%+ against the page's best window.",
+      "recommended_action": "Refresh it: update facts and dates, cover the lost queries, improve the intro and internal links.",
+      "expected_outcome": "Clicks return to at least the previous window's level.",
+      "verification_method": "Re-run /seo-opportunities 28 days after the update.",
+      "status": "open",
+      "skill": "seo-opportunities",
+      "first_seen": null,
+      "last_seen": null,
+      "seen_in": [],
+      "history": []
+    },
+    {
+      "key": "content-decay:/blog/how-to-score-280-on-usmle-step-2-ck",
+      "issue": "/blog/how-to-score-280-on-usmle-step-2-ck is losing clicks",
+      "category": "content/decay",
+      "priority": "high",
+      "evidence": [
+        {
+          "source": "Google Search Console (date x page)",
+          "observation": "clicks last 28d 29 (impr 5825), previous 28d 63, best 28d window 58; lost queries: 'highest step 2 score' 4->0",
+          "url": "https://nextstepsusmle.com/blog/how-to-score-280-on-usmle-step-2-ck",
+          "observed_at": "2026-11-04T11:05:23.996502Z",
+          "execution_id": "20261104-110511-opportunities"
+        }
+      ],
+      "evidence_state": "observed",
+      "affected_urls": [
+        "https://nextstepsusmle.com/blog/how-to-score-280-on-usmle-step-2-ck"
+      ],
+      "seo_impact": "Clicks fell 30%+ against the previous window and 40%+ against the page's best window. It shares queries with /blog/highest-usmle-step-2-ck-score, which earns more clicks.",
+      "recommended_action": "Merge it into /blog/highest-usmle-step-2-ck-score and 301-redirect it (owner decision).",
+      "expected_outcome": "Clicks return to at least the previous window's level.",
+      "verification_method": "Re-run /seo-opportunities 28 days after the update.",
+      "status": "open",
+      "skill": "seo-opportunities",
+      "first_seen": null,
+      "last_seen": null,
+      "seen_in": [],
+      "history": []
+    },
+    {
+      "key": "content-decay:/blog/important-update-for-usmle-step1-and-step-2ck-examinees-in-2024",
+      "issue": "/blog/important-update-for-usmle-step1-and-step-2ck-examinees-in-2024 is losing clicks",
+      "category": "content/decay",
+      "priority": "high",
+      "evidence": [
+        {
+          "source": "Google Search Console (date x page)",
+          "observation": "clicks last 28d 63 (impr 8230), previous 28d 105, best 28d window 121; lost queries: 'step 2 results time' 3->0",
+          "url": "https://nextstepsusmle.com/blog/important-update-for-usmle-step1-and-step-2ck-examinees-in-2024",
+          "observed_at": "2026-11-04T11:05:23.996502Z",
+          "execution_id": "20261104-110511-opportunities"
+        }
+      ],
+      "evidence_state": "observed",
+      "affected_urls": [
+        "https://nextstepsusmle.com/blog/important-update-for-usmle-step1-and-step-2ck-examinees-in-2024"
+      ],
+      "seo_impact": "Clicks fell 30%+ against the previous window and 40%+ against the page's best window.",
+      "recommended_action": "Refresh it: update facts and dates, cover the lost queries, improve the intro and internal links.",
+      "expected_outcome": "Clicks return to at least the previous window's level.",
+      "verification_method": "Re-run /seo-opportunities 28 days after the update.",
+      "status": "open",
+      "skill": "seo-opportunities",
+      "first_seen": null,
+      "last_seen": null,
+      "seen_in": [],
+      "history": []
+    },
+    {
+      "key": "content-decay:/blog/ultimate-guide-to-choosing-the-best-usmle-step-1-book",
+      "issue": "/blog/ultimate-guide-to-choosing-the-best-usmle-step-1-book is losing clicks",
+      "category": "content/decay",
+      "priority": "medium",
+      "evidence": [
+        {
+          "source": "Google Search Console (date x page)",
+          "observation": "clicks last 28d 13 (impr 1777), previous 28d 42, best 28d window 44",
+          "url": "https://nextstepsusmle.com/blog/ultimate-guide-to-choosing-the-best-usmle-step-1-book",
+          "observed_at": "2026-11-04T11:05:23.996502Z",
+          "execution_id": "20261104-110511-opportunities"
+        }
+      ],
+      "evidence_state": "observed",
+      "affected_urls": [
+        "https://nextstepsusmle.com/blog/ultimate-guide-to-choosing-the-best-usmle-step-1-book"
+      ],
+      "seo_impact": "Clicks fell 30%+ against the previous window and 40%+ against the page's best window.",
+      "recommended_action": "Refresh it: update facts and dates, cover the lost queries, improve the intro and internal links.",
+      "expected_outcome": "Clicks return to at least the previous window's level.",
+      "verification_method": "Re-run /seo-opportunities 28 days after the update.",
+      "status": "open",
+      "skill": "seo-opportunities",
+      "first_seen": null,
+      "last_seen": null,
+      "seen_in": [],
+      "history": []
+    },
+    {
+      "key": "content-decay:/blog/usmle-lor-letters-of-recommendation-img-residency-match",
+      "issue": "/blog/usmle-lor-letters-of-recommendation-img-residency-match is losing clicks",
+      "category": "content/decay",
+      "priority": "high",
+      "evidence": [
+        {
+          "source": "Google Search Console (date x page)",
+          "observation": "clicks last 28d 13 (impr 738), previous 28d 57, best 28d window 75",
+          "url": "https://nextstepsusmle.com/blog/usmle-lor-letters-of-recommendation-img-residency-match",
+          "observed_at": "2026-11-04T11:05:23.996502Z",
+          "execution_id": "20261104-110511-opportunities"
+        }
+      ],
+      "evidence_state": "observed",
+      "affected_urls": [
+        "https://nextstepsusmle.com/blog/usmle-lor-letters-of-recommendation-img-residency-match"
+      ],
+      "seo_impact": "Clicks fell 30%+ against the previous window and 40%+ against the page's best window.",
+      "recommended_action": "Refresh it: update facts and dates, cover the lost queries, improve the intro and internal links.",
+      "expected_outcome": "Clicks return to at least the previous window's level.",
+      "verification_method": "Re-run /seo-opportunities 28 days after the update.",
+      "status": "open",
+      "skill": "seo-opportunities",
+      "first_seen": null,
+      "last_seen": null,
+      "seen_in": [],
+      "history": []
+    },
+    {
+      "key": "content-decay:/blog/usmle-personal-statement-dos-and-donts",
+      "issue": "/blog/usmle-personal-statement-dos-and-donts is losing clicks",
+      "category": "content/decay",
+      "priority": "medium",
+      "evidence": [
+        {
+          "source": "Google Search Console (date x page)",
+          "observation": "clicks last 28d 2 (impr 90), previous 28d 13, best 28d window 16",
+          "url": "https://nextstepsusmle.com/blog/usmle-personal-statement-dos-and-donts",
+          "observed_at": "2026-11-04T11:05:23.996502Z",
+          "execution_id": "20261104-110511-opportunities"
+        }
+      ],
+      "evidence_state": "observed",
+      "affected_urls": [
+        "https://nextstepsusmle.com/blog/usmle-personal-statement-dos-and-donts"
+      ],
+      "seo_impact": "Clicks fell 30%+ against the previous window and 40%+ against the page's best window.",
+      "recommended_action": "Refresh it: update facts and dates, cover the lost queries, improve the intro and internal links.",
+      "expected_outcome": "Clicks return to at least the previous window's level.",
+      "verification_method": "Re-run /seo-opportunities 28 days after the update.",
+      "status": "open",
+      "skill": "seo-opportunities",
+      "first_seen": null,
+      "last_seen": null,
+      "seen_in": [],
+      "history": []
+    },
+    {
+      "key": "content-decay:/blog/usmle-step-2-ck-exam-format-2026",
+      "issue": "/blog/usmle-step-2-ck-exam-format-2026 is losing clicks",
+      "category": "content/decay",
+      "priority": "medium",
+      "evidence": [
+        {
+          "source": "Google Search Console (date x page)",
+          "observation": "clicks last 28d 21 (impr 2932), previous 28d 38, best 28d window 39",
+          "url": "https://nextstepsusmle.com/blog/usmle-step-2-ck-exam-format-2026",
+          "observed_at": "2026-11-04T11:05:23.996502Z",
+          "execution_id": "20261104-110511-opportunities"
+        }
+      ],
+      "evidence_state": "observed",
+      "affected_urls": [
+        "https://nextstepsusmle.com/blog/usmle-step-2-ck-exam-format-2026"
+      ],
+      "seo_impact": "Clicks fell 30%+ against the previous window and 40%+ against the page's best window.",
+      "recommended_action": "Refresh it: update facts and dates, cover the lost queries, improve the intro and internal links.",
+      "expected_outcome": "Clicks return to at least the previous window's level.",
+      "verification_method": "Re-run /seo-opportunities 28 days after the update.",
+      "status": "open",
+      "skill": "seo-opportunities",
+      "first_seen": null,
+      "last_seen": null,
+      "seen_in": [],
+      "history": []
+    },
+    {
+      "key": "content-decay:/blog/what-are-usmle-clinical-rotations-and-electives",
+      "issue": "/blog/what-are-usmle-clinical-rotations-and-electives is losing clicks",
+      "category": "content/decay",
+      "priority": "medium",
+      "evidence": [
+        {
+          "source": "Google Search Console (date x page)",
+          "observation": "clicks last 28d 9 (impr 1193), previous 28d 14, best 28d window 18",
+          "url": "https://nextstepsusmle.com/blog/what-are-usmle-clinical-rotations-and-electives",
+          "observed_at": "2026-11-04T11:05:23.996502Z",
+          "execution_id": "20261104-110511-opportunities"
+        }
+      ],
+      "evidence_state": "observed",
+      "affected_urls": [
+        "https://nextstepsusmle.com/blog/what-are-usmle-clinical-rotations-and-electives"
+      ],
+      "seo_impact": "Clicks fell 30%+ against the previous window and 40%+ against the page's best window.",
+      "recommended_action": "Refresh it: update facts and dates, cover the lost queries, improve the intro and internal links.",
+      "expected_outcome": "Clicks return to at least the previous window's level.",
+      "verification_method": "Re-run /seo-opportunities 28 days after the update.",
+      "status": "open",
+      "skill": "seo-opportunities",
+      "first_seen": null,
+      "last_seen": null,
+      "seen_in": [],
+      "history": []
+    },
+    {
+      "key": "content-decay:/programs/clinical-rotations",
+      "issue": "/programs/clinical-rotations is losing clicks",
+      "category": "content/decay",
+      "priority": "medium",
+      "evidence": [
+        {
+          "source": "Google Search Console (date x page)",
+          "observation": "clicks last 28d 11 (impr 1245), previous 28d 22, best 28d window 20",
+          "url": "https://nextstepsusmle.com/programs/clinical-rotations",
+          "observed_at": "2026-11-04T11:05:23.996502Z",
+          "execution_id": "20261104-110511-opportunities"
+        }
+      ],
+      "evidence_state": "observed",
+      "affected_urls": [
+        "https://nextstepsusmle.com/programs/clinical-rotations"
+      ],
+      "seo_impact": "Clicks fell 30%+ against the previous window and 40%+ against the page's best window.",
+      "recommended_action": "Refresh it: update facts and dates, cover the lost queries, improve the intro and internal links.",
+      "expected_outcome": "Clicks return to at least the previous window's level.",
+      "verification_method": "Re-run /seo-opportunities 28 days after the update.",
+      "status": "open",
+      "skill": "seo-opportunities",
+      "first_seen": null,
+      "last_seen": null,
+      "seen_in": [],
+      "history": []
+    }
+  ],
+  "checked": {
+    "keys": [
+      "content-decay:/blog/best-study-resources-for-usmle-steps-preparation",
+      "content-decay:/blog/can-you-take-the-usmle-right-after-mbbs-in-india",
+      "content-decay:/blog/do-mbbs-marks-have-an-impact-on-the-usmle",
+      "content-decay:/blog/how-to-score-280-on-usmle-step-2-ck",
+      "content-decay:/blog/important-update-for-usmle-step1-and-step-2ck-examinees-in-2024",
+      "content-decay:/blog/ultimate-guide-to-choosing-the-best-usmle-step-1-book",
+      "content-decay:/blog/usmle-lor-letters-of-recommendation-img-residency-match",
+      "content-decay:/blog/usmle-personal-statement-dos-and-donts",
+      "content-decay:/blog/usmle-step-2-ck-exam-format-2026",
+      "content-decay:/blog/what-are-usmle-clinical-rotations-and-electives",
+      "content-decay:/programs/clinical-rotations",
+      "prune-review:/blog/5-silent-usmle-killers",
+      "striking-distance:/",
+      "striking-distance:/blog/comprehensive-guide-to-the-usmle-step-1-syllabus",
+      "striking-distance:/blog/highest-usmle-step-2-ck-score",
+      "striking-distance:/blog/how-many-interviews-should-you-get-to-match",
+      "striking-distance:/blog/how-to-apply-for-usmle-from-india",
+      "striking-distance:/blog/usmle-step-1-vs-step-2-ck-key-differences-you-need-to-know",
+      "striking-distance:/blog/usmle-step-3-preparatio-study-plan-and-guidance",
+      "striking-distance:/blog/what-is-oet-exam-how-much-does-it-costs",
+      "striking-distance:/blog/what-is-the-best-usmle-question-bank",
+      "striking-distance:/blog/what-is-the-typical-preparation-time-for-usmle-step-1",
+      "striking-distance:/blog/what-is-usmle-what-are-the-usmle-steps",
+      "striking-distance:/contact",
+      "striking-distance:/step-1-2-ck"
+    ],
+    "categories": []
+  },
+  "changes": [],
+  "blockers": [],
+  "learning": {
+    "learned": [],
+    "reused": [],
+    "patterns": [],
+    "skill_proposals": [],
+    "needs_approval": []
+  },
+  "comparison": {
+    "new": [
+      "content-decay:/blog/best-study-resources-for-usmle-steps-preparation",
+      "content-decay:/blog/can-you-take-the-usmle-right-after-mbbs-in-india",
+      "content-decay:/blog/do-mbbs-marks-have-an-impact-on-the-usmle",
+      "content-decay:/blog/how-to-score-280-on-usmle-step-2-ck",
+      "content-decay:/blog/important-update-for-usmle-step1-and-step-2ck-examinees-in-2024",
+      "content-decay:/blog/ultimate-guide-to-choosing-the-best-usmle-step-1-book",
+      "content-decay:/blog/usmle-lor-letters-of-recommendation-img-residency-match",
+      "content-decay:/blog/usmle-personal-statement-dos-and-donts",
+      "content-decay:/blog/usmle-step-2-ck-exam-format-2026",
+      "content-decay:/blog/what-are-usmle-clinical-rotations-and-electives",
+      "content-decay:/programs/clinical-rotations",
+      "prune-review:/blog/5-silent-usmle-killers",
+      "striking-distance:/",
+      "striking-distance:/blog/comprehensive-guide-to-the-usmle-step-1-syllabus",
+      "striking-distance:/blog/highest-usmle-step-2-ck-score",
+      "striking-distance:/blog/how-many-interviews-should-you-get-to-match",
+      "striking-distance:/blog/how-to-apply-for-usmle-from-india",
+      "striking-distance:/blog/usmle-step-1-vs-step-2-ck-key-differences-you-need-to-know",
+      "striking-distance:/blog/usmle-step-3-preparatio-study-plan-and-guidance",
+      "striking-distance:/blog/what-is-oet-exam-how-much-does-it-costs",
+      "striking-distance:/blog/what-is-the-best-usmle-question-bank",
+      "striking-distance:/blog/what-is-the-typical-preparation-time-for-usmle-step-1",
+      "striking-distance:/blog/what-is-usmle-what-are-the-usmle-steps",
+      "striking-distance:/contact",
+      "striking-distance:/step-1-2-ck"
+    ],
+    "recurring": [],
+    "resolved": [],
+    "not_rechecked": [
+      "blog-index-metadata:/blog",
+      "blogposting-citation-missing:site",
+      "brand-name-inconsistent:site",
+      "broken-link:facebook-profile",
+      "cannibalization:step-2-ck-score",
+      "content-gap:free-120-and-free-qbanks",
+      "content-gap:nbme-self-assessments",
+      "content-gap:step-2-ck-passing-score",
+      "content-gap:usmle-vs-neet-pg",
+      "cover-images-old-titles:blog",
+      "eeat-first-hand-outcomes:site",
+      "fee-intent-owner:india",
+      "hidden-faq:blog",
+      "image-dimensions-missing:/",
+      "image-dimensions-missing:/blog",
+      "image-dimensions-missing:/mentorship",
+      "image-dimensions-missing:/step-1-2-ck",
+      "image-dimensions-missing:/success-stories",
+      "image-dimensions-missing:/webinar",
+      "image-dimensions-missing:blog",
+      "images-missing-alt:/mentorship",
+      "images-missing-alt:/step-1-2-ck",
+      "knowsabout-narrow:site",
+      "long-titles:blog",
+      "low-ctr:/blog/what-is-oet-exam-how-much-does-it-costs",
+      "meta-description-length:/mentorship",
+      "missing-redirect:2024-match-pathways-application-reopened-for-imgs",
+      "missing-redirect:usmle-step-2-ck-passing-score-step-by-step-guidance",
+      "orphan-posts:blog",
+      "rank-outside-top10:priority-keywords",
+      "ranking-drop:/blog/how-to-make-a-good-cv-for-usmle",
+      "ranking-drop:/blog/usmle-step-1-exam-fee-what-you-need-to-know",
+      "reindex-pending:blog",
+      "reviewer-schema-missing-sameas:site",
+      "robots-ai-crawlers:site",
+      "security-headers-missing:site",
+      "soft-404:site",
+      "stale-year:blog",
+      "tech:description.duplicate",
+      "tech:links.redirecting_internal",
+      "tech:robots.blocks_pages",
+      "tech:schema.missing_recommended",
+      "tech:schema.retired_feature",
+      "tech:sitemap.lists_non_200",
+      "tech:title.duplicate",
+      "tech:title.length",
+      "thin-content:/success-stories",
+      "thin-content:blog-two-posts",
+      "title-length:/mentorship",
+      "undeployed-seo-changes:update-blog-titles",
+      "unsourced-numbers:/mentorship",
+      "unsourced-numbers:/step-1-2-ck",
+      "unsourced-numbers:/terms",
+      "unsourced-numbers:/webinar",
+      "unsourced-numbers:blog",
+      "unsupported-claim:/",
+      "unsupported-claim:/mentorship",
+      "unsupported-claim:/programs/clinical-rotations",
+      "unsupported-claim:blog",
+      "videoobject-missing:blog"
+    ],
+    "reopened": []
+  },
+  "sections": [
+    {
+      "title": "Striking-distance queries (top 10)",
+      "markdown": "| Query | Page | Pos | Impr | CTR | Extra clicks | Extra leads |\n|---|---|---|---|---|---|---|\n| usmle | /blog/what-is-usmle-what-are-the-usmle-steps | 6.6 | 3142 | 0.0% | 28.7 |  |\n| next step | / | 6.4 | 1465 | 0.1% | 11.4 |  |\n| oet exam fees | /blog/what-is-oet-exam-how-much-does-it-costs | 6.8 | 2496 | 0.6% | 8.8 |  |\n| oet exam fee | /blog/what-is-oet-exam-how-much-does-it-costs | 7.8 | 801 | 0.5% | 3.3 |  |\n| usmle step 1 fees in india | /blog/how-to-apply-for-usmle-from-india | 6.6 | 275 | 0.0% | 2.5 |  |\n| step 1 step 2 | /blog/usmle-step-1-vs-step-2-ck-key-differences-you-need-to-know | 5.8 | 268 | 0.0% | 2.4 |  |\n| usmle exam fees | /blog/how-to-apply-for-usmle-from-india | 9.9 | 204 | 0.0% | 1.9 |  |\n| oet fee | /blog/what-is-oet-exam-how-much-does-it-costs | 5.5 | 198 | 0.0% | 1.8 |  |\n| how long is step 1 | /blog/what-is-the-typical-preparation-time-for-usmle-step-1 | 5.6 | 185 | 0.0% | 1.7 |  |\n| oet price | /blog/what-is-oet-exam-how-much-does-it-costs | 5.2 | 287 | 0.4% | 1.6 |  |"
+    },
+    {
+      "title": "Decaying and dormant pages",
+      "markdown": "| Page | Status | Decision | Clicks 28d | Prev 28d | Best 28d |\n|---|---|---|---|---|---|\n| /blog/5-silent-usmle-killers | dead | prune-review | 0 | 0 | 2 |\n| /blog/best-study-resources-for-usmle-steps-preparation | decaying | refresh | 15 | 44 | 41 |\n| /blog/can-you-take-the-usmle-right-after-mbbs-in-india | decaying | refresh | 25 | 68 | 72 |\n| /blog/do-mbbs-marks-have-an-impact-on-the-usmle | decaying | refresh | 10 | 20 | 26 |\n| /blog/how-to-score-280-on-usmle-step-2-ck | decaying | merge -> /blog/highest-usmle-step-2-ck-score | 29 | 63 | 58 |\n| /blog/important-update-for-usmle-step1-and-step-2ck-examinees-in-2024 | decaying | refresh | 63 | 105 | 121 |\n| /blog/ultimate-guide-to-choosing-the-best-usmle-step-1-book | decaying | refresh | 13 | 42 | 44 |\n| /blog/usmle-lor-letters-of-recommendation-img-residency-match | decaying | refresh | 13 | 57 | 75 |\n| /blog/usmle-personal-statement-dos-and-donts | decaying | refresh | 2 | 13 | 16 |\n| /blog/usmle-step-2-ck-exam-format-2026 | decaying | refresh | 21 | 38 | 39 |\n| /blog/what-are-usmle-clinical-rotations-and-electives | decaying | refresh | 9 | 14 | 18 |\n| /programs/clinical-rotations | decaying | refresh | 11 | 22 | 20 |"
+    }
+  ],
+  "notes": []
+}

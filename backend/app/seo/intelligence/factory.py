@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 from app.core.config import Settings
+from app.seo.intelligence.insights.store import InsightStore
 from app.seo.intelligence.knowledge import SeoKnowledgeRepository
 from app.seo.intelligence.service import SeoAgentService
 from app.seo.skills.improvement import SkillImprovementService
@@ -16,6 +17,7 @@ CREDENTIAL_SETTINGS = (
     "google_refresh_token",
     "groq_api_key",
     "anthropic_api_key",
+    "dataforseo_login",
 )
 
 
@@ -42,4 +44,11 @@ def build_seo_agent_service(settings: Settings) -> SeoAgentService:
 def build_skill_improvement(settings: Settings) -> SkillImprovementService:
     return SkillImprovementService(
         build_registry(settings), settings.seo_intelligence_root
+    )
+
+
+def build_insight_store(settings: Settings) -> InsightStore:
+    return InsightStore(
+        SeoKnowledgeRepository(settings.seo_intelligence_root),
+        settings.seo_intelligence_data_root,
     )

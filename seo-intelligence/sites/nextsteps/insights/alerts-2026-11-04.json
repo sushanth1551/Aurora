@@ -1,0 +1,79 @@
+{
+  "kind": "alerts",
+  "date": "2026-11-04",
+  "data": {
+    "alerts": [
+      {
+        "kind": "page-clicks",
+        "subject": "/blog/how-many-years-is-usmle-valid",
+        "current": 8.0,
+        "baseline": 22.5,
+        "change_pct": -64.4,
+        "robust_z": -3.26,
+        "detail": "Last 7 days 8 clicks vs median 22.",
+        "priority": "high"
+      },
+      {
+        "kind": "page-clicks",
+        "subject": "/blog/what-is-the-typical-preparation-time-for-usmle-step-1",
+        "current": 9.0,
+        "baseline": 19.5,
+        "change_pct": -53.8,
+        "robust_z": -7.08,
+        "detail": "Last 7 days 9 clicks vs median 20.",
+        "priority": "medium"
+      },
+      {
+        "kind": "query-position",
+        "subject": "usmle coaching",
+        "current": 14.9,
+        "baseline": 11.3,
+        "change_pct": null,
+        "robust_z": null,
+        "detail": "Average position 11.3 -> 14.9 (32 impressions last 7 days).",
+        "priority": "medium"
+      },
+      {
+        "kind": "query-position",
+        "subject": "usmle after mbbs",
+        "current": 6.9,
+        "baseline": 3.4,
+        "change_pct": null,
+        "robust_z": null,
+        "detail": "Average position 3.4 -> 6.9 (14 impressions last 7 days).",
+        "priority": "medium"
+      },
+      {
+        "kind": "query-position",
+        "subject": "oet exam fees in uk",
+        "current": 8.4,
+        "baseline": 5.0,
+        "change_pct": null,
+        "robust_z": null,
+        "detail": "Average position 5.0 -> 8.4 (22 impressions last 7 days).",
+        "priority": "medium"
+      },
+      {
+        "kind": "query-position",
+        "subject": "usmle coaching in india",
+        "current": 11.0,
+        "baseline": 7.6,
+        "change_pct": null,
+        "robust_z": null,
+        "detail": "Average position 7.6 -> 11.0 (19 impressions last 7 days).",
+        "priority": "medium"
+      },
+      {
+        "kind": "query-position",
+        "subject": "oet test fees",
+        "current": 9.7,
+        "baseline": 6.7,
+        "change_pct": null,
+        "robust_z": null,
+        "detail": "Average position 6.7 -> 9.7 (14 impressions last 7 days).",
+        "priority": "medium"
+      }
+    ],
+    "data_end": "2026-11-01"
+  }
+}

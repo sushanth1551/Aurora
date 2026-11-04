@@ -303,6 +303,7 @@ class SitemapReport(BaseModel):
     url_count: int = 0
     children: list[str] = []
     lastmod_count: int = 0
+    lastmods: dict[str, str] = {}  # loc -> <lastmod> text, for kept URLs only
     error: str | None = None
     truncated: bool = False
 
@@ -348,11 +349,17 @@ def parse_sitemap(file: FetchedFile, max_urls: int) -> SitemapReport:
         if not loc:
             continue
         report.url_count += 1
-        if any(_local(c.tag) == "lastmod" for c in node):
+        lastmod = next(
+            (c.text.strip() for c in node if _local(c.tag) == "lastmod" and c.text),
+            None,
+        )
+        if lastmod is not None:
             report.lastmod_count += 1
         target = report.urls if kind == "urlset" else report.children
         if len(target) < min(max_urls, MAX_SITEMAP_URLS_KEPT):
             target.append(loc[:2048])
+            if lastmod is not None:
+                report.lastmods[loc[:2048]] = lastmod[:40]
         else:
             report.truncated = True
     return report

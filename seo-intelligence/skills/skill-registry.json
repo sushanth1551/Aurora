@@ -1,6 +1,6 @@
 {
-  "version": 1,
-  "updated": "2026-11-03",
+  "version": 2,
+  "updated": "2026-11-04",
   "skills": [
     {
       "name": "seo-audit",
@@ -315,6 +315,90 @@
         "performance-review"
       ],
       "historical_use": "Invoked 2026-11-02 for method/output format only (Aurora session 9dccffd6)."
+    },
+    {
+      "name": "seo-opportunities",
+      "role": "mode entry: striking distance, low CTR vs own CTR curve, decay, prune review, merges, lead value (/seo-opportunities)",
+      "origin": "aurora-seo-intelligence",
+      "modes": [
+        "opportunities",
+        "audit",
+        "performance-review"
+      ],
+      "historical_use": "New on 2026-11-04 (scripted, deterministic; scripts/seo_insights.py)."
+    },
+    {
+      "name": "seo-alerts",
+      "role": "mode entry: weekly robust anomaly alerts and key-page index status (/seo-alerts)",
+      "origin": "aurora-seo-intelligence",
+      "modes": [
+        "alerts",
+        "performance-review"
+      ],
+      "historical_use": "New on 2026-11-04 (scripted, deterministic; scripts/seo_insights.py)."
+    },
+    {
+      "name": "seo-rank-tracking",
+      "role": "mode entry: per-market positions (free GSC), budgeted SERP checks, keyword demand and DataForSEO data (/seo-rank-tracking)",
+      "origin": "aurora-seo-intelligence",
+      "modes": [
+        "rank-tracking",
+        "audit",
+        "competitor-analysis"
+      ],
+      "historical_use": "New on 2026-11-04 (scripted, deterministic; scripts/seo_insights.py)."
+    },
+    {
+      "name": "seo-ai-visibility",
+      "role": "mode entry: AI crawler access by purpose, llms.txt, AI Overview citations, prompt panel (/seo-ai-visibility)",
+      "origin": "aurora-seo-intelligence",
+      "modes": [
+        "ai-visibility",
+        "audit"
+      ],
+      "historical_use": "New on 2026-11-04 (scripted, deterministic; scripts/seo_insights.py)."
+    },
+    {
+      "name": "seo-site-crawl",
+      "role": "mode entry: free repeatable crawl with the technical rules, extras and source map (/seo-site-crawl)",
+      "origin": "aurora-seo-intelligence",
+      "modes": [
+        "site-crawl",
+        "audit",
+        "video-seo"
+      ],
+      "historical_use": "New on 2026-11-04 (scripted, deterministic; scripts/seo_insights.py)."
+    },
+    {
+      "name": "seo-ymyl-accuracy",
+      "role": "method: unsourced numbers, stale years, claims, facts registry",
+      "origin": "aurora-seo-intelligence",
+      "modes": [
+        "site-crawl",
+        "audit",
+        "content-optimization"
+      ],
+      "historical_use": "New on 2026-11-04 (scripted, deterministic; scripts/seo_insights.py)."
+    },
+    {
+      "name": "seo-video",
+      "role": "mode entry: video catalog, VideoObject proposals, video-to-page matches (/seo-video)",
+      "origin": "aurora-seo-intelligence",
+      "modes": [
+        "video-seo",
+        "site-crawl"
+      ],
+      "historical_use": "New on 2026-11-04 (scripted, deterministic; scripts/seo_insights.py)."
+    },
+    {
+      "name": "seo-competitor-watch",
+      "role": "mode entry: competitor sitemap change watch (/seo-competitor-watch)",
+      "origin": "aurora-seo-intelligence",
+      "modes": [
+        "competitor-watch",
+        "competitor-analysis"
+      ],
+      "historical_use": "New on 2026-11-04 (scripted, deterministic; scripts/seo_insights.py)."
     }
   ],
   "modes": {
@@ -342,7 +426,14 @@
         {
           "key": "technical",
           "skill": "seo-toolkit-technical-audit",
-          "purpose": "Site-wide crawlability, indexability, redirects, status codes, canonicals."
+          "purpose": "Site-wide crawlability, indexability, redirects, status codes, canonicals.",
+          "group": "checks"
+        },
+        {
+          "key": "site-crawl",
+          "skill": "seo-site-crawl",
+          "purpose": "Scripted crawl with every technical rule, extras and source map (free).",
+          "group": "checks"
         },
         {
           "key": "full-site-sweep",
@@ -354,45 +445,82 @@
         {
           "key": "page-audit",
           "skill": "seo-toolkit-page-audit",
-          "purpose": "Diagnose the configured key pages."
+          "purpose": "Diagnose the configured key pages.",
+          "group": "checks"
         },
         {
           "key": "schema",
           "skill": "seo-toolkit-schema",
           "purpose": "Validate JSON-LD against visible content.",
           "optional": true,
-          "when": "pages carry structured data"
+          "when": "pages carry structured data",
+          "group": "checks"
         },
         {
           "key": "internal-linking",
           "skill": "seo-toolkit-internal-linking",
-          "purpose": "Orphans, thin inbound links, anchor quality."
+          "purpose": "Orphans, thin inbound links, anchor quality.",
+          "group": "checks"
         },
         {
           "key": "content-quality",
           "skill": "seo-quality-audit",
-          "purpose": "Thin content, outdated facts, unsupported claims, site editorial rules."
+          "purpose": "Thin content, outdated facts, unsupported claims, site editorial rules.",
+          "group": "checks"
+        },
+        {
+          "key": "ymyl",
+          "skill": "seo-ymyl-accuracy",
+          "purpose": "Accuracy of fees, rates, years and claims (from the crawl).",
+          "group": "checks"
         },
         {
           "key": "cannibalization",
           "skill": "seo-toolkit-cannibalization",
           "purpose": "Pages competing for one intent.",
           "optional": true,
-          "when": "Search Console query/page data or a keyword map is available"
+          "when": "Search Console query/page data or a keyword map is available",
+          "group": "data"
         },
         {
           "key": "keyword-fit",
           "skill": "seo-keyword-research",
           "purpose": "Check key pages still match their target intent and keywords.",
           "optional": true,
-          "when": "keyword research exists in the knowledge base"
+          "when": "keyword research exists in the knowledge base",
+          "group": "data"
+        },
+        {
+          "key": "opportunities",
+          "skill": "seo-opportunities",
+          "purpose": "Quick wins and decaying pages from Search Console.",
+          "optional": true,
+          "when": "Search Console is connected",
+          "group": "data"
+        },
+        {
+          "key": "rank-tracking",
+          "skill": "seo-rank-tracking",
+          "purpose": "Per-market positions of tracked keywords (free part only).",
+          "optional": true,
+          "when": "tracked keywords are configured",
+          "group": "data"
         },
         {
           "key": "ai-search",
           "skill": "seo-geo",
           "purpose": "AI crawler access and passage citability.",
           "optional": true,
-          "when": "the site targets AI answer surfaces"
+          "when": "the site targets AI answer surfaces",
+          "group": "checks"
+        },
+        {
+          "key": "ai-visibility",
+          "skill": "seo-ai-visibility",
+          "purpose": "AI crawler access, llms.txt, AI citations (free).",
+          "optional": true,
+          "when": "the site targets AI answer surfaces",
+          "group": "checks"
         },
         {
           "key": "prioritize",
@@ -438,6 +566,13 @@
           "purpose": "Assess comparison/alternatives page opportunities.",
           "optional": true,
           "when": "comparison intent appears in the SERPs"
+        },
+        {
+          "key": "competitor-watch",
+          "skill": "seo-competitor-watch",
+          "purpose": "New and refreshed competitor pages since the last run.",
+          "optional": true,
+          "when": "direct competitors are configured"
         },
         {
           "key": "strategy",
@@ -491,6 +626,11 @@
           "purpose": "Originality, factual accuracy, no stuffing, house style."
         },
         {
+          "key": "ymyl",
+          "skill": "seo-ymyl-accuracy",
+          "purpose": "Check fees, rates, years and claims in the pages or drafts."
+        },
+        {
           "key": "brief",
           "skill": "seo-toolkit-content-brief",
           "purpose": "Brief for a page that does not exist yet.",
@@ -538,9 +678,22 @@
           "when": "a drop or anomaly needs explaining"
         },
         {
+          "key": "alerts",
+          "skill": "seo-alerts",
+          "purpose": "Robust drops and index status of key pages.",
+          "group": "data"
+        },
+        {
+          "key": "opportunities",
+          "skill": "seo-opportunities",
+          "purpose": "Quick wins, decay and lead value.",
+          "group": "data"
+        },
+        {
           "key": "cannibalization",
           "skill": "seo-toolkit-cannibalization",
-          "purpose": "Queries split across pages."
+          "purpose": "Queries split across pages.",
+          "group": "data"
         },
         {
           "key": "prioritize",
@@ -593,6 +746,205 @@
           "key": "store-and-report",
           "skill": "seo-learning-and-memory",
           "purpose": "Record the execution and report; candidate rules wait for approval."
+        }
+      ]
+    },
+    "opportunities": {
+      "entry_skill": "seo-opportunities",
+      "description": "Quick wins, low-CTR snippets, decaying and dormant pages, merge candidates and lead value from Search Console.",
+      "steps": [
+        {
+          "key": "load-knowledge",
+          "skill": "seo-learning-and-memory",
+          "purpose": "Load the website config, open findings, decisions and last executions."
+        },
+        {
+          "key": "opportunities",
+          "skill": "seo-opportunities",
+          "purpose": "Run scripts/seo_insights.py opportunities (Search Console, free)."
+        },
+        {
+          "key": "prioritize",
+          "skill": "seo-toolkit-prioritization",
+          "purpose": "Order the actions with the visible rubric.",
+          "optional": true,
+          "when": "the owner asks for a ranked action list"
+        },
+        {
+          "key": "store-and-report",
+          "skill": "seo-learning-and-memory",
+          "purpose": "Record findings, skills and tools, compare with history and write the report."
+        }
+      ]
+    },
+    "alerts": {
+      "entry_skill": "seo-alerts",
+      "description": "Weekly early warning: robust drops in clicks, impressions, positions; key-page index status.",
+      "steps": [
+        {
+          "key": "load-knowledge",
+          "skill": "seo-learning-and-memory",
+          "purpose": "Load the website config, open findings, decisions and last executions."
+        },
+        {
+          "key": "alerts",
+          "skill": "seo-alerts",
+          "purpose": "Run scripts/seo_insights.py alerts (Search Console + URL Inspection, free)."
+        },
+        {
+          "key": "store-and-report",
+          "skill": "seo-learning-and-memory",
+          "purpose": "Record findings, skills and tools, compare with history and write the report."
+        }
+      ]
+    },
+    "rank-tracking": {
+      "entry_skill": "seo-rank-tracking",
+      "description": "Positions per keyword and market, live SERP features and keyword demand.",
+      "steps": [
+        {
+          "key": "load-knowledge",
+          "skill": "seo-learning-and-memory",
+          "purpose": "Load the website config, open findings, decisions and last executions."
+        },
+        {
+          "key": "market-ranks",
+          "skill": "seo-rank-tracking",
+          "purpose": "Search Console positions per keyword x market (free)."
+        },
+        {
+          "key": "serp-checks",
+          "skill": "seo-rank-tracking",
+          "purpose": "Live SERP checks: snippet owner, AI Overview, competitors (paid).",
+          "optional": true,
+          "when": "the owner approved a SerpApi budget and checks are due"
+        },
+        {
+          "key": "keyword-data",
+          "skill": "seo-rank-tracking",
+          "purpose": "Demand per market; DataForSEO volume/difficulty when configured (paid).",
+          "optional": true,
+          "when": "keyword demand is requested"
+        },
+        {
+          "key": "store-and-report",
+          "skill": "seo-learning-and-memory",
+          "purpose": "Record findings, skills and tools, compare with history and write the report."
+        }
+      ]
+    },
+    "ai-visibility": {
+      "entry_skill": "seo-ai-visibility",
+      "description": "AI crawler access, llms.txt, AI Overview citations and the AI answer prompt panel.",
+      "steps": [
+        {
+          "key": "load-knowledge",
+          "skill": "seo-learning-and-memory",
+          "purpose": "Load the website config, open findings, decisions and last executions."
+        },
+        {
+          "key": "ai-visibility",
+          "skill": "seo-ai-visibility",
+          "purpose": "Run scripts/seo_insights.py ai-visibility (free)."
+        },
+        {
+          "key": "passages",
+          "skill": "seo-geo",
+          "purpose": "Passage-level fixes for prompts and keywords where others are cited.",
+          "optional": true,
+          "when": "AI Overview or prompt gaps were found"
+        },
+        {
+          "key": "store-and-report",
+          "skill": "seo-learning-and-memory",
+          "purpose": "Record findings, skills and tools, compare with history and write the report."
+        }
+      ]
+    },
+    "site-crawl": {
+      "entry_skill": "seo-site-crawl",
+      "description": "Free repeatable crawl: technical rules, extras, YMYL accuracy, video checks and source map.",
+      "steps": [
+        {
+          "key": "load-knowledge",
+          "skill": "seo-learning-and-memory",
+          "purpose": "Load the website config, open findings, decisions and last executions."
+        },
+        {
+          "key": "crawl",
+          "skill": "seo-site-crawl",
+          "purpose": "Run scripts/seo_insights.py crawl (free, UrlPolicy)."
+        },
+        {
+          "key": "ymyl",
+          "skill": "seo-ymyl-accuracy",
+          "purpose": "Accuracy findings from the same crawl."
+        },
+        {
+          "key": "video",
+          "skill": "seo-video",
+          "purpose": "Embed and VideoObject findings from the same crawl.",
+          "optional": true,
+          "when": "pages embed videos or a video catalog exists"
+        },
+        {
+          "key": "store-and-report",
+          "skill": "seo-learning-and-memory",
+          "purpose": "Record findings, skills and tools, compare with history and write the report."
+        }
+      ]
+    },
+    "competitor-watch": {
+      "entry_skill": "seo-competitor-watch",
+      "description": "Competitor sitemap changes: new pages on your keywords, uncovered topics, refresh waves.",
+      "steps": [
+        {
+          "key": "load-knowledge",
+          "skill": "seo-learning-and-memory",
+          "purpose": "Load the website config, open findings, decisions and last executions."
+        },
+        {
+          "key": "watch",
+          "skill": "seo-competitor-watch",
+          "purpose": "Run scripts/seo_insights.py competitors (free)."
+        },
+        {
+          "key": "strategy",
+          "skill": "seo-content-strategy",
+          "purpose": "Decide extend / new page / ignore per uncovered topic.",
+          "optional": true,
+          "when": "uncovered topics were found"
+        },
+        {
+          "key": "store-and-report",
+          "skill": "seo-learning-and-memory",
+          "purpose": "Record findings, skills and tools, compare with history and write the report."
+        }
+      ]
+    },
+    "video-seo": {
+      "entry_skill": "seo-video",
+      "description": "Refresh the video catalog and check embeds, markup and video-to-page matches.",
+      "steps": [
+        {
+          "key": "load-knowledge",
+          "skill": "seo-learning-and-memory",
+          "purpose": "Load the website config, open findings, decisions and last executions."
+        },
+        {
+          "key": "catalog",
+          "skill": "seo-video",
+          "purpose": "Run scripts/seo_insights.py videos (yt-dlp metadata, no downloads)."
+        },
+        {
+          "key": "crawl-check",
+          "skill": "seo-site-crawl",
+          "purpose": "Run the crawl to evaluate embeds and matches."
+        },
+        {
+          "key": "store-and-report",
+          "skill": "seo-learning-and-memory",
+          "purpose": "Record findings, skills and tools, compare with history and write the report."
         }
       ]
     }

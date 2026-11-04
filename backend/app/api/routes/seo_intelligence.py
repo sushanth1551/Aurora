@@ -12,7 +12,13 @@ from uuid import UUID
 from fastapi import APIRouter, Path, Query, status
 from fastapi.responses import PlainTextResponse
 
-from app.api.deps import SeoAgentServiceDep, SeoAuditServiceDep, SkillImprovementDep
+from app.api.deps import (
+    InsightStoreDep,
+    SeoAgentServiceDep,
+    SeoAuditServiceDep,
+    SkillImprovementDep,
+)
+from app.core.exceptions import ResourceNotFoundException
 from app.schemas.seo_intelligence import (
     AuditImportRequest,
     ExecutionList,
@@ -24,6 +30,7 @@ from app.schemas.seo_intelligence import (
     WebsiteList,
 )
 from app.seo.intelligence.adapters import import_technical_audit
+from app.seo.intelligence.insights.exports import dashboard
 from app.seo.intelligence.models import Execution, Priority, WebsiteConfig
 
 router = APIRouter()
@@ -42,6 +49,23 @@ Mode = Literal[
     "performance-review",
     "update-skills",
     "monitor",
+    "opportunities",
+    "alerts",
+    "rank-tracking",
+    "ai-visibility",
+    "site-crawl",
+    "competitor-watch",
+    "video-seo",
+]
+InsightKind = Literal[
+    "opportunities",
+    "alerts",
+    "rank-tracking",
+    "ai-visibility",
+    "site-crawl",
+    "competitor-watch",
+    "video-seo",
+    "keyword-data",
 ]
 
 
@@ -180,3 +204,35 @@ async def list_proposals(
 ) -> ProposalList:
     items = improvement.list(status_filter)
     return ProposalList(items=items, total=len(items))
+
+
+@router.get(
+    "/websites/{site_id}/insights",
+    responses=_ERRORS,
+    summary="Dashboard: open findings and the latest insight runs",
+)
+async def get_insights(
+    site_id: SiteId, service: SeoAgentServiceDep, store: InsightStoreDep
+) -> dict[str, object]:
+    service.website(site_id)  # 404 for an unknown site
+    return dashboard(store, site_id, service.repository.load_findings(site_id))
+
+
+@router.get(
+    "/websites/{site_id}/insights/{kind}",
+    responses=_ERRORS,
+    summary="Latest snapshot of one insight run (as stored; nothing is recomputed)",
+)
+async def get_insight(
+    site_id: SiteId,
+    kind: InsightKind,
+    service: SeoAgentServiceDep,
+    store: InsightStoreDep,
+) -> dict[str, object]:
+    service.website(site_id)
+    snapshot = store.latest(site_id, kind)
+    if snapshot is None:
+        raise ResourceNotFoundException(
+            f"No '{kind}' run recorded for this website yet."
+        )
+    return snapshot

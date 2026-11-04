@@ -9,7 +9,7 @@ forecasts or numeric SEO scores.
 from __future__ import annotations
 
 import re
-from datetime import UTC, datetime
+from datetime import UTC, date, datetime
 from typing import Literal
 
 from pydantic import BaseModel, ConfigDict, Field, field_validator
@@ -31,6 +31,13 @@ ExecutionMode = Literal[
     "monitor",
     "baseline-import",
     "technical-audit-import",
+    "opportunities",
+    "alerts",
+    "rank-tracking",
+    "ai-visibility",
+    "site-crawl",
+    "competitor-watch",
+    "video-seo",
 ]
 ExecutionStatus = Literal["running", "completed", "partial", "blocked", "failed"]
 CallStatus = Literal["success", "partial", "unavailable", "failed", "skipped"]
@@ -107,6 +114,122 @@ class SchedulerSettings(_Strict):
         return value
 
 
+class RankTracking(_Strict):
+    """Which keywords to follow per market. Search Console positions are free and
+    read on every run; SerpApi spot checks spend credits only within the monthly
+    budget the owner set (0 means no paid searches)."""
+
+    keywords: list[str] = []
+    markets: list[str] = Field(default_factory=lambda: ["IN", "US"])
+    devices: list[Literal["desktop", "mobile"]] = Field(
+        default_factory=lambda: ["mobile"]
+    )
+    serpapi_monthly_budget: int = Field(default=0, ge=0, le=5000)
+    serp_check_every_days: int = Field(default=7, ge=1, le=90)
+    gsc_window_days: int = Field(default=7, ge=3, le=28)
+
+    @field_validator("markets")
+    @classmethod
+    def _iso2(cls, value: list[str]) -> list[str]:
+        out = [m.strip().upper() for m in value]
+        if any(not re.fullmatch(r"[A-Z]{2}", m) for m in out):
+            raise ValueError("markets are ISO 3166-1 alpha-2 codes such as IN or US")
+        return out
+
+
+class KeywordDataSettings(_Strict):
+    """Paid keyword/backlink data. ``none`` keeps the agent on free sources."""
+
+    provider: Literal["none", "dataforseo"] = "none"
+    monthly_budget_usd: float = Field(default=0.0, ge=0, le=500)
+    location_codes: dict[str, int] = Field(
+        default_factory=lambda: {"IN": 2356, "US": 2840}
+    )
+
+
+class AiVisibilitySettings(_Strict):
+    """Prompts to watch in AI answers and the owner's AI-crawler policy."""
+
+    prompts: list[str] = []
+    allow_training_crawlers: bool | None = None  # None: the owner has no policy yet
+
+
+class Fact(_Strict):
+    """A fact the owner verified at its official source (never filled in by AURORA).
+
+    ``pattern`` is a regular expression that finds the fact in page text; its first
+    group must capture the value, which is compared with ``expected``.
+    """
+
+    id: str = Field(pattern=r"^[a-z0-9][a-z0-9-]{0,63}$")
+    statement: str
+    pattern: str
+    expected: str
+    source_url: str
+    verified_on: date
+    review_after_days: int = Field(default=180, ge=7, le=730)
+
+    @field_validator("pattern")
+    @classmethod
+    def _compiles(cls, value: str) -> str:
+        try:
+            if re.compile(value).groups < 1:
+                raise ValueError("pattern needs one capture group for the value")
+        except re.error as exc:
+            raise ValueError(f"invalid pattern: {exc}") from exc
+        return value
+
+
+class YmylSettings(_Strict):
+    """Accuracy checks for health/education claims (Your Money or Your Life)."""
+
+    authoritative_domains: list[str] = Field(
+        default_factory=lambda: [
+            "usmle.org",
+            "nbme.org",
+            "ecfmg.org",
+            "intealth.org",
+            "fsmb.org",
+            "nrmp.org",
+            "aamc.org",
+            "ama-assn.org",
+            "acgme.org",
+        ]
+    )
+    claim_terms: list[str] = Field(
+        default_factory=lambda: [
+            "#1",
+            "number one",
+            "guaranteed",
+            "guarantee",
+            "100%",
+            "best in",
+            "success rate",
+        ]
+    )
+    facts: list[Fact] = []
+
+
+class VideoSettings(_Strict):
+    playlists: list[str] = []
+
+
+class AlertSettings(_Strict):
+    """Weekly Search Console checks; thresholds avoid alerting on noise."""
+
+    every_days: int = Field(default=7, ge=1, le=30)
+    run_time: str = Field(default="09:00", pattern=r"^([01]\d|2[0-3]):[0-5]\d$")
+    min_weekly_clicks: int = Field(default=20, ge=1)
+    robust_z: float = Field(default=3.0, ge=1.5, le=10)
+    min_drop_pct: float = Field(default=25.0, ge=5, le=90)
+    inspect_key_pages: bool = True
+
+
+class CompetitorWatchSettings(_Strict):
+    max_urls_per_site: int = Field(default=3000, ge=10, le=20000)
+    max_title_fetches: int = Field(default=15, ge=0, le=100)
+
+
 class WebsiteConfig(_Strict):
     id: str
     name: str
@@ -128,6 +251,13 @@ class WebsiteConfig(_Strict):
     repository: RepositoryLink = RepositoryLink()
     report_sources: list[str] = []
     scheduler: SchedulerSettings = SchedulerSettings()
+    rank_tracking: RankTracking = RankTracking()
+    keyword_data: KeywordDataSettings = KeywordDataSettings()
+    ai_visibility: AiVisibilitySettings = AiVisibilitySettings()
+    ymyl: YmylSettings = YmylSettings()
+    video: VideoSettings = VideoSettings()
+    alerts: AlertSettings = AlertSettings()
+    competitor_watch: CompetitorWatchSettings = CompetitorWatchSettings()
     approval_required_for: list[str] = [
         "production code changes",
         "content publication",

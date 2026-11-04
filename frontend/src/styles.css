@@ -167,3 +167,12 @@ th { color: #5f6a82; font-size: 11px; letter-spacing: .03em; }
 .notes-block { margin: 10px 0; }
 .dot-note { color: #5f6a82; }
 @media (max-width: 680px) { .charts { grid-template-columns: 1fr; } }
+
+/* SEO Agent dashboard */
+.kpi-row { display: flex; flex-wrap: wrap; gap: 12px; margin: 8px 0 16px; }
+.kpi { min-width: 96px; padding: 10px 14px; border: 1px solid #e7eaf2; border-radius: 12px; display: flex; flex-direction: column; }
+.kpi-value { font-size: 22px; font-weight: 700; color: #24304a; }
+.kpi-label { font-size: 11px; text-transform: uppercase; letter-spacing: .04em; color: #63708b; }
+.kpi-critical .kpi-value { color: #b42318; }
+.kpi-high .kpi-value { color: #c4320a; }
+.muted-note { color: #63708b; font-size: 12px; }

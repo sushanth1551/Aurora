@@ -31,13 +31,14 @@ sys.path.insert(0, str(ROOT / "backend"))
 import httpx  # noqa: E402
 
 from app.core.config import Settings, get_settings  # noqa: E402
-from app.core.exceptions import AuroraException, PersistenceException  # noqa: E402
+from app.core.exceptions import AuroraException  # noqa: E402
 from app.research.url_policy import UrlPolicy  # noqa: E402
 from app.seo.intelligence.changes import ChangeTracker, GitError  # noqa: E402
 from app.seo.intelligence.factory import (  # noqa: E402
     build_seo_agent_service,
     build_skill_improvement,
 )
+from app.seo.intelligence.gsc_source import gsc_query  # noqa: E402
 from app.seo.intelligence.models import Execution, WebsiteConfig  # noqa: E402
 from app.seo.intelligence.monitor import (  # noqa: E402
     GscFetcher,
@@ -52,59 +53,14 @@ from app.seo.intelligence.pdf_report import (  # noqa: E402
 
 MAX_GSC_REQUESTS = 5
 MAX_PAGE_BYTES = 1_000_000
-DB_ATTEMPTS = 2
-DB_RETRY_SECONDS = 20
 
 
 def gsc_fetcher(settings: Settings, property_id: str) -> GscFetcher:
     """Date x page rows through AURORA's stored Search Console credential."""
+    query = gsc_query(settings, property_id, max_requests=MAX_GSC_REQUESTS)
 
     async def fetch(start: date, end: date) -> list[dict[str, object]]:
-        """Read-only, so one retry after a pause is safe (the database container can
-        be slow to accept connections right after ``docker compose up``)."""
-        for attempt in range(1, DB_ATTEMPTS + 1):
-            try:
-                return await fetch_once(start, end)
-            except PersistenceException:
-                if attempt == DB_ATTEMPTS:
-                    raise
-                await asyncio.sleep(DB_RETRY_SECONDS)
-        return []
-
-    async def fetch_once(start: date, end: date) -> list[dict[str, object]]:
-        from app.database.repositories.gsc_repository import GscRepository
-        from app.database.session import create_session_factory, dispose_engine
-        from app.monitoring.errors import GscStorageUnavailable
-        from app.monitoring.service import RefreshTokenSource
-        from app.monitoring.vault import select_vault
-        from app.tools.search_console_tool import SearchConsoleTool
-
-        rows: list[dict[str, object]] = []
-        try:
-            async with create_session_factory()() as session:
-                repo = GscRepository(session)
-                try:
-                    vault = select_vault(settings.gsc_token_storage)
-                except GscStorageUnavailable:
-                    vault = None
-                tokens = RefreshTokenSource(repo, vault, settings)
-                tool = SearchConsoleTool(settings, refresh_token_provider=tokens.get)
-                limit = settings.gsc_max_rows_per_request
-                for page in range(MAX_GSC_REQUESTS):
-                    batch = await tool.query_performance(
-                        property_id,
-                        start.isoformat(),
-                        end.isoformat(),
-                        dimensions=("date", "page"),
-                        row_limit=limit,
-                        start_row=page * limit,
-                    )
-                    rows += [r.model_dump() for r in batch]
-                    if len(batch) < limit:
-                        break
-        finally:
-            await dispose_engine()
-        return rows
+        return await query(start, end, ("date", "page"))
 
     return fetch
 

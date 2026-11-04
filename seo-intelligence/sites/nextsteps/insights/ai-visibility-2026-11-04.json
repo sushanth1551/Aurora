@@ -1,0 +1,173 @@
+{
+  "kind": "ai-visibility",
+  "date": "2026-11-04",
+  "data": {
+    "crawler_access": [
+      {
+        "agent": "OAI-SearchBot",
+        "operator": "OpenAI",
+        "purpose": "search",
+        "allowed_paths": 9,
+        "blocked_paths": [],
+        "blocked": false
+      },
+      {
+        "agent": "ChatGPT-User",
+        "operator": "OpenAI",
+        "purpose": "user",
+        "allowed_paths": 9,
+        "blocked_paths": [],
+        "blocked": false
+      },
+      {
+        "agent": "GPTBot",
+        "operator": "OpenAI",
+        "purpose": "training",
+        "allowed_paths": 9,
+        "blocked_paths": [],
+        "blocked": false
+      },
+      {
+        "agent": "Claude-SearchBot",
+        "operator": "Anthropic",
+        "purpose": "search",
+        "allowed_paths": 9,
+        "blocked_paths": [],
+        "blocked": false
+      },
+      {
+        "agent": "Claude-User",
+        "operator": "Anthropic",
+        "purpose": "user",
+        "allowed_paths": 9,
+        "blocked_paths": [],
+        "blocked": false
+      },
+      {
+        "agent": "ClaudeBot",
+        "operator": "Anthropic",
+        "purpose": "training",
+        "allowed_paths": 9,
+        "blocked_paths": [],
+        "blocked": false
+      },
+      {
+        "agent": "PerplexityBot",
+        "operator": "Perplexity",
+        "purpose": "search",
+        "allowed_paths": 9,
+        "blocked_paths": [],
+        "blocked": false
+      },
+      {
+        "agent": "Perplexity-User",
+        "operator": "Perplexity",
+        "purpose": "user",
+        "allowed_paths": 9,
+        "blocked_paths": [],
+        "blocked": false
+      },
+      {
+        "agent": "Googlebot",
+        "operator": "Google (Search, AI Overviews, AI Mode)",
+        "purpose": "search",
+        "allowed_paths": 9,
+        "blocked_paths": [],
+        "blocked": false
+      },
+      {
+        "agent": "Google-Extended",
+        "operator": "Google (Gemini training/grounding opt-out)",
+        "purpose": "training",
+        "allowed_paths": 9,
+        "blocked_paths": [],
+        "blocked": false
+      },
+      {
+        "agent": "Bingbot",
+        "operator": "Microsoft (Bing, Copilot)",
+        "purpose": "search",
+        "allowed_paths": 9,
+        "blocked_paths": [],
+        "blocked": false
+      },
+      {
+        "agent": "Applebot",
+        "operator": "Apple",
+        "purpose": "search",
+        "allowed_paths": 9,
+        "blocked_paths": [],
+        "blocked": false
+      },
+      {
+        "agent": "Applebot-Extended",
+        "operator": "Apple",
+        "purpose": "training",
+        "allowed_paths": 9,
+        "blocked_paths": [],
+        "blocked": false
+      },
+      {
+        "agent": "DuckAssistBot",
+        "operator": "DuckDuckGo",
+        "purpose": "user",
+        "allowed_paths": 9,
+        "blocked_paths": [],
+        "blocked": false
+      },
+      {
+        "agent": "MistralAI-User",
+        "operator": "Mistral",
+        "purpose": "user",
+        "allowed_paths": 9,
+        "blocked_paths": [],
+        "blocked": false
+      },
+      {
+        "agent": "meta-externalagent",
+        "operator": "Meta",
+        "purpose": "training",
+        "allowed_paths": 9,
+        "blocked_paths": [],
+        "blocked": false
+      },
+      {
+        "agent": "Amazonbot",
+        "operator": "Amazon",
+        "purpose": "search",
+        "allowed_paths": 9,
+        "blocked_paths": [],
+        "blocked": false
+      },
+      {
+        "agent": "CCBot",
+        "operator": "Common Crawl",
+        "purpose": "training",
+        "allowed_paths": 9,
+        "blocked_paths": [],
+        "blocked": false
+      },
+      {
+        "agent": "Bytespider",
+        "operator": "ByteDance",
+        "purpose": "training",
+        "allowed_paths": 9,
+        "blocked_paths": [],
+        "blocked": false
+      }
+    ],
+    "llms_txt": {
+      "status": 200,
+      "has_title": true,
+      "link_count": 7,
+      "sections": 2,
+      "valid": true
+    },
+    "ai_overviews": [],
+    "share_of_voice": {
+      "engines": {},
+      "top_cited_domains": [],
+      "answers_considered": 0
+    }
+  }
+}

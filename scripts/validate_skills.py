@@ -119,6 +119,14 @@ SEO_INTELLIGENCE = {
     "website-seo-discovery",
     "seo-report-analysis",
     "seo-learning-and-memory",
+    "seo-opportunities",
+    "seo-alerts",
+    "seo-rank-tracking",
+    "seo-ai-visibility",
+    "seo-site-crawl",
+    "seo-ymyl-accuracy",
+    "seo-video",
+    "seo-competitor-watch",
 }
 CLAUDE_SEO = {
     "seo",

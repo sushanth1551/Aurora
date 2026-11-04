@@ -1,0 +1,627 @@
+{
+  "kind": "site-crawl",
+  "date": "2026-11-04",
+  "data": {
+    "start_url": "https://nextstepsusmle.com/",
+    "coverage": {
+      "pages_audited": 83,
+      "pages_discovered": 84,
+      "pages_not_fetched": 1,
+      "sitemap_urls_found": 82,
+      "link_targets_found": 71,
+      "link_targets_checked": 0,
+      "stopped_reason": null,
+      "not_measured": [
+        "Core Web Vitals (LCP, INP, CLS): no field or lab data source is connected.",
+        "Index status: requires Search Console URL Inspection (not connected).",
+        "Raw-versus-rendered HTML differences: Firecrawl returns browser-rendered HTML."
+      ]
+    },
+    "usage": {
+      "firecrawl_scrapes": 83,
+      "firecrawl_failures": 0,
+      "direct_requests": 170
+    },
+    "pages": [
+      {
+        "url": "https://nextstepsusmle.com/",
+        "status": 200,
+        "indexability": "indexable_candidate",
+        "title": "#1 USMLE Preparation Platform | Next Steps USMLE",
+        "words": 1434
+      },
+      {
+        "url": "https://nextstepsusmle.com/step-1-2-ck",
+        "status": 200,
+        "indexability": "indexable_candidate",
+        "title": "Step 1 & Step 2 CK Preparation | Next Steps USMLE",
+        "words": 1107
+      },
+      {
+        "url": "https://nextstepsusmle.com/success-stories",
+        "status": 200,
+        "indexability": "indexable_candidate",
+        "title": "Student Success Stories — Next Steps USMLE",
+        "words": 120
+      },
+      {
+        "url": "https://nextstepsusmle.com/blog",
+        "status": 200,
+        "indexability": "indexable_candidate",
+        "title": "Blog — Next Steps USMLE",
+        "words": 912
+      },
+      {
+        "url": "https://nextstepsusmle.com/payment",
+        "status": null,
+        "indexability": "not_indexable",
+        "title": null,
+        "words": null
+      },
+      {
+        "url": "https://nextstepsusmle.com/contact",
+        "status": 200,
+        "indexability": "indexable_candidate",
+        "title": "Contact Us | Next Steps USMLE",
+        "words": 431
+      },
+      {
+        "url": "https://nextstepsusmle.com/blog/highest-usmle-step-2-ck-score",
+        "status": 200,
+        "indexability": "indexable_candidate",
+        "title": "Highest Step 2 Score: 300 Max, What 270 vs 280 Means",
+        "words": 2297
+      },
+      {
+        "url": "https://nextstepsusmle.com/blog/how-to-apply-for-usmle-from-india",
+        "status": 200,
+        "indexability": "indexable_candidate",
+        "title": "How to Apply for USMLE from India: 2027 Steps & Fees in INR",
+        "words": 3405
+      },
+      {
+        "url": "https://nextstepsusmle.com/blog/is-it-too-late-to-start-usmle",
+        "status": 200,
+        "indexability": "indexable_candidate",
+        "title": "Is It Too Late to Start the USMLE? Age and YOG Rules (2026)",
+        "words": 2810
+      },
+      {
+        "url": "https://nextstepsusmle.com/blog/img-match-2026-nrmp-data",
+        "status": 200,
+        "indexability": "indexable_candidate",
+        "title": "IMG Match Rate by Specialty 2026: NRMP Data & Step 2 Scores",
+        "words": 4630
+      },
+      {
+        "url": "https://nextstepsusmle.com/programs/usmle-cv",
+        "status": 200,
+        "indexability": "indexable_candidate",
+        "title": "CV for USMLE Residency Applications: Structure, Tips & ERAS Format | Next Steps USMLE",
+        "words": 1775
+      },
+      {
+        "url": "https://nextstepsusmle.com/programs/clinical-rotations",
+        "status": 200,
+        "indexability": "indexable_candidate",
+        "title": "Clinical Rotations & Electives in USA: Complete Guide for IMGs",
+        "words": 2020
+      },
+      {
+        "url": "https://nextstepsusmle.com/programs/residency-match",
+        "status": 200,
+        "indexability": "indexable_candidate",
+        "title": "Residency Match Strategy: Complete Guide for IMGs & US Grads | Next Steps USMLE",
+        "words": 2176
+      },
+      {
+        "url": "https://nextstepsusmle.com/terms",
+        "status": 200,
+        "indexability": "indexable_candidate",
+        "title": "Terms & Conditions | Next Steps USMLE",
+        "words": 3285
+      },
+      {
+        "url": "https://nextstepsusmle.com/cancellation-policy",
+        "status": 200,
+        "indexability": "indexable_candidate",
+        "title": "Cancellation Policy | Next Steps USMLE",
+        "words": 111
+      },
+      {
+        "url": "https://nextstepsusmle.com/privacy-policy",
+        "status": 200,
+        "indexability": "indexable_candidate",
+        "title": "Privacy Policy | Next Steps USMLE",
+        "words": 1816
+      },
+      {
+        "url": "https://nextstepsusmle.com/mentorship",
+        "status": 200,
+        "indexability": "indexable_candidate",
+        "title": "Next Steps — Crack USMLE Step 1 & Step 2 CK with 1:1 Mentorship",
+        "words": 2899
+      },
+      {
+        "url": "https://nextstepsusmle.com/webinar",
+        "status": 200,
+        "indexability": "indexable_candidate",
+        "title": "Free USMLE Webinar Every Sunday — The Whole Route in One Hour | Next Steps",
+        "words": 3137
+      },
+      {
+        "url": "https://nextstepsusmle.com/blog/how-many-indians-pass-the-usmle-each-year",
+        "status": 200,
+        "indexability": "indexable_candidate",
+        "title": "How Many Indians Pass the USMLE Each Year? (2024 Data)",
+        "words": 1744
+      },
+      {
+        "url": "https://nextstepsusmle.com/blog/usmle-step-2-ck-exam-format-2026",
+        "status": 200,
+        "indexability": "indexable_candidate",
+        "title": "USMLE Step 2 CK 2026: New Format, Score Targets & Strategy",
+        "words": 2685
+      },
+      {
+        "url": "https://nextstepsusmle.com/blog/who-are-eligible-for-usmle",
+        "status": 200,
+        "indexability": "indexable_candidate",
+        "title": "USMLE Eligibility 2027: Exam Rules for MD, DO & IMGs",
+        "words": 1205
+      },
+      {
+        "url": "https://nextstepsusmle.com/blog/can-indian-medical-graduates-work-in-the-usa-without-usmle",
+        "status": 200,
+        "indexability": "indexable_candidate",
+        "title": "Can Indian Doctors Work in the USA Without USMLE? (2027)",
+        "words": 1336
+      },
+      {
+        "url": "https://nextstepsusmle.com/blog/how-to-prepare-for-the-residency-match-season",
+        "status": 200,
+        "indexability": "indexable_candidate",
+        "title": "Residency Match Timeline 2027: Month-by-Month Guide",
+        "words": 1208
+      },
+      {
+        "url": "https://nextstepsusmle.com/blog/how-much-does-usmle-cost-in-total",
+        "status": 200,
+        "indexability": "indexable_candidate",
+        "title": "How Much Does the USMLE Cost? 2026 Fees in INR and USD",
+        "words": 1950
+      },
+      {
+        "url": "https://nextstepsusmle.com/blog/what-is-the-role-of-mentorship-in-usmle-preparation",
+        "status": 200,
+        "indexability": "indexable_candidate",
+        "title": "USMLE Mentorship: Do You Need a Mentor? (2027)",
+        "words": 1081
+      },
+      {
+        "url": "https://nextstepsusmle.com/blog/what-is-the-best-usmle-question-bank",
+        "status": 200,
+        "indexability": "indexable_candidate",
+        "title": "Best USMLE Question Bank 2027: Honest QBank Comparison",
+        "words": 1211
+      },
+      {
+        "url": "https://nextstepsusmle.com/blog/best-study-resources-for-usmle-steps-preparation",
+        "status": 200,
+        "indexability": "indexable_candidate",
+        "title": "Best USMLE Resources for Step 1, Step 2 CK & Step 3 (2027)",
+        "words": 1253
+      },
+      {
+        "url": "https://nextstepsusmle.com/blog/usmle-step-3-preparatio-study-plan-and-guidance",
+        "status": 200,
+        "indexability": "indexable_candidate",
+        "title": "USMLE Step 3 Study Plan 2027: How to Study, Week by Week",
+        "words": 1367
+      },
+      {
+        "url": "https://nextstepsusmle.com/blog/what-is-oet-exam-how-much-does-it-costs",
+        "status": 200,
+        "indexability": "indexable_candidate",
+        "title": "OET Exam Fees in India 2026 (INR): Cost + ECFMG Score Rules",
+        "words": 1676
+      },
+      {
+        "url": "https://nextstepsusmle.com/blog/official-statement-regarding-the-invalidation-of-usmle-examination-scores",
+        "status": 200,
+        "indexability": "indexable_candidate",
+        "title": "USMLE Score Invalidation: Causes & Appeals Explained",
+        "words": 1078
+      },
+      {
+        "url": "https://nextstepsusmle.com/blog/ecfmg-announcement-certification-eligibility",
+        "status": 200,
+        "indexability": "indexable_candidate",
+        "title": "ECFMG Certification Eligibility 2027: WFME Rule Explained",
+        "words": 1218
+      },
+      {
+        "url": "https://nextstepsusmle.com/blog/ecfmg-2027-pathways-for-imgs",
+        "status": 200,
+        "indexability": "indexable_candidate",
+        "title": "ECFMG Pathways 2027: Eligibility & Deadlines for IMGs",
+        "words": 1805
+      },
+      {
+        "url": "https://nextstepsusmle.com/blog/apply-now-for-a-free-usmle-step-3-practice-examination",
+        "status": 200,
+        "indexability": "indexable_candidate",
+        "title": "USMLE Step 3 Practice Tests: Free & Official Options",
+        "words": 1297
+      },
+      {
+        "url": "https://nextstepsusmle.com/blog/important-update-for-usmle-step1-and-step-2ck-examinees-in-2024",
+        "status": 200,
+        "indexability": "indexable_candidate",
+        "title": "USMLE Step 1 & Step 2 CK Score Release Dates 2026",
+        "words": 1365
+      },
+      {
+        "url": "https://nextstepsusmle.com/blog/how-to-review-a-uworld-qbank-block",
+        "status": 200,
+        "indexability": "indexable_candidate",
+        "title": "How to Review a UWorld Qbank Block: The Right Way (2026)",
+        "words": 2002
+      },
+      {
+        "url": "https://nextstepsusmle.com/blog/usmle-lor-letters-of-recommendation-img-residency-match",
+        "status": 200,
+        "indexability": "indexable_candidate",
+        "title": "USMLE LOR Mistakes That Cost IMGs the Match (2026 Guide)",
+        "words": 2333
+      },
+      {
+        "url": "https://nextstepsusmle.com/blog/usmle-step-2-ck-study-plan-12-weeks",
+        "status": 200,
+        "indexability": "indexable_candidate",
+        "title": "USMLE Step 2 CK Study Plan: A Realistic 12-Week Schedule",
+        "words": 4323
+      },
+      {
+        "url": "https://nextstepsusmle.com/blog/6-month-usmle-step-1-study-plan",
+        "status": 200,
+        "indexability": "indexable_candidate",
+        "title": "USMLE Step 1 Study Plan (2027): 6-Month Schedule",
+        "words": 2190
+      },
+      {
+        "url": "https://nextstepsusmle.com/blog/top-usmle-coaching-centers-in-india",
+        "status": 200,
+        "indexability": "indexable_candidate",
+        "title": "Top 7 Best USMLE Coaching Centres in India (2027)",
+        "words": 2476
+      },
+      {
+        "url": "https://nextstepsusmle.com/blog/usmle-step-1-vs-step-2-ck-key-differences-you-need-to-know",
+        "status": 200,
+        "indexability": "indexable_candidate",
+        "title": "USMLE Step 1 vs Step 2 CK: Key Differences (2027)",
+        "words": 1798
+      },
+      {
+        "url": "https://nextstepsusmle.com/blog/what-are-the-most-important-questions-covered-in-the-usmle",
+        "status": 200,
+        "indexability": "indexable_candidate",
+        "title": "What are the most important questions covered in the USMLE?",
+        "words": 1099
+      },
+      {
+        "url": "https://nextstepsusmle.com/blog/what-is-the-typical-preparation-time-for-usmle-step-1",
+        "status": 200,
+        "indexability": "indexable_candidate",
+        "title": "How Long to Study for USMLE Step 1? (2027 Guide)",
+        "words": 1409
+      },
+      {
+        "url": "https://nextstepsusmle.com/blog/how-to-create-a-winning-study-schedule-for-usmle-step-1",
+        "status": 200,
+        "indexability": "indexable_candidate",
+        "title": "USMLE Step 1 Study Schedule: A Winning 8-Week Plan (2026)",
+        "words": 1409
+      },
+      {
+        "url": "https://nextstepsusmle.com/blog/what-is-the-salary-after-usmle",
+        "status": 200,
+        "indexability": "indexable_candidate",
+        "title": "USMLE Salary: What Doctors Earn in the US (Monthly & Yearly)",
+        "words": 2119
+      },
+      {
+        "url": "https://nextstepsusmle.com/blog/how-many-years-is-usmle-valid",
+        "status": 200,
+        "indexability": "indexable_candidate",
+        "title": "How Long Is USMLE Step 1 Valid? The 7-Year Rule (2027)",
+        "words": 1707
+      },
+      {
+        "url": "https://nextstepsusmle.com/blog/in-which-year-of-mbbs-can-you-give-usmle-step-2-ck",
+        "status": 200,
+        "indexability": "indexable_candidate",
+        "title": "When Can You Take USMLE Step 2 CK During MBBS?",
+        "words": 1129
+      },
+      {
+        "url": "https://nextstepsusmle.com/blog/do-mbbs-marks-have-an-impact-on-the-usmle",
+        "status": 200,
+        "indexability": "indexable_candidate",
+        "title": "Do MBBS Marks Affect Your USMLE Score or the Match? (2026)",
+        "words": 1562
+      },
+      {
+        "url": "https://nextstepsusmle.com/blog/how-to-crack-usmle-on-your-first-attempt",
+        "status": 200,
+        "indexability": "indexable_candidate",
+        "title": "How to Pass the USMLE on Your First Attempt (2026 Strategy)",
+        "words": 1799
+      },
+      {
+        "url": "https://nextstepsusmle.com/blog/how-to-start-your-usmle-prep-journey",
+        "status": 200,
+        "indexability": "indexable_candidate",
+        "title": "How to start Your USMLE Prep Journey? — Next Steps USMLE",
+        "words": 1203
+      },
+      {
+        "url": "https://nextstepsusmle.com/blog/is-usmle-only-for-mbbs-students",
+        "status": 200,
+        "indexability": "indexable_candidate",
+        "title": "Is the USMLE Only for MBBS Students? Who Can Take It",
+        "words": 1684
+      },
+      {
+        "url": "https://nextstepsusmle.com/blog/how-should-imgs-approach-the-usmle-match-process",
+        "status": 200,
+        "indexability": "indexable_candidate",
+        "title": "USMLE Match for IMGs: How to Approach It Step by Step",
+        "words": 1172
+      },
+      {
+        "url": "https://nextstepsusmle.com/blog/how-can-you-stand-out-in-usmle-clinical-rotations",
+        "status": 200,
+        "indexability": "indexable_candidate",
+        "title": "How to Stand Out on US Clinical Rotations as an IMG (2026)",
+        "words": 2136
+      },
+      {
+        "url": "https://nextstepsusmle.com/blog/why-usmle-cv-can-be-rejected",
+        "status": 200,
+        "indexability": "indexable_candidate",
+        "title": "Why USMLE CV Can Be Rejected? — Next Steps USMLE",
+        "words": 1459
+      },
+      {
+        "url": "https://nextstepsusmle.com/blog/how-to-prepare-for-usmle-from-1st-year-mbbs",
+        "status": 200,
+        "indexability": "indexable_candidate",
+        "title": "How to Prepare for USMLE from 1st Year MBBS (2027)",
+        "words": 1787
+      },
+      {
+        "url": "https://nextstepsusmle.com/blog/an-average-students-path-to-usmle-success",
+        "status": 200,
+        "indexability": "indexable_candidate",
+        "title": "An Average Student's Path to USMLE Success",
+        "words": 1249
+      },
+      {
+        "url": "https://nextstepsusmle.com/blog/can-you-take-the-usmle-right-after-mbbs-in-india",
+        "status": 200,
+        "indexability": "indexable_candidate",
+        "title": "USMLE After MBBS in India: Eligibility & Timeline (2027)",
+        "words": 1726
+      },
+      {
+        "url": "https://nextstepsusmle.com/blog/6-keys-to-usmle-match-success",
+        "status": 200,
+        "indexability": "indexable_candidate",
+        "title": "6 Keys to USMLE Match Success for IMGs — Next Steps USMLE",
+        "words": 1325
+      },
+      {
+        "url": "https://nextstepsusmle.com/blog/common-pitfalls-in-the-usmle-journey-and-how-to-avoid-them",
+        "status": 200,
+        "indexability": "indexable_candidate",
+        "title": "Common USMLE Pitfalls and How to Avoid Them",
+        "words": 1522
+      },
+      {
+        "url": "https://nextstepsusmle.com/blog/how-to-improve-your-prospects-for-success-on-residency-match-day",
+        "status": 200,
+        "indexability": "indexable_candidate",
+        "title": "How to Boost Your Chances of Success on Residency Match Day?",
+        "words": 1219
+      },
+      {
+        "url": "https://nextstepsusmle.com/blog/what-is-the-difference-between-the-match-and-soap",
+        "status": 200,
+        "indexability": "indexable_candidate",
+        "title": "SOAP vs Match: What Happens in Match Week (2026)",
+        "words": 1989
+      },
+      {
+        "url": "https://nextstepsusmle.com/blog/how-to-find-research-opportunities-for-usmle-cv-in-mbbs",
+        "status": 200,
+        "indexability": "indexable_candidate",
+        "title": "How to Find Research Opportunities for Your USMLE CV (2026)",
+        "words": 1523
+      },
+      {
+        "url": "https://nextstepsusmle.com/blog/common-mistakes-to-avoid-while-preparing-for-the-usmle-step-1",
+        "status": 200,
+        "indexability": "indexable_candidate",
+        "title": "Common USMLE Step 1 Mistakes: 5 Score Killers (2027)",
+        "words": 2037
+      },
+      {
+        "url": "https://nextstepsusmle.com/blog/comprehensive-guide-to-the-usmle-step-2-ck-syllabus",
+        "status": 200,
+        "indexability": "indexable_candidate",
+        "title": "USMLE Step 2 CK Syllabus 2027: Subjects & Weightings",
+        "words": 2481
+      },
+      {
+        "url": "https://nextstepsusmle.com/blog/understanding-usmle-step-1-questions-a-comprehensive-guide",
+        "status": 200,
+        "indexability": "indexable_candidate",
+        "title": "Mastering USMLE Step 1 Questions A Complete Guide to Success",
+        "words": 1110
+      },
+      {
+        "url": "https://nextstepsusmle.com/blog/usmle-step-1-exam-fee-what-you-need-to-know",
+        "status": 200,
+        "indexability": "indexable_candidate",
+        "title": "USMLE Step 1 Fees 2026 in Rupees (INR) & Dollars",
+        "words": 1702
+      },
+      {
+        "url": "https://nextstepsusmle.com/blog/usmle-step-1-passing-score-step-by-step-guidance",
+        "status": 200,
+        "indexability": "indexable_candidate",
+        "title": "USMLE Step 1 Passing Standard 2026: Pass or Fail Explained",
+        "words": 1673
+      },
+      {
+        "url": "https://nextstepsusmle.com/blog/comprehensive-guide-to-the-usmle-step-1-syllabus",
+        "status": 200,
+        "indexability": "indexable_candidate",
+        "title": "USMLE Step 1 Syllabus 2027: Subjects & Content Outline",
+        "words": 1773
+      },
+      {
+        "url": "https://nextstepsusmle.com/blog/ultimate-guide-to-choosing-the-best-usmle-step-1-book",
+        "status": 200,
+        "indexability": "indexable_candidate",
+        "title": "Best USMLE Step 1 Books (2027): How to Choose",
+        "words": 1207
+      },
+      {
+        "url": "https://nextstepsusmle.com/blog/how-to-balance-usmle-preparation-and-medical-school",
+        "status": 200,
+        "indexability": "indexable_candidate",
+        "title": "How to Prepare for USMLE During MBBS Without Failing Exams",
+        "words": 1665
+      },
+      {
+        "url": "https://nextstepsusmle.com/blog/how-to-make-a-good-cv-for-usmle",
+        "status": 200,
+        "indexability": "indexable_candidate",
+        "title": "USMLE CV: How to Build a Strong Residency CV (2027)",
+        "words": 1800
+      },
+      {
+        "url": "https://nextstepsusmle.com/blog/how-to-score-280-on-usmle-step-2-ck",
+        "status": 200,
+        "indexability": "indexable_candidate",
+        "title": "How to Score 280+ on USMLE Step 2 CK — Next Steps USMLE",
+        "words": 2371
+      },
+      {
+        "url": "https://nextstepsusmle.com/blog/what-happens-if-you-fail-in-usmle-step-1",
+        "status": 200,
+        "indexability": "indexable_candidate",
+        "title": "Failed USMLE Step 1? What Happens Next & How to Recover",
+        "words": 2043
+      },
+      {
+        "url": "https://nextstepsusmle.com/blog/is-the-usmle-tough-for-indian-students",
+        "status": 200,
+        "indexability": "indexable_candidate",
+        "title": "Is the USMLE Tough for Indian Students? Honest 2027 Answer",
+        "words": 1657
+      },
+      {
+        "url": "https://nextstepsusmle.com/blog/how-many-interviews-should-you-get-to-match",
+        "status": 200,
+        "indexability": "indexable_candidate",
+        "title": "How Many Interviews to Match? Internal Medicine & More",
+        "words": 1527
+      },
+      {
+        "url": "https://nextstepsusmle.com/blog/why-dont-imgs-get-usmle-residency-interviews",
+        "status": 200,
+        "indexability": "indexable_candidate",
+        "title": "Why IMGs Do Not Get Residency Interviews (and How to Fix It)",
+        "words": 1752
+      },
+      {
+        "url": "https://nextstepsusmle.com/blog/usmle-personal-statement-dos-and-donts",
+        "status": 200,
+        "indexability": "indexable_candidate",
+        "title": "USMLE Personal Statement: Dos and Don'ts for IMGs",
+        "words": 1473
+      },
+      {
+        "url": "https://nextstepsusmle.com/blog/can-you-prepare-for-the-usmle-during-med-school",
+        "status": 200,
+        "indexability": "indexable_candidate",
+        "title": "Can You Prepare for USMLE During Med School?",
+        "words": 1114
+      },
+      {
+        "url": "https://nextstepsusmle.com/blog/what-do-program-directors-seek-from-usce",
+        "status": 200,
+        "indexability": "indexable_candidate",
+        "title": "What Do Program Directors Seek from USCE? — Next Steps USMLE",
+        "words": 1379
+      },
+      {
+        "url": "https://nextstepsusmle.com/blog/how-to-find-the-best-us-clinical-experience-for-imgs",
+        "status": 200,
+        "indexability": "indexable_candidate",
+        "title": "How to Find US Clinical Experience (USCE) as an IMG",
+        "words": 1463
+      },
+      {
+        "url": "https://nextstepsusmle.com/blog/sample-residency-interview-questions-and-answers",
+        "status": 200,
+        "indexability": "indexable_candidate",
+        "title": "What Are The Most Common Questions Asked In Match Interviews",
+        "words": 1812
+      },
+      {
+        "url": "https://nextstepsusmle.com/blog/what-do-program-directors-expect-in-the-usmle-match-interview",
+        "status": 200,
+        "indexability": "indexable_candidate",
+        "title": "What Program Directors Look for in a USMLE Match Interview?",
+        "words": 1603
+      },
+      {
+        "url": "https://nextstepsusmle.com/blog/what-are-usmle-clinical-rotations-and-electives",
+        "status": 200,
+        "indexability": "indexable_candidate",
+        "title": "USMLE Clinical Rotations and Electives: The IMG Guide (2026)",
+        "words": 1669
+      },
+      {
+        "url": "https://nextstepsusmle.com/blog/what-is-usmle-what-are-the-usmle-steps",
+        "status": 200,
+        "indexability": "indexable_candidate",
+        "title": "What Is the USMLE? Steps, Scoring & Cost (2027)",
+        "words": 1535
+      },
+      {
+        "url": "https://nextstepsusmle.com/",
+        "status": 200,
+        "indexability": "not_indexable",
+        "title": "#1 USMLE Preparation Platform | Next Steps USMLE",
+        "words": 1434
+      }
+    ],
+    "rule_checks": [
+      "description.duplicate",
+      "links.redirecting_internal",
+      "robots.blocks_pages",
+      "schema.missing_recommended",
+      "schema.retired_feature",
+      "sitemap.lists_non_200",
+      "title.duplicate",
+      "title.length"
+    ],
+    "soft_404_status": 200
+  }
+}

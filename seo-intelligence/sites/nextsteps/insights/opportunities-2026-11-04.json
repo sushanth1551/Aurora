@@ -1,0 +1,926 @@
+{
+  "kind": "opportunities",
+  "date": "2026-11-04",
+  "data": {
+    "ctr_curve": {
+      "1": 0.1376,
+      "2": 0.0113,
+      "3": 0.0091,
+      "4": 0.0133,
+      "5": 0.0079,
+      "6": 0.0074,
+      "7": 0.0059,
+      "8": 0.0044,
+      "9": 0.0045,
+      "10": 0.0046,
+      "11": 0.004,
+      "12": 0.0,
+      "13": 0.0,
+      "14": 0.0058,
+      "16": 0.0133,
+      "17": 0.0048
+    },
+    "opportunities": [
+      {
+        "kind": "striking-distance",
+        "query": "usmle",
+        "page": "/blog/what-is-usmle-what-are-the-usmle-steps",
+        "impressions": 3142.0,
+        "clicks": 0.0,
+        "position": 6.6,
+        "ctr": 0.0,
+        "reference_ctr": 0.0091,
+        "extra_clicks": 28.7,
+        "extra_leads": null
+      },
+      {
+        "kind": "striking-distance",
+        "query": "next step",
+        "page": "/",
+        "impressions": 1465.0,
+        "clicks": 2.0,
+        "position": 6.4,
+        "ctr": 0.0014,
+        "reference_ctr": 0.0091,
+        "extra_clicks": 11.4,
+        "extra_leads": null
+      },
+      {
+        "kind": "striking-distance",
+        "query": "oet exam fees",
+        "page": "/blog/what-is-oet-exam-how-much-does-it-costs",
+        "impressions": 2496.0,
+        "clicks": 14.0,
+        "position": 6.8,
+        "ctr": 0.0056,
+        "reference_ctr": 0.0091,
+        "extra_clicks": 8.8,
+        "extra_leads": null
+      },
+      {
+        "kind": "striking-distance",
+        "query": "oet exam fee",
+        "page": "/blog/what-is-oet-exam-how-much-does-it-costs",
+        "impressions": 801.0,
+        "clicks": 4.0,
+        "position": 7.8,
+        "ctr": 0.005,
+        "reference_ctr": 0.0091,
+        "extra_clicks": 3.3,
+        "extra_leads": null
+      },
+      {
+        "kind": "striking-distance",
+        "query": "usmle step 1 fees in india",
+        "page": "/blog/how-to-apply-for-usmle-from-india",
+        "impressions": 275.0,
+        "clicks": 0.0,
+        "position": 6.6,
+        "ctr": 0.0,
+        "reference_ctr": 0.0091,
+        "extra_clicks": 2.5,
+        "extra_leads": null
+      },
+      {
+        "kind": "striking-distance",
+        "query": "step 1 step 2",
+        "page": "/blog/usmle-step-1-vs-step-2-ck-key-differences-you-need-to-know",
+        "impressions": 268.0,
+        "clicks": 0.0,
+        "position": 5.8,
+        "ctr": 0.0,
+        "reference_ctr": 0.0091,
+        "extra_clicks": 2.4,
+        "extra_leads": null
+      },
+      {
+        "kind": "striking-distance",
+        "query": "usmle exam fees",
+        "page": "/blog/how-to-apply-for-usmle-from-india",
+        "impressions": 204.0,
+        "clicks": 0.0,
+        "position": 9.9,
+        "ctr": 0.0,
+        "reference_ctr": 0.0091,
+        "extra_clicks": 1.9,
+        "extra_leads": null
+      },
+      {
+        "kind": "striking-distance",
+        "query": "oet fee",
+        "page": "/blog/what-is-oet-exam-how-much-does-it-costs",
+        "impressions": 198.0,
+        "clicks": 0.0,
+        "position": 5.5,
+        "ctr": 0.0,
+        "reference_ctr": 0.0091,
+        "extra_clicks": 1.8,
+        "extra_leads": null
+      },
+      {
+        "kind": "striking-distance",
+        "query": "how long is step 1",
+        "page": "/blog/what-is-the-typical-preparation-time-for-usmle-step-1",
+        "impressions": 185.0,
+        "clicks": 0.0,
+        "position": 5.6,
+        "ctr": 0.0,
+        "reference_ctr": 0.0091,
+        "extra_clicks": 1.7,
+        "extra_leads": null
+      },
+      {
+        "kind": "striking-distance",
+        "query": "oet price",
+        "page": "/blog/what-is-oet-exam-how-much-does-it-costs",
+        "impressions": 287.0,
+        "clicks": 1.0,
+        "position": 5.2,
+        "ctr": 0.0035,
+        "reference_ctr": 0.0091,
+        "extra_clicks": 1.6,
+        "extra_leads": null
+      },
+      {
+        "kind": "striking-distance",
+        "query": "usmle steps",
+        "page": "/blog/what-is-usmle-what-are-the-usmle-steps",
+        "impressions": 266.0,
+        "clicks": 1.0,
+        "position": 8.2,
+        "ctr": 0.0038,
+        "reference_ctr": 0.0091,
+        "extra_clicks": 1.4,
+        "extra_leads": null
+      },
+      {
+        "kind": "striking-distance",
+        "query": "max step 2 score",
+        "page": "/blog/highest-usmle-step-2-ck-score",
+        "impressions": 146.0,
+        "clicks": 0.0,
+        "position": 5.4,
+        "ctr": 0.0,
+        "reference_ctr": 0.0091,
+        "extra_clicks": 1.3,
+        "extra_leads": null
+      },
+      {
+        "kind": "striking-distance",
+        "query": "nextstep",
+        "page": "/",
+        "impressions": 138.0,
+        "clicks": 0.0,
+        "position": 4.5,
+        "ctr": 0.0,
+        "reference_ctr": 0.0091,
+        "extra_clicks": 1.3,
+        "extra_leads": null
+      },
+      {
+        "kind": "striking-distance",
+        "query": "usmle exam fees in rupees",
+        "page": "/blog/how-to-apply-for-usmle-from-india",
+        "impressions": 134.0,
+        "clicks": 0.0,
+        "position": 6.1,
+        "ctr": 0.0,
+        "reference_ctr": 0.0091,
+        "extra_clicks": 1.2,
+        "extra_leads": null
+      },
+      {
+        "kind": "striking-distance",
+        "query": "how many im interviews to match",
+        "page": "/blog/how-many-interviews-should-you-get-to-match",
+        "impressions": 127.0,
+        "clicks": 0.0,
+        "position": 6.1,
+        "ctr": 0.0,
+        "reference_ctr": 0.0091,
+        "extra_clicks": 1.2,
+        "extra_leads": null
+      },
+      {
+        "kind": "striking-distance",
+        "query": "usmle step 1 fees india",
+        "page": "/blog/how-to-apply-for-usmle-from-india",
+        "impressions": 231.0,
+        "clicks": 1.0,
+        "position": 6.7,
+        "ctr": 0.0043,
+        "reference_ctr": 0.0091,
+        "extra_clicks": 1.1,
+        "extra_leads": null
+      },
+      {
+        "kind": "striking-distance",
+        "query": "oet fees",
+        "page": "/blog/what-is-oet-exam-how-much-does-it-costs",
+        "impressions": 229.0,
+        "clicks": 1.0,
+        "position": 6.2,
+        "ctr": 0.0044,
+        "reference_ctr": 0.0091,
+        "extra_clicks": 1.1,
+        "extra_leads": null
+      },
+      {
+        "kind": "striking-distance",
+        "query": "step 2 max score",
+        "page": "/blog/highest-usmle-step-2-ck-score",
+        "impressions": 125.0,
+        "clicks": 0.0,
+        "position": 4.8,
+        "ctr": 0.0,
+        "reference_ctr": 0.0091,
+        "extra_clicks": 1.1,
+        "extra_leads": null
+      },
+      {
+        "kind": "striking-distance",
+        "query": "usmle question bank",
+        "page": "/blog/what-is-the-best-usmle-question-bank",
+        "impressions": 116.0,
+        "clicks": 0.0,
+        "position": 9.3,
+        "ctr": 0.0,
+        "reference_ctr": 0.0091,
+        "extra_clicks": 1.1,
+        "extra_leads": null
+      },
+      {
+        "kind": "striking-distance",
+        "query": "next steps usmle",
+        "page": "/contact",
+        "impressions": 114.0,
+        "clicks": 0.0,
+        "position": 5.5,
+        "ctr": 0.0,
+        "reference_ctr": 0.0091,
+        "extra_clicks": 1.0,
+        "extra_leads": null
+      },
+      {
+        "kind": "striking-distance",
+        "query": "next steps",
+        "page": "/step-1-2-ck",
+        "impressions": 110.0,
+        "clicks": 0.0,
+        "position": 6.3,
+        "ctr": 0.0,
+        "reference_ctr": 0.0091,
+        "extra_clicks": 1.0,
+        "extra_leads": null
+      },
+      {
+        "kind": "striking-distance",
+        "query": "oet exam fees in uk",
+        "page": "/blog/what-is-oet-exam-how-much-does-it-costs",
+        "impressions": 103.0,
+        "clicks": 0.0,
+        "position": 5.5,
+        "ctr": 0.0,
+        "reference_ctr": 0.0091,
+        "extra_clicks": 0.9,
+        "extra_leads": null
+      },
+      {
+        "kind": "striking-distance",
+        "query": "usmle exam fees in indian rupees",
+        "page": "/blog/how-to-apply-for-usmle-from-india",
+        "impressions": 102.0,
+        "clicks": 0.0,
+        "position": 4.8,
+        "ctr": 0.0,
+        "reference_ctr": 0.0091,
+        "extra_clicks": 0.9,
+        "extra_leads": null
+      },
+      {
+        "kind": "striking-distance",
+        "query": "oet cost",
+        "page": "/blog/what-is-oet-exam-how-much-does-it-costs",
+        "impressions": 154.0,
+        "clicks": 1.0,
+        "position": 4.8,
+        "ctr": 0.0065,
+        "reference_ctr": 0.0091,
+        "extra_clicks": 0.4,
+        "extra_leads": null
+      },
+      {
+        "kind": "striking-distance",
+        "query": "oet exam fees today",
+        "page": "/blog/what-is-oet-exam-how-much-does-it-costs",
+        "impressions": 127.0,
+        "clicks": 1.0,
+        "position": 7.5,
+        "ctr": 0.0079,
+        "reference_ctr": 0.0091,
+        "extra_clicks": 0.2,
+        "extra_leads": null
+      },
+      {
+        "kind": "striking-distance",
+        "query": "oet exam price",
+        "page": "/blog/what-is-oet-exam-how-much-does-it-costs",
+        "impressions": 124.0,
+        "clicks": 1.0,
+        "position": 4.5,
+        "ctr": 0.0081,
+        "reference_ctr": 0.0091,
+        "extra_clicks": 0.1,
+        "extra_leads": null
+      },
+      {
+        "kind": "striking-distance",
+        "query": "next steps",
+        "page": "/",
+        "impressions": 1379.0,
+        "clicks": 26.0,
+        "position": 5.6,
+        "ctr": 0.0189,
+        "reference_ctr": 0.0091,
+        "extra_clicks": 0.0,
+        "extra_leads": null
+      },
+      {
+        "kind": "striking-distance",
+        "query": "usmle step 1 syllabus",
+        "page": "/blog/comprehensive-guide-to-the-usmle-step-1-syllabus",
+        "impressions": 527.0,
+        "clicks": 10.0,
+        "position": 6.9,
+        "ctr": 0.019,
+        "reference_ctr": 0.0091,
+        "extra_clicks": 0.0,
+        "extra_leads": null
+      },
+      {
+        "kind": "striking-distance",
+        "query": "highest step 2 score",
+        "page": "/blog/highest-usmle-step-2-ck-score",
+        "impressions": 381.0,
+        "clicks": 4.0,
+        "position": 4.9,
+        "ctr": 0.0105,
+        "reference_ctr": 0.0091,
+        "extra_clicks": 0.0,
+        "extra_leads": null
+      },
+      {
+        "kind": "striking-distance",
+        "query": "step 3 study plan",
+        "page": "/blog/usmle-step-3-preparatio-study-plan-and-guidance",
+        "impressions": 171.0,
+        "clicks": 9.0,
+        "position": 7.0,
+        "ctr": 0.0526,
+        "reference_ctr": 0.0091,
+        "extra_clicks": 0.0,
+        "extra_leads": null
+      },
+      {
+        "kind": "striking-distance",
+        "query": "nextsteps",
+        "page": "/",
+        "impressions": 154.0,
+        "clicks": 8.0,
+        "position": 4.2,
+        "ctr": 0.0519,
+        "reference_ctr": 0.0091,
+        "extra_clicks": 0.0,
+        "extra_leads": null
+      },
+      {
+        "kind": "striking-distance",
+        "query": "highest step 2 score ever",
+        "page": "/blog/highest-usmle-step-2-ck-score",
+        "impressions": 146.0,
+        "clicks": 4.0,
+        "position": 4.7,
+        "ctr": 0.0274,
+        "reference_ctr": 0.0091,
+        "extra_clicks": 0.0,
+        "extra_leads": null
+      },
+      {
+        "kind": "striking-distance",
+        "query": "oet test price",
+        "page": "/blog/what-is-oet-exam-how-much-does-it-costs",
+        "impressions": 115.0,
+        "clicks": 2.0,
+        "position": 4.5,
+        "ctr": 0.0174,
+        "reference_ctr": 0.0091,
+        "extra_clicks": 0.0,
+        "extra_leads": null
+      }
+    ],
+    "trends": [
+      {
+        "page": "/blog/5-silent-usmle-killers",
+        "status": "dead",
+        "decision": "prune-review",
+        "change_vs_previous_pct": null,
+        "change_vs_peak_pct": -100.0,
+        "lost_queries": [],
+        "merge_with": null,
+        "reason": "No impressions in the last 90 days.",
+        "recent": {
+          "clicks": 0.0,
+          "impressions": 0.0
+        },
+        "previous": {
+          "clicks": 0.0,
+          "impressions": 0.0
+        },
+        "peak": {
+          "clicks": 2.0,
+          "impressions": 17.0
+        }
+      },
+      {
+        "page": "/blog/best-study-resources-for-usmle-steps-preparation",
+        "status": "decaying",
+        "decision": "refresh",
+        "change_vs_previous_pct": -65.9090909090909,
+        "change_vs_peak_pct": -63.41463414634146,
+        "lost_queries": [],
+        "merge_with": null,
+        "reason": "Clicks fell 30%+ against the previous window and 40%+ against the page's best window.",
+        "recent": {
+          "clicks": 15.0,
+          "impressions": 2534.0
+        },
+        "previous": {
+          "clicks": 44.0,
+          "impressions": 2607.0
+        },
+        "peak": {
+          "clicks": 41.0,
+          "impressions": 2333.0
+        }
+      },
+      {
+        "page": "/blog/can-you-take-the-usmle-right-after-mbbs-in-india",
+        "status": "decaying",
+        "decision": "refresh",
+        "change_vs_previous_pct": -63.23529411764706,
+        "change_vs_peak_pct": -65.27777777777779,
+        "lost_queries": [
+          {
+            "query": "usmle after mbbs in india",
+            "clicks_before": 5.0,
+            "clicks_after": 1.0
+          }
+        ],
+        "merge_with": null,
+        "reason": "Clicks fell 30%+ against the previous window and 40%+ against the page's best window.",
+        "recent": {
+          "clicks": 25.0,
+          "impressions": 5614.0
+        },
+        "previous": {
+          "clicks": 68.0,
+          "impressions": 8485.0
+        },
+        "peak": {
+          "clicks": 72.0,
+          "impressions": 8332.0
+        }
+      },
+      {
+        "page": "/blog/do-mbbs-marks-have-an-impact-on-the-usmle",
+        "status": "decaying",
+        "decision": "refresh",
+        "change_vs_previous_pct": -50.0,
+        "change_vs_peak_pct": -61.53846153846154,
+        "lost_queries": [],
+        "merge_with": null,
+        "reason": "Clicks fell 30%+ against the previous window and 40%+ against the page's best window.",
+        "recent": {
+          "clicks": 10.0,
+          "impressions": 1015.0
+        },
+        "previous": {
+          "clicks": 20.0,
+          "impressions": 1597.0
+        },
+        "peak": {
+          "clicks": 26.0,
+          "impressions": 2033.0
+        }
+      },
+      {
+        "page": "/blog/ecfmg-announcement-certification-eligibility",
+        "status": "new",
+        "decision": "keep",
+        "change_vs_previous_pct": null,
+        "change_vs_peak_pct": null,
+        "lost_queries": [],
+        "merge_with": null,
+        "reason": "",
+        "recent": {
+          "clicks": 1.0,
+          "impressions": 138.0
+        },
+        "previous": {
+          "clicks": 0.0,
+          "impressions": 207.0
+        },
+        "peak": {
+          "clicks": 0.0,
+          "impressions": 0.0
+        }
+      },
+      {
+        "page": "/blog/highest-usmle-step-2-ck-score",
+        "status": "growing",
+        "decision": "keep",
+        "change_vs_previous_pct": 2400.0,
+        "change_vs_peak_pct": null,
+        "lost_queries": [],
+        "merge_with": null,
+        "reason": "",
+        "recent": {
+          "clicks": 75.0,
+          "impressions": 8051.0
+        },
+        "previous": {
+          "clicks": 3.0,
+          "impressions": 65.0
+        },
+        "peak": {
+          "clicks": 0.0,
+          "impressions": 0.0
+        }
+      },
+      {
+        "page": "/blog/how-many-interviews-should-you-get-to-match",
+        "status": "growing",
+        "decision": "keep",
+        "change_vs_previous_pct": 260.0,
+        "change_vs_peak_pct": 600.0,
+        "lost_queries": [],
+        "merge_with": null,
+        "reason": "",
+        "recent": {
+          "clicks": 126.0,
+          "impressions": 9881.0
+        },
+        "previous": {
+          "clicks": 35.0,
+          "impressions": 3698.0
+        },
+        "peak": {
+          "clicks": 18.0,
+          "impressions": 1628.0
+        }
+      },
+      {
+        "page": "/blog/how-to-apply-for-usmle-from-india",
+        "status": "growing",
+        "decision": "keep",
+        "change_vs_previous_pct": 337.5,
+        "change_vs_peak_pct": null,
+        "lost_queries": [],
+        "merge_with": null,
+        "reason": "",
+        "recent": {
+          "clicks": 35.0,
+          "impressions": 6495.0
+        },
+        "previous": {
+          "clicks": 8.0,
+          "impressions": 1289.0
+        },
+        "peak": {
+          "clicks": 0.0,
+          "impressions": 0.0
+        }
+      },
+      {
+        "page": "/blog/how-to-score-280-on-usmle-step-2-ck",
+        "status": "decaying",
+        "decision": "merge",
+        "change_vs_previous_pct": -53.96825396825397,
+        "change_vs_peak_pct": -50.0,
+        "lost_queries": [
+          {
+            "query": "highest step 2 score",
+            "clicks_before": 4.0,
+            "clicks_after": 0.0
+          }
+        ],
+        "merge_with": "/blog/highest-usmle-step-2-ck-score",
+        "reason": "Clicks fell 30%+ against the previous window and 40%+ against the page's best window. It shares queries with /blog/highest-usmle-step-2-ck-score, which earns more clicks.",
+        "recent": {
+          "clicks": 29.0,
+          "impressions": 5825.0
+        },
+        "previous": {
+          "clicks": 63.0,
+          "impressions": 9511.0
+        },
+        "peak": {
+          "clicks": 58.0,
+          "impressions": 7882.0
+        }
+      },
+      {
+        "page": "/blog/important-update-for-usmle-step1-and-step-2ck-examinees-in-2024",
+        "status": "decaying",
+        "decision": "refresh",
+        "change_vs_previous_pct": -40.0,
+        "change_vs_peak_pct": -47.93388429752066,
+        "lost_queries": [
+          {
+            "query": "step 2 results time",
+            "clicks_before": 3.0,
+            "clicks_after": 0.0
+          }
+        ],
+        "merge_with": null,
+        "reason": "Clicks fell 30%+ against the previous window and 40%+ against the page's best window.",
+        "recent": {
+          "clicks": 63.0,
+          "impressions": 8230.0
+        },
+        "previous": {
+          "clicks": 105.0,
+          "impressions": 14186.0
+        },
+        "peak": {
+          "clicks": 121.0,
+          "impressions": 15315.0
+        }
+      },
+      {
+        "page": "/blog/is-it-too-late-to-start-usmle",
+        "status": "growing",
+        "decision": "keep",
+        "change_vs_previous_pct": 100.0,
+        "change_vs_peak_pct": 3300.0,
+        "lost_queries": [],
+        "merge_with": null,
+        "reason": "",
+        "recent": {
+          "clicks": 34.0,
+          "impressions": 1484.0
+        },
+        "previous": {
+          "clicks": 17.0,
+          "impressions": 799.0
+        },
+        "peak": {
+          "clicks": 1.0,
+          "impressions": 103.0
+        }
+      },
+      {
+        "page": "/blog/ultimate-guide-to-choosing-the-best-usmle-step-1-book",
+        "status": "decaying",
+        "decision": "refresh",
+        "change_vs_previous_pct": -69.04761904761905,
+        "change_vs_peak_pct": -70.45454545454545,
+        "lost_queries": [],
+        "merge_with": null,
+        "reason": "Clicks fell 30%+ against the previous window and 40%+ against the page's best window.",
+        "recent": {
+          "clicks": 13.0,
+          "impressions": 1777.0
+        },
+        "previous": {
+          "clicks": 42.0,
+          "impressions": 2615.0
+        },
+        "peak": {
+          "clicks": 44.0,
+          "impressions": 2758.0
+        }
+      },
+      {
+        "page": "/blog/usmle-lor-letters-of-recommendation-img-residency-match",
+        "status": "decaying",
+        "decision": "refresh",
+        "change_vs_previous_pct": -77.19298245614034,
+        "change_vs_peak_pct": -82.66666666666667,
+        "lost_queries": [],
+        "merge_with": null,
+        "reason": "Clicks fell 30%+ against the previous window and 40%+ against the page's best window.",
+        "recent": {
+          "clicks": 13.0,
+          "impressions": 738.0
+        },
+        "previous": {
+          "clicks": 57.0,
+          "impressions": 2003.0
+        },
+        "peak": {
+          "clicks": 75.0,
+          "impressions": 2551.0
+        }
+      },
+      {
+        "page": "/blog/usmle-personal-statement-dos-and-donts",
+        "status": "decaying",
+        "decision": "refresh",
+        "change_vs_previous_pct": -84.61538461538461,
+        "change_vs_peak_pct": -87.5,
+        "lost_queries": [],
+        "merge_with": null,
+        "reason": "Clicks fell 30%+ against the previous window and 40%+ against the page's best window.",
+        "recent": {
+          "clicks": 2.0,
+          "impressions": 90.0
+        },
+        "previous": {
+          "clicks": 13.0,
+          "impressions": 395.0
+        },
+        "peak": {
+          "clicks": 16.0,
+          "impressions": 285.0
+        }
+      },
+      {
+        "page": "/blog/usmle-step-2-ck-exam-format-2026",
+        "status": "decaying",
+        "decision": "refresh",
+        "change_vs_previous_pct": -44.73684210526316,
+        "change_vs_peak_pct": -46.15384615384615,
+        "lost_queries": [],
+        "merge_with": null,
+        "reason": "Clicks fell 30%+ against the previous window and 40%+ against the page's best window.",
+        "recent": {
+          "clicks": 21.0,
+          "impressions": 2932.0
+        },
+        "previous": {
+          "clicks": 38.0,
+          "impressions": 4574.0
+        },
+        "peak": {
+          "clicks": 39.0,
+          "impressions": 4108.0
+        }
+      },
+      {
+        "page": "/blog/usmle-step-3-preparatio-study-plan-and-guidance",
+        "status": "growing",
+        "decision": "keep",
+        "change_vs_previous_pct": 37.2093023255814,
+        "change_vs_peak_pct": 25.53191489361702,
+        "lost_queries": [],
+        "merge_with": null,
+        "reason": "",
+        "recent": {
+          "clicks": 59.0,
+          "impressions": 4098.0
+        },
+        "previous": {
+          "clicks": 43.0,
+          "impressions": 4282.0
+        },
+        "peak": {
+          "clicks": 47.0,
+          "impressions": 4081.0
+        }
+      },
+      {
+        "page": "/blog/what-are-usmle-clinical-rotations-and-electives",
+        "status": "decaying",
+        "decision": "refresh",
+        "change_vs_previous_pct": -35.714285714285715,
+        "change_vs_peak_pct": -50.0,
+        "lost_queries": [],
+        "merge_with": null,
+        "reason": "Clicks fell 30%+ against the previous window and 40%+ against the page's best window.",
+        "recent": {
+          "clicks": 9.0,
+          "impressions": 1193.0
+        },
+        "previous": {
+          "clicks": 14.0,
+          "impressions": 1209.0
+        },
+        "peak": {
+          "clicks": 18.0,
+          "impressions": 1349.0
+        }
+      },
+      {
+        "page": "/blog/why-dont-imgs-get-usmle-residency-interviews",
+        "status": "growing",
+        "decision": "keep",
+        "change_vs_previous_pct": 77.77777777777779,
+        "change_vs_peak_pct": 100.0,
+        "lost_queries": [],
+        "merge_with": null,
+        "reason": "",
+        "recent": {
+          "clicks": 16.0,
+          "impressions": 822.0
+        },
+        "previous": {
+          "clicks": 9.0,
+          "impressions": 739.0
+        },
+        "peak": {
+          "clicks": 8.0,
+          "impressions": 536.0
+        }
+      },
+      {
+        "page": "/cancellation-policy",
+        "status": "new",
+        "decision": "keep",
+        "change_vs_previous_pct": null,
+        "change_vs_peak_pct": null,
+        "lost_queries": [],
+        "merge_with": null,
+        "reason": "",
+        "recent": {
+          "clicks": 2.0,
+          "impressions": 48.0
+        },
+        "previous": {
+          "clicks": 0.0,
+          "impressions": 20.0
+        },
+        "peak": {
+          "clicks": 0.0,
+          "impressions": 0.0
+        }
+      },
+      {
+        "page": "/mentorship",
+        "status": "growing",
+        "decision": "keep",
+        "change_vs_previous_pct": 71.42857142857143,
+        "change_vs_peak_pct": 300.0,
+        "lost_queries": [],
+        "merge_with": null,
+        "reason": "",
+        "recent": {
+          "clicks": 12.0,
+          "impressions": 455.0
+        },
+        "previous": {
+          "clicks": 7.0,
+          "impressions": 252.0
+        },
+        "peak": {
+          "clicks": 3.0,
+          "impressions": 242.0
+        }
+      },
+      {
+        "page": "/programs/clinical-rotations",
+        "status": "decaying",
+        "decision": "refresh",
+        "change_vs_previous_pct": -50.0,
+        "change_vs_peak_pct": -45.0,
+        "lost_queries": [],
+        "merge_with": null,
+        "reason": "Clicks fell 30%+ against the previous window and 40%+ against the page's best window.",
+        "recent": {
+          "clicks": 11.0,
+          "impressions": 1245.0
+        },
+        "previous": {
+          "clicks": 22.0,
+          "impressions": 1867.0
+        },
+        "peak": {
+          "clicks": 20.0,
+          "impressions": 1989.0
+        }
+      },
+      {
+        "page": "/webinar",
+        "status": "new",
+        "decision": "keep",
+        "change_vs_previous_pct": null,
+        "change_vs_peak_pct": null,
+        "lost_queries": [],
+        "merge_with": null,
+        "reason": "",
+        "recent": {
+          "clicks": 3.0,
+          "impressions": 55.0
+        },
+        "previous": {
+          "clicks": 0.0,
+          "impressions": 13.0
+        },
+        "peak": {
+          "clicks": 0.0,
+          "impressions": 0.0
+        }
+      }
+    ]
+  }
+}

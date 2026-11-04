@@ -160,6 +160,7 @@ explicitly, never on module import or app startup. See `docs/architecture.md`.
 - Skill files change only via approved proposals (`/seo-update-skills`); third-party skills are never edited.
 - Keep raw pages and provider payloads out of `seo-intelligence/` (use `data/`).
 - `/seo-monitor` runs every 14 days (Windows task "AURORA SEO Monitor (nextsteps)", `scripts/register-seo-monitor.ps1`); candidate rules from it need the owner's approval.
+- Scripted insights (`scripts/seo_insights.py`: opportunities, alerts, rank tracking, keyword data, AI visibility, free crawl with YMYL/video/source map, competitor watch, exports, rollback) are deterministic; paid calls only within the site config budgets (default 0); a run claims rechecks only for keys its test observes. See `docs/seo-intelligence.md` section 10.
 
 ## Workflow development guidelines
 - Define a `TypedDict` state per workflow; keep nodes small and pure where possible.

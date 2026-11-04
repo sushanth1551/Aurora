@@ -558,3 +558,27 @@ def test_cli_full_cycle(tmp_path: Path, capsys: pytest.CaptureFixture[str]) -> N
     assert code == 2 and "ValidationError" in out
     code, out = call("context", "missing")
     assert code == 2 and "not configured" in out
+
+
+def test_api_insights_dashboard(
+    env: SimpleNamespace, monkeypatch: pytest.MonkeyPatch, tmp_path: Path
+) -> None:
+    from datetime import date
+
+    from app.seo.intelligence.insights.store import InsightStore
+    from app.seo.intelligence.knowledge import SeoKnowledgeRepository
+
+    monkeypatch.setenv("SEO_INTELLIGENCE_ROOT", str(env.root))
+    monkeypatch.setenv("SEO_SKILLS_DIR", str(env.skills))
+    monkeypatch.setenv("SEO_INTELLIGENCE_DATA_ROOT", str(tmp_path / "data"))
+    get_settings.cache_clear()
+    client = TestClient(create_app(), headers=AUTH_HEADERS)
+    assert client.get(f"{BASE}/websites/example/insights/alerts").status_code == 404
+    store = InsightStore(SeoKnowledgeRepository(env.root), tmp_path / "data")
+    store.save_snapshot("example", "alerts", date(2026, 11, 4), {"alerts": []})
+    board = client.get(f"{BASE}/websites/example/insights").json()
+    assert board["site_id"] == "example" and board["updated"]["alerts"] == "2026-11-04"
+    one = client.get(f"{BASE}/websites/example/insights/alerts").json()
+    assert one["kind"] == "alerts"
+    assert client.get(f"{BASE}/websites/example/insights/bogus").status_code == 422
+    assert client.get(f"{BASE}/websites/missing/insights").status_code == 404

@@ -1,0 +1,140 @@
+{
+  "kind": "competitor-watch",
+  "date": "2026-11-04",
+  "data": {
+    "competitors": [
+      {
+        "domain": "medschoolbro.com",
+        "urls": 1249,
+        "sitemaps_read": 25,
+        "notes": [
+          "2 sitemap(s) not read (limit 25)."
+        ]
+      },
+      {
+        "domain": "kaptest.com",
+        "urls": 858,
+        "sitemaps_read": 25,
+        "notes": [
+          "https://www.kaptest.com/robot-sitemap?community=about: invalid (XML parse error: not well-formed (invalid token): line 1, column 6)",
+          "https://www.kaptest.com/robot-sitemap?community=advisors: invalid (XML parse error: not well-formed (invalid token): line 1, column 6)",
+          "https://www.kaptest.com/robot-sitemap?community=ap: invalid (XML parse error: not well-formed (invalid token): line 1, column 6)",
+          "https://www.kaptest.com/robot-sitemap?community=bar-educators: invalid (XML parse error: not well-formed (invalid token): line 1, column 6)",
+          "https://www.kaptest.com/robot-sitemap?community=bar-exam: invalid (XML parse error: not well-formed (invalid token): line 1, column 6)",
+          "https://www.kaptest.com/robot-sitemap?community=comlex: invalid (XML parse error: not well-formed (invalid token): line 1, column 6)",
+          "https://www.kaptest.com/robot-sitemap?community=dat: invalid (XML parse error: not well-formed (invalid token): line 1, column 6)",
+          "https://www.kaptest.com/robot-sitemap?community=gre: invalid (XML parse error: not well-formed (invalid token): line 1, column 6)",
+          "https://www.kaptest.com/robot-sitemap?community=inbde: invalid (XML parse error: not well-formed (invalid token): line 1, column 6)",
+          "https://www.kaptest.com/robot-sitemap?community=isee: invalid (XML parse error: not well-formed (invalid token): line 1, column 6)",
+          "https://www.kaptest.com/robot-sitemap?community=ksa: invalid (XML parse error: not well-formed (invalid token): line 1, column 6)",
+          "https://www.kaptest.com/robot-sitemap?community=naplex: invalid (XML parse error: not well-formed (invalid token): line 1, column 6)",
+          "https://www.kaptest.com/robot-sitemap?community=nclex-pn: invalid (XML parse error: not well-formed (invalid token): line 1, column 6)",
+          "https://www.kaptest.com/robot-sitemap?community=nremt: invalid (XML parse error: not well-formed (invalid token): line 1, column 6)",
+          "https://www.kaptest.com/robot-sitemap?community=nursing-educators: invalid (XML parse error: not well-formed (invalid token): line 1, column 6)",
+          "https://www.kaptest.com/robot-sitemap?community=oat: invalid (XML parse error: not well-formed (invalid token): line 1, column 6)",
+          "https://www.kaptest.com/robot-sitemap?community=pance: invalid (XML parse error: not well-formed (invalid token): line 1, column 6)",
+          "https://www.kaptest.com/robot-sitemap?community=pcat: invalid (XML parse error: not well-formed (invalid token): line 1, column 6)",
+          "https://www.kaptest.com/robot-sitemap?community=police-exam: invalid (XML parse error: not well-formed (invalid token): line 1, column 6)",
+          "https://www.kaptest.com/robot-sitemap?community=psat: invalid (XML parse error: not well-formed (invalid token): line 1, column 6)",
+          "https://www.kaptest.com/robot-sitemap?community=sat: invalid (XML parse error: not well-formed (invalid token): line 1, column 6)",
+          "https://www.kaptest.com/robot-sitemap?community=shsat: invalid (XML parse error: not well-formed (invalid token): line 1, column 6)",
+          "https://www.kaptest.com/robot-sitemap?community=ssat: invalid (XML parse error: not well-formed (invalid token): line 1, column 6)",
+          "https://www.kaptest.com/robot-sitemap?community=toefl: invalid (XML parse error: not well-formed (invalid token): line 1, column 6)",
+          "4 sitemap(s) not read (limit 25)."
+        ]
+      },
+      {
+        "domain": "usmlepreps.com",
+        "urls": 0,
+        "sitemaps_read": 1,
+        "notes": [
+          "https://usmlepreps.com/sitemap.xml: unavailable (client_error)"
+        ]
+      }
+    ],
+    "changes": [
+      {
+        "domain": "medschoolbro.com",
+        "new": [],
+        "removed": [],
+        "updated": [
+          "https://medschoolbro.com/en-au/products/anki-clicker",
+          "https://medschoolbro.com/en-au/products/complete-usmle-step-1-bundle",
+          "https://medschoolbro.com/en-au/products/dont-be-pimped-pocket-guide",
+          "https://medschoolbro.com/en-au/products/mcat-flashcard-set",
+          "https://medschoolbro.com/en-au/products/mcat-question-bank-medschoolguru",
+          "https://medschoolbro.com/en-au/products/medschoolbro-gift-card",
+          "https://medschoolbro.com/en-au/products/mnemonics-tumbler",
+          "https://medschoolbro.com/en-au/products/osce-pocket-guide",
+          "https://medschoolbro.com/en-au/products/principles-of-osteopathic-manipulative-medicine",
+          "https://medschoolbro.com/en-au/products/step-1-question-bank-medschoolguru",
+          "https://medschoolbro.com/en-au/products/step-2ck-question-bank-medschoolguru",
+          "https://medschoolbro.com/en-au/products/the-complete-badge-cards-set",
+          "https://medschoolbro.com/en-au/products/the-complete-mcat-bundle",
+          "https://medschoolbro.com/en-au/products/the-complete-usmle-step-2-bundle",
+          "https://medschoolbro.com/en-au/products/usmle-pharmacology-microbiology-anatomy-flashcards",
+          "https://medschoolbro.com/en-gb/products/anki-clicker",
+          "https://medschoolbro.com/en-gb/products/complete-usmle-step-1-bundle",
+          "https://medschoolbro.com/en-gb/products/dont-be-pimped-pocket-guide",
+          "https://medschoolbro.com/en-gb/products/mcat-flashcard-set",
+          "https://medschoolbro.com/en-gb/products/mcat-question-bank-medschoolguru",
+          "https://medschoolbro.com/en-gb/products/medschoolbro-gift-card",
+          "https://medschoolbro.com/en-gb/products/mnemonics-tumbler",
+          "https://medschoolbro.com/en-gb/products/osce-pocket-guide",
+          "https://medschoolbro.com/en-gb/products/principles-of-osteopathic-manipulative-medicine",
+          "https://medschoolbro.com/en-gb/products/step-1-question-bank-medschoolguru",
+          "https://medschoolbro.com/en-gb/products/step-2ck-question-bank-medschoolguru",
+          "https://medschoolbro.com/en-gb/products/the-complete-badge-cards-set",
+          "https://medschoolbro.com/en-gb/products/the-complete-mcat-bundle",
+          "https://medschoolbro.com/en-gb/products/the-complete-usmle-step-2-bundle",
+          "https://medschoolbro.com/en-gb/products/usmle-pharmacology-microbiology-anatomy-flashcards",
+          "https://medschoolbro.com/en-in/products/anki-clicker",
+          "https://medschoolbro.com/en-in/products/complete-usmle-step-1-bundle",
+          "https://medschoolbro.com/en-in/products/dont-be-pimped-pocket-guide",
+          "https://medschoolbro.com/en-in/products/mcat-flashcard-set",
+          "https://medschoolbro.com/en-in/products/mcat-question-bank-medschoolguru",
+          "https://medschoolbro.com/en-in/products/medschoolbro-gift-card",
+          "https://medschoolbro.com/en-in/products/mnemonics-tumbler",
+          "https://medschoolbro.com/en-in/products/osce-pocket-guide",
+          "https://medschoolbro.com/en-in/products/principles-of-osteopathic-manipulative-medicine",
+          "https://medschoolbro.com/en-in/products/step-1-question-bank-medschoolguru",
+          "https://medschoolbro.com/en-in/products/step-2ck-question-bank-medschoolguru",
+          "https://medschoolbro.com/en-in/products/the-complete-badge-cards-set",
+          "https://medschoolbro.com/en-in/products/the-complete-mcat-bundle",
+          "https://medschoolbro.com/en-in/products/the-complete-usmle-step-2-bundle",
+          "https://medschoolbro.com/en-in/products/usmle-pharmacology-microbiology-anatomy-flashcards"
+        ],
+        "topic_matches": {},
+        "uncovered": [],
+        "titles": {},
+        "new_count": 0,
+        "removed_count": 0,
+        "updated_count": 45
+      },
+      {
+        "domain": "kaptest.com",
+        "new": [],
+        "removed": [],
+        "updated": [],
+        "topic_matches": {},
+        "uncovered": [],
+        "titles": {},
+        "new_count": 0,
+        "removed_count": 0,
+        "updated_count": 0
+      },
+      {
+        "domain": "usmlepreps.com",
+        "new": [],
+        "removed": [],
+        "updated": [],
+        "topic_matches": {},
+        "uncovered": [],
+        "titles": {},
+        "new_count": 0,
+        "removed_count": 0,
+        "updated_count": 0
+      }
+    ]
+  }
+}

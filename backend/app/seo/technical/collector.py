@@ -60,6 +60,9 @@ from app.tools.firecrawl_tool import SeoScrape
 HTML_TYPES = ("text/html", "application/xhtml+xml")
 
 
+HTML_SOURCES = ("firecrawl_raw_html", "direct_html")
+
+
 class BudgetExhausted(Exception):
     """A request or scrape ceiling, or the deadline, was reached."""
 
@@ -145,7 +148,7 @@ def evaluate_indexability(page: PageResult) -> Indexability:
             next(iter(canonicals))
         ) != _strip_slash(target):
             reasons.append("canonical_points_elsewhere")
-    elif page.fetch_source != "firecrawl_raw_html" and not reasons:
+    elif page.fetch_source not in HTML_SOURCES and not reasons:
         return Indexability(state="unknown", reasons=["html_not_fetched"])
     if reasons:
         return Indexability(state="not_indexable", reasons=reasons)
@@ -416,7 +419,9 @@ class SiteCollector:
             microdata=page.signals.microdata_present,
             rdfa=page.signals.rdfa_present,
         )
-        page.fetch_source, page.fetch_status = "firecrawl_raw_html", "ok"
+        # Scrapers may name their source (the free direct-HTML scraper does).
+        page.fetch_source = getattr(self._scraper, "fetch_source", "firecrawl_raw_html")
+        page.fetch_status = "ok"
 
     # -- internal link checks -------------------------------------------------------
 

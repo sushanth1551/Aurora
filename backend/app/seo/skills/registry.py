@@ -54,6 +54,9 @@ class ModeStep(_Strict):
     purpose: str
     optional: bool = False
     when: str = ""
+    # Steps that share a group are independent and may run at the same time
+    # (parallel subagents); results are still recorded one after another.
+    group: str = ""
 
 
 class ModeDefinition(_Strict):
@@ -87,6 +90,7 @@ class PlannedStep(BaseModel):
     purpose: str
     optional: bool
     when: str
+    group: str = ""
     availability: Availability
     reasons: list[str] = []
     content_hash: str | None = None
@@ -203,6 +207,7 @@ class SkillRegistry:
                     purpose=step.purpose,
                     optional=step.optional,
                     when=step.when,
+                    group=step.group,
                     availability=availability,
                     reasons=reasons,
                     content_hash=content_hash(path) if path.is_file() else None,
