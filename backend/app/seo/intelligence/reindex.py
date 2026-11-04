@@ -182,9 +182,23 @@ def is_due(state: ReindexState, now: datetime) -> bool:
     return when is None or now >= when
 
 
-def build_batch(state: ReindexState, now: datetime) -> Batch | None:
-    """The next batch, or None when nothing is due. Also stored as ``pending``."""
+def build_batch(
+    state: ReindexState, now: datetime, only: list[str] | None = None
+) -> Batch | None:
+    """The next batch, or None when nothing is due. Also stored as ``pending``.
+
+    ``only`` builds an owner-requested extra batch of exactly those pages (each must be
+    waiting for a request), ignoring the 24-hour gap; the caller decides when.
+    """
     due = due_pages(state)
+    if only is not None:
+        waiting = {p.path for p in due}
+        not_due = sorted(set(only) - waiting)
+        if not_due:
+            raise ValueError(f"not waiting for a request: {', '.join(not_due)}")
+        if len(only) > BATCH_SIZE:
+            raise ValueError(f"at most {BATCH_SIZE} pages per batch")
+        due = [p for p in due if p.path in set(only)]
     if not due:
         state.pending = None
         return None

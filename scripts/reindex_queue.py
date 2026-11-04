@@ -323,6 +323,14 @@ async def run(args: argparse.Namespace) -> dict[str, object]:
         write_atomic(store.status_file, reindex.status_markdown(state, now))
         return {"confirmed": len(lines), "log": str(store.log_file)}
 
+    if args.command == "extra":
+        # Owner-requested extra batch now (outside the 24-hour gap), from current state.
+        batch = reindex.build_batch(state, now, only=args.paths)
+        if batch is None:
+            return {"due": False}
+        store.save(state)
+        return {"due": True, "batch": batch_view(config, state, batch)}
+
     # refresh / status: read the live site and Search Console.
     if (
         args.command == "refresh"
@@ -365,6 +373,9 @@ def main(argv: list[str] | None = None) -> int:
     p.add_argument("batch")
     p.add_argument("--paths", nargs="+", help="record only these batch pages")
     p.add_argument("--via", default="Search Console URL Inspection")
+    p = sub.add_parser("extra", help="owner-requested extra batch of these pages now")
+    p.add_argument("site")
+    p.add_argument("--paths", nargs="+", required=True)
     p = sub.add_parser("snooze")
     p.add_argument("site")
     p.add_argument("--hours", type=float, default=2.0)

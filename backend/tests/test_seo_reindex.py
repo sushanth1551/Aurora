@@ -148,3 +148,16 @@ def test_partial_confirm_records_only_requested_pages() -> None:
     assert all(state.pages[p].status == "due" for p in missed)  # come back next batch
     nxt = reindex.build_batch(state, T0 + timedelta(hours=24))
     assert nxt is not None and set(missed) <= set(nxt.pages)
+
+
+def test_extra_batch_of_chosen_waiting_pages() -> None:
+    state = due_state(12)
+    first = reindex.build_batch(state, T0)
+    assert first is not None
+    reindex.confirm(state, first.id, T0, only=first.pages[:1])
+    rest = first.pages[1:]
+    assert not reindex.is_due(state, T0 + timedelta(minutes=15))
+    extra = reindex.build_batch(state, T0 + timedelta(minutes=15), only=rest)
+    assert extra is not None and extra.pages == [p for p in first.pages if p in rest]
+    with pytest.raises(ValueError):
+        reindex.build_batch(state, T0, only=[first.pages[0]])  # already requested
